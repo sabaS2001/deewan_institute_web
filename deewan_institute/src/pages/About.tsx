@@ -3,7 +3,7 @@ import NavBar from '../components/navbar';
 import Footer from '../components/footer';
 import 'bootstrap';
 import '../style/about.scss';
-import TeamSwiper from '../components/teamSwiper';
+import TeamSlider from '../components/teamSlider';
 
 function About() {
 
@@ -95,9 +95,7 @@ function About() {
                 <div className="title mt-5 mx-auto align-items-center">
                     <span>Meet Our Team</span>
                 </div>
-                <div className="row my-5 py-5">
-                    <TeamSwiper />
-                </div>
+                <TeamSlider />
             </section>
             {/* <!-- Approach  Section --> */}
             <section className="approach my-5 scroll-section">

@@ -143,37 +143,6 @@ body {
   font-size: 45px;
   color: #8f6e43;
 }
-.team .heading {
-  font-family: "Merriweather-SemiBold" !important;
-}
-.team .jobTitle {
-  font-family: "Merriweather-Light" !important;
-}
-.team img {
-  width: 400px;
-  height: 400px;
-  box-shadow: #8f6e43 0px 5px 5px;
-}
-.team .teamSwiper {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 500px;
-}
-.team .teamSwiper .swiper-button-next,
-.team .teamSwiper .swiper-button-prev {
-  color: #000000;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.team .teamSwiper:hover .swiper-button-next, .team .teamSwiper:hover .swiper-button-prev {
-  opacity: 1;
-}
-.team .teamSwiper .swiper-button-prev {
-  left: 0px;
-}
-.team .teamSwiper .swiper-button-next {
-  right: 0px;
-}
 
 .approach {
   padding-block: 4%;

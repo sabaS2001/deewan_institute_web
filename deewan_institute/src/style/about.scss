@@ -145,44 +145,6 @@ body {
         }
     }
 
-    .heading {
-        font-family: "Merriweather-SemiBold" !important;
-    }
-
-    .jobTitle {
-        font-family: "Merriweather-Light" !important;
-    }
-
-    img {
-        width: 400px;
-        height: 400px;
-        box-shadow: $primary-color 0px 5px 5px;
-    }
-
-    .teamSwiper {
-        width: fit-content;
-        height: 500px;
-
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: $black; // Match your theme
-            opacity: 0; // Hidden by default
-            transition: opacity 0.3s;
-        }
-
-        &:hover .swiper-button-next,
-        &:hover .swiper-button-prev {
-            opacity: 1; // Show on hover
-        }
-
-        .swiper-button-prev {
-            left: 0px; // Position left
-        }
-
-        .swiper-button-next {
-            right: 0px; // Position right
-        }
-    }
 }
 
 

@@ -10,7 +10,7 @@ function Footer() {
             <div className="footerLogo">
                 <a className="text-decoration-none" href="../index.html">
                     <img className="my-3"
-                        src={"../src/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" width="150" />
+                        src={"../assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" width="150" />
 
                 </a>
             </div>
@@ -19,25 +19,25 @@ function Footer() {
                 <li className="nav-item">
                     <a href="https://www.facebook.com/profile.php?id=61579964781468" target="_blank"
                         className="nav-link px-2 text-body-secondary">
-                        <img src="../src/assets/images/icons/facebook.png" width="30" />
+                        <img src="../assets/images/icons/facebook.png" width="30" />
                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="https://www.instagram.com/deewan_arabic_institute/" target="_blank"
                         className="nav-link px-2 text-body-secondary">
-                        <img src="../src/assets/images/icons/instagram.png" width="30" />
+                        <img src="../assets/images/icons/instagram.png" width="30" />
                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="https://www.youtube.com/@deewaninstituteforlanguage9174" target="_blank"
                         className="nav-link px-2 text-body-secondary">
-                        <img src="../src/assets/images/icons/youtube.png" width="30" />
+                        <img src="../assets/images/icons/youtube.png" width="30" />
                     </a>
                 </li>
                 <li className="nav-item">
                     <a href="https://www.linkedin.com/company/deewaninstitute/" target="_blank"
                         className="nav-link px-2 text-body-secondary">
-                        <img src="../src/assets/images/icons/linkedin.png" width="30" />
+                        <img src="../assets/images/icons/linkedin.png" width="30" />
                     </a>
                 </li>
             </ul>

@@ -4,6 +4,7 @@ import Footer from '../components/footer';
 import 'bootstrap';
 import '../style/about.scss';
 import TeamSlider from '../components/teamSlider';
+import PartnershipSlider from '../components/partnershipSlider';
 
 function About() {
 
@@ -46,7 +47,7 @@ function About() {
                     {/* <!-- The Building Image --> */}
                     <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
                         <img className="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
-                            src={"../src/assets/images/others/aboutImage1.png"} data-holder-rendered="true"
+                            src={"/assets/images/others/aboutImage1.png"} data-holder-rendered="true"
                             style={{ width: "600px", height: "700px" }} />
                     </div>
                 </div>
@@ -56,12 +57,14 @@ function About() {
                 <div className="title mt-5 d-flex flex-column align-items-center scroll-section">
                     <span>Partnerships</span>
                     <hr className="featurette-divider" />
+
                 </div>
                 <p className="lead text-center my-4 scroll-section">
                     Deewan Institute proudly collaborates with leading educational platforms, cultural organizations, and local
                     businesses to enhance our offerings. Working together to provide innovative learning experiences and vibrant
                     community events.
                 </p>
+                <PartnershipSlider />
             </section>
             {/* <!--Divider --> */}
             <hr className="featurette-divider mx-auto my-4 scroll-section" />
@@ -73,17 +76,17 @@ function About() {
                 <div className="row my-5 py-5">
                     {/* <!-- First Value --> */}
                     <div className="col-lg-4 d-flex flex-column align-items-center gap-4">
-                        <img src={"../src/assets/images/icons/firstValue.png"} />
+                        <img src={"/assets/images/icons/firstValue.png"} />
                         <h4 className="heading text-center lh-base">Community and <br /> Inclusivity</h4>
                     </div>
                     {/* <!-- Second Value --> */}
                     <div className="col-lg-4 d-flex flex-column align-items-center gap-4">
-                        <img src={"../src/assets/images/icons/secondValue.png"} />
+                        <img src={"/assets/images/icons/secondValue.png"} />
                         <h4 className="heading text-center lh-base">Excellence in <br /> Education</h4>
                     </div>
                     {/* <!-- Third Value --> */}
                     <div className="col-lg-4 d-flex flex-column align-items-center gap-4">
-                        <img src={"../src/assets/images/icons/thirdValue.png"} />
+                        <img src={"/assets/images/icons/thirdValue.png"} />
                         <h4 className="heading text-center lh-base">Innovation and <br /> Creativity</h4>
                     </div>
                 </div>
@@ -103,7 +106,7 @@ function About() {
                     {/* <!-- The Building Image --> */}
                     <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
                         <img className="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
-                            src={"../src/assets/images/others/aboutImage2.png"} data-holder-rendered="true"
+                            src={"/assets/images/others/aboutImage2.png"} data-holder-rendered="true"
                             style={{ width: "650px", height: "800px" }} />
                     </div>
                     <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">

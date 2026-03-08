@@ -26,7 +26,7 @@ body {
   margin: 0% !important;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../src/assets/images/background/aboutBG.svg");
+  background-image: url("../assets/images/background/aboutBG.svg");
   overflow-x: hidden;
 }
 
@@ -39,7 +39,7 @@ body {
   height: 50vh;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../src/assets/images/banner/aboutBanner.svg");
+  background-image: url("../assets/images/banner/aboutBanner.svg");
 }
 .banner p {
   font-family: "Merriweather-Light" !important;

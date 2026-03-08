@@ -9,7 +9,7 @@ function NavBar() {
         <nav className="navbar navbar-expand-md bg-transparent align-items-center" id="navBar">
             <div className="container-fluid">
                 <NavLink className="navbar-brand d-md-none" to="/">
-                    <img src={"../src/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
+                    <img src={"../assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
                 </NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ function NavBar() {
                     </div>
                     {/* <!-- Center: Logo (only on medium+ screens) --> */}
                     <NavLink className="navbar-brand d-none d-md-block" to="/">
-                        <img src={"../src/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
+                        <img src={"../assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
                     </NavLink>
                     {/* <!-- Right group: Pricing and Contact --> */}
                     <div className="p-2">

@@ -1,15 +1,16 @@
 import 'bootstrap';
-import styles from '../style/navbar.module.scss';
+import styles from '../style/darkNavbar.module.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { NavLink } from 'react-router-dom';
 
-function NavBar() {
+function HomeNavBar() {
     return (
-        <nav className="navbar navbar-expand-md bg-transparent align-items-center" id={styles.navBar}>
+        // < !--NavBar -- >
+        <nav className="navbar navbar-expand-md" id={styles.navBar}>
             <div className="container-fluid">
                 <NavLink className="navbar-brand d-md-none" to="/">
-                    <img src={"../assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
+                    <img src="/assets/images/logos/nobgLogo.png" alt="Deewan Institute Logo" id="mainLogo" />
                 </NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,28 +18,28 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse d-flex justify-content-center align-items-center" id={styles.navbarNav}>
                     {/* <!-- Left group: Home and Features --> */}
-                    <div className="p-2">
+                    <div className={`${styles.border} p-2`}>
                         <ul className="navbar-nav">
                             <li className="nav-item" id={styles.navitem}>
                                 <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
                             </li>
-                            <li className="nav-item active" id={styles.navitem}>
+                            <li className="nav-item" id={styles.navitem}>
                                 <NavLink className="nav-link" to="/about">About Us</NavLink>
                             </li>
                         </ul>
                     </div>
                     {/* <!-- Center: Logo (only on medium+ screens) --> */}
-                    <NavLink className="navbar-brand d-none d-md-block" to="/">
-                        <img src={"../assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id="mainLogo" />
+                    <NavLink className="navbar-brand d-none d-md-block" to="../">
+                        <img src="/assets/images/logos/nobgLogo.png" alt="Deewan Institute Logo" id={styles.mainLogo} />
                     </NavLink>
                     {/* <!-- Right group: Pricing and Contact --> */}
-                    <div className="p-2">
+                    <div className={`${styles.border} p-2`}>
                         <ul className="navbar-nav">
                             <li className="nav-item" id={styles.navitem}>
-                                <NavLink className="nav-link" to="">What We Offer</NavLink>
+                                <NavLink className="nav-link" to="#">What We Offer</NavLink>
                             </li>
                             <li className="nav-item" id={styles.navitem}>
-                                <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
+                                <NavLink className="nav-link" to="../contact">Contact Us</NavLink>
                             </li>
                         </ul>
                     </div>
@@ -48,4 +49,4 @@ function NavBar() {
     )
 }
 
-export default NavBar
+export default HomeNavBar

@@ -1,57 +1,8 @@
-import { useState, useEffect } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "bootstrap";
-import "../style/about.css";
-import "../style/teamSlider.css";
-import Slider from "react-slick";
+import { useRef, useState } from "react";
 
 function TeamSwiper() {
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
-
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        pauseOnHover: true,
-        pauseOnFocus: true,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                },
-            },
-            {
-                breakpoint: 1112,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
-
-    if (!isClient) {
-        return <div style={{ height: "300px", background: "#f5f5f5" }}>Loading...</div>;
-    }
-
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const trackRef = useRef<HTMLDivElement>(null);
     const teamMembers = [
         { name: "Mohammad", title: "Director & Founder", img: "/assets/images/teams/1.jpg" },
         { name: "Ghayda", title: "Arabic Program Administrator", img: "/assets/images/teams/16.png" },
@@ -70,26 +21,36 @@ function TeamSwiper() {
         { name: "Said", title: "Facility Manager", img: "/assets/images/teams/8.jpg" },
     ];
 
+    const slidesPerView = 3;
+    const totalSlides = teamMembers.length;
+
+    const nextSlide = () => {
+        setCurrentIndex((prev) => (prev + 1) % (totalSlides - slidesPerView + 1));
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prev) => (prev - 1 + (totalSlides - slidesPerView + 1)) % (totalSlides - slidesPerView + 1));
+    };
+
     return (
-        <div style={{ width: "100%", maxWidth: "1100px", margin: "0 auto", padding: "20px", overflow: "hidden" }}>
-            <Slider
-                {...settings}
-                aria-label="Team members carousel"
-                accessibility={true}
-            >
+        <div className="team-slider-container">
+            <button className="slider-arrow prev" onClick={prevSlide}>←</button>
+            <div className="team-slider-track" ref={trackRef}>
                 {teamMembers.map((member, index) => (
-                    <div key={index}>
-                        <div className="d-flex flex-column align-items-center">
+                    <div key={index} className="team-member-slide">
+                        <div className="team-member-content">
                             <img
                                 className="team-member-img"
                                 src={member.img}
+                                alt={member.name}
                             />
                             <h3 className="heading text-center mt-4">{member.name}</h3>
                             <h5 className="jobTitle text-center">{member.title}</h5>
                         </div>
                     </div>
                 ))}
-            </Slider>
+            </div>
+            <button className="slider-arrow next" onClick={nextSlide}>→</button>
         </div>
     );
 }

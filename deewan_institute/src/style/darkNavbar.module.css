@@ -19,20 +19,35 @@
   src: url("../assets/fonts/Merriweather_24pt-SemiBold.ttf");
 }
 #navBar {
-  background-color: #ffffff !important;
+  background-color: transparent !important;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+#navBar #navbarNav .border {
+  border-radius: 20px;
+  background-color: rgba(143, 110, 67, 0.5019607843) !important;
 }
 #navBar #navbarNav ul {
   padding: 0px 15px;
-  gap: 40px;
+  gap: 15px;
 }
-#navBar #navbarNav #nav-item a {
-  color: #8f6e43;
-  font-family: "Inter_Regular";
+#navBar #navbarNav #navitem a {
+  color: #fff;
+  font-family: "Merriweather-Regular";
   font-size: 20px;
 }
-#navBar #navbarNav #nav-item :hover {
-  border-bottom: 3px solid rgba(143, 110, 67, 0.5019607843);
+#navBar #navbarNav #navitem :hover {
+  border-bottom: 3px solid white;
 }
-#navBar #navbarNav #nav-item.active {
-  border-bottom: 3px solid rgba(143, 110, 67, 0.5019607843);
-}/*# sourceMappingURL=navbar.css.map */
+#navBar #navbarNav #navitem .active {
+  border-bottom: 3px solid white;
+}
+
+#mainLogo {
+  width: 200px;
+  margin-inline: 5%;
+}/*# sourceMappingURL=darkNavbar.module.css.map */

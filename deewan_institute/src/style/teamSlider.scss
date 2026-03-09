@@ -1,74 +1,51 @@
 @use '../style/variables.scss' as *;
 @use '../style/fonts.scss' as *;
 
+.team-slider-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px;
+    position: relative;
+}
 
-// Slider slide
-.slick-slide {
-    width: 300px !important;
-    margin: 0 10px !important; // ✅ Add horizontal margin
+.team-slider-track {
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.team-member-slide {
+    flex: 0 0 33.333%;
     padding: 20px;
     box-sizing: border-box;
-    display: block !important;
 }
 
-// Team member content
-.team {
-
-    .heading {
-        font-family: "Merriweather-SemiBold" !important;
-    }
-
-    .jobTitle {
-        font-family: "Merriweather-Light" !important;
-    }
-
-    .team-member-img {
-        width: 300px !important;
-        height: 300px !important;
-        object-fit: cover;
-        box-shadow: 0px 5px 5px $primary-color;
-        display: block !important;
-        margin-bottom: 1rem;
-        opacity: 1 !important;
-        visibility: visible !important;
-        z-index: 10 !important;
-        position: relative !important;
-    }
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: #8f6e43;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
 }
 
-// Loading state
-.team-slider-loading {
-    height: 300px;
-    background: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.slider-arrow:hover {
+    background: #6d5232;
+    transform: translateY(-50%) scale(1.1);
 }
 
-// Slick dots styling
-.slick-dots {
-    li {
-        position: relative;
-        display: inline-block;
-        width: 8px !important;
-        height: 37px !important;
-        margin: 0 5px;
-        padding: 0;
-        cursor: pointer;
-    }
-
-    li.slick-active {
-        button {
-            background-color: $primary-color !important;
-        }
-    }
+.slider-arrow.prev {
+    left: -40px;
 }
 
-// CRITICAL: Ensure slick doesn't hide content
-.slick-list {
-    overflow: visible !important;
-}
-
-.slick-track {
-    overflow: visible !important;
+.slider-arrow.next {
+    right: -40px;
 }

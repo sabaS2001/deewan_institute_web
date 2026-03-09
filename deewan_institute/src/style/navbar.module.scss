@@ -10,17 +10,17 @@
             gap: 40px;
         }
 
-        #nav-item a {
+        #navitem a {
             color: $primary-color;
             font-family: "Inter_Regular";
             font-size: 20px;
         }
 
-        #nav-item :hover {
+        #navitem :hover {
             border-bottom: 3px solid $primary-color-light;
         }
 
-        #nav-item.active {
+        #navitem.active {
             border-bottom: 3px solid $primary-color-light;
         }
     }

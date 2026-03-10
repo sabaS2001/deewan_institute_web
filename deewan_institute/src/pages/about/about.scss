@@ -10,14 +10,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("../assets/images/background/aboutBG.svg");
-    overflow-x: hidden;
 }
-
-#mainLogo {
-    width: 145px;
-    margin-inline: 5%;
-}
-
 
 .banner {
     height: 50vh;
@@ -36,13 +29,13 @@ body {
 .about {
     h5 {
         font-family: "Merriweather-Regular" !important;
-        color: $primary-color;
+        color: #8f6e43;
     }
 
     h1 {
         font-family: "Merriweather-SemiBold" !important;
         line-height: 50px;
-        color: $primary-color;
+        color: #8f6e43;
     }
 
     p {
@@ -53,27 +46,27 @@ body {
 
 .partnerships {
     padding-inline: 13%;
-    background-color: $primary-color;
+    background-color: #8f6e43;
 
     .title {
         width: max-content;
 
         span {
             font-size: 45px;
-            color: $white;
+            color: white;
         }
     }
 
     p {
         font-size: 22px !important;
-        color: $white;
+        color: white;
         font-family: "Merriweather-Light" !important;
         line-height: 30px;
     }
 
     .featurette-divider {
         opacity: 1.0;
-        color: $white !important;
+        color: white !important;
         height: 3px !important;
         width: 145% !important;
     }
@@ -88,13 +81,15 @@ body {
         height: 150px;
         width: 100%;
 
-        display: block;
-        width: 95%;
-        margin: 0 auto;
-        overflow: hidden;
+        .clients-wrap {
+            display: block;
+            width: 95%;
+            margin: 0 auto;
+            overflow: hidden;
 
-        .logoImage {
-            width: 20%;
+            img {
+                width: 60%;
+            }
         }
 
         h3 {
@@ -107,7 +102,7 @@ body {
 
 .featurette-divider {
     opacity: 1;
-    color: $primary-color !important;
+    color: #8f6e43 !important;
     height: 2px !important;
     width: 50% !important;
 }
@@ -121,7 +116,7 @@ body {
         span {
             font-family: "Merriweather-SemiBold";
             font-size: 45px;
-            color: $primary-color;
+            color: #8f6e43;
         }
     }
 
@@ -141,17 +136,15 @@ body {
         span {
             font-family: "Merriweather-SemiBold";
             font-size: 45px;
-            color: $primary-color;
+            color: #8f6e43;
         }
     }
-
 }
-
 
 
 .approach {
     padding-block: 4%;
-    background-color: $primary-color;
+    background-color: #8f6e43;
 
     h1 {
         font-family: "Merriweather-SemiBold" !important;
@@ -165,8 +158,61 @@ body {
 
     p,
     h1 {
-        color: $white;
+        color: white;
     }
 
 }
 
+.testimonials {
+    padding-inline: 13%;
+
+    .title {
+        width: max-content;
+
+        span {
+            font-family: "Merriweather-SemiBold";
+            font-size: 45px;
+            color: #8f6e43;
+        }
+    }
+
+    p {
+        font-size: 20px !important;
+        color: black;
+        font-family: "Merriweather-Light" !important;
+        line-height: 30px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+        display: flex;
+        flex-direction: row;
+        background: #ccc;
+        border-radius: 4px;
+    }
+
+    .video-option {
+        flex-shrink: 0;
+        width: 120px;
+        height: 90px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: border-color 0.3s;
+    }
+
+    .video-option:hover {
+        border-color: #ff0000;
+    }
+
+    .video-option img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-option.active {
+        border-color: #ff0000;
+    }
+
+}

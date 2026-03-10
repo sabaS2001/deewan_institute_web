@@ -12,16 +12,21 @@
 
         #navitem a {
             color: $primary-color;
-            font-family: "Inter_Regular";
-            font-size: 20px;
+            font-family: "Merriweather-Regular" !important;
+            font-size: 20px !important;
         }
 
         #navitem :hover {
-            border-bottom: 3px solid $primary-color-light;
+            border-bottom: 3px solid $primary-color-light !important;
         }
 
         #navitem.active {
-            border-bottom: 3px solid $primary-color-light;
+            border-bottom: 3px solid $primary-color-light !important;
         }
     }
+}
+
+#mainLogo {
+    width: 200px;
+    margin-inline: 5%;
 }

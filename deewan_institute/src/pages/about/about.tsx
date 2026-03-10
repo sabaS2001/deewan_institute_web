@@ -1,10 +1,9 @@
 import { Fragment, useEffect } from 'react';
 import NavBar from '../../components/navBar/navbar';
 import Footer from '../../components/footer/footer';
+import TeamSlider from '../../components/teamSlider/teamSlider'
 import 'bootstrap';
 import '../about/about.scss';
-import TeamSlider from '../../components/teamSlider';
-import PartnershipSlider from '../../components/partnershipSlider';
 
 function About() {
 
@@ -57,14 +56,13 @@ function About() {
                 <div className="title mt-5 d-flex flex-column align-items-center scroll-section">
                     <span>Partnerships</span>
                     <hr className="featurette-divider" />
-
                 </div>
                 <p className="lead text-center my-4 scroll-section">
                     Deewan Institute proudly collaborates with leading educational platforms, cultural organizations, and local
                     businesses to enhance our offerings. Working together to provide innovative learning experiences and vibrant
                     community events.
                 </p>
-                <PartnershipSlider />
+
             </section>
             {/* <!--Divider --> */}
             <hr className="featurette-divider mx-auto my-4 scroll-section" />

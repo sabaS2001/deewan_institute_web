@@ -1,7 +1,6 @@
 import { useEffect, Fragment } from "react";
 import styles from "../testimonials/testimonials.module.scss";
 import 'bootstrap'
-import stars from "../../../public/assets/images/others/stars.png";
 
 
 
@@ -32,8 +31,6 @@ function Testimonials() {
                 1024: { slidesPerView: 3 },
             },
         });
-
-        // Cleanup to prevent memory leaks on unmount
         return () => swiper.destroy();
     }, []);
 
@@ -59,7 +56,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 1 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"Thanks to my teachers, I loved every className and I always felt supported and
                                         motivated! I was a total beginner in Ammiyeh and now after 2 months I feel much more confident and I
                                         can get myself around in Jordan. Deewan, you will be missed!"</p>
@@ -70,7 +67,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 2 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"Excellent instructors and flexible online classNamees. Highly recommend!"</p>
                                     <hr />
                                     <h5 className={styles.testimonialName}>Fatima Khan</h5>
@@ -79,7 +76,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 3 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"Mohammad and Duaa are outstanding, professional educators. Mohammad's
                                         one-to-one lessons in colloquial Jordanian Arabic helped me improve immensely. I recommend their
                                         classNamees to anyone who wants to get to know Amman and Jordan the best way - through language!"
@@ -91,7 +88,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 4 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"One of the best things I did in Amman. Not just great teachers but really
                                         great people, too. Especially excellent for anyone wanting to speak like a local. Highly recommended."
                                     </p>
@@ -102,7 +99,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 5 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"As a beginner, I really enjoyed my Arabic classNamees at Deewan Institute.
                                         With a lot of patience (!!!) and very good pedagogy, Duaa keeps on encouraging you, trying to make you
                                         self-confident, teaching you basics in a very attractive and effective way. Smile and good spirit are
@@ -115,7 +112,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 6 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"Mohammad and Duaa are not only professional educators but also really
                                         wonderful people. Mohammad’s Modern Standard Arabic and Colloquial Jordanian Arabic classNamees helped me
                                         improve a lot! My one-to-one classNamees with Mohammad left me not only with language skills but also a
@@ -129,7 +126,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 7 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"I took Ammiyeh courses at Deewan intensively for a month and they arranged
                                         for my housing and several incredible trips to see sites in Jordan. It was my favourite winter break,
                                         and my Arabic improved immensely! The teachers at Deewan are experienced, patient, and creative with
@@ -143,7 +140,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 8 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"Duaa and Mohammad are the best Ammiyeh teachers I've had. Their lessons
                                         are well-organized, crafted toward your own needs and abilities, and also push you to challenge
                                         yourself. Their lessons are also helpful for learning about local culture and linguistic idioms, which
@@ -156,7 +153,7 @@ function Testimonials() {
                             {/* <!-- Testimonial Card 9 --> */}
                             <div className="swiper-slide my-3">
                                 <div className={styles.testimonialCard}>
-                                    <img src={stars} alt="Rating" className={styles.testimonialImg} />
+                                    <img src={"/assets/images/others/stars.png"} alt="Rating" className={styles.testimonialImg} />
                                     <p className={styles.testimonialQuote}>"Mohammad and Duaa are a winning team! Within a couple of months of
                                         learning in their classNamees, my Arabic speaking skills simply soared. The Ammiyeh course was brilliant
                                         for building my confidence, vocabulary and listening comprehension. Besides, the classNamees were always

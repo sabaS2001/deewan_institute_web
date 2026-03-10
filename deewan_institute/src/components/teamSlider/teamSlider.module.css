@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "Inter_Regular";
+  src: url("../assets/fonts/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Regular";
+  src: url("../assets/fonts/Merriweather-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Light";
+  src: url("../assets/fonts/Merriweather-Light.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Bold";
+  src: url("../assets/fonts/Merriweather_24pt-Bold.ttf");
+}
+@font-face {
+  font-family: "Merriweather-SemiBold";
+  src: url("../assets/fonts/Merriweather_24pt-SemiBold.ttf");
+}
+.teamSwiper .swiperSlide {
+  width: 35% !important;
+}
+.teamSwiper .swiperSlide .heading {
+  font-family: "Merriweather-SemiBold" !important;
+}
+.teamSwiper .swiperSlide .jobTitle {
+  font-family: "Merriweather-Light" !important;
+}
+.teamSwiper .swiperSlide #teacherImg {
+  width: 400px;
+  height: 400px;
+  box-shadow: #8f6e43 0px 5px 5px;
+}
+.teamSwiper .swiper-slide {
+  width: 400px !important;
+  height: 400px !important;
+}
+.teamSwiper .swiper-button-next,
+.teamSwiper .swiper-button-prev {
+  color: black;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.teamSwiper:hover .swiper-button-next, .teamSwiper:hover .swiper-button-prev {
+  opacity: 1;
+}
+.teamSwiper .swiper-button-prev {
+  left: 0px;
+}
+.teamSwiper .swiper-button-next {
+  right: 0px;
+}/*# sourceMappingURL=teamSlider.module.css.map */

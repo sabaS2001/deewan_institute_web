@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 function Footer() {
     return (
         //  <!-- Footer -->
-        <footer className={`${styles.footer} py-3 mt-5`}>
+        <footer className={`${styles.footer} py-3`}>
             <div className={styles.footerLogo}>
                 <NavLink className="text-decoration-none" to="/">
                     <img className="my-3"

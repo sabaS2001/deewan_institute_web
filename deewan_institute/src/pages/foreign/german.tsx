@@ -2,7 +2,7 @@ import { useEffect, Fragment } from "react";
 import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import germanData from '../../../data/german';
-import ForeignLayout from "./layout";
+import ForeignLayout from "../../components/foreignLayout/layout";
 import 'bootstrap'
 
 

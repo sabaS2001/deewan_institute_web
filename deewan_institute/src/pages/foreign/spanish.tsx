@@ -2,7 +2,7 @@ import { useEffect, Fragment } from "react";
 import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import spanishData from '../../../data/spanish';
-import ForeignLayout from "./layout";
+import ForeignLayout from "../../components/foreignLayout/layout";
 import 'bootstrap'
 
 
@@ -21,7 +21,6 @@ function Spanish() {
             {/* Footer */}
             <Footer />
         </Fragment>
-
     )
 
 }

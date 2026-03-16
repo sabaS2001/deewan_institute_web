@@ -1,0 +1,98 @@
+.courses {
+    margin-inline: 15%;
+
+    .title {
+        width: max-content;
+        border-bottom: #8f6e43 2px solid;
+
+        h1 {
+            color: #8f6e43;
+        }
+    }
+
+    a:hover {
+        color: #8f6e43 !important;
+        text-decoration-color: #8f6e43;
+        text-decoration: line-through;
+    }
+
+    .courseItem {
+        border: #8f6e43 0.5px solid;
+        border-radius: 20px;
+        width: 397px;
+        height: 621px;
+
+        #arabCalligraphy {
+            font-size: 45px;
+            font-family: "ArefRuqaa-Regular" !important;
+            line-height: 200%;
+        }
+
+        h2 {
+            line-height: 130%;
+            font-size: 25px;
+            color: #8f6e43;
+            margin-inline: 10%;
+
+            .text-indent {
+                text-indent: 20px;
+            }
+        }
+
+        img {
+            width: 40%;
+            height: auto;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
+    }
+}
+
+.courseItem {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.back {
+    background-image: url("../assets/images/background/cardBackground.png");
+    border-radius: 20px;
+}
+
+.front,
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.front {
+    opacity: 1;
+    /* Visible by default */
+}
+
+.back {
+    opacity: 0;
+    /* Hidden by default */
+    font-size: 18px;
+
+    p,
+    ul,
+    li {
+        color: black;
+        font-family: "Merriweather-Light" !important;
+    }
+}
+
+.courseItem:hover .front {
+    opacity: 0;
+    /* Front disappears */
+}
+
+.courseItem:hover .back {
+    opacity: 1;
+    /* Back appears */
+}

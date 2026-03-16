@@ -1,30 +1,26 @@
 import { Fragment } from 'react/jsx-runtime';
-import styles from './course.modules.scss';
+import styles from '../coursesLayout/course.module.scss';
 import 'bootstrap';
 
-interface CourseItem {
-    arabicTitle: string
-    title: string
-    description: string
-    listDescription?: string
-    list?: Array<{
-        type: string
+interface arabicCourse {
+    title: string,
+    courses: Array<{
+        arabicTitle: string,
+        title: string,
+        description: string,
+        listDescription?: string,
+        list?: Array<{
+            type: string
+        }>
     }>
 }
 
-interface courseInfo {
-    title: string
-    bannerDescription: string
-    description: string
-    courses: Array<CourseItem>
-}
-
-function Courses({ data }: { data: courseInfo }) {
+function Courses({ data }: { data: arabicCourse }) {
     return (
         <Fragment>
             {/* The Main Section */}
-            <section className={`"${styles.courses} pb-5"`}>
-                <div className="title mt-5 scroll-section">
+            <section className={`${styles.courses} pb-5`}>
+                <div className={`${styles.title} mt-5 scroll-section`}>
                     <h1>Arabic Courses</h1>
                 </div>
                 <h5 className="text-black my-5 lh-base scroll-section">Ensure to schedule <a
@@ -37,17 +33,17 @@ function Courses({ data }: { data: courseInfo }) {
                 {/* First Row */}
                 <div className="d-flex flex-row flex-wrap justify-content-between scroll-section">
                     {data.courses.slice(0, 3).map((course, index) => (
-                        <div key={index} className="courseItem mx-1 col-12 col-md-6 col-lg-4">
-                            <div className="front d-flex flex-column justify-content-center align-items-center">
-                                <h2 className="pt-5 mb-0 pb-0 text-black text-center" id="arabCalligraphy">
+                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                            <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
+                                <h2 className="pt-5 mb-0 pb-0 text-center" id={styles.arabCalligraphy}>
                                     {course.arabicTitle}
                                 </h2>
-                                <h2 className="pt-5 mb-0 pb-0 text-black text-center">
+                                <h2 className="pt-5 mb-0 pb-0 text-center">
                                     {course.title}
                                 </h2>
                             </div>
-                            <div className="back d-flex flex-column justify-content-center">
-                                <p className="mx-5 my-3 text-black">{course.description}</p>
+                            <div className={`${styles.back} d-flex flex-column justify-content-center`}>
+                                <p className="mx-5 my-3 ">{course.description}</p>
                                 {course.listDescription && (
                                     <p className="mx-5 fw-bold">{course.listDescription}</p>
                                 )}
@@ -63,37 +59,37 @@ function Courses({ data }: { data: courseInfo }) {
                     ))}
                 </div>
                 {/* Second Row */}
-                <div className="d-flex flex-row flex-wrap justify-content-between scroll-section">
+                <div className="d-flex flex-row flex-wrap justify-content-between mt-5 scroll-section">
                     {data.courses.slice(3, 6).map((course, index) => (
-                        <div key={index} className="courseItem mx-1 col-12 col-md-6 col-lg-4">
-                            <div className="front d-flex flex-column justify-content-center align-items-center">
-                                <h2 className="pt-5 mb-0 pb-0 text-black text-center" id="arabCalligraphy">
+                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                            <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
+                                <h2 className="pt-5 mb-0 pb-0  text-center" id={styles.arabCalligraphy}>
                                     {course.arabicTitle}
                                 </h2>
-                                <h2 className="pt-5 mb-0 pb-0 text-black text-center">
+                                <h2 className="pt-5 mb-0 pb-0  text-center">
                                     {course.title}
                                 </h2>
                             </div>
-                            <div className="back d-flex flex-column justify-content-center">
+                            <div className={`${styles.back} d-flex flex-column justify-content-center`}>
                                 <p className="mx-5 my-3 text-black">{course.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
                 {/* Third Row */}
-                <div className="d-flex flex-row flex-wrap justify-content-between scroll-section">
-                    {data.courses.slice(3, 6).map((course, index) => (
-                        <div key={index} className="courseItem mx-1 col-12 col-md-6 col-lg-4">
-                            <div className="front d-flex flex-column justify-content-center align-items-center">
-                                <h2 className="pt-5 mb-0 pb-0 text-black text-center" id="arabCalligraphy">
+                <div className="d-flex flex-row flex-wrap justify-content-between mt-5 scroll-section">
+                    {data.courses.slice(6, 9).map((course, index) => (
+                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                            <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
+                                <h2 className="pt-5 mb-0 pb-0  text-center" id={styles.arabCalligraphy}>
                                     {course.arabicTitle}
                                 </h2>
-                                <h2 className="pt-5 mb-0 pb-0 text-black text-center">
+                                <h2 className="pt-5 mb-0 pb-0  text-center">
                                     {course.title}
                                 </h2>
                             </div>
-                            <div className="back d-flex flex-column justify-content-center">
-                                <p className="mx-5 my-3 text-black">{course.description}</p>
+                            <div className={`${styles.back} d-flex flex-column justify-content-center`}>
+                                <p className="mx-5 my-3 ">{course.description}</p>
                             </div>
                         </div>
                     ))}

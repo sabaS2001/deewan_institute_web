@@ -1,6 +1,5 @@
 interface arabicCourse {
     title: string,
-    description: string,
     courses: Array<{
         arabicTitle: string,
         title: string,

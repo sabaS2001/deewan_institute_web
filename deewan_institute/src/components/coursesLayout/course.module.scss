@@ -1,23 +1,26 @@
+@use '../../style/variables.scss' as *;
+@use '../../style/fonts.scss' as *;
+
 .courses {
     margin-inline: 15%;
 
     .title {
         width: max-content;
-        border-bottom: #8f6e43 2px solid;
+        border-bottom: $primary-color 2px solid;
 
         h1 {
-            color: #8f6e43;
+            color: $primary-color;
         }
     }
 
     a:hover {
-        color: #8f6e43 !important;
-        text-decoration-color: #8f6e43;
+        color: $primary-color !important;
+        text-decoration-color: $primary-color;
         text-decoration: line-through;
     }
 
     .courseItem {
-        border: #8f6e43 0.5px solid;
+        border: $primary-color 0.5px solid;
         border-radius: 20px;
         width: 397px;
         height: 621px;
@@ -31,12 +34,8 @@
         h2 {
             line-height: 130%;
             font-size: 25px;
-            color: #8f6e43;
+            color: $primary-color;
             margin-inline: 10%;
-
-            .text-indent {
-                text-indent: 20px;
-            }
         }
 
         img {
@@ -82,7 +81,7 @@
     p,
     ul,
     li {
-        color: black;
+        color: $black;
         font-family: "Merriweather-Light" !important;
     }
 }

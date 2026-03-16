@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import styles from "./banner.module.scss";
+import styles from "../banner/banner.module.scss";
 import "bootstrap";
 
 interface BannerTitle {

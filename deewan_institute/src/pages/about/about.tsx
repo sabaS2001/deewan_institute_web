@@ -2,9 +2,11 @@ import { Fragment, useEffect } from 'react';
 import NavBar from '../../components/navBar/navbar';
 import Footer from '../../components/footer/footer';
 import TeamSlider from '../../components/teamSlider/teamSlider'
-import 'bootstrap';
-import '../about/about.scss';
 import PartnershipSlider from '../../components/partnershipSlider/partnershipSlider';
+import { useScrollAnimation } from '../../../hooks/scrollAnimations';
+import '../../style/animation.scss';
+import '../about/about.scss';
+import 'bootstrap';
 
 function About() {
 
@@ -12,6 +14,7 @@ function About() {
         document.title = 'Deewan Institute | About Us';
     }, []);
 
+    useScrollAnimation();
 
     return (
         <Fragment>

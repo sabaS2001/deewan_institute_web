@@ -1,9 +1,11 @@
 import { useEffect, Fragment } from "react";
-import HomeNavBar from "../../components/homeNavBar/homeNavbar"
-import Testimonials from "../../components/testimonials/testimonials"
+import HomeNavBar from "../../components/homeNavBar/homeNavbar";
+import Testimonials from "../../components/testimonials/testimonials";
 import Footer from "../../components/footer/footer";
-import "../home/home.scss"
-import 'bootstrap'
+import { useScrollAnimation } from '../../../hooks/scrollAnimations';
+import '../../style/animation.scss';
+import "../home/home.scss";
+import 'bootstrap';
 
 function Home() {
 
@@ -11,6 +13,8 @@ function Home() {
       document.title = 'Deewan Institute | Home';
    }, []);
 
+
+   useScrollAnimation();
 
    return (
 

@@ -2,7 +2,9 @@ import { useEffect, Fragment } from "react";
 import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import englishData from '../../../data/english';
-import ForeignLayout from "../../components/foreignLayout/layout";
+import ForeignLayout from "../../layout/foreignLayout/layout";
+import { useScrollAnimation } from '../../../hooks/scrollAnimations';
+import '../../style/animation.scss';
 import 'bootstrap'
 
 
@@ -11,6 +13,8 @@ function English() {
     useEffect(() => {
         document.title = 'Deewan Institute | English Course';
     }, []);
+    
+    useScrollAnimation();
 
     return (
         <Fragment>

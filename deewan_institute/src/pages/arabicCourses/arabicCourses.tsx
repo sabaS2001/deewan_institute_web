@@ -1,12 +1,22 @@
-import { Fragment } from "react/jsx-runtime";
+import { Fragment, useEffect } from "react";
 import Banner from "../../components/banner/banner";
 import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer"
-import Courses from "../../components/coursesLayout/courses";
+import Courses from "../../layout/coursesLayout/courses";
 import courseData from "../../../data/arabicCourses"
+import { useScrollAnimation } from '../../../hooks/scrollAnimations';
+import '../../style/animation.scss';
 import "bootstrap"
 
 function ArabicCourses() {
+
+    useEffect(() => {
+        document.title = 'Deewan Institute | Arabic Courses';
+    }, []);
+
+    useScrollAnimation();
+
+
     return (
         <Fragment>
             {/* Navbar */}
@@ -18,7 +28,7 @@ function ArabicCourses() {
                 backgroundImg: "../assets/images/banner/arabicCourses.svg",
             }} />
             {/* Main Layout */}
-            <Courses data={courseData}/>
+            <Courses data={courseData} />
             {/* Footer */}
             <Footer />
         </Fragment>

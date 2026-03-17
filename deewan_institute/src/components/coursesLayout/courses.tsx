@@ -1,5 +1,7 @@
 import { Fragment } from 'react/jsx-runtime';
 import styles from '../coursesLayout/course.module.scss';
+import '../../style/animation.scss';
+import { useScrollAnimation } from '../../../hooks/scrollAnimations'
 import 'bootstrap';
 
 interface arabicCourse {
@@ -16,6 +18,9 @@ interface arabicCourse {
 }
 
 function Courses({ data }: { data: arabicCourse }) {
+
+    useScrollAnimation();
+
     return (
         <Fragment>
             {/* The Main Section */}
@@ -24,7 +29,7 @@ function Courses({ data }: { data: arabicCourse }) {
                     <h1>Arabic Courses</h1>
                 </div>
                 <h5 className="text-black my-5 lh-base scroll-section">Ensure to schedule <a
-                    className="text-decoration-none text-bg-warning"
+                    className="text-decoration-none"
                     href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
                     target="_blank">Initial Skills Evaluation or Course Placement Consultation</a> for a
                     fee of 10 JDs before

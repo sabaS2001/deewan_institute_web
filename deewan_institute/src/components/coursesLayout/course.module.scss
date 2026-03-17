@@ -14,9 +14,10 @@
     }
 
     a:hover {
+        font-family: "Merriweather-SemiBold" !important;
         color: $primary-color !important;
         text-decoration-color: $primary-color;
-        text-decoration: line-through;
+        border-bottom: 1px solid $primary-color;
     }
 
     .courseItem {

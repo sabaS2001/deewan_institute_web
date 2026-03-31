@@ -39,18 +39,6 @@ export const modernHistory = {
             description: "As with most countries in the Middle East, the decline of the Ottoman Empire and the Great Arab Revolt can be seen as the starting point of Jordan’s modern history. After members of the Hashemite family — with help from the British and French armies — were successful inconquering large parts of the Middle East, the ‘Arab Kingdom of Syria’ was declared in 1918, containing parts of Transjordan. As a result of the Sykes-Picot agreement, the French quickly took over control of the kingdom’s northern region; however, the southern region was soon taken by the son of Shariff Hussein, King Abdullah I, who became Emir of Transjordan in 1921. As the British slowly started retreating from their protectorate in Transjordan, they ceded more and more autonomy to the Transjordanian Emirate. On May 25th, 1946 the Hashemite Kingdom of Transjordan gained full independence, and in 1949 the kingdom was officially renamed the Hashemite Kingdom of Jordan, the state with which we are familiar today. The current Jordanian monarchy is only reigning Hashemite dynasty since the Republic of Iraq was established in 1958."
 
         },
-        // {
-        //     id: "modernNations",
-        //     title: "Palestine",
-        //     description: "",
-        // },
-        // {
-        //     id: "modernNations",
-        //     title: "Jordan",
-        //     flag_one: "../assets/images/flag/palestine.webp",
-        //     caption_one: "Palestine",
-        //     description: "As with most countries in the Middle East, the decline of the Ottoman Empire and the Great Arab Revolt can be seen as the starting point of Jordan’s modern history. After members of the Hashemite family — with help from the British and French armies — were successful inconquering large parts of the Middle East, the ‘Arab Kingdom of Syria’ was declared in 1918, containing parts of Transjordan. As a result of the Sykes-Picot agreement, the French quickly took over control of the kingdom’s northern region; however, the southern region was soon taken by the son of Shariff Hussein, King Abdullah I, who became Emir of Transjordan in 1921. As the British slowly started retreating from their protectorate in Transjordan, they ceded more and more autonomy to the Transjordanian Emirate. On May 25th, 1946 the Hashemite Kingdom of Transjordan gained full independence, and in 1949 the kingdom was officially renamed the Hashemite Kingdom of Jordan, the state with which we are familiar today. The current Jordanian monarchy is only reigning Hashemite dynasty since the Republic of Iraq was established in 1958."
-        // },
         {
             id: "syria",
             flag_one: "../assets/images/flag/palestine.webp",

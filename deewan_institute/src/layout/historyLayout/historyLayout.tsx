@@ -1,5 +1,6 @@
 import { Fragment } from "react/jsx-runtime";
 import styles from "../historyLayout/history.module.scss";
+import "bootstrap";
 
 interface HistoryInfo {
     subTitle: string,
@@ -8,6 +9,7 @@ interface HistoryInfo {
         id: string,
         title?: string,
         image?: string,
+        label?: string,
         subtitle?: string,
         flag_one?: string,
         caption_one?: string,
@@ -107,12 +109,14 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                                     {/* Description */}
                                     <p className={styles.para} dangerouslySetInnerHTML={{ __html: articleInfo.description }} >
                                     </p>
-                                    {
-                                        articleInfo.image && (
-                                            <img className="mx-5 my-2" src={articleInfo.image} alt={articleInfo.title} />
-                                        )
-                                    }
-                                </div>
+                                    <div id={styles.images}>
+                                        {articleInfo.image && (
+                                            <>
+                                                <img className="my-2" src={articleInfo.image} alt={articleInfo.title} />
+                                                <span>{articleInfo.label}</span>
+                                            </>
+                                        )}
+                                    </div>                                </div>
                             ))}
                         </div>
                     </div>

@@ -8,18 +8,28 @@ import English from './pages/foreignCourses/english.tsx'
 import Spanish from './pages/foreignCourses/spanish.tsx'
 import German from './pages/foreignCourses/german.tsx'
 import French from './pages/foreignCourses/french.tsx'
+import ArabicKids from './pages/arabicCourses/arabicKids.tsx';
+import ModernME from './pages/history/modernME.tsx';
+import OldME from './pages/history/oldME.tsx';
 
 
 function App() {
     return (
         <Router>
             <Routes>
+                {/* Standard Pages */}
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/arabic-courses/arabi-talk" element={<ArabiTalk />} />
+                {/* Arabic Courses */}
                 <Route path="/arabic-courses" element={<ArabicCourses />} />
-                <Route path="/foreign-languages/english-course" element={<English />} />
+                <Route path="/arabic-courses/arabi-talk" element={<ArabiTalk />} />
+                <Route path="/arabic-courses/arabic-for-kids" element={<ArabicKids />} />
+                {/* History Pages */}
+                <Route path="/middle-eastern-studies/modern-history-of-the-middle-east" element={<ModernME />} />
+                <Route path="/middle-eastern-studies/history-of-the-middle-east" element={<OldME />} />
+                {/* Foreign Courses */}
+                <Route path="/foreign-languages/english-course" element={<ModernME />} />
                 <Route path="/foreign-languages/spanish-course" element={<Spanish />} />
                 <Route path="/foreign-languages/german-course" element={<German />} />
                 <Route path="/foreign-languages/french-course" element={<French />} />

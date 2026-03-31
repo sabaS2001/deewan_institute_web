@@ -2,9 +2,14 @@ import style from '../platform/platform.module.scss';
 import 'bootstrap';
 
 
-function Platform() {
+interface PlatformProps {
+    color: string,
+}
+
+
+function Platform({ data }: { data: PlatformProps }) {
     return (
-        <section className={style.platform}>
+        <section className={style.platform} style={{ '--color': `${data.color}`, } as React.CSSProperties}>
             <div className={`${style.subTitle} my-5`}>
                 <h1 className="py-2 scroll-section slide-in-right ">Seamless Platforms for Every Format</h1>
             </div>

@@ -1,0 +1,36 @@
+@use '/../src/style/variables.scss' as *;
+@use '/../src/style/fonts.scss' as *;
+
+
+.bottomBanner {
+    background-image: var(--background-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    div {
+        margin-inline: 15%;
+
+        h2 {
+            font-family: "Merriweather-Regular" !important;
+        }
+
+        a {
+            margin: 30px auto;
+            background-color: white;
+            color: var(--color) !important;
+            padding: 13px 80px;
+            font-family: "Merriweather-Regular" !important;
+            font-size: x-large;
+        }
+
+        a:hover {
+            border: 3px solid var(--color);
+            background-color: var(--color);
+            color: white !important;
+            text-decoration: none;
+        }
+
+
+    }
+
+}

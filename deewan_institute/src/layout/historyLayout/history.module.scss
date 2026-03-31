@@ -1,0 +1,121 @@
+@use '../../style/variables.scss' as *;
+@use '../../style/fonts.scss' as *;
+
+body {
+    margin: 0% !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/images/background/historyBG.svg");
+}
+
+.sidebar {
+
+    h5 {
+        font-family: "Merriweather-Bold";
+        color: #472211;
+        font-size: large;
+    }
+
+    a {
+        font-family: "Merriweather-Regular";
+        font-size: 18px;
+        color: #472211;
+        text-decoration: none;
+        transition: font-size 0.3s ease, color 0.1s ease;
+        /* Smooth transition for size and color */
+    }
+
+    a:hover {
+        font-family: "Merriweather-Regular";
+        font-size: 18.5px;
+        color: salmon;
+        text-decoration: underline;
+    }
+
+    a.active {
+        font-family: "Merriweather-Regular";
+        font-size: 18.5px;
+        background-color: #472211;
+        border-radius: 10px;
+        color: white;
+        text-decoration: underline;
+    }
+}
+
+.banner {
+    border-top: 1px solid $primary-color;
+    background-color: white;
+
+    h5 {
+        font-family: "Merriweather-Bold";
+        color: black;
+        font-size: x-large;
+    }
+
+    h1 {
+        font-family: "Merriweather-Light";
+        font-size: 60px;
+        color: #775222;
+    }
+}
+
+.article {
+    padding-inline: 10%;
+
+    .title {
+        font-family: "Merriweather-Regular";
+        width: fit-content;
+        border-bottom: 3px solid #472211;
+        font-size: 40px;
+        color: #472211;
+    }
+
+    .para {
+        font-family: "Merriweather-Light";
+        font-size: 20px;
+        line-height: 150%;
+
+        a {
+            color: #472211 !important;
+            font-family: "Merriweather-Regular";
+        }
+
+        a:hover {
+            color: orangered !important;
+        }
+    }
+
+    .subTitle {
+        margin-block: 5%;
+        font-family: "Merriweather-Bold";
+        font-size: 30px;
+        color: #472211;
+    }
+
+    .subheading {
+        font-family: "Merriweather-Regular";
+        font-size: 25px;
+        color: #472211;
+        margin-block: 2%;
+    }
+
+    .flagImg {
+        width: 35%;
+    }
+
+    #caption {
+        padding-block: 8%;
+
+        span {
+            padding-block: 3%;
+            font-family: "Merriweather-Light";
+            font-size: 20px;
+            color: black
+        }
+    }
+
+    .peopleImg {
+        padding-block: 5%;
+        width: 65%;
+    }
+}

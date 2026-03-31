@@ -4,6 +4,7 @@ import Footer from '../../components/footer/footer';
 import Title from '../../components/title/title';
 import ShadowBanner from '../../components/shadowBanner/shadowBanner';
 import Platform from "../../components/platform/platform";
+import BottomBanner from "../../components/bottomBanner/bottomBanner";
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import style from '../arabicCourses/arabic.module.scss';
 import '../../style/animation.scss';
@@ -56,7 +57,7 @@ function ArabiTalk() {
                         </div>
                     </section>
                     {/* Platforms */}
-                    <Platform />
+                    <Platform data={{ color: "#0D5071" }} />
                     {/* Sessions */}
                     <section className={style.sessions}>
                         <div className={`${style.subTitle} my-5`}>
@@ -98,6 +99,15 @@ function ArabiTalk() {
                             </div>
                         </div>
                     </section>
+                    {/* Bottom Banner */}
+                    <BottomBanner
+                        data={{
+                            mainText: "Unlock Arabic Conversations with ArabiTalk",
+                            buttonText: "Sign Up!",
+                            primaryColor: "black",
+                            backgroundImg: "../assets/images/banner/arabiTalkBBG.png",
+                        }}
+                    />
                 </main>
             </div>
 

@@ -10,21 +10,21 @@
 
         h1 {
             font-family: "Merriweather-SemiBold";
-            color: #0D5071;
+            color: var(--color);
             font-size: 50px;
-            border-bottom: #0D5071 3px solid;
+            border-bottom: var(--color) 3px solid;
         }
     }
 
     #blueSquare {
-        background-color: #0D5071;
+        background-color: var(--color);
         padding-inline: 5%;
         padding-block: 3%;
         border-radius: 20px;
 
         h2 {
             font-family: "Merriweather-Regular" !important;
-            color: white;
+            color: $white;
         }
 
         &:hover {

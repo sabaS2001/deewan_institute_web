@@ -7,6 +7,7 @@ interface palestineHistory {
         label?: string,
         subtitle?: string,
         image?: string,
+        image_two?: string,
         flag_one?: string,
         caption_one?: string,
         flag_two?: string,

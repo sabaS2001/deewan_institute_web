@@ -32,7 +32,25 @@ body {
         text-decoration: underline;
     }
 
+    a:focus {
+        font-family: "Merriweather-Regular";
+        font-size: 18.5px;
+        background-color: #472211;
+        border-radius: 10px;
+        color: white;
+        text-decoration: underline;
+    }
+
     a.active {
+        font-family: "Merriweather-Regular";
+        font-size: 18.5px;
+        background-color: #472211;
+        border-radius: 10px;
+        color: white;
+        text-decoration: underline;
+    }
+
+    a[aria-current="page"] {
         font-family: "Merriweather-Regular";
         font-size: 18.5px;
         background-color: #472211;
@@ -114,10 +132,6 @@ body {
         }
     }
 
-    .peopleImg {
-        padding-block: 5%;
-        width: 65%;
-    }
 
     #images {
         margin: auto 0;
@@ -126,5 +140,16 @@ body {
         justify-content: center;
         align-content: center;
         align-items: center;
+    }
+
+    #peopleImg {
+        margin: auto 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        // padding-block: 5%;
+        width: 90%;
     }
 }

@@ -1,6 +1,8 @@
 import { Fragment } from "react/jsx-runtime";
 import styles from "../historyLayout/history.module.scss";
+import { useNavigation } from "../../../hooks/navigation";
 import "bootstrap";
+
 
 interface HistoryInfo {
     subTitle: string,
@@ -9,6 +11,7 @@ interface HistoryInfo {
         id: string,
         title?: string,
         image?: string,
+        image_two?: string,
         label?: string,
         subtitle?: string,
         flag_one?: string,
@@ -21,6 +24,9 @@ interface HistoryInfo {
 
 
 function HistoryLayout({ data }: { data: HistoryInfo }) {
+
+    useNavigation();
+
     return (
         <Fragment>
             {/* Banner */}
@@ -44,17 +50,17 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                                             <li className="nav-item">
                                                 {
                                                     dataInfo.title && (
-                                                        <a className="nav-link text-decoration-none" href={`#${dataInfo.id}`}>{dataInfo.title} </a>
+                                                        <a className={`nav-link text-decoration-none ${styles.a}`} href={`#${dataInfo.id}`}>{dataInfo.title} </a>
                                                     )
                                                 }
                                                 {
                                                     dataInfo.caption_one && (
-                                                        <a className="nav-link text-decoration-none" href={`#${dataInfo.id}`}>{dataInfo.caption_one}</a>
+                                                        <a className={`nav-link text-decoration-none ${styles.a}`} href={`#${dataInfo.id}`}>{dataInfo.caption_one}</a>
                                                     )
                                                 }
                                                 {
                                                     dataInfo.caption_two && (
-                                                        <a className="nav-link text-decoration-none" href={`#${dataInfo.id}`}>{dataInfo.caption_two}</a>
+                                                        <a className={`nav-link text-decoration-none ${styles.a}`} href={`#${dataInfo.id}`}>{dataInfo.caption_two}</a>
                                                     )
                                                 }
                                             </li>
@@ -109,14 +115,29 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
                                     {/* Description */}
                                     <p className={styles.para} dangerouslySetInnerHTML={{ __html: articleInfo.description }} >
                                     </p>
+                                    {/* Picture without Label */}
                                     <div id={styles.images}>
                                         {articleInfo.image && (
                                             <>
                                                 <img className="my-2" src={articleInfo.image} alt={articleInfo.title} />
-                                                <span>{articleInfo.label}</span>
                                             </>
                                         )}
-                                    </div>                                </div>
+                                    </div>
+                                    {/* Picture with Label */}
+                                    <div>
+                                        {articleInfo.image_two && (
+                                            <>
+                                                <img className="my-2" src={articleInfo.image_two} alt={articleInfo.title} id={styles.peopleImg} />
+                                                {
+                                                    articleInfo.label && (
+                                                        <span id={styles.caption}>{articleInfo.label}</span>
+                                                    )
+                                                }
+
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
                             ))}
                         </div>
                     </div>

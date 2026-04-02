@@ -22,26 +22,19 @@
   font-family: "ArefRuqaa-Regular";
   src: url("../assets/fonts/ArefRuqaa-Regular.ttf");
 }
-#navBar {
-  background-color: #ffffff !important;
+.banner {
+  height: 50vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: var(--banner-image);
 }
-#navBar #navbarNav ul {
-  padding: 0px 15px;
-  gap: 40px;
+.banner #para {
+  background-color: rgba(var(--primary-color-rgb), 0.7) !important;
+  border-radius: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-inline: 2%;
 }
-#navBar #navbarNav #navitem a {
-  color: #8f6e43;
+.banner #para #h1 {
   font-family: "Merriweather-Regular" !important;
-  font-size: 20px !important;
-}
-#navBar #navbarNav #navitem :hover {
-  border-bottom: 3px solid rgba(143, 110, 67, 0.5019607843) !important;
-}
-#navBar #navbarNav #navitem.active {
-  border-bottom: 3px solid rgba(143, 110, 67, 0.5019607843) !important;
-}
-
-#mainLogo {
-  width: 200px;
-  margin-inline: 5%;
-}/*# sourceMappingURL=navbar.module.css.map */
+}/*# sourceMappingURL=shadowBanner.module.css.map */

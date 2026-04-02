@@ -1,22 +1,21 @@
-import { Fragment } from "react";
-import styles from "../curriculumSlider/curriculum.module.scss";
+import styles from "./curriculum.module.scss";
 import 'bootstrap';
 
 function CurriculumSlider() {
     return (
 
-        <section className={styles.curriculum}>
+        <section id={styles.curriculum}>
             <div className={`${styles.title} my-5`}>
                 <h1 className="py-2 scroll-section slide-in-right">Curriculum</h1>
             </div>
 
             {/* Carousel */}
-            <div id="myCarousel" className="carousel slide scroll-section myCarousel" data-bs-ride="carousel">
+            <div id="carousel" className={`carousel slide scroll-section ${styles.myCarousel}`} data-bs-ride="carousel">
                 {/* Indicators */}
                 <div className={`${styles.carouselIndicators}`}>
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active"></button>
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" className="active"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"></button>
                 </div>
 
                 <div className="carousel-inner">
@@ -30,8 +29,7 @@ function CurriculumSlider() {
                                     <div className="my-4 px-2">
                                         <p className={`lead ${styles.dark}`}>The Comprehensive Guide to <br /> Modern Standard Arabic</p>
                                         <p className={`${styles.light} mb-4`}>Beginner Level</p>
-                                        <a className={`btn  text-decoration-none rounded-pill`} id={styles.viewMoreBtn}
-                                            href="https://a.co/d/aOpWC9s" target="_blank" rel="noopener noreferrer">
+                                        <a className={`btn text-decoration-none rounded-pill ${styles.viewMoreBtn}`} href="https://a.co/d/aOpWC9s" target="_blank" rel="noopener noreferrer">
                                             Buy Online
                                         </a>
                                     </div>
@@ -41,7 +39,7 @@ function CurriculumSlider() {
                                     <div className="my-4 px-2">
                                         <p className={`lead ${styles.dark}`}>The Comprehensive Guide to <br /> Levantine Arabic</p>
                                         <p className={`${styles.light} mb-4`}>Beginner, Intermediate, and Advanced Levels</p>
-                                        <a className="btn text-decoration-none rounded-pill" id={styles.viewMoreBtn}
+                                        <a className={`btn text-decoration-none rounded-pill ${styles.viewMoreBtn}`}
                                             href="https://a.co/d/2EtcWVi" target="_blank" rel="noopener noreferrer">
                                             Buy Online
                                         </a>
@@ -60,7 +58,7 @@ function CurriculumSlider() {
                                     <h2 className={styles.dark}>Guide To Deewan Arabic Podcast</h2>
                                     <h4 className={styles.dark}>Season 1, 2, 3, 5</h4>
                                     <p className={`${styles.light} mb-4`}>Beginner, Intermediate, and Advanced levels</p>
-                                    <a className={`btn  text-decoration-none rounded-pill`} id={styles.viewMoreBtn}
+                                    <a className={`btn text-decoration-none rounded-pill ${styles.viewMoreBtn}`}
                                         href="https://deewanarabic.com/podcast" target="_blank" rel="noopener noreferrer">
                                         View More
                                     </a>
@@ -96,7 +94,7 @@ function CurriculumSlider() {
                                 <div className="col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2">
                                     <h2 className={styles.dark}>Everyday Arabic Idioms</h2>
                                     <p className={`${styles.light} mb-4`}>Beginner, Intermediate, and Advanced levels</p>
-                                    <a className={`btn text-decoration-none rounded-pill`} id={styles.viewMoreBtn}
+                                    <a className={`btn text-decoration-none rounded-pill ${styles.viewMoreBtn}`}
                                         href="https://a.co/d/dF58vxT" target="_blank" rel="noopener noreferrer">
                                         View More
                                     </a>
@@ -107,11 +105,11 @@ function CurriculumSlider() {
                 </div>
 
                 {/* Controls */}
-                <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <button className="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <button className="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>

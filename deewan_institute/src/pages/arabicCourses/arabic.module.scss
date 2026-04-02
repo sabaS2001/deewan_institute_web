@@ -1,212 +1,229 @@
-@use '../../style/variables.scss' as *;
-@use '../../style/fonts.scss' as *;
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
 
 .arabiTalk {
-
-    // information
-    .info {
-        h5 {
-            font-family: "Merriweather-Regular" !important;
-            color: #0D5071;
-        }
-
-        h1 {
-            font-family: "Merriweather-Bold" !important;
-            font-size: 50px;
-            line-height: 50px;
-            color: #0D5071;
-        }
-
-        p {
-            font-family: "Merriweather-Light" !important;
-            line-height: 35px;
-        }
+  // information
+  .info {
+    h5 {
+      font-family: "Merriweather-Regular" !important;
+      color: #0d5071;
     }
 
-    //sessions
-    .sessions {
-        padding-inline: 13%;
-
-        .subTitle {
-            width: max-content;
-
-            h1 {
-                font-family: "Merriweather-SemiBold";
-                color: #0D5071;
-                font-size: 50px;
-                border-bottom: #0D5071 3px solid;
-            }
-        }
-
-        #card {
-            width: 65% !important;
-            height: 599px !important;
-            padding-block: 0% 0% !important;
-            padding-inline: 8% !important;
-            border-radius: 20px !important;
-            border-color: #0D5071 !important;
-            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) !important;
-            transition: width 0.3s ease, height 0.3s ease;
-
-            hr {
-                opacity: 0.5;
-                height: 0.5%;
-            }
-
-            h1 {
-                font-family: "Merriweather-Regular" !important;
-                font-size: 60px;
-                padding-block: 7%;
-            }
-
-            #black {
-                margin-block: 1%;
-                color: black;
-            }
-
-            #yellow {
-                margin-block: 1%;
-                color: #FFA200;
-            }
-
-            h4 {
-                font-family: "Merriweather-Light" !important
-            }
-
-            a {
-                background-color: #FFA200;
-                font-size: 22px;
-                font-family: 'Merriweather-Light';
-                padding-block: 4%;
-                border-radius: 10px;
-                transition: width 0.3s ease, height 0.3s ease;
-            }
-
-            a:hover {
-                background-color: white !important;
-                color: #FFA200 !important;
-                border: #FFA200 2px solid;
-            }
-        }
-
-        #card:hover {
-            width: 75% !important;
-            height: 620px !important;
-
-            hr {
-                opacity: 1;
-                height: 0.5%;
-            }
-
-            h1 {
-                font-family: "Merriweather-Regular" !important;
-                font-size: 62px;
-                padding-block: 7%;
-            }
-
-            #black {
-                margin-block: 1%;
-                color: black;
-            }
-
-            #yellow {
-                margin-block: 1%;
-                color: #FFA200;
-            }
-
-            h4 {
-                font-family: "Merriweather-Light" !important
-            }
-
-            a {
-                background-color: #FFA200;
-                font-size: 22px;
-                font-family: 'Merriweather-Light';
-                padding-block: 5%;
-                border-radius: 10px;
-            }
-        }
+    h1 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: 50px;
+      line-height: 50px;
+      color: #0d5071;
     }
 
+    p {
+      font-family: "Merriweather-Light" !important;
+      line-height: 35px;
+    }
+  }
+
+  //sessions
+  .sessions {
+    padding-inline: 13%;
+
+    .subTitle {
+      width: max-content;
+
+      h1 {
+        font-family: "Merriweather-SemiBold";
+        color: #0d5071;
+        font-size: 50px;
+        border-bottom: #0d5071 3px solid;
+      }
+    }
+
+    #card {
+      width: 65% !important;
+      height: 599px !important;
+      padding-block: 0% 0% !important;
+      padding-inline: 8% !important;
+      border-radius: 20px !important;
+      border-color: #0d5071 !important;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) !important;
+      transition:
+        width 0.3s ease,
+        height 0.3s ease;
+
+      hr {
+        opacity: 0.5;
+        height: 0.5%;
+      }
+
+      h1 {
+        font-family: "Merriweather-Regular" !important;
+        font-size: 60px;
+        padding-block: 7%;
+      }
+
+      #black {
+        margin-block: 1%;
+        color: black;
+      }
+
+      #yellow {
+        margin-block: 1%;
+        color: #ffa200;
+      }
+
+      h4 {
+        font-family: "Merriweather-Light" !important;
+      }
+
+      a {
+        background-color: #ffa200;
+        font-size: 22px;
+        font-family: "Merriweather-Light";
+        padding-block: 4%;
+        border-radius: 10px;
+        transition:
+          width 0.3s ease,
+          height 0.3s ease;
+      }
+
+      a:hover {
+        background-color: white !important;
+        color: #ffa200 !important;
+        border: #ffa200 2px solid;
+      }
+    }
+
+    #card:hover {
+      width: 75% !important;
+      height: 620px !important;
+
+      hr {
+        opacity: 1;
+        height: 0.5%;
+      }
+
+      h1 {
+        font-family: "Merriweather-Regular" !important;
+        font-size: 62px;
+        padding-block: 7%;
+      }
+
+      #black {
+        margin-block: 1%;
+        color: black;
+      }
+
+      #yellow {
+        margin-block: 1%;
+        color: #ffa200;
+      }
+
+      h4 {
+        font-family: "Merriweather-Light" !important;
+      }
+
+      a {
+        background-color: #ffa200;
+        font-size: 22px;
+        font-family: "Merriweather-Light";
+        padding-block: 5%;
+        border-radius: 10px;
+      }
+    }
+  }
 }
 
-
 .arabicKids {
-
-    // information
-    .info {
-        h5 {
-            font-family: "Merriweather-Regular" !important;
-            color: #A60A1F;
-        }
-
-        h1 {
-            font-family: "Merriweather-Bold" !important;
-            font-size: 50px;
-            line-height: 50px;
-            color: #A60A1F;
-        }
-
-        p,
-        ul,
-        li {
-            font-family: "Merriweather-Light" !important;
-            line-height: 35px;
-        }
+  // information
+  .info {
+    h5 {
+      font-family: "Merriweather-Regular" !important;
+      color: #a60a1f;
     }
 
-    .approach {
-        padding-inline: 13%;
-        margin-block: 5%;
-
-        .subTitle {
-            width: max-content;
-
-            h1 {
-                font-family: "Merriweather-SemiBold";
-                color: #A60A1F;
-                font-size: 50px;
-                border-bottom: #A60A1F 3px solid;
-            }
-        }
-
-        #itemBox {
-            img {
-                width: 80%
-            }
-
-            h2 {
-                font-family: "Merriweather-Light" !important;
-                color: #A60A1F;
-            }
-        }
+    h1 {
+      font-family: "Merriweather-Bold" !important;
+      font-size: 50px;
+      line-height: 50px;
+      color: #a60a1f;
     }
 
+    p,
+    ul,
+    li {
+      font-family: "Merriweather-Light" !important;
+      line-height: 35px;
+    }
+  }
+
+  .approach {
+    padding-inline: 13%;
+    margin-block: 5%;
+
+    .subTitle {
+      width: max-content;
+
+      h1 {
+        font-family: "Merriweather-SemiBold";
+        color: #a60a1f;
+        font-size: 50px;
+        border-bottom: #a60a1f 3px solid;
+      }
+    }
+
+    #itemBox {
+      img {
+        width: 80%;
+      }
+
+      h2 {
+        font-family: "Merriweather-Light" !important;
+        color: #a60a1f;
+      }
+    }
+  }
 }
 
 .intensive {
-    .info {
-        .featuretteHeading {
-            color: $primary-color;
-            border-bottom: 3px solid $primary-color;
-        }
-
-        p {
-            font-family: "Merriweather-Light" !important;
-
-        }
-
-        #checkBtn {
-            color: $primary-color !important;
-            border: 2px $primary-color solid;
-            background-color: $white ;
-            padding: 9px 39px;
-
-            &:hover {
-                color: $white !important;
-                border: 2px $primary-color solid;
-                background-color: $primary-color;
-            }
-        }
+  .info {
+    .featuretteHeading {
+      color: $primary-color;
+      border-bottom: 3px solid $primary-color;
     }
+
+    p {
+      font-family: "Merriweather-Light" !important;
+    }
+
+    #checkBtn {
+      color: $primary-color !important;
+      border: 2px $primary-color solid;
+      background-color: $white;
+      padding: 9px 39px;
+
+      &:hover {
+        color: $white !important;
+        border: 2px $primary-color solid;
+        background-color: $primary-color;
+      }
+    }
+  }
+
+  .special {
+    h5 {
+      font-family: "Merriweather-Regular" !important;
+      color: #8f6e43;
+    }
+
+    h1 {
+      font-family: "Merriweather-SemiBold" !important;
+      line-height: 50px;
+      color: #8f6e43;
+    }
+
+    p,
+    ul li {
+      font-family: "Merriweather-Light" !important;
+      line-height: 35px;
+    }
+  }
 }

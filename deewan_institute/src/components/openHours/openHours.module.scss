@@ -1,0 +1,39 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+.openingHours {
+  margin-inline: 15%;
+
+  .title {
+    width: max-content;
+
+    border-bottom: #8f6e43 2px solid;
+
+    h2 {
+      color: #8f6e43;
+    }
+  }
+
+  ul li {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 204%;
+  }
+
+  .italic {
+    font-style: italic;
+    font-size: larger;
+    line-height: 204%;
+    list-style-type: none;
+  }
+
+  .bold {
+    font-family: "Merriweather-Bold" !important;
+  }
+
+  .borderRight {
+    border-right: #8f6e43 solid 2px;
+    margin: 0 auto;
+  }
+}

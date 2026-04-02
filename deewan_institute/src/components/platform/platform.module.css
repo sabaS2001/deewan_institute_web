@@ -22,26 +22,32 @@
   font-family: "ArefRuqaa-Regular";
   src: url("../assets/fonts/ArefRuqaa-Regular.ttf");
 }
-#navBar {
-  background-color: #ffffff !important;
+.platform {
+  padding-inline: 13%;
+  margin-block: 5%;
 }
-#navBar #navbarNav ul {
-  padding: 0px 15px;
-  gap: 40px;
+.platform .subTitle {
+  width: -moz-max-content;
+  width: max-content;
 }
-#navBar #navbarNav #navitem a {
-  color: #8f6e43;
+.platform .subTitle h1 {
+  font-family: "Merriweather-SemiBold";
+  color: var(--color);
+  font-size: 50px;
+  border-bottom: var(--color) 3px solid;
+}
+.platform #blueSquare {
+  background-color: var(--color);
+  padding-inline: 5%;
+  padding-block: 3%;
+  border-radius: 20px;
+}
+.platform #blueSquare h2 {
   font-family: "Merriweather-Regular" !important;
-  font-size: 20px !important;
+  color: #ffffff;
 }
-#navBar #navbarNav #navitem :hover {
-  border-bottom: 3px solid rgba(143, 110, 67, 0.5019607843) !important;
-}
-#navBar #navbarNav #navitem.active {
-  border-bottom: 3px solid rgba(143, 110, 67, 0.5019607843) !important;
-}
-
-#mainLogo {
-  width: 200px;
-  margin-inline: 5%;
-}/*# sourceMappingURL=navbar.module.css.map */
+.platform #blueSquare:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(13, 80, 113, 0.4);
+  cursor: pointer;
+}/*# sourceMappingURL=platform.module.css.map */

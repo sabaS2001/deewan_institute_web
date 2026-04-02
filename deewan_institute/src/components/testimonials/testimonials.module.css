@@ -18,6 +18,10 @@
   font-family: "Merriweather-SemiBold";
   src: url("../assets/fonts/Merriweather_24pt-SemiBold.ttf");
 }
+@font-face {
+  font-family: "ArefRuqaa-Regular";
+  src: url("../assets/fonts/ArefRuqaa-Regular.ttf");
+}
 .testimonials {
   padding-top: 4%;
   padding-inline: 10%;

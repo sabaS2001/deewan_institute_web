@@ -1,0 +1,138 @@
+@use '../../style/variables.scss' as *;
+@use '../../style/fonts.scss' as *;
+
+.curriculum {
+    padding-inline: 13%;
+
+    .title {
+        width: max-content;
+
+        h1 {
+            font-family: "Merriweather-SemiBold";
+            color: #8f6e43;
+            border-bottom: #8f6e43 3px solid;
+        }
+    }
+
+    .myCarousel {
+
+        #carouselItem1 {
+            background-repeat: no-repeat;
+            background-size: cover; // Scales the image to cover the entire area
+            background-position: center; // Centers the image
+            height: 100vh;
+
+            .dark {
+                font-family: "Merriweather-SemiBold" !important;
+            }
+
+            .light {
+                font-family: "Merriweather-Light" !important;
+                font-size: large;
+            }
+
+
+            #viewMoreBtn {
+                margin-top: 2%;
+                color: #8f6e43 !important;
+                border: 2px #8f6e43 solid;
+                background-color: #FFF;
+                padding: 9px 39px;
+
+                &:hover {
+                    color: white !important;
+                    border: 2px #8f6e43 solid;
+                    background-color: #8f6e43;
+                }
+            }
+        }
+
+        #carouselItem2 {
+            background-repeat: no-repeat;
+            background-size: cover; // Scales the image to cover the entire area
+            background-position: center; // Centers the image
+            height: 100vh;
+
+            .dark {
+                font-family: "Merriweather-SemiBold" !important;
+            }
+
+            .light {
+                font-family: "Merriweather-Light" !important;
+                font-size: large;
+            }
+
+            #viewMoreBtn {
+                color: #8f6e43 !important;
+                border: 2px #8f6e43 solid;
+                background-color: #FFF;
+                padding: 9px 39px;
+
+                &:hover {
+                    color: white !important;
+                    border: 2px #8f6e43 solid;
+                    background-color: #8f6e43;
+                }
+            }
+
+        }
+
+        #carouselItem3 {
+            background-repeat: no-repeat;
+            background-size: cover; // Scales the image to cover the entire area
+            background-position: center; // Centers the image
+            height: 100vh;
+
+            .dark {
+                font-family: "Merriweather-SemiBold" !important;
+            }
+
+            .light {
+                font-family: "Merriweather-Light" !important;
+                font-size: large;
+            }
+
+            #viewMoreBtn {
+                color: #8f6e43 !important;
+                border: 2px #8f6e43 solid;
+                background-color: #FFF;
+                padding: 9px 39px;
+
+                &:hover {
+                    color: white !important;
+                    border: 2px #8f6e43 solid;
+                    background-color: #8f6e43;
+                }
+            }
+
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: #8f6e43 !important;
+        }
+    }
+
+    .special {
+
+        h5 {
+            font-family: "Merriweather-Regular" !important;
+            color: #8f6e43;
+        }
+
+        h1 {
+            font-family: "Merriweather-SemiBold" !important;
+            line-height: 50px;
+            color: #8f6e43;
+        }
+
+        p,
+        ul li {
+            font-family: "Merriweather-Light" !important;
+            line-height: 35px;
+        }
+
+
+    }
+
+
+}

@@ -183,3 +183,30 @@
     }
 
 }
+
+.intensive {
+    .info {
+        .featuretteHeading {
+            color: $primary-color;
+            border-bottom: 3px solid $primary-color;
+        }
+
+        p {
+            font-family: "Merriweather-Light" !important;
+
+        }
+
+        #checkBtn {
+            color: $primary-color !important;
+            border: 2px $primary-color solid;
+            background-color: $white ;
+            padding: 9px 39px;
+
+            &:hover {
+                color: $white !important;
+                border: 2px $primary-color solid;
+                background-color: $primary-color;
+            }
+        }
+    }
+}

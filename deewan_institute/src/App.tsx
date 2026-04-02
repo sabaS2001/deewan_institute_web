@@ -13,6 +13,7 @@ import ModernME from './pages/history/modernME.tsx';
 import OldME from './pages/history/oldME.tsx';
 import PalestineHistory from './pages/history/palestineHistory.tsx';
 import PeopleOfME from './pages/history/peopleME';
+import IntensiveProgram from './pages/arabicCourses/intensiveProgram.tsx';
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/arabic-courses" element={<ArabicCourses />} />
                 <Route path="/arabic-courses/arabi-talk" element={<ArabiTalk />} />
                 <Route path="/arabic-courses/arabic-for-kids" element={<ArabicKids />} />
+                <Route path="/arabic-courses/intensive-program" element={<IntensiveProgram />} />
                 {/* History Pages */}
                 <Route path="/middle-eastern-studies/modern-history-of-the-middle-east" element={<ModernME />} />
                 <Route path="/middle-eastern-studies/history-of-the-middle-east" element={<OldME />} />

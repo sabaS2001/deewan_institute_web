@@ -11,7 +11,7 @@ import 'bootstrap';
 function French() {
 
     useEffect(() => {
-        document.title = 'Deewan Institute | French Course';
+        document.title = 'French Course';
     }, []);
 
     useScrollAnimation(); 

@@ -14,7 +14,6 @@ import OldME from './pages/history/oldME.tsx';
 import PalestineHistory from './pages/history/palestineHistory.tsx';
 import PeopleOfME from './pages/history/peopleME';
 import IntensiveProgram from './pages/arabicCourses/intensiveProgram.tsx';
-import Calculator from './pages/calculator/calculator.tsx';
 
 function App() {
     return (
@@ -34,6 +33,10 @@ function App() {
                 <Route path="/middle-eastern-studies/history-of-the-middle-east" element={<OldME />} />
                 <Route path="/middle-eastern-studies/the-zionist-project-in-palestine" element={<PalestineHistory />} />
                 <Route path="/middle-eastern-studies/people-of-the-middle-east" element={<PeopleOfME />} />
+                {/* Books */}
+                {/* Accommodation Pages */}
+                <Route path="/accommodation-and-student-services/visa" element={<Visa />} />
+                <Route path="/accommodation-and-student-services/trips" element={<Trips />} />
                 {/* Foreign Courses */}
                 <Route path="/foreign-languages/english-course" element={<English />} />
                 <Route path="/foreign-languages/spanish-course" element={<Spanish />} />

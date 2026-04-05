@@ -17,7 +17,7 @@ interface Foreign {
     }>
 }
 
-export const frenchData = {
+export const frenchData : Foreign = {
     title: "French Course",
     primaryColor: "#3D7F67",
     rgb: '61, 127, 103',

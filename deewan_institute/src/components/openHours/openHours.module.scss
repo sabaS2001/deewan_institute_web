@@ -2,38 +2,39 @@
 @use "../../style/fonts.scss" as *;
 
 .openingHours {
-  margin-inline: 15%;
+  background-color: var(--background-color);
+  padding-inline: 15%;
 
   .title {
     width: max-content;
+    border-bottom: var(--color) 3px solid;
 
-    border-bottom: #8f6e43 2px solid;
-
-    h2 {
-      color: #8f6e43;
+    h1 {
+      color: var(--color);
     }
   }
 
   ul li {
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
+    color: var(--color);
+    font-family: "Merriweather-Light" !important;
     line-height: 204%;
   }
 
   .italic {
+    color: var(--color);
     font-style: italic;
-    font-size: larger;
+    font-size: large;
     line-height: 204%;
     list-style-type: none;
   }
 
   .bold {
+    color: var(--color);
     font-family: "Merriweather-Bold" !important;
   }
 
   .borderRight {
-    border-right: #8f6e43 solid 2px;
+    border-right: var(--color) solid 2px;
     margin: 0 auto;
   }
 }

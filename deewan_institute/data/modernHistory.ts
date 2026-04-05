@@ -15,7 +15,7 @@ interface modernHistory {
     }>
 }
 
-export const modernHistory = {
+export const modernHistory : modernHistory = {
     subTitle: "Modern History of the Middle East",
     bannerImg: "../assets/images/others/history7.webp",
     info: [

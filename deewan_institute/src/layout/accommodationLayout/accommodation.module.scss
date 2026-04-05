@@ -1,0 +1,87 @@
+@use '../../style/variables.scss' as *;
+@use '../../style/fonts.scss' as *;
+
+
+.banner {
+    background-color: $white;
+
+    h5 {
+        font-family: "Merriweather-Bold";
+        color: $black;
+        font-size: x-large;
+    }
+
+    h1 {
+        font-family: "Merriweather-Light";
+        font-size: 75px;
+        color: $dark_brown;
+    }
+}
+
+.info {
+    padding-bottom: 6%;
+
+    h5 {
+        font-family: "Merriweather-SemiBold" !important;
+        color: $dark_brown;
+    }
+
+    h1 {
+        font-family: "Merriweather-Regular" !important;
+        line-height: 55px;
+        color: $dark_brown;
+        font-size: 55px;
+        border-bottom: $dark_brown 3px solid;
+        margin-bottom: 3%;
+    }
+
+    p,
+    ul li {
+        font-family: "Merriweather-Light" !important;
+        line-height: 35px;
+    }
+
+    .bold {
+        font-family: "Merriweather-SemiBold" !important;
+    }
+
+    .ultraBold {
+        font-size: larger;
+        font-family: "Merriweather-Bold" !important;
+        margin-bottom: 0% !important;
+    }
+}
+
+// .visaBottomBanner {
+//     background-image: url("../assets/images/banner/visaBBG.svg");
+//     background-repeat: no-repeat;
+//     background-size: cover;
+
+//     div {
+//         margin-top: 2%;
+//         margin-inline: 15%;
+
+//         h2 {
+//             font-family: "Merriweather-Regular" !important;
+//         }
+
+//         a {
+//             margin: 30px auto;
+//             background-color: white;
+//             color: black !important;
+//             padding: 13px 80px;
+//             font-family: "Merriweather-Regular" !important;
+//             font-size: x-large;
+//         }
+
+//         a:hover {
+//             border: 3px solid black;
+//             background-color: black;
+//             color: white !important;
+//             text-decoration: none;
+//         }
+
+
+//     }
+
+// }

@@ -15,7 +15,7 @@ import BottomBanner from "../../components/bottomBanner/bottomBanner";
 function ArabicKids() {
 
     useEffect(() => {
-        document.title = 'Deewan Institute | Arabic For Kids';
+        document.title = 'Arabic For Kids';
     }, []);
 
     useScrollAnimation();

@@ -16,7 +16,7 @@ interface peopleHistory {
     }>
 }
 
-export const peopleHistory = {
+export const peopleHistory : peopleHistory = {
     subTitle: "The People of the Middle East",
     bannerImg: "../assets/images/others/history14.webp",
     info: [
@@ -34,7 +34,7 @@ export const peopleHistory = {
         {
             id: "druze",
             title: "Druze",
-            images: "../assets/images/others/history16.webp",
+            image: "../assets/images/others/history16.webp",
             description: "Most Druze people reside in Syria and Lebanon, where they are mostly concentrated around the Jabal Al-Druze and Mount Lebanon area. Even though the Druze population is relatively small, they have played a big role in Syrian and Lebanese politics and nation building. While Druze people are often portrayed as being Arabs that follow the Druze religion, partly because most Druze are native Arabic speakers, Druze are often considered a distinct sub-ethnic group of Arabs."
         },
         {

@@ -15,7 +15,7 @@ interface oldHistory {
     }>
 }
 
-export const oldHistory = {
+export const oldHistory : oldHistory = {
     subTitle: "History of the Middle East",
     bannerImg: "../assets/images/others/history1.png",
     info: [

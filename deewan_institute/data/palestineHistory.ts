@@ -16,7 +16,7 @@ interface palestineHistory {
     }>
 }
 
-export const palestineHistory = {
+export const palestineHistory : palestineHistory = {
     subTitle: "The Zionist Project in Palestine",
     bannerImg: "../assets/images/others/history8.png",
     info: [

@@ -14,6 +14,7 @@ import OldME from './pages/history/oldME.tsx';
 import PalestineHistory from './pages/history/palestineHistory.tsx';
 import PeopleOfME from './pages/history/peopleME';
 import IntensiveProgram from './pages/arabicCourses/intensiveProgram.tsx';
+import Calculator from './pages/calculator/calculator.tsx';
 
 function App() {
     return (
@@ -38,6 +39,8 @@ function App() {
                 <Route path="/foreign-languages/spanish-course" element={<Spanish />} />
                 <Route path="/foreign-languages/german-course" element={<German />} />
                 <Route path="/foreign-languages/french-course" element={<French />} />
+                {/* Calculator */}
+                <Route path="/calculator" element={<Calculator />} />
             </Routes>
         </Router>
     );

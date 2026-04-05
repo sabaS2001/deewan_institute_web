@@ -1,0 +1,489 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+//  Banner
+.banner {
+  height: 50vh;
+  min-height: 260px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/banner/arabicCal.svg");
+
+  p {
+    font-family: "Merriweather-Light" !important;
+    font-weight: 400;
+    line-height: 150%;
+  }
+}
+
+// Calculator Section
+.calculator {
+  margin-top: 2%;
+  margin-inline: 15%;
+
+  @media (max-width: 1024px) {
+    margin-inline: 8%;
+  }
+
+  @media (max-width: 600px) {
+    margin-inline: 5%;
+  }
+
+  .title {
+    width: max-content;
+    border-bottom: $primary-color 2px solid;
+
+    h2 {
+      color: $primary-color;
+    }
+  }
+
+  .heading {
+    font-family: "Merriweather-Regular";
+    font-size: large;
+  }
+}
+
+// Shared title style (schedule, booking, policy, payment)
+.title {
+  width: max-content;
+  border-bottom: $primary-color 2px solid;
+
+  h2,
+  h3 {
+    color: $primary-color;
+  }
+}
+
+// Custom Dropdown
+.dropWrap {
+  position: relative;
+  width: 425px;
+  max-width: 100%;
+  margin-inline: 2%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-inline: 0;
+  }
+}
+
+.dropBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white !important;
+  color: black !important;
+  font-family: "Merriweather-Regular", serif;
+  border: 1.5px solid $primary-color !important;
+  border-radius: 5px !important;
+  font-size: large !important;
+  padding-inline: 2%;
+  padding-block: 3%;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+
+  &:hover {
+    background-color: $primary-color-light !important;
+    color: white !important;
+  }
+
+  &:active,
+  &:focus {
+    background-color: $primary-color-light !important;
+    color: white !important;
+    border: 1.5px solid white !important;
+
+    .caret {
+      color: white;
+    }
+  }
+}
+
+.dropBtnActive {
+  background-color: $primary-color-light !important;
+  color: white !important;
+  border: 1.5px solid white !important;
+
+  .caret {
+    color: white;
+  }
+}
+
+.dropBtnText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.caret {
+  margin-left: 0.5rem;
+  color: $primary-color;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+}
+
+.dropMenu {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 8px);
+  width: 340px;
+  background: white;
+  border: 1.5px solid $primary-color;
+  border-radius: 10px;
+  padding: 12px;
+  list-style: none;
+  margin: 0;
+  z-index: 999;
+  box-shadow: 0 8px 24px rgba(143, 110, 67, 0.18);
+
+  // Chip grid layout
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+
+  // Styled scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: $primary-color transparent;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary-color;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+  }
+}
+
+.dropItem {
+  // Pill chip style
+  border: 1.5px solid $primary-color !important;
+  border-radius: 20px !important;
+  padding: 6px 12px;
+  font-size: 1rem !important;
+  font-family: "Merriweather-Regular", serif;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    transform 0.1s;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.3;
+  color: $primary-color;
+  background: white;
+
+  &:hover {
+    background-color: $primary-color !important;
+    color: white !important;
+    border-color: $primary-color !important;
+    transform: scale(1.03);
+  }
+}
+
+//  Counter 
+.counter {
+  width: 425px;
+  max-width: 100%;
+  background-color: white !important;
+  border: 1.5px solid $primary-color !important;
+  border-radius: 5px !important;
+  padding-block: 2%;
+  margin-inline: 2%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .heading {
+    font-family: "Merriweather-Regular";
+    font-size: large;
+    color: black !important;
+  }
+}
+
+//  Calculate Button
+.calculatePriceBtn {
+  display: flex;
+  width: 352px;
+  height: 51px;
+  padding: 10px 66px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  border: 1px solid $primary-color;
+  background: $primary-color;
+  font-family: "Merriweather-Regular";
+  font-size: large;
+  transition: opacity 0.2s;
+
+  &:hover {
+    background: linear-gradient(145deg, #8f6e43, #7a5f38);
+    border-color: #8f6e43;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 10px 20px;
+  }
+}
+
+// Modal 
+#modalContent {
+  .title {
+    width: max-content;
+    border-bottom: $primary-color 2px solid;
+
+    h3 {
+      color: $primary-color;
+    }
+  }
+
+  .featuretteDivider {
+    color: $primary-color;
+    height: 2px;
+    opacity: 1 !important;
+    width: 70% !important;
+    margin-inline: auto !important;
+  }
+
+  .heading {
+    font-family: "Merriweather-Regular";
+    font-size: large;
+  }
+}
+
+.featuretteDivider {
+  color: $primary-color;
+  height: 2px;
+  opacity: 1 !important;
+  width: 70% !important;
+  margin-inline: auto !important;
+}
+
+.print {
+  width: 20% !important;
+
+  img {
+    width: 40px;
+  }
+}
+
+// Schedule Section
+.schedule {
+  margin-inline: 15%;
+
+  @media (max-width: 1024px) {
+    margin-inline: 8%;
+  }
+
+  @media (max-width: 600px) {
+    margin-inline: 5%;
+  }
+
+  #para {
+    color: black;
+  }
+
+  table {
+    overflow-x: auto;
+    display: block;
+
+    @media (min-width: 576px) {
+      display: table;
+    }
+
+    #tableHeader {
+      font-size: x-large;
+      color: white;
+      border: 1px solid black;
+      background: $primary-color-light;
+    }
+
+    th {
+      font-size: large;
+    }
+
+    td,
+    th {
+      border-color: black !important;
+    }
+  }
+}
+
+.tableHeader {
+  font-size: x-large;
+  color: white;
+  border: 1px solid black;
+  background: $primary-color-light;
+}
+
+// ─── Booking & Course Policy ──────────────────────────────────────────────────
+.booking,
+.coursePolicy {
+  margin-inline: 15%;
+
+  @media (max-width: 1024px) {
+    margin-inline: 8%;
+  }
+
+  @media (max-width: 600px) {
+    margin-inline: 5%;
+  }
+
+  #para {
+    color: black;
+  }
+}
+
+.coursePolicyBtn {
+  background-color: $primary-color;
+  font-family: "Merriweather-Light" !important;
+  font-size: 20px;
+  width: 20%;
+  min-width: 160px;
+
+  &:hover {
+    background: linear-gradient(145deg, #8f6e43, #7a5f38);
+    border-color: #8f6e43;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
+  }
+
+  @media (max-width: 600px) {
+    width: 80%;
+  }
+}
+// img {
+//     opacity: 1;
+//     transform: scale(1.1);
+//     filter: brightness(0) invert(1);
+//   }
+
+// Payment Options 
+.paymentOptions {
+  margin-inline: 15%;
+
+  @media (max-width: 1024px) {
+    margin-inline: 8%;
+  }
+
+  @media (max-width: 600px) {
+    margin-inline: 5%;
+  }
+
+  #para {
+    color: black;
+  }
+
+  .mail a {
+    text-decoration-color: $primary-color;
+    color: $primary-color;
+    font-size: large;
+  }
+  
+}
+
+
+
+.paymentAgreementFormBtn {
+  background-color: $primary-color;
+  font-family: "Merriweather-Light" !important;
+  font-size: 21px;
+  width: 25%;
+  min-width: 200px;
+
+  &:hover {
+    background: linear-gradient(145deg, #8f6e43, #7a5f38);
+    border-color: #8f6e43;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
+  }
+  @media (max-width: 600px) {
+    width: 80%;
+  }
+}
+
+// Accordion
+.paymentOptions {
+  .accordion-button {
+    font-size: large;
+    font-family: "Merriweather-Light" !important;    
+
+    &:hover,
+    &:focus,
+    &:not(.collapsed) {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border-color: inherit !important;
+      color: inherit !important;
+        font-family: "Merriweather-Light" !important;    }
+  }
+
+  .accordion-body {
+    font-size: large;
+    color: black !important;
+
+    span {
+      font-weight: bolder !important;
+    }
+
+    ul li {
+      list-style-type: none;
+    }
+  }
+}
+
+// ─── Print ────────────────────────────────────────────────────────────────────
+@media print {
+  body * {
+    display: none !important;
+  }
+
+  .modal {
+    display: block !important;
+    position: static !important;
+    background: white !important;
+  }
+
+  .modal-dialog {
+    position: static !important;
+    max-width: none !important;
+  }
+
+  .modal-content {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+
+  .modal-body {
+    padding: 20px !important;
+  }
+
+  .modal-body * {
+    display: block !important;
+    visibility: visible !important;
+  }
+}

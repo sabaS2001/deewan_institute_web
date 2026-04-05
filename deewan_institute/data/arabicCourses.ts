@@ -11,7 +11,7 @@ interface arabicCourse {
     }>
 }
 
-export const courseData = {
+export const courseData : arabicCourse = {
     title: "Arabic Courses",
     courses: [
         // COLLOQUIAL LEVANTINE ARABIC

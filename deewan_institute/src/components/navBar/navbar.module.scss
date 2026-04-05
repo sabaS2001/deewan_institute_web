@@ -1,32 +1,35 @@
-@use '../../style/variables.scss' as *;
-@use '../../style/fonts.scss' as *;
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
 
 #navBar {
-    background-color: $white !important;
+  background-color: $white !important;
 
-    #navbarNav {
-        ul {
-            padding: 0px 15px;
-            gap: 40px;
-        }
+  #navbarNav {
+    border-bottom: 2px solid #8f6e43;
+    padding-bottom: 1%;
 
-        #navitem a {
-            color: $primary-color;
-            font-family: "Merriweather-Regular" !important;
-            font-size: 20px !important;
-        }
-
-        #navitem :hover {
-            border-bottom: 3px solid $primary-color-light !important;
-        }
-
-        #navitem.active {
-            border-bottom: 3px solid $primary-color-light !important;
-        }
+    ul {
+      padding: 0px 15px;
+      gap: 40px;
     }
+
+    #navitem a {
+      color: $primary-color;
+      font-family: "Merriweather-Regular" !important;
+      font-size: 20px !important;
+    }
+
+    #navitem :hover {
+      border-bottom: 3px solid $primary-color-light !important;
+    }
+
+    #navitem.active {
+      border-bottom: 3px solid $primary-color-light !important;
+    }
+  }
 }
 
 #mainLogo {
-    width: 200px;
-    margin-inline: 5%;
+  width: 200px;
+  margin-inline: 5%;
 }

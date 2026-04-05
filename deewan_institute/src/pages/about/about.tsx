@@ -11,7 +11,7 @@ import 'bootstrap';
 function About() {
 
     useEffect(() => {
-        document.title = 'Deewan Institute | About Us';
+        document.title = 'About Us';
     }, []);
 
     useScrollAnimation();

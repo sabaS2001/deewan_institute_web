@@ -4,7 +4,8 @@ import Testimonials from "../../components/testimonials/testimonials";
 import Footer from "../../components/footer/footer";
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import '../../style/animation.scss';
-import "../home/home.scss";
+import style from "./home.module.scss";
+
 import 'bootstrap';
 
 function Home() {
@@ -22,7 +23,7 @@ function Home() {
          {/* Navigation Bar */}
          <HomeNavBar />
          {/* <!-- Carousel --> */}
-         <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+         <div id="myCarousel" className={`carousel slide ${style.myCarousel}`} data-bs-ride="carousel">
             {/* <!-- Indicators/dots --> */}
             <div className="carousel-indicators">
                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active"></button>
@@ -31,17 +32,19 @@ function Home() {
 
             {/* <!-- The slideshow/carousel --> */}
             <div className="carousel-inner">
+
+
                {/* <!-- First Slide --> */}
-               <div className="carousel-item active" id="carouselItem1">
+               <div className="carousel-item active" id={style.carouselItem1}>
                   <div className="container-fluid d-flex align-items-end h-100">
                      <div className="row w-100">
                         <div className="col-md-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left">
                            <img src={"/assets/images/logos/nobgLogo.png"} style={{ width: "70%" }} />
                         </div>
                         <div className="col-md-6 d-flex flex-column align-items-start justify-content-center">
-                           <div className="d-flex scroll-section slide-in-right" id="firstContainer">
-                              <h2 className="text-white">Native Arabic, Global Echoes: Ignite Cultures in Amman's Heart.</h2>
-                              <p>
+                           <div className="d-flex scroll-section slide-in-right" id={style.firstContainer}>
+                              <h2 className={`text-white ${style.h2}`}>Native Arabic, Global Echoes: Ignite Cultures in Amman's Heart.</h2>
+                              <p className={style.para}>
                                  Experience the authentic rhythm of Arabic language and culture through immersive lessons with native
                                  speakers in the vibrant heart of Amman.
                               </p>

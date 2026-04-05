@@ -3,7 +3,6 @@
 
 #curriculum {
   padding-inline: 13%;
-
   .title {
     width: max-content;
 
@@ -69,15 +68,15 @@
   }
 
   .viewMoreBtn {
-    color: #8f6e43 !important;
-    border: 2px #8f6e43 solid;
+    color: $primary-color !important;
+    border: 2px $primary-color solid;
     background-color: #fff;
     padding: 9px 39px;
 
     &:hover {
       color: white !important;
-      border: 2px #8f6e43 solid;
-      background-color: #8f6e43;
+      border: 2px $primary-color solid;
+      background-color: $primary-color;
     }
   }
 }

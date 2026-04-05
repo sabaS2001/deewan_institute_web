@@ -11,7 +11,7 @@ main {
     background-size: cover;
 }
 
-#myCarousel {
+.myCarousel {
     height: 100vh; // Makes the entire carousel full viewport height (adjust if you don't want full-screen)
 
     #carouselItem1 {
@@ -41,7 +41,7 @@ main {
                 line-height: 150%;
             }
 
-            p {
+            .para {
                 color: $white;
                 font-family: "Merriweather-Regular" !important;
                 font-size: large;

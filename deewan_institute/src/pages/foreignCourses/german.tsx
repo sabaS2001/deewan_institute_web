@@ -11,7 +11,7 @@ import 'bootstrap'
 function German() {
 
     useEffect(() => {
-        document.title = 'Deewan Institute | German Course';
+        document.title = 'German Course';
     }, []);
 
     useScrollAnimation();

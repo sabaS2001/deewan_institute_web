@@ -15,7 +15,7 @@ import 'bootstrap'
 function ArabiTalk() {
 
     useEffect(() => {
-        document.title = 'Deewan Institute | Arabi Talk';
+        document.title = 'Arabi Talk';
     }, []);
 
     useScrollAnimation();

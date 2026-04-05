@@ -1,7 +1,7 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
 
-.curriculum {
+#curriculum {
   padding-inline: 13%;
 
   .title {
@@ -9,8 +9,8 @@
 
     h1 {
       font-family: "Merriweather-SemiBold";
-      color: #8f6e43;
-      border-bottom: #8f6e43 3px solid;
+      color: $primary-color;
+      border-bottom: $primary-color 3px solid;
     }
   }
 
@@ -29,20 +29,6 @@
         font-family: "Merriweather-Light" !important;
         font-size: large;
       }
-
-      .viewMoreBtn {
-        margin-top: 2%;
-        color: #8f6e43 !important;
-        border: 2px #8f6e43 solid;
-        background-color: #fff;
-        padding: 9px 39px;
-
-        &:hover {
-          color: white !important;
-          border: 2px #8f6e43 solid;
-          background-color: #8f6e43;
-        }
-      }
     }
 
     #carouselItem2 {
@@ -58,19 +44,6 @@
       .light {
         font-family: "Merriweather-Light" !important;
         font-size: large;
-      }
-
-      .viewMoreBtn {
-        color: #8f6e43 !important;
-        border: 2px #8f6e43 solid;
-        background-color: #fff;
-        padding: 9px 39px;
-
-        &:hover {
-          color: white !important;
-          border: 2px #8f6e43 solid;
-          background-color: #8f6e43;
-        }
       }
     }
 
@@ -88,24 +61,23 @@
         font-family: "Merriweather-Light" !important;
         font-size: large;
       }
-
-      .viewMoreBtn {
-        color: #8f6e43 !important;
-        border: 2px #8f6e43 solid;
-        background-color: #fff;
-        padding: 9px 39px;
-
-        &:hover {
-          color: white !important;
-          border: 2px #8f6e43 solid;
-          background-color: #8f6e43;
-        }
-      }
     }
 
     .carousel-indicators [data-bs-target] {
-      background-color: #8f6e43 !important;
+      background-color: $primary-color !important;
+    }
+  }
+
+  .viewMoreBtn {
+    color: #8f6e43 !important;
+    border: 2px #8f6e43 solid;
+    background-color: #fff;
+    padding: 9px 39px;
+
+    &:hover {
+      color: white !important;
+      border: 2px #8f6e43 solid;
+      background-color: #8f6e43;
     }
   }
 }
-

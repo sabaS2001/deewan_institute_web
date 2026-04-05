@@ -226,4 +226,18 @@
       line-height: 35px;
     }
   }
+
+  .programFee {
+    padding-inline: 13%;
+
+    .title {
+      width: max-content;
+
+      h1 {
+        font-family: "Merriweather-SemiBold";
+        color: #8f6e43;
+        border-bottom: #8f6e43 3px solid;
+      }
+    }
+  }
 }

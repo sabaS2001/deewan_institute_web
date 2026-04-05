@@ -1,15 +1,15 @@
 import { Fragment, useEffect } from "react";
+import "bootstrap";
 import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import style from "../arabicCourses/arabic.module.scss";
-import "../../style/animation.scss";
+import CurriculumSlider from "../../components/curriculumSlider/curriculumSlider";
 import Banner from "../../components/banner/banner";
 import Divider from "../../components/divider/divider";
-// import CurriculumSlider from "../../components/curriculumSlider/curriculumSlider";
-import "bootstrap";
 import OpenHours from "../../components/openHours/openHours";
-
+import Schedule from "../../components/scheduleTable/schedule";
+import style from "../arabicCourses/arabic.module.scss";
+import "../../style/animation.scss";
 function IntensiveProgram() {
   useEffect(() => {
     document.title = "Intensive Summer & Fall Program";
@@ -30,6 +30,7 @@ function IntensiveProgram() {
           backgroundImg: "../assets/images/banner/intensiveBG.png",
         }}
       />
+      {/* Main Layout */}
       <main className={style.intensive}>
         {/* First Section */}
         <section className={`${style.info} my-5 pt-5`}>
@@ -74,9 +75,9 @@ function IntensiveProgram() {
           </div>
         </section>
         {/* Divider  */}
-        {/* <Divider /> */}
+        <Divider />
         {/* <!-- Curriculum Section --> */}
-        {/* <CurriculumSlider /> */}
+        <CurriculumSlider />
         {/* Divider  */}
         <Divider />
         {/* <!-- Special Section --> */}
@@ -124,10 +125,34 @@ function IntensiveProgram() {
           </div>
         </section>
         {/* Opening Section */}
-        <OpenHours />
-        
+        <OpenHours data={{ backgroundColor: "#8f6e43", color: "#ffffff" }} />
+        {/* Program Fees Section */}
+        <section className={`${style.programFee} py-4 mt-4`}>
+          <div className={style.title}>
+            <h1 className="py-2 scroll-section slide-in-left ">Program Fees</h1>
+          </div>
+          <Schedule
+            data={{
+              subtitle: "4 Weeks Course",
+              iconImage: "../assets/images/icons/one.png",
+              oneTotalPrice: "800 JD",
+              groupTotalPrice: "880 JD",
+              oneHours: "80 hours",
+              groupHours: "80 hours",
+            }}
+          />
+          <Schedule
+            data={{
+              subtitle: "8 Weeks Course",
+              iconImage: "../assets/images/icons/two.png",
+              oneTotalPrice: "1600 JD",
+              groupTotalPrice: "1760 JD",
+              oneHours: "160 hours",
+              groupHours: "160 hours",
+            }}
+          />
+        </section>
       </main>
-
       {/* Footer */}
       <Footer />
     </Fragment>

@@ -2,10 +2,10 @@ import { Fragment, useState, useRef, useEffect, useMemo } from 'react';
 import styles from './calculator.module.scss';
 import '../../style/animation.scss';
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
-import NavBar from "../../components/navBar/navbar";
-import Footer from "../../components/footer/footer";
+import NavBar from '../../components/navBar/navbar';
+import Footer from '../../components/footer/footer';
 
-// Types
+// ─── Types ────────────────────────────────────────────────────────────────────
 interface Selections {
   arabicType: string | null;
   classType: string | null;
@@ -24,7 +24,7 @@ interface DisplaySelections {
   discount: string;
 }
 
-// Pricing Logic 
+// ─── Pricing Logic ────────────────────────────────────────────────────────────
 function calculateTotal(selections: Selections): number {
   const { arabicType, classType, time, hours, weeks, discount } = selections;
 
@@ -78,7 +78,7 @@ function calculateTotal(selections: Selections): number {
   return 0;
 }
 
-// Static Data 
+// ─── Static Data ──────────────────────────────────────────────────────────────
 const ARABIC_TYPES = [
   'Colloquial Levantine Arabic (Ammiyeh)',
   'Mix (FusHa and Colloquial)',
@@ -88,7 +88,6 @@ const ARABIC_TYPES = [
 const CLASS_TYPES = [
   'One-to-One Class',
   'Group Class',
-  'Open Class',
   'Hop On Hop Off Class',
   'Trial Class',
 ];
@@ -112,7 +111,7 @@ const DISCOUNT_OPTIONS = [
   { value: 'twelvemonths', label: '12% - 12 Months Package' },
 ];
 
-// Dropdown 
+// ─── Dropdown ─────────────────────────────────────────────────────────────────
 interface DropdownProps {
   label: string;
   placeholder: string;
@@ -134,7 +133,7 @@ function Dropdown({ label, placeholder, options, value, onChange }: DropdownProp
   }, []);
 
   return (
-    <div className={`row my-5 align-items-center scroll-section`}>
+    <div className="row my-5 align-items-center scroll-section">
       <div className="col-md-2 text-start">
         <label className={styles.heading}>{label}</label>
       </div>
@@ -167,7 +166,7 @@ function Dropdown({ label, placeholder, options, value, onChange }: DropdownProp
   );
 }
 
-// Discount Dropdown 
+// ─── Discount Dropdown ────────────────────────────────────────────────────────
 interface DiscountDropdownProps {
   value: string | null;
   onChange: (value: string, label: string) => void;
@@ -187,7 +186,7 @@ function DiscountDropdown({ value, onChange }: DiscountDropdownProps) {
   }, []);
 
   return (
-    <div className={`row my-5 align-items-center scroll-section`}>
+    <div className="row my-5 align-items-center scroll-section">
       <div className="col-md-2 text-start">
         <label className={styles.heading}>Discount:</label>
       </div>
@@ -204,19 +203,17 @@ function DiscountDropdown({ value, onChange }: DiscountDropdownProps) {
             <span className={styles.caret}>▾</span>
           </button>
           {open && (
-            <div className={styles.dropMenuContainer} style={{ maxHeight: '200px', overflowY: 'auto' }}>
-              <ul className={styles.dropMenu}>
-                {DISCOUNT_OPTIONS.map(opt => (
-                  <li
-                    key={opt.value}
-                    className={styles.dropItem}
-                    onClick={() => { onChange(opt.value, opt.label); setOpen(false); }}
-                  >
-                    {opt.label}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className={styles.dropMenu}>
+              {DISCOUNT_OPTIONS.map(opt => (
+                <li
+                  key={opt.value}
+                  className={styles.dropItem}
+                  onClick={() => { onChange(opt.value, opt.label); setOpen(false); }}
+                >
+                  {opt.label}
+                </li>
+              ))}
+            </ul>
           )}
         </div>
       </div>
@@ -224,7 +221,7 @@ function DiscountDropdown({ value, onChange }: DiscountDropdownProps) {
   );
 }
 
-// Counter
+// ─── Counter ──────────────────────────────────────────────────────────────────
 interface CounterProps {
   id: string;
   label: string;
@@ -237,7 +234,7 @@ interface CounterProps {
 
 function Counter({ id, label, value, step, min, max, onChange }: CounterProps) {
   return (
-    <div className={`row my-5 align-items-center scroll-section`} id={id}>
+    <div className="row my-5 align-items-center scroll-section" id={id}>
       <div className="col-md-2 text-start">
         <label className={styles.heading}>{label}</label>
       </div>
@@ -277,7 +274,7 @@ function Counter({ id, label, value, step, min, max, onChange }: CounterProps) {
   );
 }
 
-// Modal 
+// ─── Price Modal ──────────────────────────────────────────────────────────────
 interface ModalProps {
   display: DisplaySelections;
   total: number;
@@ -287,12 +284,127 @@ interface ModalProps {
 function PriceModal({ display, total, onClose }: ModalProps) {
   const rows = [
     { label: 'Type of Arabic Language:', value: display.arabicType || 'Not selected' },
-    { label: 'Type of Classes:',          value: display.classType  || 'Not selected' },
-    { label: 'Time in The Day:',           value: display.time       || 'Not selected' },
-    { label: 'No. of Hours per Week:',     value: display.hours },
-    { label: 'No. of Week:',               value: display.weeks },
-    { label: 'Discount:',                  value: display.discount },
+    { label: 'Type of Classes:',         value: display.classType  || 'Not selected' },
+    { label: 'Time in The Day:',          value: display.time       || 'Not selected' },
+    { label: 'No. of Hours per Week:',    value: display.hours },
+    { label: 'No. of Week:',              value: display.weeks },
+    { label: 'Discount:',                 value: display.discount },
   ];
+
+  function handlePrint() {
+    // Build print HTML directly from data — no innerHTML scraping, no Bootstrap classes needed
+    const rowsHtml = rows.map(row => `
+      <tr>
+        <td class="label">${row.label}</td>
+        <td class="value">${row.value}</td>
+      </tr>
+    `).join('');
+
+    const printWin = window.open('', '_blank', 'width=800,height=700');
+    if (!printWin) return;
+    printWin.document.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Arabic Courses Price — Deewan Institute</title>
+          <style>
+            @page { margin: 2cm; }
+            * { box-sizing: border-box; }
+            body {
+              font-family: Georgia, "Times New Roman", serif;
+              color: #000;
+              margin: 0;
+              padding: 0;
+            }
+            .header {
+              border-bottom: 2px solid #8f6e43;
+              padding-bottom: 10px;
+              margin-bottom: 24px;
+            }
+            .header h2 {
+              color: #8f6e43;
+              margin: 0 0 4px 0;
+              font-size: 22px;
+            }
+            .header p {
+              margin: 0;
+              color: #666;
+              font-size: 12px;
+            }
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              margin-bottom: 20px;
+            }
+            td {
+              padding: 10px 8px;
+              font-size: 14px;
+              border-bottom: 1px solid #f0e8de;
+              vertical-align: top;
+            }
+            td.label {
+              font-weight: bold;
+              color: #333;
+              width: 45%;
+            }
+            td.value {
+              color: #000;
+              width: 55%;
+            }
+            .divider {
+              border: none;
+              border-top: 2px solid #8f6e43;
+              margin: 16px 0;
+            }
+            .total-row td {
+              border-bottom: none;
+              padding-top: 14px;
+              font-size: 16px;
+            }
+            .total-row .label { color: #000; }
+            .total-row .value { color: #8f6e43; font-weight: bold; }
+            .footer {
+              margin-top: 40px;
+              font-size: 11px;
+              color: #999;
+              border-top: 1px solid #eee;
+              padding-top: 8px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h2>Arabic Courses Price</h2>
+            <p>Deewan Institute — arabic@deewaninstitute.com</p>
+          </div>
+          <table>
+            <tbody>
+              ${rowsHtml}
+            </tbody>
+          </table>
+          <hr class="divider" />
+          <table>
+            <tbody>
+              <tr class="total-row">
+                <td class="label">Total Cost:</td>
+                <td class="value">${total.toFixed(2)} JOD</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="footer">
+            Printed from Deewan Institute — deewaninstitute.com
+          </div>
+        </body>
+      </html>
+    `);
+    printWin.document.close();
+    printWin.focus();
+    // Small delay so the browser finishes rendering before print dialog opens
+    setTimeout(() => {
+      printWin.print();
+      printWin.close();
+    }, 300);
+  }
 
   return (
     <div
@@ -307,17 +419,24 @@ function PriceModal({ display, total, onClose }: ModalProps) {
         <div className="modal-content" id={styles.modalContent}>
           <div className="modal-body">
 
+            {/* Modal header: title + print icon */}
             <div className="row align-items-center">
               <div className={`${styles.title} my-4`}>
                 <h3>Arabic Courses Price</h3>
               </div>
               <div className={`${styles.print} d-flex justify-content-evenly`}>
-                <a className="text-decoration-none" onClick={() => window.print()} style={{ cursor: 'pointer' }}>
+                <a
+                  className="text-decoration-none"
+                  onClick={handlePrint}
+                  style={{ cursor: 'pointer' }}
+                  title="Print"
+                >
                   <img src="../assets/images/icons/print.png" alt="Print" />
                 </a>
               </div>
             </div>
 
+            {/* Modal body rows */}
             {rows.map(row => (
               <div key={row.label} className="row my-3 align-items-center">
                 <div className="col-md-4 text-start">
@@ -347,46 +466,49 @@ function PriceModal({ display, total, onClose }: ModalProps) {
   );
 }
 
-// Accordion Item 
+// ─── Accordion Item (controlled) ──────────────────────────────────────────────
 function AccordionItem({
   id,
   title,
   content,
   parentId,
+  isOpen,
+  onToggle,
 }: {
   id: string;
   title: string;
   content: React.ReactNode;
   parentId: string;
+  isOpen: boolean;
+  onToggle: () => void;
 }) {
-  const [open, setOpen] = useState(false);
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id={`heading-${id}`}>
         <button
-          className={`accordion-button ${open ? '' : 'collapsed'}`}
+          className={`accordion-button ${isOpen ? '' : 'collapsed'} ${styles.accordionBtn}`}
           type="button"
-          onClick={() => setOpen(o => !o)}
-          aria-expanded={open}
+          onClick={onToggle}
+          aria-expanded={isOpen}
         >
           {title}
         </button>
       </h2>
-      {open && (
+      {isOpen && (
         <div
           id={`collapse-${id}`}
-          className="accordion-collapse"
+          className="accordion-collapse show"
           aria-labelledby={`heading-${id}`}
           data-bs-parent={`#${parentId}`}
         >
-          <div className="accordion-body text-center">{content}</div>
+          <div className="accordion-body">{content}</div>
         </div>
       )}
     </div>
   );
 }
 
-// Main Export
+// ─── Main Component ───────────────────────────────────────────────────────────
 function Calculator() {
   useScrollAnimation();
 
@@ -408,7 +530,12 @@ function Calculator() {
     discount:   'No Discount',
   });
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal]         = useState(false);
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+
+  function toggleAccordion(id: string) {
+    setOpenAccordion(prev => (prev === id ? null : id));
+  }
 
   const total = useMemo(() => calculateTotal(selections), [selections]);
 
@@ -427,7 +554,7 @@ function Calculator() {
 
   return (
     <Fragment>
-        <NavBar />
+      <NavBar />
 
       {/* Banner */}
       <section className={`${styles.banner} d-flex justify-content-center align-items-center`}>
@@ -493,7 +620,6 @@ function Calculator() {
             setDisplaySelections(d => ({ ...d, arabicType: v }));
           }}
         />
-
         <Dropdown
           label="Type of Classes:"
           placeholder="Please Choose a Class Type"
@@ -504,7 +630,6 @@ function Calculator() {
             setDisplaySelections(d => ({ ...d, classType: v }));
           }}
         />
-
         <Dropdown
           label="Time in The Day:"
           placeholder="Please Choose the Time of the Day"
@@ -515,20 +640,18 @@ function Calculator() {
             setDisplaySelections(d => ({ ...d, time: v }));
           }}
         />
-
         <Counter
           id="counterHours"
           label="No. of Hours per Week:"
           value={selections.hours}
           step={2}
           min={0}
-          max={100}
+          max={40}
           onChange={v => {
             setSelections(s => ({ ...s, hours: v }));
             setDisplaySelections(d => ({ ...d, hours: `${v} Hour${v !== 1 ? 's' : ''}` }));
           }}
         />
-
         <Counter
           id="counterWeeks"
           label="No. of Week:"
@@ -541,7 +664,6 @@ function Calculator() {
             setDisplaySelections(d => ({ ...d, weeks: `${v} Week${v !== 1 ? 's' : ''}` }));
           }}
         />
-
         <DiscountDropdown
           value={selections.discount}
           onChange={(value, label) => {
@@ -630,7 +752,12 @@ function Calculator() {
           Prior to booking your classes with Deewan, it is crucial to thoroughly review this document.
         </p>
         <div className="d-flex flex-row justify-content-center my-3 scroll-section">
-          <a className={`btn rounded-pill text-white fw-bold ${styles.coursePolicyBtn}`} href="./public/assets/pdf/Course-Policy.pdf" target="_blank" rel="noreferrer">
+          <a
+            className={`btn rounded-pill text-white fw-bold ${styles.coursePolicyBtn}`}
+            href="./assets/pdf/Course-Policy.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
             Course Policy
           </a>
         </div>
@@ -649,60 +776,128 @@ function Calculator() {
             the proof of payment at:
           </span>
         </p>
-        <div className={`d-flex flex-row align-items-center justify-content-center my-5 ${styles.mail}`}>
-          <img className="px-2" src="../assets/images/icons/mail.png" alt="Mail" />
+
+        <div className={`d-flex flex-row align-items-center justify-content-center my-4 ${styles.mail}`}>
+          <img className="px-2" src="../assets/images/icons/mail.svg" alt="Mail" />
           <a className="px-2" href="mailto:arabic@deewaninstitute.com" target="_blank" rel="noreferrer">
             arabic@deewaninstitute.com
           </a>
         </div>
+
         <p className="lead text-start lh-base" id={styles.para}>
           All balances are due 2 days before the start date of a lesson package. Payment instalment
           plans are available upon request for any packages of 3 months or longer, subject to a
           signed PAF (Payment Agreement Form).
         </p>
-        <div className="d-flex flex-row justify-content-center my-5">
-          <a className={`btn rounded-pill text-white fw-bold ${styles.paymentAgreementFormBtn}`} href="./public/assets/pdf/Payment-Form.pdf" target="_blank" rel="noreferrer">
+        <div className="d-flex flex-row justify-content-center my-4">
+          <a
+            className={`btn rounded-pill text-white fw-bold ${styles.paymentAgreementFormBtn}`}
+            href="./assets/pdf/Payment-Form.pdf"
+            //deewan_institute_web\deewan_institute\public\assets\pdf\Payement-Form.pdf
+            target="_blank"
+            rel="noreferrer"
+          >
             Payment Agreement Form
           </a>
         </div>
 
         <div className="accordion accordion-flush my-4" id="accordionFlushExample">
+
           <AccordionItem
             id="one" parentId="accordionFlushExample" title="1. PayPal"
+            isOpen={openAccordion === 'one'} onToggle={() => toggleAccordion('one')}
             content={
-              <>Please click the PayPal link, <a href="https://paypal.me/DeewanInstitute" target="_blank" rel="noreferrer">here,</a> to make the payment.</>
+              <p className={styles.accordionSimple}>
+                Please click the PayPal link{' '}
+                <a href="https://paypal.me/DeewanInstitute" target="_blank" rel="noreferrer">here</a>
+                {' '}to make the payment.
+              </p>
             }
           />
+
           <AccordionItem
             id="two" parentId="accordionFlushExample" title="2. Bank Transfer or Deposit To:"
+            isOpen={openAccordion === 'two'} onToggle={() => toggleAccordion('two')}
             content={
-              <div className="text-start">
-                <p><span>Arab Bank:</span> DEEWAN FOR LANGUAGES</p>
-                <p>Jordanian Dinars:</p>
-                <ul>
-                  <li><span>Account Number: </span>0116 634396 1 500</li>
-                  <li><span>IBAN: </span>JO82 ARAB 1160 0000 0011 6634 3965 00</li>
-                  <li><span>SWIFT Code: </span>ARABJOAX100</li>
-                </ul>
-                <p>US dollars:</p>
-                <ul>
-                  <li><span>Account Number: </span>0116-634396-510</li>
-                  <li><span>IBAN: </span>JO06 ARAB 1160 0000</li>
-                  <li><span>SWIFT Code: </span>ARABJOAX100</li>
-                </ul>
+              <div className={styles.bankContent}>
+                <div className={styles.bankHeader}>
+                  <span className={styles.bankName}>Arab Bank</span>
+                  <span className={styles.bankEntity}>DEEWAN FOR LANGUAGES</span>
+                </div>
+                <div className={styles.currencyBlock}>
+                  <p className={styles.currencyTitle}>Jordanian Dinars (JOD)</p>
+                  <div className={styles.bankRow}>
+                    <span className={styles.bankLabel}>Account Number</span>
+                    <span className={styles.bankValue}>0116 634396 1 500</span>
+                  </div>
+                  <div className={styles.bankRow}>
+                    <span className={styles.bankLabel}>IBAN</span>
+                    <span className={styles.bankValue}>JO82 ARAB 1160 0000 0011 6634 3965 00</span>
+                  </div>
+                  <div className={styles.bankRow}>
+                    <span className={styles.bankLabel}>SWIFT Code</span>
+                    <span className={styles.bankValue}>ARABJOAX100</span>
+                  </div>
+                </div>
+                <div className={styles.currencyBlock}>
+                  <p className={styles.currencyTitle}>US Dollars (USD)</p>
+                  <div className={styles.bankRow}>
+                    <span className={styles.bankLabel}>Account Number</span>
+                    <span className={styles.bankValue}>0116-634396-510</span>
+                  </div>
+                  <div className={styles.bankRow}>
+                    <span className={styles.bankLabel}>IBAN</span>
+                    <span className={styles.bankValue}>JO06 ARAB 1160 0000</span>
+                  </div>
+                  <div className={styles.bankRow}>
+                    <span className={styles.bankLabel}>SWIFT Code</span>
+                    <span className={styles.bankValue}>ARABJOAX100</span>
+                  </div>
+                </div>
               </div>
             }
           />
-          <AccordionItem id="three" parentId="accordionFlushExample" title="3. Western Union:" content="MOHAMMAD KAMAL AYASEH" />
-          <AccordionItem id="four"  parentId="accordionFlushExample" title="4. Cash:" content="at Deewan Institute physical location" />
-          <AccordionItem id="five"  parentId="accordionFlushExample" title="5. Cliq Alias" content="Alias Name: DEEWAN" />
+
+          <AccordionItem
+            id="three" parentId="accordionFlushExample" title="3. Western Union"
+            isOpen={openAccordion === 'three'} onToggle={() => toggleAccordion('three')}
+            content={
+                //i want to make the recipient name bold
+              <p className={styles.accordionSimple}>
+                <span className={styles.accordionLabel}>Recipient Name: </span>
+                MOHAMMAD KAMAL AYASEH
+              </p>
+            }
+          />
+
+          <AccordionItem
+            id="four" parentId="accordionFlushExample" title="4. Cash"
+            isOpen={openAccordion === 'four'} onToggle={() => toggleAccordion('four')}
+            content={
+              <p className={styles.accordionSimple}>
+                <span className={styles.accordionLabel}>Location: </span>
+                Deewan Institute physical location
+              </p>
+            }
+          />
+
+          <AccordionItem
+            id="five" parentId="accordionFlushExample" title="5. Cliq Alias"
+            isOpen={openAccordion === 'five'} onToggle={() => toggleAccordion('five')}
+            content={
+              <p className={styles.accordionSimple}>
+                <span className={styles.accordionLabel}>Alias Name: </span>
+                DEEWAN
+              </p>
+            }
+          />
+
         </div>
       </section>
-      
-    <Footer />
+
+      <Footer />
     </Fragment>
   );
-  
 }
 
 export default Calculator;

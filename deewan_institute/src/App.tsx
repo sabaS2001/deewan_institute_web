@@ -14,7 +14,9 @@ import OldME from './pages/history/oldME.tsx';
 import PalestineHistory from './pages/history/palestineHistory.tsx';
 import PeopleOfME from './pages/history/peopleME';
 import IntensiveProgram from './pages/arabicCourses/intensiveProgram.tsx';
-
+import Calculator from './pages/calculator/calculator.tsx';
+import Visa from './pages/accommodations/visa.tsx';
+import Trips from './pages/accommodations/trips.tsx';
 function App() {
     return (
         <Router>

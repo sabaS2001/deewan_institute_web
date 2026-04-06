@@ -34,3 +34,48 @@
     }
 
 }
+/* ================= MOBILE ONLY ================= */
+@media (max-width: 768px) {
+
+    .banner{
+    border-bottom: solid !important; 
+    width: 50% !important;
+    border-radius: 20px !important;
+    margin: auto !important;
+    }
+
+    h5{
+        display: none;
+    }
+
+  .bottomBanner {
+    div {
+      margin-inline: 10%;
+      text-align: left !important;
+    }
+
+    h2 {
+      font-size: 20px;
+      line-height: 1.3;
+      
+    }
+
+    a {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 12px 30px; 
+      font-size: 16px;
+      white-space: nowrap;
+
+    }
+
+    div a{
+        font-size: 16px;
+        padding: 12px 30px;
+
+    }
+    
+    
+  }
+
+}

@@ -88,6 +88,7 @@ const ARABIC_TYPES = [
 const CLASS_TYPES = [
   'One-to-One Class',
   'Group Class',
+  //'Open Class',
   'Hop On Hop Off Class',
   'Trial Class',
 ];
@@ -97,7 +98,12 @@ const TIME_OPTIONS = [
   'Evening (Between 4:20 PM - 8:00 PM)',
 ];
 
-const DISCOUNT_OPTIONS = [
+const DISCOUNT_OPTIONS: {
+  value: string;
+  label: string;
+  minWeeks?: number;
+  hint?: string;
+}[] = [
   { value: 'none',         label: 'No Discount' },
   { value: 'cash',         label: '5% - Pay Cash' },
   { value: 'google',       label: '5% - Google Review' },
@@ -105,10 +111,10 @@ const DISCOUNT_OPTIONS = [
   { value: 'university',   label: '3% - University Student' },
   { value: 'publications', label: '5% - Purchase 3 Deewan Publications.' },
   { value: 'friend',       label: '5% - Refer a Friend' },
-  { value: 'threemonths',  label: '5% - 3 Months Package' },
-  { value: 'sixmonths',    label: '7% - 6 Months Package' },
-  { value: 'ninemonths',   label: '10% - 9 Months Package' },
-  { value: 'twelvemonths', label: '12% - 12 Months Package' },
+  { value: 'threemonths',  label: '5% - 3 Months Package',   minWeeks: 13, hint: 'Requires ≥ 13 weeks' },
+  { value: 'sixmonths',    label: '7% - 6 Months Package',   minWeeks: 26, hint: 'Requires ≥ 26 weeks' },
+  { value: 'ninemonths',   label: '10% - 9 Months Package',  minWeeks: 39, hint: 'Requires ≥ 39 weeks' },
+  { value: 'twelvemonths', label: '12% - 12 Months Package', minWeeks: 52, hint: 'Requires ≥ 52 weeks' },
 ];
 
 // ─── Dropdown ─────────────────────────────────────────────────────────────────
@@ -122,6 +128,7 @@ interface DropdownProps {
 
 function Dropdown({ label, placeholder, options, value, onChange }: DropdownProps) {
   const [open, setOpen] = useState(false);
+  const [flipLeft, setFlipLeft] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -131,6 +138,21 @@ function Dropdown({ label, placeholder, options, value, onChange }: DropdownProp
     document.addEventListener('mousedown', handleOutside);
     return () => document.removeEventListener('mousedown', handleOutside);
   }, []);
+
+  // Check if the menu would overflow the right edge of the viewport
+  // On mobile (<= 768px) the CSS already handles positioning, skip inline override
+  useEffect(() => {
+    if (!open || !ref.current) return;
+    if (window.innerWidth <= 768) { setFlipLeft(false); return; }
+    const rect = ref.current.getBoundingClientRect();
+    const menuWidth = 500;
+    const spaceRight = window.innerWidth - rect.right;
+    setFlipLeft(spaceRight < menuWidth + 16);
+  }, [open]);
+
+  const menuStyle: React.CSSProperties = (flipLeft && window.innerWidth > 768)
+    ? { right: 'calc(100% + 8px)', left: 'auto', top: 0 }
+    : {};
 
   return (
     <div className="row my-5 align-items-center scroll-section">
@@ -148,10 +170,10 @@ function Dropdown({ label, placeholder, options, value, onChange }: DropdownProp
             <span className={styles.caret}>▾</span>
           </button>
           {open && (
-            <ul className={styles.dropMenu}>
-              {options.map(opt => (
+            <ul className={styles.dropMenu} style={menuStyle}>
+              {options.map((opt, i) => (
                 <li
-                  key={opt}
+                  key={`${opt}-${i}`}
                   className={styles.dropItem}
                   onClick={() => { onChange(opt); setOpen(false); }}
                 >
@@ -169,13 +191,34 @@ function Dropdown({ label, placeholder, options, value, onChange }: DropdownProp
 // ─── Discount Dropdown ────────────────────────────────────────────────────────
 interface DiscountDropdownProps {
   value: string | null;
+  weeks: number;
+  hours: number;
   onChange: (value: string, label: string) => void;
+  onReset: () => void; // called when current selection becomes locked
 }
 
-function DiscountDropdown({ value, onChange }: DiscountDropdownProps) {
+function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDropdownProps) {
   const [open, setOpen] = useState(false);
+  const [flipLeft, setFlipLeft] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const selected = DISCOUNT_OPTIONS.find(d => d.value === value);
+
+  // Determine if the entire dropdown is available
+  const dropdownEnabled = weeks > 0 && hours > 0;
+
+  // Determine if a specific option is locked
+  function isLocked(opt: typeof DISCOUNT_OPTIONS[0]): boolean {
+    if (!dropdownEnabled) return true;
+    if (opt.minWeeks && weeks < opt.minWeeks) return true;
+    return false;
+  }
+
+  // Auto-reset if the currently selected discount becomes locked
+  useEffect(() => {
+    if (!value || value === 'none') return;
+    const current = DISCOUNT_OPTIONS.find(d => d.value === value);
+    if (current && isLocked(current)) onReset();
+  }, [weeks, hours]);
 
   useEffect(() => {
     function handleOutside(e: MouseEvent) {
@@ -184,6 +227,26 @@ function DiscountDropdown({ value, onChange }: DiscountDropdownProps) {
     document.addEventListener('mousedown', handleOutside);
     return () => document.removeEventListener('mousedown', handleOutside);
   }, []);
+
+  useEffect(() => {
+    if (!open || !ref.current) return;
+    if (window.innerWidth <= 768) { setFlipLeft(false); return; }
+    const rect = ref.current.getBoundingClientRect();
+    const menuWidth = 500;
+    const spaceRight = window.innerWidth - rect.right;
+    setFlipLeft(spaceRight < menuWidth + 16);
+  }, [open]);
+
+  const menuStyle: React.CSSProperties = (flipLeft && window.innerWidth > 768)
+    ? { right: 'calc(100% + 8px)', left: 'auto', top: 0 }
+    : {};
+
+  // Label shown on the button
+  const buttonLabel = !dropdownEnabled
+    ? 'Enter weeks & hours first'
+    : selected
+    ? selected.label
+    : 'Please Choose the Discount';
 
   return (
     <div className="row my-5 align-items-center scroll-section">
@@ -194,25 +257,37 @@ function DiscountDropdown({ value, onChange }: DiscountDropdownProps) {
         <div className={styles.dropWrap} ref={ref}>
           <button
             type="button"
-            className={`${styles.dropBtn} ${open ? styles.dropBtnActive : ''}`}
-            onClick={() => setOpen(o => !o)}
+            className={`${styles.dropBtn} ${open && dropdownEnabled ? styles.dropBtnActive : ''} ${!dropdownEnabled ? styles.dropBtnDisabled : ''}`}
+            onClick={() => dropdownEnabled && setOpen(o => !o)}
+            disabled={!dropdownEnabled}
+            title={!dropdownEnabled ? 'Please select at least 1 week and 1 hour first' : undefined}
           >
-            <span className={styles.dropBtnText}>
-              {selected ? selected.label : 'Please Choose the Discount'}
-            </span>
+            <span className={styles.dropBtnText}>{buttonLabel}</span>
             <span className={styles.caret}>▾</span>
           </button>
-          {open && (
-            <ul className={styles.dropMenu}>
-              {DISCOUNT_OPTIONS.map(opt => (
-                <li
-                  key={opt.value}
-                  className={styles.dropItem}
-                  onClick={() => { onChange(opt.value, opt.label); setOpen(false); }}
-                >
-                  {opt.label}
-                </li>
-              ))}
+          {open && dropdownEnabled && (
+            <ul className={styles.dropMenu} style={menuStyle}>
+              {DISCOUNT_OPTIONS.map((opt, i) => {
+                const locked = isLocked(opt);
+                return (
+                  <li
+                    key={`${opt.value}-${i}`}
+                    className={`${styles.dropItem} ${locked ? styles.dropItemLocked : ''}`}
+                    onClick={() => {
+                      if (!locked) { onChange(opt.value, opt.label); setOpen(false); }
+                    }}
+                    title={locked && opt.hint ? opt.hint : undefined}
+                  >
+                    {locked && opt.minWeeks && (
+                      <span className={styles.lockDot} title={opt.hint}>🔒</span>
+                    )}
+                    <span>{opt.label}</span>
+                    {locked && opt.hint && (
+                      <span className={styles.lockHint}>{opt.hint}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>
@@ -646,7 +721,7 @@ function Calculator() {
           value={selections.hours}
           step={2}
           min={0}
-          max={40}
+          max={100}
           onChange={v => {
             setSelections(s => ({ ...s, hours: v }));
             setDisplaySelections(d => ({ ...d, hours: `${v} Hour${v !== 1 ? 's' : ''}` }));
@@ -666,9 +741,15 @@ function Calculator() {
         />
         <DiscountDropdown
           value={selections.discount}
+          weeks={selections.weeks}
+          hours={selections.hours}
           onChange={(value, label) => {
             setSelections(s => ({ ...s, discount: value }));
             setDisplaySelections(d => ({ ...d, discount: label }));
+          }}
+          onReset={() => {
+            setSelections(s => ({ ...s, discount: null }));
+            setDisplaySelections(d => ({ ...d, discount: 'No Discount' }));
           }}
         />
 
@@ -754,7 +835,7 @@ function Calculator() {
         <div className="d-flex flex-row justify-content-center my-3 scroll-section">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.coursePolicyBtn}`}
-            href="./assets/pdf/Course-Policy.pdf"
+            href="./public/assets/pdf/Course-Policy.pdf"
             target="_blank"
             rel="noreferrer"
           >
@@ -792,8 +873,7 @@ function Calculator() {
         <div className="d-flex flex-row justify-content-center my-4">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.paymentAgreementFormBtn}`}
-            href="./assets/pdf/Payment-Form.pdf"
-            //deewan_institute_web\deewan_institute\public\assets\pdf\Payement-Form.pdf
+            href="./public/assets/pdf/Payment-Form.pdf"
             target="_blank"
             rel="noreferrer"
           >
@@ -862,7 +942,6 @@ function Calculator() {
             id="three" parentId="accordionFlushExample" title="3. Western Union"
             isOpen={openAccordion === 'three'} onToggle={() => toggleAccordion('three')}
             content={
-                //i want to make the recipient name bold
               <p className={styles.accordionSimple}>
                 <span className={styles.accordionLabel}>Recipient Name: </span>
                 MOHAMMAD KAMAL AYASEH

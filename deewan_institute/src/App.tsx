@@ -17,6 +17,8 @@ import IntensiveProgram from './pages/arabicCourses/intensiveProgram.tsx';
 import Calculator from './pages/calculator/calculator.tsx';
 import Visa from './pages/accommodations/visa.tsx';
 import Trips from './pages/accommodations/trips.tsx';
+import Publications from './layout/booksLayout/publications.tsx';
+import PublicationInfo from './pages/books/publicationinfo.tsx';
 function App() {
     return (
         <Router>
@@ -36,6 +38,10 @@ function App() {
                 <Route path="/middle-eastern-studies/the-zionist-project-in-palestine" element={<PalestineHistory />} />
                 <Route path="/middle-eastern-studies/people-of-the-middle-east" element={<PeopleOfME />} />
                 {/* Books */}
+                <Route path="/publications"element={<Publications />} />
+                <Route path="/publications/book/:id" element={<PublicationInfo />} />
+                <Route path="/publications/podcast/:id" element={<PublicationInfo />} />
+
                 {/* Accommodation Pages */}
                 <Route path="/accommodation-and-student-services/visa" element={<Visa />} />
                 <Route path="/accommodation-and-student-services/trips" element={<Trips />} />

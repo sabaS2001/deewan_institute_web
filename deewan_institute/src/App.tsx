@@ -19,6 +19,7 @@ import Visa from './pages/accommodations/visa.tsx';
 import Trips from './pages/accommodations/trips.tsx';
 import Publications from './layout/booksLayout/publications.tsx';
 import PublicationInfo from './pages/books/publicationinfo.tsx';
+import CultureEvents from './pages/cultureEvents/cultureEvents.tsx';
 function App() {
     return (
         <Router>
@@ -52,6 +53,8 @@ function App() {
                 <Route path="/foreign-languages/french-course" element={<French />} />
                 {/* Calculator */}
                 <Route path="/calculator" element={<Calculator />} />
+                {/* Culture Events */}
+                <Route path="/cultureEvents" element={<CultureEvents />} />
             </Routes>
         </Router>
     );

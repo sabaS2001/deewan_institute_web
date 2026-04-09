@@ -1,0 +1,365 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+// Global helpers
+
+.page {
+  background-color: $cream;
+  min-height: 100vh;
+}
+
+// Banner
+
+.banner {
+  position: relative;
+  height: 64vh;
+  min-height: 340px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../assets/images/banner/culturalBG.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba($text-dark, 0.45) 0%,
+      rgba($brown, 0.35) 100%
+    );
+  }
+
+  .bannerContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-inline: 20px;
+  }
+
+  .bannerEyebrow {
+    font-family: "Merriweather-Light" !important;
+    font-style: italic;
+    font-size: clamp(13px, 2vw, 17px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba($white, 0.85);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: "Merriweather-Bold" !important;
+    font-size: clamp(26px, 5vw, 56px);
+    color: $white;
+    line-height: 1.25;
+    margin: 0;
+    text-shadow: 0 2px 20px rgba($black, 0.3);
+  }
+
+  .bannerRule {
+    width: 60px;
+    height: 3px;
+    background: $brown;
+    margin: 20px auto 0;
+    border-radius: 2px;
+  }
+}
+
+//  Intro / About
+
+.intro {
+  padding: 80px 6% 60px;
+  background: $warm-white;
+
+  .introText {
+    font-family: "Merriweather-Light" !important;
+    font-size: clamp(15px, 2vw, 19px);
+    line-height: 1.9;
+    color: $text-dark;
+    max-width: 520px;
+  }
+
+  .introImg {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 4px;
+    box-shadow: 8px 12px 40px rgba($brown, 0.18);
+    object-fit: cover;
+  }
+
+  .introLabel {
+    font-family: "Merriweather-Light" !important;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $brown;
+    margin-bottom: 14px;
+    display: block;
+  }
+}
+
+//  "Living Cultural Space" strip
+
+.livingSpace {
+  background: $red;
+  color: $white;
+  padding: 70px 6%;
+
+  .livingLabel {
+    font-family: "Merriweather-Light" !important;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba($white, 0.5);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  h2 {
+    font-family: "Merriweather-Bold" !important;
+    font-size: clamp(24px, 4vw, 42px);
+    color: $white;
+    line-height: 1.25;
+    margin-bottom: 0;
+  }
+
+  .livingText {
+    font-family: "Merriweather-Light" !important;
+    font-size: clamp(14px, 1.8vw, 17px);
+    line-height: 2;
+    color: rgba($white, 0.78);
+    max-width: 520px;
+  }
+
+  .livingImg {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 4px;
+    opacity: 0.9;
+    object-fit: cover;
+  }
+}
+
+// Section divider
+
+.divider {
+  width: 50%;
+  height: 2px;
+  border: none;
+  background: $brown-border;
+  margin: 0 auto;
+  opacity: 1;
+}
+
+//  Event sections (shared)
+
+.eventSection {
+  padding: 80px 6%;
+  background: $cream;
+  position: relative;
+  min-height: 85vh;
+
+  &.altBg {
+    background: $warm-white;
+  }
+}
+
+.eventIndex {
+  font-family: "Merriweather-Bold" !important;
+  font-size: clamp(64px, 10vw, 120px);
+  line-height: 1;
+  opacity: 0.07;
+  position: absolute;
+  top: 30px;
+  left: 5%;
+  pointer-events: none;
+  user-select: none;
+  
+}
+.eventIndexRight {
+  left: auto;
+  right: 5%;
+}
+
+.eventLabel {
+  font-family: "Merriweather-Light" !important;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.eventTitle {
+  font-family: "Merriweather-SemiBold" !important;
+  font-size: clamp(22px, 3.5vw, 36px);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.eventBody {
+  font-family: "Merriweather-Light" !important;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 2;
+  color: $text-muted;
+  margin-bottom: 20px;
+}
+
+.eventMeta {
+  background: rgba($brown, 0.07);
+  border-left: 3px solid $brown;
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+
+  p {
+    font-family: "Merriweather-Light" !important;
+    font-size: 14px;
+    line-height: 2;
+    color: $text-dark;
+    margin: 0;
+  }
+
+  strong {
+    font-family: "Merriweather-SemiBold" !important;
+    color: $text-dark;
+  }
+}
+
+.eventImg {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+  max-height: 560px;
+  box-shadow: 6px 10px 36px rgba($black, 0.12);
+  transition:
+    transform 0.6s ease,
+    box-shadow 0.6s ease;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 10px 18px 50px rgba($black, 0.18);
+  }
+}
+
+// Sign-up button
+
+.signUpBtn {
+  display: inline-block;
+  font-family: "Merriweather-Regular" !important;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 11px 34px;
+  border-radius: 4px;
+  text-decoration: none !important;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+  border: 2px solid currentColor;
+
+  &.red {
+    color: $red;
+    background: transparent;
+    &:hover {
+      background: $red;
+      color: $white !important;
+    }
+  }
+  &.navy {
+    color: $navy;
+    background: transparent;
+    &:hover {
+      background: $navy;
+      color: $white !important;
+    }
+  }
+  &.gold {
+    color: $gold;
+    background: transparent;
+    &:hover {
+      background: $gold;
+      color: $white !important;
+    }
+  }
+  &.teal {
+    color: $teal;
+    background: transparent;
+    &:hover {
+      background: $teal;
+      color: $white !important;
+    }
+  }
+  &.plum {
+    color: $plum;
+    background: transparent;
+    &:hover {
+      background: $plum;
+      color: $white !important;
+    }
+  }
+}
+
+//  Accent colour per event title
+
+.accentRed {
+  color: $red !important;
+}
+.accentNavy {
+  color: $navy !important;
+}
+.accentGold {
+  color: $gold !important;
+}
+.accentTeal {
+  color: $teal !important;
+}
+.accentPlum {
+  color: $plum !important;
+}
+
+// Mobile
+
+@media (max-width: 767px) {
+  .banner {
+    height: 50vh;
+    min-height: 280px;
+  }
+
+  .intro,
+  .livingSpace,
+  .eventSection {
+    padding: 50px 20px;
+  }
+
+  .intro .introText,
+  .livingSpace .livingText {
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .intro .introImg,
+  .livingSpace .livingImg {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .eventIndex {
+    font-size: 80px;
+    top: 0px;
+    left: 10px;
+  }
+
+  .divider {
+    width: 70%;
+  }
+}

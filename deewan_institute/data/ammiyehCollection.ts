@@ -21,7 +21,7 @@ export interface CollectionBook {
 export const ammiyehCollection: CollectionBook[] = [
     {
         id: "ammiyeh-beginner",
-        image: "../assets/images/books/ammiyeh/ammiyeh1.png",
+        image: "/assets/images/books/ammiyeh/ammiyeh1.png",
         imageAlt: "The Comprehensive Guide to Levantine Arabic – Beginner Level",
         title: "The Comprehensive Guide to Levantine Arabic",
         subtitle: "Beginner Level",
@@ -30,7 +30,7 @@ export const ammiyehCollection: CollectionBook[] = [
     },
     {
         id: "ammiyeh-practice-book",
-        image: "../assets/images/books/ammiyeh/ammiyeh2.png",
+        image: "/assets/images/books/ammiyeh/ammiyeh2.png",
         imageAlt: "The Comprehensive Guide to Levantine Arabic – Practice Book",
         title: "The Comprehensive Guide to Levantine Arabic",
         subtitle: "The Practice Book",
@@ -39,7 +39,7 @@ export const ammiyehCollection: CollectionBook[] = [
     },
     {
         id: "ammiyeh-intermediate",
-        image: "../assets/images/books/ammiyeh/ammiyeh3.png",
+        image: "/assets/images/books/ammiyeh/ammiyeh3.png",
         imageAlt: "The Comprehensive Guide to Levantine Arabic – Intermediate Level",
         title: "The Comprehensive Guide to Levantine Arabic",
         subtitle: "Intermediate Level",
@@ -48,7 +48,7 @@ export const ammiyehCollection: CollectionBook[] = [
     },
     {
         id: "ammiyeh-advanced",
-        image: "../assets/images/books/ammiyeh/ammiyeh4.png",
+        image: "/assets/images/books/ammiyeh/ammiyeh4.png",
         imageAlt: "The Comprehensive Guide to Levantine Arabic – Advanced Level",
         title: "The Comprehensive Guide to Levantine Arabic",
         subtitle: "Advanced Level",
@@ -57,7 +57,7 @@ export const ammiyehCollection: CollectionBook[] = [
     },
     {
         id: "ammiyeh-french",
-        image: "../assets/images/books/ammiyeh/ammiyeh5.png",
+        image: "/assets/images/books/ammiyeh/ammiyeh5.png",
         imageAlt: "Manuel Complet d'Arabe Levantin – Arabe Pour Les Non-Natifs",
         title: "Manuel Complet d'Arabe Levantin",
         subtitle: "Arabe Pour Les Non-Natifs",
@@ -66,7 +66,7 @@ export const ammiyehCollection: CollectionBook[] = [
     },
     {
         id: "ammiyeh-spanish",
-        image: "../assets/images/books/ammiyeh/ammiyeh6.png",
+        image: "/assets/images/books/ammiyeh/ammiyeh6.png",
         imageAlt: "La Guía Completa de Árabe Levantino",
         title: "La Guía Completa de Árabe Levantino",
         author: "Mohammad K. Ayaseh",

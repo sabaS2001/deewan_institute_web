@@ -31,7 +31,7 @@ export interface FushaBook {
 
 export const fushaBook: FushaBook = {
     id: "fusha-msa-guide",
-    image: "../assets/images/books/fusha/fusha1.png",
+    image: "/assets/images/books/fusha/fusha1.png",
     imageAlt: "The Comprehensive Guide to Modern Standard Arabic",
     collectionLabel: "Fusha Collection",
     title: "The Comprehensive Guide to Modern Standard Arabic",

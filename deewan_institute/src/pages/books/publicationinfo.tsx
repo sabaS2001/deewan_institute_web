@@ -228,11 +228,11 @@ function PublicationInfo() {
                             {book.type === 'book' ? (
                                 <>
                                     <a href={book.wishlistLink ?? '#'} target="_blank" className={styles.actionBtn} rel="noreferrer">
-                                        <img className="px-3" src="../assets/images/icons/heart.png" alt="wishlist icon" />
+                                        <img className="px-3" src="/assets/images/icons/heart.png" alt="wishlist icon" />
                                         Wishlist
                                     </a>
                                     <a href={book.cartLink ?? '#'} target="_blank" className={`${styles.actionBtn} ${styles.cartBtn}`} rel="noreferrer">
-                                        <img className="px-3" src="../assets/images/icons/cart.png" alt="cart icon" />
+                                        <img className="px-3" src="/assets/images/icons/cart.png" alt="cart icon" />
                                         Add To Cart
                                     </a>
                                 </>

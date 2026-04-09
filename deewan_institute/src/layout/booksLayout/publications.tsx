@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 
 declare const Swiper: any;
 
-
 function StarRating({ rating }: { rating: number }) {
   return (
     <div className={styles.stars} aria-label={`Rating: ${rating} out of 5`}>
@@ -30,10 +29,6 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-
-// Component
-
-
 function Publications() {
   const navigate = useNavigate();
   useScrollAnimation();
@@ -47,7 +42,7 @@ function Publications() {
 
     const mainSwiper = new Swiper(mainSwiperRef.current, {
       slidesPerView: 1,
-      spaceBetween: 10,
+      spaceBetween: 24,
       loop: true,
       autoplay: { delay: 3000, disableOnInteraction: true },
       speed: 1000,
@@ -55,9 +50,9 @@ function Publications() {
         nextEl: mainSwiperRef.current?.querySelector(".swiper-button-next"),
         prevEl: mainSwiperRef.current?.querySelector(".swiper-button-prev"),
       },
+      // Only go to 2 slides on large screens; 1 is fine for tablet & mobile
       breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 2 },
+        1200: { slidesPerView: 2 },
       },
     });
 
@@ -123,12 +118,10 @@ function Publications() {
           <div className="swiper-wrapper">
             {mainBooks.map((book) => (
               <div key={book.id} className="swiper-slide">
-                {/* Exact original structure: flex-row, image + info side by side */}
                 <div
-                  className={`d-flex flex-row align-items-center ${styles.bookBox}`}
+                  className={styles.bookBox}
                   id={book.id}
                   onClick={() => navigate(`/publications/book/${book.id}`)}
-                  style={{ cursor: "pointer" }}
                 >
                   <img
                     className={styles.bookImg}
@@ -136,9 +129,7 @@ function Publications() {
                     alt={book.imageAlt}
                   />
 
-                  <div
-                    className={`d-flex flex-column justify-content-center ${styles.bookInfo}`}
-                  >
+                  <div className={`d-flex flex-column ${styles.bookInfo}`}>
                     <h1>{book.title}</h1>
                     {book.subtitle && (
                       <span className={styles.subtitleBadge}>
@@ -170,7 +161,6 @@ function Publications() {
 
                     <div
                       className={`d-flex flex-row align-items-center ${styles.bookActions}`}
-                      id="buttons"
                     >
                       <a
                         href={book.viewMoreLink}
@@ -254,14 +244,14 @@ function Publications() {
         style={{ cursor: "pointer" }}
       >
         <div className="row justify-content-center">
-          <div className="col-md-5 d-flex flex-column align-items-end justify-content-center">
+          <div className="col-md-5 d-flex flex-column align-items-center align-items-md-end justify-content-center mb-4 mb-md-0">
             <img
-              className={`${styles.fushaImg} img-fluid mx-auto`}
+              className={`${styles.fushaImg} img-fluid`}
               src={fushaBook.image}
               alt={fushaBook.imageAlt}
             />
           </div>
-          <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">
+          <div className="col-md-4 d-flex flex-column align-items-start justify-content-center px-4 px-md-3">
             <h4 className="lh-base">{fushaBook.collectionLabel}</h4>
             <h1 className="lh-base">{fushaBook.title}</h1>
             {fushaBook.subtitle && (

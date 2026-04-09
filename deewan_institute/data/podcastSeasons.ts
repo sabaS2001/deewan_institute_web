@@ -25,7 +25,7 @@ export interface PodcastSeason {
 export const podcastSeasons: PodcastSeason[] = [
     {
         id: "podcast-season-1",
-        image: "../assets/images/books/podcasts/podcast1.png",
+        image: "/assets/images/books/podcasts/podcast1.png",
         imageAlt: "Guide to Deewan Arabic Podcast – Season 1",
         label: "Season 1",
         hosted: "Spotify / Apple Podcasts",
@@ -34,7 +34,7 @@ export const podcastSeasons: PodcastSeason[] = [
     },
     {
         id: "podcast-season-2",
-        image: "../assets/images/books/podcasts/podcast2.png",
+        image: "/assets/images/books/podcasts/podcast2.png",
         imageAlt: "Guide to Deewan Arabic Podcast – Season 2: Levantine Arabic",
         label: "Season 2",
         subtitle: "Levantine Arabic",
@@ -44,7 +44,7 @@ export const podcastSeasons: PodcastSeason[] = [
     },
     {
         id: "podcast-season-3",
-        image: "../assets/images/books/podcasts/podcast3.png",
+        image: "/assets/images/books/podcasts/podcast3.png",
         imageAlt: "Guide to Deewan Arabic Podcast – Season 3: Arabic for Non-Native Speakers",
         label: "Season 3",
         subtitle: "Arabic for Non-Native Speakers",
@@ -54,7 +54,7 @@ export const podcastSeasons: PodcastSeason[] = [
     },
     {
         id: "podcast-season-5",
-        image: "../assets/images/books/podcasts/podcast4.png",
+        image: "/assets/images/books/podcasts/podcast4.png",
         imageAlt: "Guide to Deewan Arabic Podcast – Season 5, Level A1–A2",
         label: "Season 5",
         subtitle: "Level A1–A2 | Arabic for Non-Native Speakers",

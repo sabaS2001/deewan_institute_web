@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef } from "react";
 import styles from "./publications.module.scss";
 import "../../style/animation.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
+import { useShop } from "../../context/ShopContext";
 import {
   mainBooks,
   ammiyehCollection,
@@ -33,6 +34,9 @@ function Publications() {
   const navigate = useNavigate();
   useScrollAnimation();
 
+  // --- SHOP CONTEXT HOOKS ---
+  const { toggleWishlist, isInWishlist, addToCart } = useShop();
+
   const mainSwiperRef = useRef<HTMLDivElement>(null);
   const ammiyehSwiperRef = useRef<HTMLDivElement>(null);
   const podcastSwiperRef = useRef<HTMLDivElement>(null);
@@ -50,7 +54,6 @@ function Publications() {
         nextEl: mainSwiperRef.current?.querySelector(".swiper-button-next"),
         prevEl: mainSwiperRef.current?.querySelector(".swiper-button-prev"),
       },
-      // Only go to 2 slides on large screens; 1 is fine for tablet & mobile
       breakpoints: {
         1200: { slidesPerView: 2 },
       },
@@ -94,6 +97,37 @@ function Publications() {
       podcastSwiper.destroy(true, true);
     };
   }, []);
+
+  // Helper to handle wishlist clicks
+  const handleWishlistClick = (e: React.MouseEvent, book: any) => {
+    e.stopPropagation(); 
+    toggleWishlist({
+      id: book.id,
+      title: book.title,
+      subtitle: book.subtitle,
+      image: book.image,
+      imageAlt: book.imageAlt,
+      type: book.type || "book",
+      cartLink: book.cartLink,
+      listenLink: book.listenLink,
+    });
+  };
+
+  // --- ADDED: Helper to handle cart clicks and fix TypeScript errors ---
+  const handleCartClick = (e: React.MouseEvent, book: any) => {
+    e.stopPropagation(); 
+    addToCart({
+      id: book.id,
+      title: book.title,
+      subtitle: book.subtitle,
+      image: book.image,
+      imageAlt: book.imageAlt,
+      type: book.type || "book",
+      cartLink: book.cartLink,
+      listenLink: book.listenLink,
+      price: book.price || 15, // providing a default price if it doesn't exist in data
+    });
+  };
 
   return (
     <Fragment>
@@ -170,20 +204,32 @@ function Publications() {
                       >
                         View More
                       </a>
-                      <a
-                        href={book.wishlistLink ?? "#"}
-                        target="_blank"
-                        className={`${styles.iconBtn} ${styles.heart}`}
-                        rel="noreferrer"
+
+                      <button
+                        onClick={(e) => handleWishlistClick(e, book)}
+                        className={`${styles.iconBtn} ${styles.heart} ${isInWishlist(book.id) ? styles.heartActive : ""}`}
                         aria-label="Add to wishlist"
-                      />
-                      <a
-                        href={book.cartLink ?? "#"}
-                        target="_blank"
+                        style={{ border: "none", cursor: "pointer" }}
+                      >
+                        <img
+                          src={
+                            isInWishlist(book.id)
+                              ? "/assets/images/icons/heart_brown.png"
+                              : "/assets/images/icons/heart.png"
+                          }
+                          alt="wishlist"
+                          style={{ width: "26px" }}
+                        />
+                      </button>
+
+                      {/* --- FIXED CART BUTTON --- */}
+                      <button
+                        onClick={(e) => handleCartClick(e, book)}
                         className={`${styles.iconBtn} ${styles.cart}`}
-                        rel="noreferrer"
-                        aria-label="Add to cart"
-                      />
+                        style={{ border: "none", cursor: "pointer" }}
+                      >
+                        <img src="/assets/images/icons/cart.png" alt="cart" />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -285,20 +331,32 @@ function Publications() {
               >
                 View More
               </a>
-              <a
-                href={fushaBook.wishlistLink ?? "#"}
-                target="_blank"
-                className={`${styles.fushaIconBtn} ${styles.heart}`}
-                rel="noreferrer"
+
+              <button
+                onClick={(e) => handleWishlistClick(e, fushaBook)}
+                className={`${styles.fushaIconBtn} ${styles.heart} ${isInWishlist(fushaBook.id) ? styles.heartActive : ""}`}
                 aria-label="Add to wishlist"
-              />
-              <a
-                href={fushaBook.cartLink ?? "#"}
-                target="_blank"
+                style={{ border: "none", cursor: "pointer" }}
+              >
+                <img
+                  src={
+                    isInWishlist(fushaBook.id)
+                      ? "/assets/images/icons/heart_brown.png"
+                      : "/assets/images/icons/heart.png"
+                  }
+                  alt="wishlist"
+                  style={{ width: "26px" }}
+                />
+              </button>
+
+              {/* --- FIXED CART BUTTON (Variable changed from book to fushaBook) --- */}
+              <button
+                onClick={(e) => handleCartClick(e, fushaBook)}
                 className={`${styles.fushaIconBtn} ${styles.cart}`}
-                rel="noreferrer"
-                aria-label="Add to cart"
-              />
+                style={{ border: "none", cursor: "pointer" }}
+              >
+                <img src="/assets/images/icons/cart.png" alt="cart" />
+              </button>
             </div>
           </div>
         </div>

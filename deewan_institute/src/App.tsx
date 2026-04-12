@@ -20,6 +20,7 @@ import Trips from './pages/accommodations/trips.tsx';
 import Publications from './layout/booksLayout/publications.tsx';
 import PublicationInfo from './pages/books/publicationinfo.tsx';
 import CultureEvents from './pages/cultureEvents/cultureEvents.tsx';
+import WishList from './context/wishlist.tsx';
 function App() {
     return (
         <Router>
@@ -55,6 +56,8 @@ function App() {
                 <Route path="/calculator" element={<Calculator />} />
                 {/* Culture Events */}
                 <Route path="/cultureEvents" element={<CultureEvents />} />
+                {/* WishList */}
+                <Route path="/wishlist" element={<WishList />} />
             </Routes>
         </Router>
     );

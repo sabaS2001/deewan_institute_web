@@ -1,0 +1,135 @@
+@use '../../style/variables.scss' as *;
+@use '../../style/fonts.scss' as *;
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+
+    .title {
+        text-align: center;
+        margin-block: 2%;
+        h2 {
+            color: #472211;
+            font-family: "Merriweather-Bold" !important;
+            font-size: clamp(36px, 6vw, 60px);
+            border-bottom: 2px solid #472211;
+            display: inline-block;
+        }
+    }
+
+    .bookCover {
+        width: 75%;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.40);
+        border-radius: 6px;
+    }
+
+    .verticalLine {
+        width: 19px;
+        height: 224px;
+        border-left: 2.5px solid #472211;
+        margin: 0 15px;
+    }
+
+    .bookTitle {
+        font-family: "Merriweather-Bold" !important;
+        color: #472211;
+        text-align: center;
+        margin: 0;
+    }
+
+    .counter {
+        .qtyBtn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            img { width: 20px; }
+        }
+        .quantity {
+            font-family: "Merriweather-Regular" !important;
+            color: #472211;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+    }
+
+    .price {
+        font-family: "Merriweather-Bold" !important;
+        color: #472211;
+        font-size: 22px;
+        margin: 0;
+    }
+
+    .removeBtn {
+        background: none;
+        border: none;
+        color: #999;
+        margin-left: 15px;
+        cursor: pointer;
+        &:hover { color: red; }
+    }
+
+    .divider {
+        margin-block: 2%;
+        opacity: 0.5;
+        color: #472211 !important;
+        height: 2px !important;
+        width: 60% !important;
+    }
+
+    .cartTotal {
+        width: 60%;
+        margin-inline: auto;
+        .totalInfo {
+            width: 300px;
+            .leadText {
+                font-family: "Merriweather-SemiBold" !important;
+                color: #472211;
+                font-size: 22px;
+                margin: 0;
+            }
+            .bold {
+                font-family: "Merriweather-Bold" !important;
+                color: black;
+                font-size: 22px;
+            }
+        }
+    }
+
+    .checkoutBtn {
+        font-family: "Merriweather-SemiBold" !important;
+        font-size: 19px;
+        width: 100%;
+        background-color: #FFA200;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 0;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+            background-color: white;
+            border: #FFA200 2px solid;
+            color: #FFA200;
+        }
+    }
+
+    .emptyState {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 40vh;
+        color: #999;
+        .browseBtn {
+            background-color: $primary-color;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    }
+}

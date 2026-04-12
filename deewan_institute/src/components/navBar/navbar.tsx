@@ -1,8 +1,10 @@
 import 'bootstrap';
 import styles from '../navBar/navbar.module.scss';
 import { NavLink } from 'react-router-dom';
+import {useShop} from '../../context/ShopContext';
 
 function NavBar() {
+    const { wishlistCount } = useShop();
     return (
         <nav className="navbar navbar-expand-md bg-transparent align-items-center" id={styles.navBar}>
             <div className="container-fluid">
@@ -42,7 +44,30 @@ function NavBar() {
                     </div>
                 </div>
             </div>
+            <NavLink className="mx-2 position-relative" to="/wishlist">
+                <img id="wishlistIcon" src="/assets/images/icons/heart_brown.png" alt="User Wishlist" />
+                {wishlistCount > 0 && (
+                    <span style={{
+                        position: 'absolute',
+                        top: '-6px',
+                        right: '-6px',
+                        background: '#472211', // Your primary brown color
+                        color: 'white',
+                        borderRadius: '50%',
+                        width: '18px',
+                        height: '18px',
+                        fontSize: '11px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontFamily: 'Merriweather-Regular',
+                    }}>
+                        {wishlistCount}
+                    </span>
+                )}
+            </NavLink>
         </nav>
+        
     )
 }
 

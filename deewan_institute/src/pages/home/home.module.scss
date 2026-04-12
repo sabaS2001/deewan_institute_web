@@ -50,7 +50,7 @@ main {
                 line-height: 150%;
             }
 
-            a {
+            #a {
                 border: $dark_brown 1px solid;
                 background-color: $dark_brown;
                 color: $white;
@@ -59,7 +59,7 @@ main {
                 padding-block: 1%;
             }
 
-            a:hover {
+            #a:hover {
                 background-color: $white;
                 color: $dark_brown;
                 font-family: "Merriweather-Light" !important;
@@ -136,27 +136,21 @@ main {
 }
 
 
-.hero-overlay {
-    img {
-        width: 30%;
-    }
-}
-
 #aboutUs {
     margin-top: 4%;
 
-    .featurette-heading {
+    .featuretteHeading {
         font-size: 45px;
         color: $primary_color;
         font-family: "Merriweather-Regular";
     }
 
-    .lead {
+    #para {
         font-family: "Merriweather-Light";
         font-weight: lighter;
     }
 
-    .button {
+    #button {
         display: flex;
         width: inherit;
         border: $primary_color 2px solid;
@@ -170,7 +164,7 @@ main {
         justify-content: center;
     }
 
-    .button:hover {
+    #button:hover {
         border: $primary_color 2px solid;
         color: $primary_color;
         background-color: $white;
@@ -205,18 +199,18 @@ main {
         width: 440px;
         height: 640px;
 
-        h2 {
-            line-height: 130%;
-            font-size: 25px;
-            color: $primary_color;
-            margin-inline: 10%;
+        // h2 {
+        //     line-height: 130%;
+        //     font-size: 25px;
+        //     color: $primary_color;
+        //     margin-inline: 10%;
 
-            .text-indent {
-                text-indent: 20px;
-            }
-        }
+        //     .text-indent {
+        //         text-indent: 20px;
+        //     }
+        // }
 
-        img {
+        #image {
             width: 100%;
             height: 100%;
             border-radius: 20px;
@@ -268,7 +262,7 @@ main {
     opacity: 0;
     /* Hidden by default */
 
-    img {
+    #image {
         position: absolute;
         top: 0;
         left: 0;
@@ -297,7 +291,7 @@ main {
         /* Remove default margins */
     }
 
-    .btn {
+    #btn {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -313,12 +307,12 @@ main {
         /* Fixed width for consistency */
     }
 
-    .btn:first-of-type {
+    #btn:first-of-type {
         top: 60%;
         /* Position first button */
     }
 
-    .btn:last-of-type {
+    #btn:last-of-type {
         top: 70%;
         /* Position second button below the first */
     }
@@ -338,136 +332,6 @@ main {
     /* Back appears */
 }
 
-#foreign {
-    padding-inline: 10%;
-    margin-top: 4%;
-
-    .title {
-        margin-top: 5%;
-        width: max-content;
-        border-bottom: $primary_color 2px solid;
-
-        h1 {
-            color: $primary_color;
-            font-family: "Merriweather-Regular" !important;
-        }
-    }
-
-    p {
-        margin-top: 2%;
-        font-family: "Merriweather-Light" !important;
-        font-weight: lighter;
-        font-size: large;
-        margin: auto 0;
-    }
-
-    .heading {
-        font-family: "Merriweather-Regular" !important;
-        font-weight: 500;
-    }
-
-    #foreignGroup {
-        margin-top: 5%;
-    }
-
-    .button {
-        text-decoration: none;
-        display: flex;
-        width: auto;
-        border: $primary_color 2px solid;
-        border-radius: 20px;
-        padding-inline: 6%;
-        padding-block: 2%;
-        color: $primary_color;
-        font-family: "Merriweather-Regular" !important;
-        background-color: $white;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .button:hover {
-        background-color: $primary_color;
-        color: $white;
-    }
-}
-
-.testimonials {
-    padding-top: 4%;
-    padding-inline: 10%;
-    margin-top: 4%;
-
-    .title {
-        margin-top: 3%;
-        width: max-content;
-        border-bottom: $primary_color 2px solid;
-
-        h1 {
-            color: $primary_color;
-            font-family: "Merriweather-Regular" !important;
-        }
-    }
-
-    p {
-        margin-top: 2%;
-        font-family: "Merriweather-Light" !important;
-        font-weight: lighter;
-        font-size: large;
-        margin: auto 5%;
-    }
-
-    .swiper {
-        width: 100%;
-        height: 400px; // Adjust height as needed
-    }
-
-    .testimonial-card {
-        width: 123%;
-        height: 85%;
-        background: $white;
-        border: 1px solid $primary_color;
-        border-radius: 20px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-
-        &:hover {
-            transform: translateY(-5px); // Subtle lift on hover
-        }
-
-        .testimonial-img {
-            // width: 80px;
-            // height: 80px;
-            // border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-quote {
-            font-family: "Merriweather-Light" !important;
-            font-size: 16px;
-            color: $black;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-name {
-            font-family: "Merriweather-Regular" !important;
-            font-size: 18px;
-            color: $primary_color;
-            margin-bottom: 5px;
-        }
-    }
-
-    // Swiper navigation/pagination styling
-    .swiper-button-next,
-    .swiper-button-prev {
-        color: $primary_color; // Match your theme
-    }
-
-    .swiper-pagination-bullet-active {
-        background-color: $primary_color;
-    }
-}
 
 .contact {
     background-image: url("../assets/images/background/contactBG2.svg");

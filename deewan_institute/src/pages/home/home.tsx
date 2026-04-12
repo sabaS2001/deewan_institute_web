@@ -5,15 +5,14 @@ import Footer from "../../components/footer/footer";
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import '../../style/animation.scss';
 import style from "./home.module.scss";
-
 import 'bootstrap';
+import { Link } from "react-router";
 
 function Home() {
 
    useEffect(() => {
       document.title = 'Deewan Institute | Home';
    }, []);
-
 
    useScrollAnimation();
 
@@ -32,8 +31,6 @@ function Home() {
 
             {/* <!-- The slideshow/carousel --> */}
             <div className="carousel-inner">
-
-
                {/* <!-- First Slide --> */}
                <div className="carousel-item active" id={style.carouselItem1}>
                   <div className="container-fluid d-flex align-items-end h-100">
@@ -48,24 +45,24 @@ function Home() {
                                  Experience the authentic rhythm of Arabic language and culture through immersive lessons with native
                                  speakers in the vibrant heart of Amman.
                               </p>
-                              <a className="btn rounded-pill text-center" href="../pages/about.html">Learn More</a>
+                              <Link className="btn rounded-pill text-center" id={style.a} to="/about">Learn More</Link>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
                {/* <!-- Second Slide --> */}
-               <div className="carousel-item" id="carouselItem2">
+               <div className="carousel-item" id={style.carouselItem2}>
                   <div className="container-fluid d-flex align-items-end h-100">
                      <div className="row w-100">
                         <div
                            className="col-md-6 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right">
                            {/* <!-- Right column --> */}
-                           <div className="d-flex flex-column" id="secondContainer">
+                           <div className="d-flex flex-column" id={style.secondContainer}>
                               <div className="text-start">
-                                 <h2 className="text-white">Level Up Your Arabic</h2>
-                                 <h2 className="text-white">With Our</h2>
-                                 <h1>Publications</h1>
+                                 <h2 className={`text-white ${style.h2}`}>Level Up Your Arabic</h2>
+                                 <h2 className={`text-white ${style.h2}`}>With Our</h2>
+                                 <h1 className={style.h1}>Publications</h1>
                                  <span>Available in: </span>
                                  <ul>
                                     <li>English Level: 1, 2, 3 </li>
@@ -95,11 +92,11 @@ function Home() {
          </div>
 
          {/* <!-- About Us --> */}
-         <section className="mt-5 pt-5" id="aboutUs">
+         <section className="mt-5 pt-5" id={style.aboutUs}>
             <div className="row featurette align-items-center justify-content-center mx-auto">
                <div className="col-md-4 order-md-2 pr-2 d-flex flex-column gap-2">
-                  <h2 className="featurette-heading scroll-section slide-in-left">About Us</h2>
-                  <p className="lead scroll-section slide-in-left">Deewan Institute, inspired by the Arabic word "Deewan"—a
+                  <h2 className={`${style.featuretteHeading} scroll-section slide-in-left`}>About Us</h2>
+                  <p className="lead scroll-section slide-in-left" id={style.para}>Deewan Institute, inspired by the Arabic word "Deewan"—a
                      gathering place for families, royal
                      courts, poetry like Mahmoud Darwish's, thinkers, and travelers—opened in Amman in 2017 to teach global
                      students. Today, it's a vibrant language center, co-working space, and event hub for freelancers and
@@ -108,8 +105,8 @@ function Home() {
                      Arabic (Ammiyeh and FusHa) and English with native-speaker classes—one-to-one, two-to-one, or groups—and
                      join
                      our community by checking out our courses!</p>
-                  <a className="button rounded-pill text-decoration-none scroll-section slide-in-left"
-                     href="../pages/arabicCourses.html">Explore Our Courses</a>
+                  <Link className="button rounded-pill text-decoration-none scroll-section slide-in-left"
+                     id={style.button} to="/arabic-courses">Explore Our Courses</Link>
                </div>
                <div className="col-md-5 order-md-1 d-flex">
                   <img className="featurette-image img-fluid mx-auto scroll-section slide-in-right"
@@ -119,8 +116,8 @@ function Home() {
          </section>
 
          {/* <!-- Courses Section --> */}
-         <section className="scroll-section" id="courses">
-            <div className="title mx-auto px-5 scroll-section slide-in-left">
+         <section className="scroll-section" id={style.courses}>
+            <div className={`${style.title} mx-auto px-5 scroll-section slide-in-left`}>
                <h1>Arabic Programs</h1>
             </div>
             <div className="mx-auto text-center my-5 scroll-section">
@@ -130,49 +127,49 @@ function Home() {
             </div>
             <div className="d-flex flex-row flex-wrap gap-4 justify-content-center scroll-section slide-in-right">
                {/* <!-- First Course --> */}
-               <div className="courseItem mx-1 col-12 col-md-6 col-lg-4">
-                  <div className="front">
-                     <img src={"../assets/images/background/levantine.svg"} />
+               <div className={`${style.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                  <div className={style.front}>
+                     <img id={style.image} src={"../assets/images/background/levantine.svg"} />
                      <span>Colloquial Levantine Arabic</span>
                   </div>
-                  <div className="back d-flex flex-column justify-content-center">
-                     <img src="../assets/images/background/levantine.svg" />
-                     <p className="my-3" id="para">Colloquial Levantine Arabic</p>
-                     <a className="btn rounded-pill text-decoration-none text-center text-white"
-                        href="../pages/arabicCourses.html">View Course</a>
-                     <a className="btn rounded-pill text-decoration-none text-center text-white"
+                  <div className={`${style.back} d-flex flex-column justify-content-center`}>
+                     <img id={style.image} src={"../assets/images/background/levantine.svg"} />
+                     <p className="my-3" id={style.para}>Colloquial Levantine Arabic</p>
+                     <Link id={style.btn} className="btn rounded-pill text-decoration-none text-center text-white"
+                        to="/arabic-courses">View Course</Link>
+                     <a id={style.btn} className="btn rounded-pill text-decoration-none text-center text-white"
                         href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
                         target="_blank">Join Us!</a>
                   </div>
                </div>
                {/* <!-- Second Course --> */}
-               <div className="courseItem mx-1 col-12 col-md-6 col-lg-4">
-                  <div className="front">
-                     <img src="../assets/images/background/modern.svg" />
+               <div className={`${style.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                  <div className={style.front}>
+                     <img id={style.image} src={"../assets/images/background/modern.svg"} />
                      <span>Modern Standard Arabic (MSA)</span>
                   </div>
-                  <div className="back d-flex flex-column justify-content-center">
-                     <img src="../assets/images/background/modern.svg" />
-                     <p className="my-3" id="para">Modern Standard Arabic (MSA)</p>
-                     <a className="btn rounded-pill text-decoration-none text-center text-white"
-                        href="../pages/arabicCourses.html">View Course</a>
-                     <a className="btn rounded-pill text-decoration-none text-center text-white"
+                  <div className={`${style.back} d-flex flex-column justify-content-center`}>
+                     <img id={style.image} src={"../assets/images/background/modern.svg"} />
+                     <p className="my-3" id={style.para}>Modern Standard Arabic (MSA)</p>
+                     <Link id={style.btn} className="btn rounded-pill text-decoration-none text-center text-white"
+                        to="/arabic-courses">View Course</Link>
+                     <a id={style.btn} className="btn rounded-pill text-decoration-none text-center text-white"
                         href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
                         target="_blank">Join Us!</a>
                   </div>
                </div>
                {/* <!-- Third Course  --> */}
-               <div className="courseItem mx-1 col-12 col-md-6 col-lg-4">
-                  <div className="front">
-                     <img src="../assets/images/background/hopOnHopOff.svg" />
+               <div className={`${style.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                  <div className={style.front}>
+                     <img id={style.image} src={"../assets/images/background/hopOnHopOff.svg"} />
                      <span>Hop On Hop Off Arabic</span>
                   </div>
-                  <div className="back d-flex flex-column justify-content-center">
-                     <img src="../assets/images/background/hopOnHopOff.svg" />
-                     <p className="my-3" id="para">Hop On Hop Off Arabic</p>
-                     <a className="btn rounded-pill text-decoration-none text-center text-white"
-                        href="../pages/arabicCourses.html">View Course</a>
-                     <a className="btn rounded-pill text-decoration-none text-center text-white"
+                  <div className={`${style.back} d-flex flex-column justify-content-center`}>
+                     <img id={style.image} src={"../assets/images/background/hopOnHopOff.svg"} />
+                     <p className="my-3" id={style.para}>Hop On Hop Off Arabic</p>
+                     <Link id={style.btn} className="btn rounded-pill text-decoration-none text-center text-white"
+                        to="/arabic-courses">View Course</Link>
+                     <a id={style.btn} className="btn rounded-pill text-decoration-none text-center text-white"
                         href="https://docs.google.com/forms/d/e/1FAIpQLScKQTLvV48wnnLa-MG4VYBXHLXQS-5aP7IrO-8_InTxnRqGIQ/viewform"
                         target="_blank">Join Us!</a>
                   </div>
@@ -181,42 +178,7 @@ function Home() {
          </section>
 
          {/* <!-- Foreign Section --> */}
-         {/* <section id="foreign">
-            <div className="title mx-auto my-1  px-5 scroll-section slide-in-left">
-               <h1>Other Languages We Offer</h1>
-            </div>
-            <div className="mx-auto text-center my-5 scroll-section">
-               <p>At Deewan Institute, we proudly offer immersive courses in multiple languages, including English, French,
-                  Spanish and German, all led by native speakers in vibrant Amman. Discover how our flexible classNamees make
-                  multilingual mastery accessible and culturally engaging for learners worldwide.</p>
-            </div>
-            <div className="d-flex flex-row gap-5 justify-content-center scroll-section" id="foreignGroup">
-               <div className="d-flex flex-column gap-4 align-items-center">
-                  <img className="rounded-circle" src="../assets/images/others/english.png" alt="Generic placeholder image"
-                     width="300" height="300" />
-                  <h4 className="heading">English</h4>
-                  <a className="button" href="../pages/englishCourse.html" target="_blank" role="button">View Courses</a>
-               </div>
-               <div className="d-flex flex-column gap-4 align-items-center">
-                  <img className="rounded-circle" src="../assets/images/others/french.png" alt="Generic placeholder image"
-                     width="300" height="300" />
-                  <h4 className="heading">French</h4>
-                  <a className="button" href="../pages/frenchCourse.html" target="_blank" role="button">View Courses</a>
-               </div>
-               <div className="d-flex flex-column gap-4 align-items-center">
-                  <img className="rounded-circle" src="../assets/images/others/spanish.png" alt="Generic placeholder image"
-                     width="300" height="300" />
-                  <h4 className="heading">Spanish</h4>
-                  <a className="button" href="../pages/spanishCourse.html" target="_blank" role="button">View Courses</a>
-               </div>
-               <div className="d-flex flex-column gap-4 align-items-center">
-                  <img className="rounded-circle" src="../assets/images/others/germany.png" alt="Generic placeholder image"
-                     width="300" height="300" />
-                  <h4 className="heading">German</h4>
-                  <a className="button" href="../pages/germanCourse.html" target="_blank" role="button">View Courses</a>
-               </div>
-            </div>
-         </section> */}
+
 
          {/* <!-- Testimonials Section --> */}
          <Testimonials />

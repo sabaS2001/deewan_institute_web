@@ -42,7 +42,7 @@ function About() {
                             <h5 className="featurette-heading mb-2">Who Are We?</h5>
                             <h1 className="featurette-heading my-3">Deewan Institute for Languages & Cultural Studies</h1>
                             <p className="lead">At Deewan Institute, we believe that language is the bridge to understanding cultures
-                                and connecting people across borders. Our immersive approach goes beyond traditional classNamerooms,
+                                and connecting people across borders. Our immersive approach goes beyond traditional classrooms,
                                 integrating real-life scenarios into every lesson to help students not only master Arabic but also
                                 gain confidence in practical communication. Whether you're a beginner exploring the nuances of FusHa
                                 or an advanced learner refining conversational skills in Ammiyeh, our expert instructors tailor

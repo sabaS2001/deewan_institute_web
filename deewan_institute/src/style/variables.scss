@@ -1,12 +1,36 @@
-$primary-color: #8f6e43;
-$primary-color-dark: #472211;
+// ─── Brand primaries ─────────────────────────────────────────────────────
+
+$primary-color:       #8f6e43;
+$primary-color-dark:  #472211;
 $primary-color-light: #8f6e4380;
 
 $dark_brown: #775222;
 
-$navy_blue: #042362;
+// ─── Neutral palette ─────────────────────────────────────────────────────
+
+$cream:        #faf7f2;
+$warm-white:   #fff9f4;
+
+// Aliases of $primary-color for cleaner usage in new modules
+$brown:        $primary-color;
+$brown-light:  rgba(143, 110, 67, 0.15);   // = $primary-color-light at 15%
+$brown-border: rgba(143, 110, 67, 0.3);    // = $primary-color-light at 30%
+
+$text-dark:  #1c1410;
+$text-muted: #7a6a58;
 
 $white: #ffffff;
 $black: #000000;
 
-$red: #ff0000;
+// ─── Accent palette ───────────────────────────────────────────────────────
+
+// $red was #ff0000 — replaced with the richer event red used throughout
+$red:  #a71212;
+
+// $navy_blue kept for back-compat; $navy is the shorthand alias
+$navy_blue: #042362;
+$navy:      $navy_blue;
+
+$gold: #b8860b;
+$teal: #1a6b5a;
+$plum: #6b2d5e;

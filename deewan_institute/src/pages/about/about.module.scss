@@ -1,0 +1,274 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+* {
+  font-family: "Merriweather-Regular";
+}
+
+.aboutpage {
+  body {
+    margin: 0% !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../assets/images/background/aboutBG.svg");
+  }
+
+  .banner {
+    height: 50vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../assets/images/banner/aboutBanner.svg");
+
+    .para {
+      font-family: "Merriweather-Light" !important;
+      font-weight: 400;
+      line-height: 150%;
+      /* 30px */
+    }
+  }
+
+  .about {
+    h5 {
+      font-family: "Merriweather-Regular" !important;
+      color: #8f6e43;
+    }
+
+    h1 {
+      font-family: "Merriweather-SemiBold" !important;
+      line-height: 65px;
+      color: #8f6e43;
+    }
+
+    .para {
+      font-family: "Merriweather-Light" !important;
+      line-height: 35px;
+    }
+  }
+
+  .partnerships {
+    padding-inline: 13%;
+    padding-bottom: 2%;
+    background-color: #8f6e43;
+
+    .title {
+      width: max-content;
+
+      span {
+        font-size: 45px;
+        color: white;
+      }
+    }
+
+    .para {
+      font-size: 22px !important;
+      color: white;
+      font-family: "Merriweather-Light" !important;
+      line-height: 30px;
+    }
+
+    .featuretteDivider {
+      opacity: 1;
+      color: white !important;
+      height: 3px !important;
+      width: 145% !important;
+    }
+  }
+
+  .values {
+    padding-inline: 13%;
+
+    .title {
+      width: max-content;
+
+      span {
+        font-family: "Merriweather-SemiBold";
+        font-size: 45px;
+        color: #8f6e43;
+      }
+    }
+
+    .heading {
+      font-family: "Merriweather-Light" !important;
+    }
+  }
+
+  .team {
+    padding-inline: 13%;
+
+    .title {
+      width: max-content;
+
+      span {
+        font-family: "Merriweather-SemiBold";
+        font-size: 45px;
+        color: #8f6e43;
+      }
+    }
+  }
+
+  .approach {
+    padding-block: 4%;
+    background-color: #8f6e43;
+
+    h1 {
+      font-family: "Merriweather-SemiBold" !important;
+      line-height: 50px;
+    }
+
+    p {
+      font-family: "Merriweather-Light" !important;
+      line-height: 35px;
+    }
+
+    p,
+    h1 {
+      color: white;
+    }
+  }
+}
+
+// ------------------------------------------ Media Query -------------------------------------------
+
+// Mobiles
+@media (max-width: 767.98px) {
+  .aboutpage {
+    body {
+      margin: 0% !important;
+      overflow-x: hidden !important;
+    }
+
+    // Banner
+    .banner {
+      height: 30vh;
+      background-size: cover;
+
+      .para {
+        display: none;
+      }
+    }
+
+    // About
+    .about {
+      padding-inline: 8% !important;
+
+      h5 {
+        margin-bottom: -2% !important;
+        font-size: large;
+        display: block !important;
+      }
+
+      h1 {
+        font-size: xx-large;
+        line-height: 40px;
+      }
+
+      .para {
+        line-height: 24px;
+        font-size: medium;
+      }
+
+      #images {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        align-items: center;
+      }
+    }
+
+    .partnerships {
+      padding-inline: 13%;
+      padding-bottom: 2%;
+
+      .title {
+        text-align: start !important;
+        span {
+          
+          font-size: 40px;
+        }
+      }
+
+      .para {
+        text-align: start !important;
+        font-size: medium !important;
+        line-height: 24px;
+        margin-block: 0% !important;
+      }
+
+      .featuretteDivider {
+        width: 100% !important;
+      }
+    }
+
+    // Values
+    .values {
+      padding-block: 0% !important;
+
+      .title {
+        border-bottom: #8f6e43 2px solid;
+
+        span {
+          font-size: 40px;
+        }
+      }
+
+      #row {
+        padding-block: 0% !important;
+        img {
+          width: 55%;
+        }
+
+        .heading {
+          font-size: larger !important;
+        }
+
+        #value {
+          padding-bottom: 12% !important;
+        }
+      }
+    }
+
+    // Team
+    .team {
+      margin: auto 0;
+
+      .title {
+        border-bottom: #8f6e43 2px solid;
+
+        span {
+          font-size: 40px;
+        }
+      }
+    }
+
+    // Approach
+    .approach {
+      padding-block: 0%;
+      background-color: #8f6e43;
+      margin-bottom: 0% !important;
+
+      img {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 auto;
+      }
+
+      h1 {
+        padding-inline: 8% !important;
+        font-family: "Merriweather-SemiBold" !important;
+        font-size: xx-large;
+        line-height: 50px;
+      }
+
+      p {
+        padding-inline: 8% !important;
+        line-height: 24px;
+        font-size: medium;
+      }
+
+      p,
+      h1 {
+        color: white;
+      }
+    }
+  }
+}

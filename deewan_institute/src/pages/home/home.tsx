@@ -1,12 +1,14 @@
 import { useEffect, Fragment } from "react";
+import { Link } from "react-router";
 import HomeNavBar from "../../components/homeNavBar/homeNavbar";
 import Testimonials from "../../components/testimonials/testimonials";
 import Footer from "../../components/footer/footer";
+import ForeignCircles from "../../components/foreignCircles/foreignCircles"
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import '../../style/animation.scss';
 import style from "./home.module.scss";
 import 'bootstrap';
-import { Link } from "react-router";
+
 
 function Home() {
 
@@ -178,13 +180,13 @@ function Home() {
          </section>
 
          {/* <!-- Foreign Section --> */}
-
+         <ForeignCircles/>
 
          {/* <!-- Testimonials Section --> */}
          <Testimonials />
 
          {/* <!-- Contact Us Section --> */}
-         <section className="scroll-section contact py-3">
+         <section className={`scroll-section py-3 ${style.contact}`}>
             <div className="row mx-5 justify-content-center">
                <div className="col-8 d-flex flex-column flex-end">
                   <h1>Join Us Today and Start Your Language Journey!</h1>

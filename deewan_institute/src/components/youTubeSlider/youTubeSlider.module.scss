@@ -1,0 +1,55 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+.testimonials {
+  padding-inline: 13%;
+  margin-bottom: 2%; 
+  .title {
+    width: max-content;
+
+    span {
+      font-family: "Merriweather-SemiBold";
+      font-size: 45px;
+      color: #8f6e43;
+    }
+  }
+
+  #para {
+    font-size: 20px !important;
+    color: black;
+    font-family: "Merriweather-Light" !important;
+    line-height: 30px;
+  }
+
+  .carousel::-webkit-scrollbar-thumb {
+    display: flex;
+    flex-direction: row;
+    background: #ccc;
+    border-radius: 4px;
+  }
+
+  .video_option {
+    flex-shrink: 0;
+    width: 120px;
+    height: 90px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .video_option:hover {
+    border-color: #ff0000;
+  }
+
+  .video_option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video_option.active {
+    border-color: #ff0000;
+  }
+}

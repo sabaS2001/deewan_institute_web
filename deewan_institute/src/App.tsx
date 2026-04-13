@@ -43,7 +43,6 @@ function App() {
                 <Route path="/publications"element={<Publications />} />
                 <Route path="/publications/book/:id" element={<PublicationInfo />} />
                 <Route path="/publications/podcast/:id" element={<PublicationInfo />} />
-
                 {/* Accommodation Pages */}
                 <Route path="/accommodation-and-student-services/visa" element={<Visa />} />
                 <Route path="/accommodation-and-student-services/trips" element={<Trips />} />

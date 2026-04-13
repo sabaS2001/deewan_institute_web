@@ -8,6 +8,7 @@ import Footer from '../components/footer/footer';
 function Cart() {
     const { cart, updateQuantity, removeFromCart, totalPrice } = useShop();
     const navigate = useNavigate();
+    const DELEVERY_FEE = 3;
 
     return (
         <Fragment>
@@ -16,6 +17,7 @@ function Cart() {
                 <div className={styles.title}>
                     <h2>Your Cart</h2>
                 </div>
+                
 
                 {cart.length === 0 ? (
                     <div className={styles.emptyState}>
@@ -26,11 +28,13 @@ function Cart() {
                     </div>
                 ) : (
                     <>
+                    
                         {cart.map((item) => (
                             <div key={item.id} className="row justify-content-center align-items-center py-4">
                                 <div className="col-md-3 d-flex justify-content-center align-items-center">
                                     <img src={item.image} alt={item.imageAlt} className={styles.bookCover} />
                                 </div>
+                                
 
                                 <div className={styles.verticalLine}></div>
 
@@ -47,6 +51,7 @@ function Cart() {
                                         </button>
                                     </div>
                                 </div>
+                                
 
                                 <div className={styles.verticalLine}></div>
 
@@ -54,10 +59,12 @@ function Cart() {
                                     <p className={styles.price}>{item.price} JD</p>
                                     <button className={styles.removeBtn} onClick={() => removeFromCart(item.id)}>✕</button>
                                 </div>
+                                                        <hr className={styles.divider} />
+
                             </div>
                         ))}
 
-                        <hr className={styles.divider} />
+                        {/* <hr className={styles.divider} /> */}
 
                         <div className={`d-flex mx-auto flex-column align-items-end ${styles.cartTotal}`}>
                             <div className={styles.totalInfo}>
@@ -67,14 +74,19 @@ function Cart() {
                                 </div>
                                 <div className="d-flex flex-row justify-content-between w-100">
                                     <span className={styles.bold}>Delivery:</span>
-                                    <p className={styles.leadText}>Free</p>
+                                    <p className={styles.leadText}>{DELEVERY_FEE} JD</p>
                                 </div>
                                 <hr className={styles.divider} />
                                 <div className="d-flex flex-row justify-content-between w-100">
                                     <span className={styles.bold}>Total Cost:</span>
-                                    <p className={styles.leadText}>{totalPrice} JD</p>
+                                    <p className={styles.leadText}>{totalPrice + DELEVERY_FEE} JD</p>
                                 </div>
-                                <button className={styles.checkoutBtn}>Checkout</button>
+                                <button 
+                                className={styles.checkoutBtn} 
+                                onClick={() => navigate('/checkout')}
+                            >
+                                Checkout
+                            </button>
                             </div>
                         </div>
                     </>

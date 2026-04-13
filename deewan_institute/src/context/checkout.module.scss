@@ -1,0 +1,249 @@
+@use '../style/fonts.scss' as *;
+@use '../style/variables.scss' as *;
+
+// ── Page Title ───────────────────────────────────────────────────────────────
+.pageTitle {
+  padding: 2rem 0 1rem;
+
+  h1 {
+    font-family: "Merriweather-Bold";
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    color: $primary-color-dark;
+  }
+}
+
+.titleDivider {
+  width: 440px;
+  max-width: 90%;
+  margin: 0.5rem auto 0;
+  border: 2px solid $primary-color-dark;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+// ── Grid wrapper ─────────────────────────────────────────────────────────────
+.checkoutGrid {
+  padding: 2rem 0 4rem;
+}
+
+// ── Shared card ──────────────────────────────────────────────────────────────
+.card {
+  background: $white;
+  border: 1px solid $brown-border;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 1.5rem 1.75rem;
+}
+
+.cardTitle {
+  font-family: "Merriweather-Bold";
+  font-size: 1.875rem;
+  letter-spacing: -0.02em;
+  color: $primary-color-dark;
+  margin: 0;
+}
+
+.cardTitleSm {
+  font-size: 1.5625rem;
+}
+
+.cardDivider {
+  width: 60%;
+  border: 1px solid $primary-color-dark;
+  margin: 0.6rem 0 0;
+}
+
+.cardHint {
+  font-family: "Merriweather-Regular";
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: $text-dark;
+  margin-top: 0.75rem;
+}
+
+// ── Sign In button ────────────────────────────────────────────────────────────
+.signInBtn {
+  font-family: "Merriweather-Regular";
+  font-size: 1.0625rem;
+  color: $text-dark;
+  background: $white;
+  border: 1px solid $brown-border;
+  border-radius: 10px;
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: $primary-color-dark;
+    color: $white;
+  }
+}
+
+// ── Form fields ──────────────────────────────────────────────────────────────
+.fieldLabel {
+  display: block;
+  font-family: "Merriweather-Regular";
+  font-size: 1.0625rem;
+  color: $text-dark;
+  margin-bottom: 0.4rem;
+}
+
+.fieldInput {
+  width: 100%;
+  height: 50px;
+  background: $white;
+  border: 1px solid $brown-border;
+  border-radius: 10px;
+  padding: 0 0.875rem;
+  font-family: "Merriweather-Regular";
+  color: $text-dark;
+  transition: 0.2s;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(143, 110, 67, 0.15);
+  }
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.36);
+  }
+}
+
+// ── Payment ──────────────────────────────────────────────────────────────────
+.paymentOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.paymentOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid $brown-border;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+}
+
+.paymentOptionSelected {
+  border-color: $primary-color-dark;
+}
+
+.radioCircle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid $brown-border;
+  background: #d9d9d9;
+
+  .paymentOptionSelected & {
+    background: $primary-color-dark;
+    border-color: $primary-color-dark;
+  }
+}
+
+.paymentLabel {
+  font-family: "Merriweather-Regular";
+  font-size: 1.0625rem;
+  color: $text-dark;
+}
+
+// ── Order items ──────────────────────────────────────────────────────────────
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.emptyCart {
+  font-family: "Merriweather-Regular";
+  color: $text-muted;
+  font-size: 0.9375rem;
+}
+
+.orderItemImg {
+  width: 60px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.orderItemTitle {
+  font-family: "Merriweather-Regular";
+  font-size: 0.75rem;
+  color: $primary-color-dark;
+}
+
+.orderItemQty {
+  font-family: "Merriweather-Bold";
+  font-size: 1.0625rem;
+}
+
+.orderItemPrice {
+  font-family: "Merriweather-Regular";
+  font-size: 1.25rem;
+}
+
+// ── Totals ───────────────────────────────────────────────────────────────────
+.subtotalLabel {
+  font-family: "Merriweather-Regular";
+  font-size: 1.125rem;
+}
+
+.subtotalValue {
+  font-family: "Merriweather-Bold";
+  font-size: 1.125rem;
+  color: $primary-color-dark;
+}
+
+.totalLabel {
+  font-size: 1.25rem;
+}
+
+.totalValue {
+  font-size: 1.25rem;
+}
+
+.subtotalInnerDivider {
+  border: 1px solid $brown-border;
+}
+
+// ── Buttons ──────────────────────────────────────────────────────────────────
+.placeOrderBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $gold;
+  color: $white;
+  border-radius: 15px;
+  padding: 1.1rem 2rem;
+  font-family: "Merriweather-Bold";
+  font-size: 1.875rem;
+  border: none;
+
+  &:hover {
+    filter: brightness(0.92);
+  }
+}
+
+.continueBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $primary-color-dark;
+  color: $white;
+  border-radius: 15px;
+  padding: 0.85rem 2rem;
+  font-family: "Merriweather-Bold";
+  font-size: 1.25rem;
+  border: none;
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+}

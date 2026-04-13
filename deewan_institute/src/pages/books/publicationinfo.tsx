@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import styles from "./publicationInfo.module.scss";
 import "../../style/animation.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import { useShop } from "../../context/ShopContext"; 
+import { useShop } from "../../context/ShopContext";
 import {
   mainBooks,
   ammiyehCollection,
@@ -16,6 +16,8 @@ import type {
   FushaBook,
   PodcastSeason,
 } from "../../../data";
+import NavBar from "../../components/navBar/navbar";
+import Footer from "../../components/footer/footer";
 
 declare const Swiper: any;
 
@@ -32,6 +34,7 @@ interface BookDetail {
   wishlistLink?: string;
   cartLink?: string;
   listenLink?: string;
+  price?: number;
   type: "book" | "podcast";
 }
 
@@ -49,6 +52,7 @@ function getAllBooks(): BookDetail[] {
       reviews: b.reviews,
       wishlistLink: b.wishlistLink,
       cartLink: b.cartLink,
+      price: b.price,
       type: "book" as const,
     })),
     ...ammiyehCollection.map((b: CollectionBook) => ({
@@ -59,9 +63,11 @@ function getAllBooks(): BookDetail[] {
       subtitle: b.subtitle,
       author: b.author,
       hosted: b.hosted,
-      description: b.description,
+      description: b.description, 
+      reviews: b.reviews, 
       wishlistLink: b.wishlistLink,
       cartLink: b.cartLink,
+      price: b.price,
       type: "book" as const,
     })),
     {
@@ -76,6 +82,7 @@ function getAllBooks(): BookDetail[] {
       reviews: fushaBook.reviews,
       wishlistLink: fushaBook.wishlistLink,
       cartLink: fushaBook.cartLink,
+      price: fushaBook.price,
       type: "book" as const,
     },
   ];
@@ -84,14 +91,16 @@ function getAllBooks(): BookDetail[] {
     id: p.id,
     image: p.image,
     imageAlt: p.imageAlt,
-    title: p.label,
+    title: p.title,
     subtitle: p.subtitle,
+    author: p.author,
     hosted: p.hosted,
     description: p.description,
+    reviews: p.reviews,
     listenLink: p.listenLink,
+    price: p.price,
     type: "podcast" as const,
   }));
-
   return [...books, ...podcasts];
 }
 
@@ -199,12 +208,12 @@ function PublicationInfo() {
     type: book.type,
     cartLink: book.cartLink,
     listenLink: book.listenLink,
+    price: book.price,
   };
 
-  // REMOVED: The local "function addToCart" that was throwing the error
-
   return (
-    <Fragment>
+ <Fragment>
+      <NavBar />
       <nav className={styles.breadcrumb} aria-label="breadcrumb">
         <ol>
           <li>
@@ -228,10 +237,7 @@ function PublicationInfo() {
             <h1 className="lh-base">{book.title}</h1>
             {book.subtitle && <h4 className="lh-base">{book.subtitle}</h4>}
             {book.author && <h5 className="lh-base">By: {book.author}</h5>}
-            {book.hosted && (
-              <h5 className="lh-base">Hosted By: {book.hosted}</h5>
-            )}
-
+            
             {book.reviews && book.reviews.length > 0 && (
               <StarRating rating={book.reviews[0].rating} />
             )}
@@ -248,46 +254,33 @@ function PublicationInfo() {
             <div
               className={`d-flex flex-row w-100 justify-content-between align-items-center my-1 ${styles.actions}`}
             >
-              {book.type === "book" ? (
-                <>
-                  <button
-                    onClick={() => toggleWishlist(wishlistItem)}
-                    className={`${styles.actionBtn} ${isInWishlist(book.id) ? styles.actionBtnActive : ""}`}
-                  >
-                    <img
-                      className="px-3"
-                      src={
-                        isInWishlist(book.id)
-                          ? "/assets/images/icons/heart_brown.png"
-                          : "/assets/images/icons/heart.png"
-                      }
-                      alt="wishlist icon"
-                    />
-                    {isInWishlist(book.id) ? "Wishlisted" : "Wishlist"}
-                  </button>
+              <button
+                onClick={() => toggleWishlist(wishlistItem)}
+                className={`${styles.actionBtn} ${isInWishlist(book.id) ? styles.actionBtnActive : ""}`}
+              >
+                <img
+                  className="px-3"
+                  src={
+                    isInWishlist(book.id)
+                      ? "/assets/images/icons/heart_brown.png"
+                      : "/assets/images/icons/heart.png"
+                  }
+                  alt="wishlist icon"
+                />
+                {isInWishlist(book.id) ? "Wishlisted" : "Wishlist"}
+              </button>
 
-                  <button
-                    onClick={() => addToCart(wishlistItem)}
-                    className={`${styles.actionBtn} ${styles.cartBtn}`}
-                  >
-                    <img
-                      className="px-3"
-                      src="/assets/images/icons/cart.png"
-                      alt="cart icon"
-                    />
-                    Add To Cart
-                  </button>
-                </>
-              ) : (
-                <a
-                  href={book.listenLink ?? "#"}
-                  target="_blank"
-                  className={styles.actionBtn}
-                  rel="noreferrer"
-                >
-                  Listen Now
-                </a>
-              )}
+              <button
+                onClick={() => addToCart(wishlistItem)}
+                className={`${styles.actionBtn} ${styles.cartBtn}`}
+              >
+                <img
+                  className="px-3"
+                  src="/assets/images/icons/cart.png"
+                  alt="cart icon"
+                />
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>
@@ -370,6 +363,7 @@ function PublicationInfo() {
           </div>
         </section>
       )}
+      <Footer />
     </Fragment>
   );
 }

@@ -1,22 +1,40 @@
 import 'bootstrap';
 import styles from '../navBar/navbar.module.scss';
-import { NavLink } from 'react-router-dom';
-import {useShop} from '../../context/ShopContext';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useShop } from '../../context/ShopContext';
+
+// Routes where shop icons should appear
+const SHOP_ROUTES = ['/publications', '/wishlist', '/cart'];
 
 function NavBar() {
-    const { wishlistCount } = useShop();
+    const { wishlistCount, cartCount } = useShop();
+    const { pathname } = useLocation();
+
+    // Show icons on exact matches AND any sub-route of /publications
+    const showShopIcons =
+        SHOP_ROUTES.some((route) => pathname === route) ||
+        pathname.startsWith('/publications/');
+
     return (
         <nav className="navbar navbar-expand-md bg-transparent align-items-center" id={styles.navBar}>
             <div className="container-fluid">
                 <NavLink className="navbar-brand d-md-none" to="/">
-                    <img src={"/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id={styles.mainLogo} />
+                    <img src="/assets/images/logos/LogoDeewan.svg" alt="Deewan Institute Logo" id={styles.mainLogo} />
                 </NavLink>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
                     <span className="navbar-toggler-icon"></span>
                 </button>
+
                 <div className="collapse navbar-collapse d-flex justify-content-center align-items-center" id={styles.navbarNav}>
-                    {/* <!-- Left group: Home and Features --> */}
+                    {/* Left group */}
                     <div className="p-2">
                         <ul className="navbar-nav">
                             <li className="nav-item" id={styles.navitem}>
@@ -27,11 +45,13 @@ function NavBar() {
                             </li>
                         </ul>
                     </div>
-                    {/* <!-- Center: Logo (only on medium+ screens) --> */}
+
+                    {/* Center logo */}
                     <NavLink className="navbar-brand d-none d-md-block" to="/">
-                        <img src={"/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" id={styles.mainLogo} />
+                        <img src="/assets/images/logos/LogoDeewan.svg" alt="Deewan Institute Logo" id={styles.mainLogo} />
                     </NavLink>
-                    {/* <!-- Right group: Pricing and Contact --> */}
+
+                    {/* Right group */}
                     <div className="p-2">
                         <ul className="navbar-nav">
                             <li className="nav-item" id={styles.navitem}>
@@ -44,31 +64,39 @@ function NavBar() {
                     </div>
                 </div>
             </div>
-            <NavLink className="mx-2 position-relative" to="/wishlist">
-                <img id="wishlistIcon" src="/assets/images/icons/heart_brown.png" alt="User Wishlist" />
-                {wishlistCount > 0 && (
-                    <span style={{
-                        position: 'absolute',
-                        top: '-6px',
-                        right: '-6px',
-                        background: '#472211', // Your primary brown color
-                        color: 'white',
-                        borderRadius: '50%',
-                        width: '18px',
-                        height: '18px',
-                        fontSize: '11px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontFamily: 'Merriweather-Regular',
-                    }}>
-                        {wishlistCount}
-                    </span>
-                )}
-            </NavLink>
+
+            {/* Shop icons — conditional */}
+            {showShopIcons && (
+                <div className={`d-flex align-items-center gap-2 mx-2 ${styles.shopIcons}`}>
+
+                    {/* Wishlist */}
+                    <NavLink className="position-relative" to="/wishlist" aria-label="Wishlist">
+                        <img
+                            src="/assets/images/icons/heart_brown.png"
+                            alt="Wishlist"
+                            id={styles.wishlistIcon}
+                        />
+                        {wishlistCount > 0 && (
+                            <span className={styles.badge}>{wishlistCount}</span>
+                        )}
+                    </NavLink>
+
+                    {/* Cart */}
+                    <NavLink className="position-relative" to="/cart" aria-label="Cart">
+                        <img
+                            src="/assets/images/icons/cart_brown.png"
+                            alt="Cart"
+                            id={styles.cartIcon}
+                        />
+                        {cartCount > 0 && (
+                            <span className={styles.badge}>{cartCount}</span>
+                        )}
+                    </NavLink>
+
+                </div>
+            )}
         </nav>
-        
-    )
+    );
 }
 
-export default NavBar
+export default NavBar;

@@ -34,7 +34,7 @@ function Publications() {
   const navigate = useNavigate();
   useScrollAnimation();
 
-  // --- SHOP CONTEXT HOOKS ---
+  //  SHOP CONTEXT HOOKS 
   const { toggleWishlist, isInWishlist, addToCart } = useShop();
 
   const mainSwiperRef = useRef<HTMLDivElement>(null);
@@ -113,7 +113,7 @@ function Publications() {
     });
   };
 
-  // --- ADDED: Helper to handle cart clicks and fix TypeScript errors ---
+  // Helper to handle cart clicks 
   const handleCartClick = (e: React.MouseEvent, book: any) => {
     e.stopPropagation(); 
     addToCart({
@@ -125,7 +125,7 @@ function Publications() {
       type: book.type || "book",
       cartLink: book.cartLink,
       listenLink: book.listenLink,
-      price: book.price || 15, // providing a default price if it doesn't exist in data
+      price: book.price || 'N/A', // providing a default price if it doesn't exist in data
     });
   };
 
@@ -222,7 +222,6 @@ function Publications() {
                         />
                       </button>
 
-                      {/* --- FIXED CART BUTTON --- */}
                       <button
                         onClick={(e) => handleCartClick(e, book)}
                         className={`${styles.iconBtn} ${styles.cart}`}
@@ -290,7 +289,7 @@ function Publications() {
         style={{ cursor: "pointer" }}
       >
         <div className="row justify-content-center">
-          <div className="col-md-5 d-flex flex-column align-items-center align-items-md-end justify-content-center mb-4 mb-md-0">
+          <div className="col-md-5 d-flex flex-column align-items-center align-items-md-center justify-content-center mb-4 mb-md-0">
             <img
               className={`${styles.fushaImg} img-fluid`}
               src={fushaBook.image}
@@ -349,7 +348,6 @@ function Publications() {
                 />
               </button>
 
-              {/* --- FIXED CART BUTTON (Variable changed from book to fushaBook) --- */}
               <button
                 onClick={(e) => handleCartClick(e, fushaBook)}
                 className={`${styles.fushaIconBtn} ${styles.cart}`}
@@ -366,57 +364,44 @@ function Publications() {
       <hr className={`${styles.divider} mx-auto my-2 scroll-section`} />
 
       {/* ── Podcasts ── */}
-      <section className={`${styles.podcasts} scroll-section`}>
-        <div className={styles.sectionTitle}>
-          <span>Guide to Deewan Arabic Podcast Collection</span>
-        </div>
-        <div className="row py-5 mx-auto">
-          <div ref={podcastSwiperRef} className="swiper booksSwiper">
-            <div className="swiper-wrapper">
-              {podcastSeasons.map((season) => (
-                <div key={season.id} className="swiper-slide">
-                  <div
-                    className="d-flex flex-column align-items-center"
-                    id={season.id}
-                    onClick={() =>
-                      navigate(`/publications/podcast/${season.id}`)
-                    }
-                    style={{ cursor: "pointer" }}
-                  >
-                    <img src={season.image} alt={season.imageAlt} />
-                    <h3 className={`${styles.heading} text-center mt-4`}>
-                      {season.label}
-                    </h3>
-                    {season.subtitle && (
-                      <p className={`${styles.subtitle} text-center`}>
-                        {season.subtitle}
-                      </p>
-                    )}
-                    {season.hosted && (
-                      <p className={`${styles.hosted} text-center`}>
-                        {season.hosted}
-                      </p>
-                    )}
-                    {season.listenLink && (
-                      <a
-                        href={season.listenLink}
-                        target="_blank"
-                        className={styles.listenBtn}
-                        rel="noreferrer"
-                      >
-                        Listen Now
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
+<section className={`${styles.podcasts} scroll-section`}>
+  <div className={styles.sectionTitle}>
+    <span>Guide to Deewan Arabic Podcast Collection</span>
+  </div>
+  <div className="row py-5 mx-auto">
+    <div ref={podcastSwiperRef} className="swiper booksSwiper">
+      <div className="swiper-wrapper">
+        {podcastSeasons.map((season) => (
+          <div key={season.id} className="swiper-slide">
+            <div
+              className="d-flex flex-column align-items-center"
+              id={season.id}
+              onClick={() => navigate(`/publications/podcast/${season.id}`)}
+              style={{ cursor: "pointer" }}
+            >
+              <img src={season.image} alt={season.imageAlt} />
+              <h3 className={`${styles.heading} text-center mt-4`}>
+                {season.title}           {/* ← was season.label */}
+              </h3>
+              {season.subtitle && (
+                <p className={`${styles.subtitle} text-center`}>
+                  {season.subtitle}
+                </p>
+              )}
+              {season.hosted && (
+                <p className={`${styles.hosted} text-center`}>
+                  {season.hosted}
+                </p>
+              )}
             </div>
-            <div className="swiper-button-next" />
-            <div className="swiper-button-prev" />
           </div>
-        </div>
-      </section>
-
+        ))}
+      </div>
+      <div className="swiper-button-next" />
+      <div className="swiper-button-prev" />
+    </div>
+  </div>
+</section>
       <Footer />
     </Fragment>
   );

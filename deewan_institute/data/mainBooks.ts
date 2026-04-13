@@ -17,7 +17,7 @@ export interface MainBook {
     description: string;
     reviews?: Review[];
     // for future use
-    // price?: string;
+    price?: number;
     viewMoreLink: string;
     wishlistLink?: string;
     cartLink?: string;
@@ -33,14 +33,20 @@ export const mainBooks: MainBook[] = [
         title: "The Comprehensive Guide to Levantine Arabic",
         subtitle: "Beginner Level",
         author: "Mohammad K. Ayaseh",
-        hosted: "Amazon",
+        price: 20,
+        //hosted: "Amazon",
         description:
             "The Comprehensive Guide to Levantine Arabic is not intended only for Beginner Level students but also to fill the gaps for any Arabic student at any level. This book facilitates acquiring and ...",
         reviews: [
             {
-                reviewer: "Sarah M.",
+                reviewer: "TRH",
                 rating: 5,
-                comment: "An outstanding resource for anyone starting their Arabic journey.",
+                comment: "Lovely book if you want to learn to speak and read Arabic. Pair it with Al-Kitaab’s Alif Baa and you get a good rounded education. Worth every penny and fun to use.",
+            },
+            {
+                reviewer: "Margo",
+                rating: 5,
+                comment: "Mid-last year I was heading to Amman to study Levantine Arabic at Deewan Institute, and one of the major factors in my decision to study there was that their book (Comprehensive Guide to Levantine Arabic) was known to be the best on the market.",
             },
         ],
         viewMoreLink: "#",
@@ -54,14 +60,20 @@ export const mainBooks: MainBook[] = [
         title: "Everyday Arabic Idioms",
         subtitle: "Book 6",
         author: "Mohammad K. Ayaseh",
-        hosted: "Amazon",
+        price: 10,
+        //hosted: "Amazon",
         description:
             "This book helps you expand your vocabulary and improve fluency in Levantine Arabic through common idioms and expressions. Each idiom is presented in context with example sentences and clear English explanations...",
         reviews: [
             {
-                reviewer: "James T.",
-                rating: 4,
-                comment: "Really bridges the gap between textbook Arabic and everyday speech.",
+                reviewer: "	Scott",
+                rating: 5,
+                comment: "Any time a new spoken Arabic resource comes out on the market, it's a cause for rejoicing for those who live in the Middle East and/or have Arabic-speaking friends and/or family. This book of idioms is no exception, especially as it comes from Deewan Institute in Amman...",
+            },
+            {
+                reviewer: "	Recientemente tuve el placer de leer",
+                rating: 5,
+                comment: "Everyday Arabic Idioms- is an essential resource for learners of Levantine Arabic. This book is designed to expand your vocabulary and improve your ability to communicate effectively in Arabic.",
             },
         ],
         viewMoreLink: "#",
@@ -75,7 +87,8 @@ export const mainBooks: MainBook[] = [
         title: "The Deewan Podcast: Bridging Education and Entertainment",
         subtitle: "Season 5",
         author: "Mohammad K. Ayaseh",
-        hosted: "Amazon",
+        price: 10,
+        //hosted: "Amazon",
         description:
             "A beginner-friendly (A1–A2) Arabic learning series with natural teacher-learner conversations on everyday topics like family, school, friends, and food. Paired with a companion book featuring glossaries and exercises for effective, real-life practice.",
         viewMoreLink: "#",

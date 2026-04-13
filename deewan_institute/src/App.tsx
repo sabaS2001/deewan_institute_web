@@ -21,6 +21,8 @@ import Publications from './layout/booksLayout/publications.tsx';
 import PublicationInfo from './pages/books/publicationinfo.tsx';
 import CultureEvents from './pages/cultureEvents/cultureEvents.tsx';
 import WishList from './context/wishlist.tsx';
+import Cart from './context/cart.tsx';
+import Checkout from './context/checkout.tsx';
 function App() {
     return (
         <Router>
@@ -55,8 +57,10 @@ function App() {
                 <Route path="/calculator" element={<Calculator />} />
                 {/* Culture Events */}
                 <Route path="/cultureEvents" element={<CultureEvents />} />
-                {/* WishList */}
+                {/* ShopContext */}
                 <Route path="/wishlist" element={<WishList />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
             </Routes>
         </Router>
     );

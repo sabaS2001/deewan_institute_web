@@ -9,7 +9,6 @@ import Footer from "../components/footer/footer";
 function Wishlist() {
   useScrollAnimation();
 
-  // FIXED: Destructure addToCart from the shop hook
   const { wishlist, removeFromWishlist, addToCart } = useShop();
   const navigate = useNavigate();
 
@@ -20,8 +19,6 @@ function Wishlist() {
         : `/publications/book/${item.id}`;
     navigate(route);
   };
-
-  
 
   return (
     <Fragment>
@@ -78,26 +75,15 @@ function Wishlist() {
                       </p>
 
                       <div className={styles.bookActions}>
-                        {/* Action button based on type */}
-                        {item.type === "book" ? (
-                          <button
-                            onClick={() => addToCart(item)}
-                            className={`${styles.iconBtn} ${styles.cart}`}
-                            aria-label="Add to cart"
-                            style={{ border: 'none', cursor: 'pointer', background: 'none' }}
-                          >
-                            <img src="/assets/images/icons/cart_brown.png" alt="cart" />
-                          </button>
-                        ) : (
-                          <a
-                            href={item.listenLink ?? '#'}
-                            target="_blank"
-                            rel="noreferrer"
-                            className={styles.listenBtn}
-                          >
-                            ▶
-                          </a>
-                        )}
+
+                        <button
+                          onClick={() => addToCart(item)}
+                          className={`${styles.iconBtn} ${styles.cart}`}
+                          aria-label="Add to cart"
+                          style={{ border: 'none', cursor: 'pointer', background: 'none' }}
+                        >
+                          <img src="/assets/images/icons/cart_brown.png" alt="cart" />
+                        </button>
 
                         {/* Remove from wishlist */}
                         <button

@@ -1,16 +1,54 @@
-@use '/../src/style/variables.scss' as *;
-@use '/../src/style/fonts.scss' as *;
+@use "/../src/style/variables.scss" as *;
+@use "/../src/style/fonts.scss" as *;
 
 .footer {
-    background-color: $white;
-    border-top: 2px solid $primary-color;
+  background-color: $white;
+  border-top: 2px solid $primary-color;
+
+  .footerLogo {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid $primary-color;
+    width: 30%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  #icons {
+    margin-block: -2%;
+    img {
+      width: 25px;
+    }
+  }
+}
+
+// Mobiles
+@media (max-width: 767.98px) {
+  .footer {
+    #para {
+      font-size: small !important;
+      margin: auto 0;
+      padding-inline: 8%;
+    }
 
     .footerLogo {
-        display: flex;
-        flex-direction: row;
-        border-bottom: 1px solid $primary-color;
-        width: 30%;
-        justify-content: center;
-        margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid $primary-color;
+      width: 30% !important;
+      justify-content: center;
+      margin: 0 auto;
+
+      img {
+        width: 100% !important;
+      }
     }
+
+    #icons {
+      margin-block: -3% !important;
+      img {
+        width: 18px;
+      }
+    }
+  }
 }

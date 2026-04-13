@@ -125,17 +125,10 @@
       color: white;
     }
   }
-}
 
-// ------------------------------------------ Media Query -------------------------------------------
-
-// Mobiles
-@media (max-width: 767.98px) {
-  .aboutpage {
-    body {
-      margin: 0% !important;
-      overflow-x: hidden !important;
-    }
+  // Mobiles
+  @media (max-width: 767.98px) {
+    overflow-x: hidden;
 
     // Banner
     .banner {
@@ -176,14 +169,15 @@
     }
 
     .partnerships {
-      padding-inline: 13%;
+      padding-inline: 0%;
       padding-bottom: 2%;
-
+      align-items: start !important;
       .title {
         text-align: start !important;
+        padding-inline: 8% !important;
+
         span {
-          
-          font-size: 40px;
+          font-size: xx-large !important;
         }
       }
 
@@ -192,6 +186,7 @@
         font-size: medium !important;
         line-height: 24px;
         margin-block: 0% !important;
+        padding-inline: 8% !important;
       }
 
       .featuretteDivider {
@@ -205,6 +200,7 @@
 
       .title {
         border-bottom: #8f6e43 2px solid;
+        margin-top: 0% !important;
 
         span {
           font-size: 40px;
@@ -213,8 +209,8 @@
 
       #row {
         padding-block: 0% !important;
-        img {
-          width: 55%;
+        #image {
+          width: 55% !important;
         }
 
         .heading {
@@ -235,7 +231,7 @@
         border-bottom: #8f6e43 2px solid;
 
         span {
-          font-size: 40px;
+          font-size: xx-large !important;
         }
       }
     }

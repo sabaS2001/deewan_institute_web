@@ -15,11 +15,17 @@
         width: 95%;
         margin: 0 auto;
         overflow: hidden;
-
-
     }
 
     .partnerImg {
         width: 85%;
+    }
+}
+
+
+// Mobiles
+@media (max-width: 767.98px) {
+  .clientsWrap {
+        width: 85% !important;
     }
 }

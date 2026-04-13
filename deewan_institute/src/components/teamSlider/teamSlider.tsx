@@ -1,5 +1,6 @@
 import { useEffect, Fragment } from "react";
 import styles from "../teamSlider/teamSlider.module.scss";
+import { CgSpaceBetween } from "react-icons/cg";
 
 
 function TeamSwiper() {
@@ -8,7 +9,7 @@ function TeamSwiper() {
         // Access global Swiper variable provided by the CDN script
         const swiper = new (window as any).Swiper(`.${styles.teamSwiper}`, {
             slidesPerView: 1,       // Default: 1 slide on mobile
-            spaceBetween: 5,       // Space between slides
+            spaceBetween: 10,       // Space between slides
             loop: true,             // Infinite loop
             autoplay: {
                 delay: 3000,          // Auto-slide every 3s (optional; remove if not wanted)
@@ -22,7 +23,7 @@ function TeamSwiper() {
             },
             breakpoints: {          // Responsive: Show more slides on larger screens
                 768: {                // Tablet+
-                    slidesPerView: 2,
+                    slidesPerView: 1
                 },
                 1024: {               // Desktop+
                     slidesPerView: 3,

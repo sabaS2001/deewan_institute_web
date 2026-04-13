@@ -1,4 +1,4 @@
-import { useEffect, Fragment } from "react";
+import { useEffect } from "react";
 import "bootstrap";
 import styles from "../partnershipSlider/partnershipSlider.module.scss"
 
@@ -9,7 +9,7 @@ function PartnershipSlider() {
     useEffect(() => {
         // Access global Swiper variable provided by the CDN script
         const swiper = new (window as any).Swiper(`.mySwiper`, {
-            slidesPerView: 3,
+            slidesPerView: 1,
             spaceBetween: 5,
             loop: true,
             loopedSlides: 6,  // Explicitly loop all 6 slides
@@ -22,7 +22,7 @@ function PartnershipSlider() {
             grabCursor: true,
             breakpoints: {
                 1024: { slidesPerView: 3 },
-                768: { slidesPerView: 2 },
+                768: { slidesPerView: 1 },
                 480: { slidesPerView: 1 },
             },
         });

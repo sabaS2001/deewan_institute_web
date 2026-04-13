@@ -1,47 +1,50 @@
-@use '../../style/variables.scss' as *;
-@use '../../style/fonts.scss' as *;
-
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
 
 .teamSwiper {
+  .swiperSlide {
+    width: 50% !important;
 
-    .swiperSlide {
-        width: 50% !important;
-
-        .heading {
-            font-family: "Merriweather-SemiBold" !important;
-        }
-
-        .jobTitle {
-            font-family: "Merriweather-Light" !important;
-        }
-
-
+    .heading {
+      font-family: "Merriweather-SemiBold" !important;
     }
 
-    :global(.swiper-button-next) {
-        color: black; // Match your theme
-        opacity: 0; // Hidden by default
-        transition: opacity 0.3s;
+    .jobTitle {
+      font-family: "Merriweather-Light" !important;
     }
+  }
 
-    :global(.swiper-button-prev) {
-        color: black; // Match your theme
-        opacity: 0; // Hidden by default
-        transition: opacity 0.3s;
-    }
+  :global(.swiper-button-next) {
+    color: black; // Match your theme
+    opacity: 0; // Hidden by default
+    transition: opacity 0.3s;
+  }
 
-    :global(.swiper-button-next):hover {
-        opacity: 1; // Show on hover
-    }
+  :global(.swiper-button-prev) {
+    color: black; // Match your theme
+    opacity: 0; // Hidden by default
+    transition: opacity 0.3s;
+  }
 
-    :global(.swiper-button-prev):hover {
-        opacity: 1; // Show on hover
-    }
+  :global(.swiper-button-next):hover {
+    opacity: 1; // Show on hover
+  }
+
+  :global(.swiper-button-prev):hover {
+    opacity: 1; // Show on hover
+  }
 }
 
 #teacherImg {
-    width: 400px !important;
-    height: 400px !important;
-    box-shadow: #8f6e43 0px 5px 5px;
+  width: 400px !important;
+  height: 400px !important;
+  box-shadow: #8f6e43 0px 5px 5px;
+}
 
+// Mobiles
+@media (max-width: 767.98px) {
+  #teacherImg {
+    width: 100% !important;
+    height: auto !important;
+  }
 }

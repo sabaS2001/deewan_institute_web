@@ -47,7 +47,7 @@ function About() {
 
         {/* About Section */}
         <section className={`${style.about} py-3 my-5 scroll-section`}>
-          <div className="row justify-content-center">
+          <div className="row justify-content-center" id={style.row}>
             <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">
               <h5 className={`${style.h5} featurette-heading mb-2`}>
                 Who Are We?
@@ -107,7 +107,7 @@ function About() {
             <span>Our Values</span>
           </div>
           <div id={style.row} className="row my-5 py-5">
-            <div className="col-lg-4 d-flex flex-column align-items-center gap-4" id={style.value}>
+            <div className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4" id={style.value}>
               <img
                 id={style.image}
                 src="/assets/images/icons/firstValue.png"
@@ -117,7 +117,7 @@ function About() {
                 Community and <br /> Inclusivity
               </h4>
             </div>
-            <div className="col-lg-4 d-flex flex-column align-items-center gap-4" id={style.value}>
+            <div className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4" id={style.value}>
               <img
                 id={style.image}
                 src="/assets/images/icons/secondValue.png"
@@ -127,7 +127,7 @@ function About() {
                 Excellence in <br /> Education
               </h4>
             </div>
-            <div className="col-lg-4 d-flex flex-column align-items-center gap-4" id={style.value}>
+            <div className="col-lg-4 col-md-4 d-flex flex-column align-items-center gap-4" id={style.value}>
               <img
                 id={style.image}
                 src="/assets/images/icons/thirdValue.png"

@@ -2,8 +2,8 @@
 @use "../../style/fonts.scss" as *;
 
 .teamSwiper {
-  .swiperSlide {
-    width: 50% !important;
+  #swiperSlide {
+    // width: 50% !important;
 
     .heading {
       font-family: "Merriweather-SemiBold" !important;
@@ -46,5 +46,16 @@
   #teacherImg {
     width: 100% !important;
     height: auto !important;
+  }
+
+  .heading {
+    font-family: "Merriweather-SemiBold" !important;
+    font-size: medium;
+  }
+
+  .jobTitle {
+    visibility: visible;
+    display: block !important;
+    font-size: large;
   }
 }

@@ -6,8 +6,8 @@ import PartnershipSlider from "../../components/partnershipSlider/partnershipSli
 import Divider from "../../components/divider/divider";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import "../../style/animation.scss";
-import style from "./about.module.scss";
 import "bootstrap";
+import style from "./about.module.scss";
 import YouTubeSlider from "../../components/youTubeSlider/youTubeSlider";
 
 function About() {
@@ -30,7 +30,7 @@ function About() {
               About Deewan Institute
             </h1>
             <div className="col-lg-10 mx-auto">
-              <p className="lead mb-4 text-center text-white ${style.para}">
+              <p className={`lead mb-4 text-center text-white ${style.para}`}>
                 Deewan Institute: Your premier gateway to mastering Arabic
                 through immersive, interactive online courses designed to cater
                 to learners of all proficiency levels—from complete beginners to
@@ -69,7 +69,7 @@ function About() {
             </div>
             <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
               <img
-                id="images"
+                id={style.images}
                 className="featurette-image img-fluid mx-auto"
                 src="/assets/images/others/aboutImage1.png"
                 alt="Deewan Institute Building"
@@ -106,9 +106,10 @@ function About() {
           <div className={`${style.title} mt-5 mx-auto align-items-center`}>
             <span>Our Values</span>
           </div>
-          <div id="row" className="row my-5 py-5">
-            <div className="col-lg-4 d-flex flex-column align-items-center gap-4">
+          <div id={style.row} className="row my-5 py-5">
+            <div className="col-lg-4 d-flex flex-column align-items-center gap-4" id={style.value}>
               <img
+                id={style.image}
                 src="/assets/images/icons/firstValue.png"
                 alt="Community and Inclusivity"
               />
@@ -116,8 +117,9 @@ function About() {
                 Community and <br /> Inclusivity
               </h4>
             </div>
-            <div className="col-lg-4 d-flex flex-column align-items-center gap-4">
+            <div className="col-lg-4 d-flex flex-column align-items-center gap-4" id={style.value}>
               <img
+                id={style.image}
                 src="/assets/images/icons/secondValue.png"
                 alt="Excellence in Education"
               />
@@ -125,12 +127,13 @@ function About() {
                 Excellence in <br /> Education
               </h4>
             </div>
-            <div className="col-lg-4 d-flex flex-column align-items-center gap-4">
+            <div className="col-lg-4 d-flex flex-column align-items-center gap-4" id={style.value}>
               <img
+                id={style.image}
                 src="/assets/images/icons/thirdValue.png"
                 alt="Innovation and Creativity"
               />
-              <h4 className={`${style.heading}text-center lh-base`}>
+              <h4 className={`${style.heading} text-center lh-base`}>
                 Innovation and <br /> Creativity
               </h4>
             </div>
@@ -184,9 +187,7 @@ function About() {
         </section>
 
         {/* Testimonials */}
-        <YouTubeSlider/>
-
-
+        <YouTubeSlider />
       </main>
       <Footer />
     </Fragment>

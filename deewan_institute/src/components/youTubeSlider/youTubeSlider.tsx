@@ -1,17 +1,40 @@
-import { Fragment } from "react/jsx-runtime";
+import { Fragment, useState, useCallback } from "react";
 import "bootstrap";
 import style from "./youTubeSlider.module.scss";
 import { youTubeData } from "../../../data/youTube";
 
+interface YouTubeVideo {
+  id: string;
+  image: string;
+  alt: string;
+}
+
 function YouTubeSlider() {
+  // State for active video ID
+  const [activeVideoId, setActiveVideoId] = useState<string>("s4SXlYhwfA8"); // Default to first video
+
+  // Handle thumbnail click
+  const handleThumbnailClick = useCallback((videoId: string) => {
+    setActiveVideoId(videoId);
+  }, []);
+
+  // Get active class conditionally
+  const getVideoClassName = (videoId: string) => {
+    return activeVideoId === videoId
+      ? `${style.video_option} active`
+      : style.video_option;
+  };
+
   return (
     <Fragment>
+      {/* Title */}
       <section className={style.testimonials}>
         <div
           className={`${style.title} title mt-5 mx-auto align-items-center scroll-section`}
         >
           <span>Our Testimonials</span>
         </div>
+        {/* Paragraph */}
         <p className="text-center my-5 scroll-section" id={style.para}>
           Deewan Institute has students from all over the world, from many
           different cultures and backgrounds. They all love learning with us! We
@@ -23,10 +46,10 @@ function YouTubeSlider() {
         </p>
         <div className="video-player text-center mt-3 scroll-section">
           <iframe
-            id="main-video"
+            id={style.main_video}
             width={1100}
             height={500}
-            src="https://www.youtube.com/embed/s4SXlYhwfA8?si=Hoy0pHavDUTipykA"
+            src={`https://www.youtube.com/embed/${activeVideoId}`}
             title="YouTube video player"
             frameBorder={0}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -36,12 +59,18 @@ function YouTubeSlider() {
         </div>
         <div
           className="carousel d-flex flex-row gap-1 align-items-center justify-content-center scroll-section"
-          id="carousel"
+          id={style.carousel}
         >
-          {youTubeData.map((data) => (
+          {youTubeData.map((data: YouTubeVideo) => (
             <div
-              className={`${style.video_option} active`}
+              key={data.id} // Added key prop
+              className={getVideoClassName(data.id)}
               data-video-id={data.id}
+              onClick={() => handleThumbnailClick(data.id)}
+              role="button"
+              tabIndex={0}
+              style={{ cursor: "pointer" }}
+              title={`Play ${data.alt}`}
             >
               <img src={data.image} alt={data.alt} />
             </div>

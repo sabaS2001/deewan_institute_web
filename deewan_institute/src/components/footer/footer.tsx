@@ -1,6 +1,4 @@
 import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import styles from "../Footer/footer.module.scss";
 import { NavLink } from 'react-router-dom';
 
@@ -12,11 +10,10 @@ function Footer() {
                 <NavLink className="text-decoration-none" to="/">
                     <img className="my-3"
                         src={"/assets/images/logos/LogoDeewan.svg"} alt="Deewan Institute Logo" width="150" />
-
                 </NavLink>
             </div>
-            <p className="text-center text-body-secondary pt-2">Copyrights © 2026 Deewan Institute. All rights reserved.</p>
-            <ul className="nav justify-content-center align-items-center">
+            <p className="text-center text-body-secondary pt-2" id={styles.para}>Copyrights © 2026 Deewan Institute. All rights reserved.</p>
+            <ul className="nav justify-content-center align-items-center" id={styles.icons}>
                 <li className="nav-item">
                     <a href="https://www.facebook.com/profile.php?id=61579964781468" target="_blank"
                         className="nav-link px-2 text-body-secondary">

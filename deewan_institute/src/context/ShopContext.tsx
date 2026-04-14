@@ -75,7 +75,7 @@ export function ShopProvider({ children }: { children: ReactNode }) {
             if (existing) {
                 return prev.map(i => i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i);
             }
-            return [...prev, { ...item, quantity: 1, price: item.price || 15 }];
+            return [...prev, { ...item, quantity: 1, price: item.price  }];
         });
         triggerToast("Added to cart successfully! 🛒");
     };

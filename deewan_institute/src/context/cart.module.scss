@@ -18,10 +18,22 @@
         }
     }
 
+    .cartRow {
+        @media (max-width: 767px) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
     .bookCover {
         width: 75%;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.40);
         border-radius: 6px;
+
+        @media (max-width: 767px) {
+            width: 50%;
+            max-width: 200px;
+        }
     }
 
     .verticalLine {
@@ -29,6 +41,10 @@
         height: 224px;
         border-left: 2.5px solid $primary-color-dark;
         margin: 0 15px;
+
+        @media (max-width: 767px) {
+            display: none;
+        }
     }
 
     .bookTitle {
@@ -77,13 +93,24 @@
         color: $primary-color-dark !important;
         height: 2px !important;
         width: 60% !important;
+
+        @media (max-width: 767px) {
+            width: 90% !important;
+        }
     }
 
     .cartTotal {
-        width: 60%;
         margin-inline: auto;
+        padding-inline: 1rem;
+
+        @media (min-width: 768px) {
+            margin-inline: unset;
+            margin-right: 5%;
+        }
+
         .totalInfo {
-            width: 300px;
+            width: 100%;
+
             .leadText {
                 font-family: "Merriweather-SemiBold" !important;
                 color: $primary-color-dark;

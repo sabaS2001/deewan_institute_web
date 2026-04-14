@@ -23,6 +23,7 @@ import CultureEvents from './pages/cultureEvents/cultureEvents.tsx';
 import WishList from './context/wishlist.tsx';
 import Cart from './context/cart.tsx';
 import Checkout from './context/checkout.tsx';
+import Podcasts from './pages/podcasts/podcasts.tsx';
 function App() {
     return (
         <Router>
@@ -61,6 +62,8 @@ function App() {
                 <Route path="/wishlist" element={<WishList />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />
+                {/* Podcasts */}
+                <Route path="/podcasts" element={<Podcasts />} />
             </Routes>
         </Router>
     );

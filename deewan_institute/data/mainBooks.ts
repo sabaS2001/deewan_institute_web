@@ -87,7 +87,7 @@ export const mainBooks: MainBook[] = [
         title: "The Deewan Podcast: Bridging Education and Entertainment",
         subtitle: "Season 5",
         author: "Mohammad K. Ayaseh",
-        price: 10,
+        price: 15,
         //hosted: "Amazon",
         description:
             "A beginner-friendly (A1–A2) Arabic learning series with natural teacher-learner conversations on everyday topics like family, school, friends, and food. Paired with a companion book featuring glossaries and exercises for effective, real-life practice.",

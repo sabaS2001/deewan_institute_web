@@ -17,7 +17,6 @@ function Cart() {
                 <div className={styles.title}>
                     <h2>Your Cart</h2>
                 </div>
-                
 
                 {cart.length === 0 ? (
                     <div className={styles.emptyState}>
@@ -28,17 +27,18 @@ function Cart() {
                     </div>
                 ) : (
                     <>
-                    
                         {cart.map((item) => (
-                            <div key={item.id} className="row justify-content-center align-items-center py-4">
-                                <div className="col-md-3 d-flex justify-content-center align-items-center">
+                            <div key={item.id} className={`row justify-content-center align-items-center py-4 mx-0 ${styles.cartRow}`}>
+
+                                {/* Book Cover */}
+                                <div className="col-12 col-md-3 d-flex justify-content-center align-items-center mb-3 mb-md-0">
                                     <img src={item.image} alt={item.imageAlt} className={styles.bookCover} />
                                 </div>
-                                
 
-                                <div className={styles.verticalLine}></div>
+                                <div className={`d-none d-md-block ${styles.verticalLine}`}></div>
 
-                                <div className="col-md-3 d-flex flex-column justify-content-center align-items-center">
+                                {/* Title + Quantity */}
+                                <div className="col-12 col-md-3 d-flex flex-column justify-content-center align-items-center mb-3 mb-md-0">
                                     <h4 className={styles.bookTitle}>{item.title}</h4>
                                     {item.subtitle && <h4 className={styles.bookTitle}>{item.subtitle}</h4>}
                                     <div className={`d-flex flex-row justify-content-center align-items-center mt-3 ${styles.counter}`}>
@@ -51,42 +51,43 @@ function Cart() {
                                         </button>
                                     </div>
                                 </div>
-                                
 
-                                <div className={styles.verticalLine}></div>
+                                <div className={`d-none d-md-block ${styles.verticalLine}`}></div>
 
-                                <div className="col-md-2 d-flex justify-content-center align-items-center">
-                                    <p className={styles.price}>{item.price} JD</p>
+                                {/* Price + Remove */}
+                                <div className="col-12 col-md-2 d-flex justify-content-center align-items-center">
+                                    <p className={styles.price}>{((item.price ?? 0) * item.quantity).toFixed(2)} JD</p>
                                     <button className={styles.removeBtn} onClick={() => removeFromCart(item.id)}>✕</button>
                                 </div>
-                                                        <hr className={styles.divider} />
 
+                                <hr className={styles.divider} />
                             </div>
                         ))}
 
-                        {/* <hr className={styles.divider} /> */}
-
-                        <div className={`d-flex mx-auto flex-column align-items-end ${styles.cartTotal}`}>
-                            <div className={styles.totalInfo}>
-                                <div className="d-flex flex-row justify-content-between">
-                                    <span className={styles.bold}>Subtotal:</span>
-                                    <p className={styles.leadText}>{totalPrice} JD</p>
+                        {/* Cart Total */}
+                        <div className="row justify-content-end mx-0">
+                            <div className={`col-12 col-md-6 col-lg-4 ${styles.cartTotal}`}>
+                                <div className={styles.totalInfo}>
+                                    <div className="d-flex flex-row justify-content-between">
+                                        <span className={styles.bold}>Subtotal:</span>
+                                        <p className={styles.leadText}>{totalPrice.toFixed(2)} JD</p>
+                                    </div>
+                                    <div className="d-flex flex-row justify-content-between w-100">
+                                        <span className={styles.bold}>Delivery:</span>
+                                        <p className={styles.leadText}>{DELEVERY_FEE} JD</p>
+                                    </div>
+                                    <hr className={styles.divider} />
+                                    <div className="d-flex flex-row justify-content-between w-100">
+                                        <span className={styles.bold}>Total Cost:</span>
+                                        <p className={styles.leadText}>{(totalPrice + DELEVERY_FEE).toFixed(2)} JD</p>
+                                    </div>
+                                    <button
+                                        className={styles.checkoutBtn}
+                                        onClick={() => navigate('/checkout')}
+                                    >
+                                        Checkout
+                                    </button>
                                 </div>
-                                <div className="d-flex flex-row justify-content-between w-100">
-                                    <span className={styles.bold}>Delivery:</span>
-                                    <p className={styles.leadText}>{DELEVERY_FEE} JD</p>
-                                </div>
-                                <hr className={styles.divider} />
-                                <div className="d-flex flex-row justify-content-between w-100">
-                                    <span className={styles.bold}>Total Cost:</span>
-                                    <p className={styles.leadText}>{totalPrice + DELEVERY_FEE} JD</p>
-                                </div>
-                                <button 
-                                className={styles.checkoutBtn} 
-                                onClick={() => navigate('/checkout')}
-                            >
-                                Checkout
-                            </button>
                             </div>
                         </div>
                     </>

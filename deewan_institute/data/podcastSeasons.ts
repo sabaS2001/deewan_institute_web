@@ -27,7 +27,7 @@ export const podcastSeasons: PodcastSeason[] = [
     id: "podcast-season-1",
     image: "/assets/images/books/podcasts/podcast1.png",
     imageAlt: "Guide to Deewan Arabic Podcast – Season 1",
-    title: "Season 1",
+    title: "GUIDE TO DEEWAN ARABIC PODCAST : Levantine Arabic",
     author: "Mohammad K. Ayaseh",
     price: 15,
     reviews: [
@@ -52,17 +52,17 @@ export const podcastSeasons: PodcastSeason[] = [
           "My feedback about this podcast book? I think it is one of the most useful resources I’ve found until now. Maybe is not suitable for an “absolute beginner”** but if you have a minimum familiarity with the alphabet and with basic grammar rules it can work...",
       },
     ],
-    subtitle: "Levantine Arabic",
+    subtitle: "Season 1",
 
     // hosted: "Spotify / Apple Podcasts",
     description:
-      "The first season covering foundational Levantine Arabic topics.",
+      "Engaging Arabic lessons via teacher-student discussions on cultural topics (veganism, racism, parenting). For all levels, with accompanying book of glossaries and episode-based exercises.",
   },
   {
     id: "podcast-season-2",
     image: "/assets/images/books/podcasts/podcast2.png",
     imageAlt: "Guide to Deewan Arabic Podcast – Season 2: Levantine Arabic",
-    title: "Season 2",
+    title: "GUIDE TO DEEWAN ARABIC PODCAST: Levantine Arabic",
     author: "Mohammad K. Ayaseh",
     price: 15,
     // reviews: [
@@ -73,10 +73,10 @@ export const podcastSeasons: PodcastSeason[] = [
     //         },
 
     //     ],
-    subtitle: "Levantine Arabic",
+    subtitle: "Season 2",
     // hosted: "Spotify / Apple Podcasts",
     description:
-      "Season 2 dives deeper into Levantine Arabic conversations and culture.",
+      "Pioneering Arabic lessons with teacher-student chats on cultural topics (veganism, racism, parenting). Suits all levels; paired with book of episode glossaries and exercises for immersive learning.",
     listenLink: "#",
   },
   {
@@ -84,7 +84,7 @@ export const podcastSeasons: PodcastSeason[] = [
     image: "/assets/images/books/podcasts/podcast3.png",
     imageAlt:
       "Guide to Deewan Arabic Podcast – Season 3: Arabic for Non-Native Speakers",
-    title: "Season 3",
+    title: "GUIDE TO DEEWAN ARABIC PODCAST: Arabic for Non-Native Speakers",
     author: "Mohammad K. Ayaseh",
     price: 15,
     // reviews: [
@@ -95,17 +95,17 @@ export const podcastSeasons: PodcastSeason[] = [
     //         },
 
     //     ],
-    subtitle: "Arabic for Non-Native Speakers",
+    subtitle: "Season 3",
     // hosted: "Spotify / Apple Podcasts",
     description:
-      "Tailored for non-native speakers looking to build listening comprehension.",
+      "Teacher-learner discussions on cultural topics (veganism, racism, parenting) for all Arabic levels. Includes companion book with episode glossaries and exercises for immersive learning.",
     listenLink: "#",
   },
   {
     id: "podcast-season-5",
     image: "/assets/images/books/podcasts/podcast4.png",
     imageAlt: "Guide to Deewan Arabic Podcast – Season 5, Level A1–A2",
-    title: "Season 5",
+    title: "The Deewan Podcast: Bridging Education and Entertainment",
     author: "Mohammad K. Ayaseh",
     price: 15,
     // reviews: [
@@ -116,9 +116,9 @@ export const podcastSeasons: PodcastSeason[] = [
     //         },
 
     //     ],
-    subtitle: "Level A1–A2 | Arabic for Non-Native Speakers",
+    subtitle: "Season 5",
     // hosted: "Spotify",
-    description: "A structured A1–A2 series ideal for absolute beginners.",
+    description: "A beginner-friendly (A1–A2) Arabic learning series with natural teacher-learner conversations on everyday topics like family, school, friends, and food. Paired with a companion book featuring glossaries and exercises for effective, real-life practice.",
     listenLink: "#",
   },
 ];

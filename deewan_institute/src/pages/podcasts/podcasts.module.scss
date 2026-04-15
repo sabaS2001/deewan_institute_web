@@ -1,200 +1,263 @@
-@use '../../style/fonts.scss' as *;
-@use '../../style/variables.scss' as *;
+@use "../../style/fonts.scss" as *;
+@use "../../style/variables.scss" as *;
 
-//  Colors 
+//  Colors
 $podcast-green: #424824;
-$podcast-light-green: #58641D;
-$podcast-bg: #f4f4f4; 
+$podcast-light-green: #58641d;
+$podcast-bg: #f4f4f4;
 
-// Hero Banner 
+// Hero Banner
 .heroBanner {
+  position: relative;
+  background-color: #58641d;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px; // Added horizontal padding to prevent edge touching
+
+  @media (max-width: 991px) {
+    height: 60vh; // Tablet height
+  }
+
+  @media (max-width: 767px) {
+    height: 50vh; // Mobile height
+    padding: 0 15px;
+  }
+
+  .heroContent {
     position: relative;
-    background-color: $podcast-light-green;
-    height: 450px;
-    overflow: hidden;
+    z-index: 2;
+    text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
+    gap: 10px;
+    width: 100%; // Ensure content takes available width for alignment
+    max-width: 800px; // Prevent content from stretching too wide on large screens
+  }
 
-    .heroContent {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+  .bannerLogo {
+    height: 80vh;
+    width: 100%;
+    padding-block: 3%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+
+    @media (max-width: 767px) {
+      max-width: 75%; 
+      padding-block: 5%;
+    }
+  }
+
+  .heroTitle {
+    font-family: "Merriweather-Bold";
+    color: #fff;
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+
+    @media (max-width: 767px) {
+      font-size: 20px; 
+      letter-spacing: 1px;
+    }
+  }
+
+  // Sound Waves
+  .waveLeft,
+  .waveRight {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: auto;
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+    
+    @media (max-width: 991px) {
+      height: 80%; // Slightly shorter on tablet
     }
 
-    .bannerLogo {
-        height: 450px;
-        width: auto;
-        object-fit: contain;
-        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    @media (max-width: 767px) {
+      height: 60%; // Much shorter on mobile to avoid clutter
+      opacity: 0.6; // Fade them out slightly
     }
+  }
+  .waveLeft {
+    left: 20px;
+    
+    @media (max-width: 767px) {
+      left: -120px;
+    }
+  }
+  .waveRight {
+    right: 20px;
 
-    .heroTitle {
-        font-family: "Merriweather-Bold";
-        color: #fff;
-        font-size: 32px;
-        letter-spacing: 2px;
-        margin: 0;
-        text-transform: uppercase;
+    @media (max-width: 767px) {
+      right: -120px;
     }
-
-    // Sound Waves 
-    .waveLeft, .waveRight {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 100%;
-        width: auto;
-        opacity: 1;
-        z-index: 1;
-        pointer-events: none;
-    }
-    .waveLeft { left: 20px; }
-    .waveRight { right: 20px; }
+  }
 }
 
-// Season Cards 
+// Season Cards
 .seasonCardsSection {
-    padding: 40px 0;
-    margin-top: -40px; 
-    @media (max-width: 767px) {
-        margin-top: 0;
-        padding: 24px 0;
-    }
+  padding: 40px 0;
+  margin-top: -40px;
+  
+  @media (max-width: 991px) {
+    margin-top: -20px; // Less overlap on tablet
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 0; // No overlap on mobile
+    padding: 24px 0;
+  }
 }
 
 .seasonCard {
-    background-color: $podcast-green;
-    border-radius: 16px;
-    overflow: hidden;
+  background-color: $podcast-green;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 88%;
+  height: 88%;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .seasonCardImg {
     width: 100%;
-    max-width: 220px; 
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $podcast-green;
+    padding: 20px;
 
-    &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: none;
+
+      @media (max-width: 991px) {
+        object-fit: contain; 
+      }
     }
+  }
 
-    .seasonCardImg {
-        width: 100%;
-        aspect-ratio: 1 / 1; 
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $podcast-green;
-        padding: 20px; 
+  .cardTextContent {
+    padding: 15px 10px 20px;
+  }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: none;
-        }
+  .seasonCardLabel {
+    font-family: "Merriweather-Bold", sans-serif;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 0 5px;
+    
+    @media (max-width: 767px) {
+      font-size: 18px;
     }
+  }
 
-    .cardTextContent {
-        padding: 15px 10px 20px;
-    }
-
-    .seasonCardLabel {
-        font-family: "Merriweather-Bold", sans-serif;
-        font-size: 20px;
-        color: #fff;
-        margin: 0 0 5px;
-    }
-
-    .seasonCardHost {
-        font-family: "Merriweather-Light", sans-serif;
-        font-size:  14px;
-        color: rgba(255, 255, 255, 0.8);
-        margin: 0;
-        line-height: 1.4;
-    }
+  .seasonCardHost {
+    font-family: "Merriweather-Light", sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    line-height: 1.4;
+  }
 }
 
-//  Main Content & Illustration (The "Writing Space") 
+//  Main Content & Illustration (The "Writing Space")
 .mainContentSection {
-    padding: 60px 0;
-    background-color: #fff;
+  padding: 60px 0;
+  background-color: #fff;
 
-    @media (max-width: 767px) {
-        padding: 40px 0;
-    }
+  @media (max-width: 767px) {
+    padding: 40px 0;
+  }
 }
 
 .textContent {
-    padding-right: 40px;
+  padding-right: 40px;
+
+  @media (max-width: 767px) {
+    padding-right: 0;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .contentSubtitle {
+    font-family: "Merriweather-Regular", sans-serif;
+    font-size: 16px;
+    color: $podcast-light-green;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .contentTitle {
+    font-family: "Merriweather-Bold", sans-serif;
+    font-size: 36px;
+    color: #333;
+    line-height: 1.3;
+    margin-bottom: 24px;
 
     @media (max-width: 767px) {
-        padding-right: 0;
-        margin-bottom: 40px;
-        text-align: center;
+      font-size: 28px;
     }
+  }
 
-    .contentSubtitle {
-        font-family: "Merriweather-Regular", sans-serif;
-        font-size: 16px;
-        color: $podcast-light-green;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-    }
-
-    .contentTitle {
-        font-family: "Merriweather-Bold", sans-serif;
-        font-size:  36px;
-        color: #333;
-        line-height: 1.3;
-        margin-bottom: 24px;
-    }
-
-    p {
-        font-family: "Merriweather-Light", sans-serif;
-        font-size: 16px;
-        line-height: 1.8;
-        color: #555;
-        margin-bottom: 16px;
-    }
+  p {
+    font-family: "Merriweather-Light", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 16px;
+  }
 }
 
 .illustrationWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    @media (max-width: 767px) {
-        order: -1; 
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    order: -1;
+  }
 }
 
 .mainIllustration {
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); 
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
 }
 
-// Season Blocks Main 
+// Season Blocks Main
 .seasonsMain {
-    background-color: #fff;
-    padding-bottom: 80px;
-    padding-top: 40px;
+  background-color: #fff;
+  padding-bottom: 80px;
+  padding-top: 40px;
 }
 
 .divider {
-    width: 80%;
-    margin: 40px auto;
-    border: none;
-    border-top: 2px solid $podcast-light-green;
-    opacity: 0.5;
+  width: 80%;
+  margin: 40px auto;
+  border: none;
+  border-top: 2px solid $podcast-light-green;
+  opacity: 0.5;
 }

@@ -20,8 +20,8 @@ function Podcasts() {
                     />
                     {/* <h2 className={styles.heroTitle}>ARABIC PODCAST</h2> */}
                 </div>
-                <img src="/assets/images/podcast/wave-left.png" alt="" className={styles.waveLeft} />
-                <img src="/assets/images/podcast/wave-right.png" alt="" className={styles.waveRight} />
+                <img src="/assets/images/podcast/wave-left.svg" alt="" className={styles.waveLeft} />
+                <img src="/assets/images/podcast/wave-right.svg" alt="" className={styles.waveRight} />
             </section>
 
             {/*  Season Cards Row */}

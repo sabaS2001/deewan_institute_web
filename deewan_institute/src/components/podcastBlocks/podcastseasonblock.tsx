@@ -21,11 +21,24 @@ function PodcastSeasonBlock({
 }: PodcastSeasonBlockProps) {
     return (
         <div className={`${styles.seasonBlock} ${reverse ? styles.reverse : ''}`}>
+            
+            {/* Background Season Number (Like CultureEvents eventIndex) */}
+            <span className={`${styles.seasonNumber} ${reverse ? styles.seasonNumberLeft : styles.seasonNumberRight}`}>
+                {seasonNumber}
+            </span>
+
             <div className={`row align-items-center justify-content-center g-4 ${styles.innerRow}`}>
 
+                {/* Book Column */}
                 <div className={`col-12 col-lg-5 d-flex justify-content-center ${styles.bookCol} ${reverse ? 'order-lg-2' : 'order-lg-1'}`}>
                     <div className={styles.bookWrapper}>
-                        <div className={styles.bookShadow}></div>
+                        {/* Alternating Shadow based on reverse prop */}
+                        {reverse ? (
+                            <div className={`${styles.bookShadow} ${styles.bookShadowReverse}`}></div>
+                        ) : (
+                            <div className={styles.bookShadow}></div>
+                        )}
+                        
                         <img
                             src={bookCoverImage}
                             alt={bookCoverAlt}
@@ -34,6 +47,7 @@ function PodcastSeasonBlock({
                     </div>
                 </div>
 
+                {/* Content Column */}
                 <div className={`col-12 col-lg-5 ${reverse ? 'order-lg-1' : 'order-lg-2'}`}>
                     <EpisodeList
                         seasonNumber={seasonNumber}

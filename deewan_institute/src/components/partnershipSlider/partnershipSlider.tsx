@@ -9,8 +9,8 @@ function PartnershipSlider() {
     useEffect(() => {
         // Access global Swiper variable provided by the CDN script
         const swiper = new (window as any).Swiper(`.mySwiper`, {
-            slidesPerView: 1,
-            spaceBetween: 5,
+            slidesPerView: 2,
+            spaceBetween: 2,
             loop: true,
             loopedSlides: 6,  // Explicitly loop all 6 slides
             centeredSlides: true,  // Centers slides for better loop feel
@@ -22,8 +22,9 @@ function PartnershipSlider() {
             grabCursor: true,
             breakpoints: {
                 1024: { slidesPerView: 3 },
-                768: { slidesPerView: 1 },
-                480: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                480: { slidesPerView: 2 },
+                360: { slidesPerView: 1 },
             },
         });
         return () => swiper.destroy();

@@ -1,5 +1,5 @@
-@use "../../style/variables.scss" as *;
-@use "../../style/fonts.scss" as *;
+@use "../../style/variables.scss"as *;
+@use "../../style/fonts.scss"as *;
 
 * {
   font-family: "Merriweather-Regular";
@@ -172,6 +172,7 @@
       padding-inline: 0%;
       padding-bottom: 2%;
       align-items: start !important;
+
       .title {
         text-align: start !important;
         padding-inline: 8% !important;
@@ -209,6 +210,7 @@
 
       #row {
         padding-block: 0% !important;
+
         #image {
           width: 55% !important;
         }
@@ -269,7 +271,8 @@
   }
 
   // Medium devices (tablets, less than 992px)
-  @media (min-width: 767.98px) and  (max-width: 991.98px) {
+  @media (min-width: 767.98px) and (max-width: 991.98px) {
+
     // Banner
     .banner {
       height: 25vh;
@@ -316,6 +319,7 @@
       padding-inline: 6%;
       padding-bottom: 2%;
       align-items: start !important;
+
       .title {
         text-align: start !important;
 
@@ -339,7 +343,8 @@
     // Values
     .values {
       padding-block: 0% !important;
-      padding-inline: 4% !important; 
+      padding-inline: 4% !important;
+
       .title {
         border-bottom: #8f6e43 2px solid;
         margin-top: 0% !important;
@@ -351,6 +356,7 @@
 
       #row {
         padding-block: 0% !important;
+
         #image {
           width: 75% !important;
         }
@@ -384,28 +390,30 @@
       background-color: #8f6e43;
       margin-bottom: 0% !important;
 
-      img {
-        width: 100% !important;
-        height: auto !important;
-        margin: 0 auto;
-      }
+      #row {
+        margin-inline: -17%;
 
-      h1 {
-        padding-inline: 8% !important;
-        font-family: "Merriweather-SemiBold" !important;
-        font-size: xx-large;
-        line-height: 50px;
-      }
+        img {
+          width: 100% !important;
+          height: auto !important;
+          margin: 0 auto;
+        }
 
-      p {
-        padding-inline: 8% !important;
-        line-height: 24px;
-        font-size: medium;
-      }
+        h1 {
+          font-family: "Merriweather-SemiBold" !important;
+          font-size: x-large;
+          line-height: 50px;
+        }
 
-      p,
-      h1 {
-        color: white;
+        p {
+          line-height: 24px;
+          font-size: medium;
+        }
+
+        p,
+        h1 {
+          color: white;
+        }
       }
     }
   }

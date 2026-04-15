@@ -64,7 +64,7 @@ function Courses({ data }: { data: arabicCourse }) {
                     ))}
                 </div>
                 {/* Second Row */}
-                <div className="d-flex flex-row flex-wrap justify-content-between mt-5 scroll-section">
+                <div className="d-flex flex-row flex-nonwrap justify-content-between mt-5 scroll-section">
                     {data.courses.slice(3, 6).map((course, index) => (
                         <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
                             <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
@@ -82,7 +82,7 @@ function Courses({ data }: { data: arabicCourse }) {
                     ))}
                 </div>
                 {/* Third Row */}
-                <div className="d-flex flex-row flex-wrap justify-content-between mt-5 scroll-section">
+                <div className="d-flex flex-row flex-nonwrap justify-content-between mt-5 scroll-section">
                     {data.courses.slice(6, 9).map((course, index) => (
                         <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
                             <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>

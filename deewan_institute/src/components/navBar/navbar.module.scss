@@ -1,12 +1,12 @@
-@use "../../style/variables.scss" as *;
-@use "../../style/fonts.scss" as *;
+@use "../../style/variables.scss"as *;
+@use "../../style/fonts.scss"as *;
 
 #navBar {
   background-color: $white !important;
+  padding-block: 0%;
+  border-bottom: 2px solid #8f6e43;
 
   #navbarNav {
-    border-bottom: 2px solid #8f6e43;
-    padding-bottom: 1%;
 
     ul {
       padding: 0px 15px;
@@ -36,35 +36,35 @@
 
 
 .shopIcons {
-    gap: 12px;
+  gap: 12px;
 
-    img {
-        width: 26px;
-        height: 26px;
-        object-fit: contain;
-    }
+  img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+  }
 }
 
 .badge {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: #472211;
-    color: white;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Merriweather-Regular', serif;
-    pointer-events: none; // so clicks pass through to the NavLink
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #472211;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Merriweather-Regular', serif;
+  pointer-events: none; // so clicks pass through to the NavLink
 }
 
 #wishlistIcon,
 #cartIcon {
-    width: 26px;
-    height: 26px;
-    display: block;
+  width: 26px;
+  height: 26px;
+  display: block;
 }

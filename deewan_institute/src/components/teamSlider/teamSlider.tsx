@@ -1,7 +1,5 @@
 import { useEffect, Fragment } from "react";
 import styles from "../teamSlider/teamSlider.module.scss";
-import { CgSpaceBetween } from "react-icons/cg";
-
 
 function TeamSwiper() {
 

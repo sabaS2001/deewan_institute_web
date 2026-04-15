@@ -153,7 +153,7 @@ function About() {
 
         {/* Approach Section */}
         <section className={`${style.approach} my-5 scroll-section`}>
-          <div className="row justify-content-center">
+          <div className="row justify-content-center" id={style.row}>
             <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
               <img
                 className="featurette-image img-fluid mx-auto"

@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "Inter_Regular";
+  src: url("../assets/fonts/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Regular";
+  src: url("../assets/fonts/Merriweather-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Light";
+  src: url("../assets/fonts/Merriweather-Light.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Bold";
+  src: url("../assets/fonts/Merriweather_24pt-Bold.ttf");
+}
+@font-face {
+  font-family: "Merriweather-SemiBold";
+  src: url("../assets/fonts/Merriweather_24pt-SemiBold.ttf");
+}
+@font-face {
+  font-family: "ArefRuqaa-Regular";
+  src: url("../assets/fonts/ArefRuqaa-Regular.ttf");
+}
+.platform {
+  padding-inline: 13%;
+  margin-block: 5%;
+}
+.platform .subTitle {
+  width: -moz-max-content;
+  width: max-content;
+}
+.platform .subTitle h1 {
+  font-family: "Merriweather-SemiBold";
+  color: var(--color);
+  font-size: 50px;
+  border-bottom: var(--color) 3px solid;
+}
+.platform #blueSquare {
+  background-color: var(--color);
+  padding-inline: 5%;
+  padding-block: 3%;
+  border-radius: 20px;
+}
+.platform #blueSquare h2 {
+  font-family: "Merriweather-Regular" !important;
+  color: #ffffff;
+}
+.platform #blueSquare:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(13, 80, 113, 0.4);
+  cursor: pointer;
+}/*# sourceMappingURL=platform.module.css.map */

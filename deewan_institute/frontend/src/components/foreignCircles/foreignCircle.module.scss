@@ -1,0 +1,54 @@
+@use '../../style/variables.scss' as *;
+@use '../../style/fonts.scss' as *;
+
+.foreign {
+  padding-inline: 10%;
+
+  .title {
+    margin-top: 5%;
+    width: max-content;
+    border-bottom: $primary_color 2px solid;
+
+    h1 {
+      color: $primary_color;
+      font-family: "Merriweather-Regular" !important;
+    }
+  }
+
+  #para {
+    margin-top: 2%;
+    font-family: "Merriweather-Light" !important;
+    font-weight: lighter;
+    font-size: large;
+    margin: auto 0;
+  }
+
+  .heading {
+    font-family: "Merriweather-Regular" !important;
+    font-weight: 500;
+  }
+
+  #foreignGroup {
+    margin-top: 5%;
+  }
+
+  .button {
+    text-decoration: none;
+    display: flex;
+    width: auto;
+    border: $primary_color 2px solid;
+    border-radius: 20px;
+    padding-inline: 6%;
+    padding-block: 2%;
+    color: $primary_color;
+    font-family: "Merriweather-Regular" !important;
+    background-color: $white;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button:hover {
+    background-color: $primary_color;
+    color: $white;
+  }
+}

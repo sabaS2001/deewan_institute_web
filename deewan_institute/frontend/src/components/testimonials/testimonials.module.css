@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "Inter_Regular";
+  src: url("../assets/fonts/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Regular";
+  src: url("../assets/fonts/Merriweather-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Light";
+  src: url("../assets/fonts/Merriweather-Light.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Bold";
+  src: url("../assets/fonts/Merriweather_24pt-Bold.ttf");
+}
+@font-face {
+  font-family: "Merriweather-SemiBold";
+  src: url("../assets/fonts/Merriweather_24pt-SemiBold.ttf");
+}
+@font-face {
+  font-family: "ArefRuqaa-Regular";
+  src: url("../assets/fonts/ArefRuqaa-Regular.ttf");
+}
+.testimonials {
+  padding-top: 4%;
+  padding-inline: 10%;
+  margin-top: 4%;
+}
+.testimonials .title {
+  margin-top: 3%;
+  width: -moz-max-content;
+  width: max-content;
+  border-bottom: #8f6e43 2px solid;
+}
+.testimonials .title h1 {
+  color: #8f6e43;
+  font-family: "Merriweather-Regular" !important;
+}
+.testimonials p {
+  margin-top: 2%;
+  font-family: "Merriweather-Light" !important;
+  font-weight: lighter;
+  font-size: large;
+  margin: auto 5%;
+}
+.testimonials .testimonialsSwiper {
+  width: 100%;
+  height: 450px;
+}
+.testimonials .testimonialsSwiper :global(.swiper-pagination-bullet) {
+  background: #8f6e43;
+  opacity: 0.5;
+}
+.testimonials .testimonialsSwiper :global(.swiper-pagination-bullet-active) {
+  background: #8f6e43 !important;
+  opacity: 1;
+}
+.testimonials .testimonialsSwiper {
+  /* Force the pagination container to center its children */
+}
+.testimonials .testimonialsSwiper :global(.swiper-pagination) {
+  bottom: 10px !important;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  /* Space between bullets */
+}
+.testimonials .testimonialsSwiper {
+  /* Style the bullets */
+}
+.testimonials .testimonialsSwiper :global(.swiper-pagination-bullet) {
+  background: #8f6e43 !important;
+  opacity: 0.4;
+  width: 10px;
+  height: 10px;
+  margin: 0 !important;
+  /* Remove default margins to use 'gap' instead */
+}
+.testimonials .testimonialsSwiper :global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+  width: 12px;
+  /* Make active bullet slightly larger */
+  height: 12px;
+}
+.testimonials .testimonialCard {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  width: 120%;
+  height: 95%;
+  background: #ffffff;
+  border: 1px solid #8f6e43;
+  border-radius: 20px;
+  padding-inline: 2px;
+  padding-block: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.testimonials .testimonialCard:hover {
+  transform: translateY(-5px);
+}
+.testimonials .testimonialCard .testimonialImg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 15px;
+}
+.testimonials .testimonialCard .testimonialQuote {
+  font-family: "Merriweather-Light" !important;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+.testimonials .testimonialCard .testimonialName {
+  font-family: "Merriweather-Regular" !important;
+  font-size: 18px;
+  color: #8f6e43;
+  margin-bottom: 5px;
+}/*# sourceMappingURL=testimonials.module.css.map */

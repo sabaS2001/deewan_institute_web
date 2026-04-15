@@ -1,0 +1,37 @@
+@use '../../style/variables.scss' as *;
+@use '../../style/fonts.scss' as *;
+
+.platform {
+    padding-inline: 13%;
+    margin-block: 5%;
+
+    .subTitle {
+        width: max-content;
+
+        h1 {
+            font-family: "Merriweather-SemiBold";
+            color: var(--color);
+            font-size: 50px;
+            border-bottom: var(--color) 3px solid;
+        }
+    }
+
+    #blueSquare {
+        background-color: var(--color);
+        padding-inline: 5%;
+        padding-block: 3%;
+        border-radius: 20px;
+
+        h2 {
+            font-family: "Merriweather-Regular" !important;
+            color: $white;
+        }
+
+        &:hover {
+            // ✅ Hover effect
+            transform: scale(1.05); // Zoom 5%
+            box-shadow: 0 10px 25px rgba(13, 80, 113, 0.4); // Shadow lift
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+.openingHours {
+  background-color: var(--background-color);
+  padding-inline: 15%;
+
+  .title {
+    width: max-content;
+    border-bottom: var(--color) 3px solid;
+
+    h1 {
+      color: var(--color);
+    }
+  }
+
+  ul li {
+    color: var(--color);
+    font-family: "Merriweather-Light" !important;
+    line-height: 204%;
+  }
+
+  .italic {
+    color: var(--color);
+    font-style: italic;
+    font-size: large;
+    line-height: 204%;
+    list-style-type: none;
+  }
+
+  .bold {
+    color: var(--color);
+    font-family: "Merriweather-Bold" !important;
+  }
+
+  .borderRight {
+    border-right: var(--color) solid 2px;
+    margin: 0 auto;
+  }
+}

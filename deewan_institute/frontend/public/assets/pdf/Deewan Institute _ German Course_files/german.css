@@ -1,0 +1,272 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Inter_Regular";
+  src: url("../assets/fonts/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Regular";
+  src: url("../assets/fonts/Merriweather-Regular.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Light";
+  src: url("../assets/fonts/Merriweather-Light.ttf");
+}
+@font-face {
+  font-family: "Merriweather-Bold";
+  src: url("../assets/fonts/Merriweather_24pt-Bold.ttf");
+}
+@font-face {
+  font-family: "Merriweather-SemiBold";
+  src: url("../assets/fonts/Merriweather_24pt-SemiBold.ttf");
+}
+body {
+  margin: 0% !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../assets/images/background/germanBG.svg");
+}
+
+#mainLogo {
+  width: 145px;
+  margin-inline: 5%;
+}
+
+#navBar {
+  background-color: white !important;
+}
+#navBar #navbarNav ul {
+  padding: 0px 15px;
+  gap: 40px;
+}
+#navBar #navbarNav #nav-item a {
+  color: #472211;
+  font-family: "Inter_Regular";
+  font-size: 20px;
+}
+#navBar #navbarNav #nav-item :hover {
+  border-bottom: 3px solid rgba(71, 34, 17, 0.5019607843);
+}
+#navBar #navbarNav #nav-item.active {
+  border-bottom: 3px solid rgba(71, 34, 17, 0.5019607843);
+}
+
+.banner {
+  height: 50vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../assets/images/banner/germanBanner.svg");
+}
+.banner #para {
+  background-color: rgba(71, 34, 17, 0.7);
+  border-radius: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-inline: 2%;
+}
+.banner #para h1 {
+  font-family: "Merriweather-Regular" !important;
+}
+
+.title {
+  margin-top: 6%;
+}
+.title .light {
+  font-family: "Merriweather-Light";
+  font-size: 48px;
+  margin-bottom: 0px;
+  color: #472211;
+}
+.title .dark {
+  font-family: "Merriweather-Bold";
+  font-size: 28px;
+  margin-bottom: 0px;
+}
+.title .featurette-divider {
+  width: 35%;
+  height: 2px;
+  color: #472211;
+  background: #472211;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.para {
+  font-family: "Merriweather-Light";
+  font-size: 22px;
+  margin-inline: 13%;
+}
+
+.courses {
+  margin-inline: 15%;
+}
+.courses a:hover {
+  color: #472211 !important;
+  text-decoration-color: #472211;
+  text-decoration: line-through;
+}
+.courses .courseItem {
+  border: #472211 0.5px solid;
+  border-radius: 20px;
+  width: 397px;
+  height: 621px;
+}
+.courses .courseItem h2 {
+  font-family: "Merriweather-SemiBold" !important;
+  line-height: 130%;
+  font-size: 25px;
+  color: #472211;
+  margin-inline: 10%;
+}
+.courses .courseItem h2 .text-indent {
+  text-indent: 20px;
+}
+.courses .courseItem img {
+  width: 40%;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.courseItem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.back {
+  background-color: white;
+  border-radius: 20px;
+}
+.back a {
+  background-color: #472211;
+  color: white !important;
+  padding: 5px 10px;
+  font-family: "Merriweather-Regular" !important;
+}
+.back a:hover {
+  border: 3px solid #472211;
+  background-color: white;
+  color: #472211 !important;
+  text-decoration: none;
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease;
+}
+
+.front {
+  opacity: 1;
+  /* Visible by default */
+}
+
+.back {
+  opacity: 0;
+  /* Hidden by default */
+  font-size: 18px;
+}
+.back p,
+.back ul,
+.back li {
+  color: #472211;
+  font-family: "Merriweather-Light" !important;
+}
+
+.courseItem:hover .front {
+  opacity: 0;
+  /* Front disappears */
+}
+
+.courseItem:hover .back {
+  opacity: 1;
+  /* Back appears */
+}
+
+.policy {
+  margin-inline: 15%;
+}
+.policy .title {
+  width: -moz-max-content;
+  width: max-content;
+}
+.policy .title h3 {
+  font-family: "Merriweather-SemiBold";
+  color: #472211;
+  border-bottom: #472211 3px solid;
+}
+.policy .para {
+  font-family: "Merriweather-Light";
+  font-size: 22px;
+  margin-inline: 0%;
+  margin-block: 1%;
+}
+.policy a {
+  margin: 30px auto;
+  background-color: #472211;
+  color: white !important;
+  padding: 13px 80px;
+  font-family: "Merriweather-Regular" !important;
+  font-size: large;
+}
+.policy a:hover {
+  border: 3px solid #472211;
+  background-color: white;
+  color: #472211 !important;
+  text-decoration: none;
+}
+
+.bottomBanner {
+  background-image: url("../assets/images/banner/germanBBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bottomBanner div {
+  margin-inline: 15%;
+}
+.bottomBanner div h2 {
+  font-family: "Merriweather-Regular" !important;
+}
+.bottomBanner div a {
+  margin: 30px auto;
+  background-color: white;
+  color: #472211 !important;
+  padding: 13px 80px;
+  font-family: "Merriweather-Regular" !important;
+  font-size: large;
+}
+.bottomBanner div a:hover {
+  border: 3px solid #472211;
+  background-color: #472211;
+  color: white !important;
+  text-decoration: none;
+}
+
+footer {
+  background-color: white;
+  border-top: 2px solid #472211;
+}
+footer .footerLogo {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #472211;
+  width: 30%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Bootstrap carousel controls — force icons to black */
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 16 16'><path d='M6.5 1.5L11 8l-4.5 6.5L5 13.5 9.17 8 5 2.5z'/></svg>") !important;
+  background-size: 100% 100%;
+}
+
+/* Flip the previous control so it points left */
+.carousel-control-prev-icon {
+  transform: scaleX(-1);
+  transform-origin: center;
+}/*# sourceMappingURL=german.css.map */

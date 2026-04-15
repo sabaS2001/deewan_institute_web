@@ -24,6 +24,7 @@ import WishList from './context/wishlist.tsx';
 import Cart from './context/cart.tsx';
 import Checkout from './context/checkout.tsx';
 import Podcasts from './pages/podcasts/podcasts.tsx';
+import BildungsurlaUbPage from './pages/Bildungsurlaub/bildungsurlaubpage.tsx';
 function App() {
     return (
         <Router>
@@ -64,6 +65,8 @@ function App() {
                 <Route path="/checkout" element={<Checkout />} />
                 {/* Podcasts */}
                 <Route path="/podcasts" element={<Podcasts />} />
+                {/*Bildungsurlaub*/}
+                <Route path="/bildungsurlaub" element={<BildungsurlaUbPage />} />
             </Routes>
         </Router>
     );

@@ -342,3 +342,89 @@
   animation: fadeInUp 0.8s ease-out forwards;
 
 }
+
+
+// Modal
+.contactModal {
+  border-radius: 16px;
+  border: none;
+}
+
+// Success Circle
+.checkCircle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.checkSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.checkCirclePath {
+  fill: none;
+  stroke: #4CAF50;
+  stroke-width: 2;
+}
+
+.checkMark {
+  fill: none;
+  stroke: #4CAF50;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+// Error Circle
+.errorCircle {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.errorCirclePath {
+  fill: none;
+  stroke: #f44336;
+  stroke-width: 2;
+}
+
+.errorMark {
+  fill: none;
+  stroke: #f44336;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+// Text
+.successTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4CAF50;
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f44336;
+}
+
+.successText {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+// Close Button
+.modalCloseBtn {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+
+  &:hover {
+    opacity: 0.9;
+    color: white;
+  }
+}

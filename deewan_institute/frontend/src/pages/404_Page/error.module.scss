@@ -1,0 +1,39 @@
+@use "../../style/variables.scss"as *;
+@use "../../style/fonts.scss"as *;
+
+* {
+    font-family: "Merriweather-Regular";
+}
+
+#errorPage {
+    padding-block: 5%;
+
+    #image {
+        width: 50%;
+    }
+
+    h1 {
+        font-size: xxx-large;
+        font-weight: bold;
+        font-family: "Merriweather-Bold";
+        color: $primary-color;
+    }
+
+    para {
+        font-size: medium;
+        font-family: "Merriweather-Regular";
+    }
+
+    #button {
+        background-color: $primary-color;
+        color: $white;
+        font-family: "Merriweather-Regular";
+        font-size: large;
+        width: 20%;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+            color: $white;
+        }
+    }
+}

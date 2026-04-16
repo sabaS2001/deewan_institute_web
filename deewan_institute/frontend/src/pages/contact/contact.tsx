@@ -1,9 +1,10 @@
-import { Fragment, useState, useEffect, useRef, useCallback } from "react";
+import { Fragment, useState, useEffect, useCallback, useRef } from "react";
+import {Modal} from "bootstrap";
+import "bootstrap";
 import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./contact.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import emailjs from "@emailjs/browser";
 
 interface ContactFormData {
   fullName: string;
@@ -20,14 +21,12 @@ function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+
+  const modalRef = useRef<HTMLDivElement>(null);
+  const [modalType, setModalType] = useState<"success" | "error">("success");
 
   useEffect(() => {
-    //page title
     document.title = "Deewan Institute | Contact Us";
-
-    // Initialize EmailJS
-    emailjs.init("esHttmoL3DGy6Ps_P");
   }, []);
 
   const handleInputChange = useCallback(
@@ -38,34 +37,134 @@ function Contact() {
     [],
   );
 
+  // ✅ Helper to show modal
+  const showModal = (type: "success" | "error") => {
+    setModalType(type);
+    const modalEl = modalRef.current;
+    if (modalEl) {
+      const modal = new Modal(modalEl, { backdrop: "static" });
+      modal.show();
+    }
+  };
+
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       setIsSubmitting(true);
 
       try {
-        if (formRef.current) {
-          await emailjs.sendForm(
-            "service_riljjng",
-            "template_v0kdstg",
-            formRef.current,
-          );
-          alert("Email sent successfully!");
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fullName: formData.fullName,
+            email: formData.email,
+            phoneNumber: formData.phone,
+            message: formData.message,
+          }),
+        });
+
+        if (response.ok) {
+          // ✅ Show success modal instead of alert
+          showModal("success");
           setFormData({ fullName: "", email: "", phone: "", message: "" });
+        } else {
+          // ✅ Show error modal instead of alert
+          showModal("error");
         }
       } catch (error) {
-        console.error("EmailJS error:", error);
-        alert("Failed to send email. Please try again.");
+        console.error("Error:", error);
+        // ✅ Show error modal instead of alert
+        showModal("error");
       } finally {
         setIsSubmitting(false);
       }
     },
-    [],
+    [formData],
   );
-
   return (
     <Fragment>
       <NavBar />
+
+      {/* ── Contact Modal ── */}
+      <div
+        className="modal fade"
+        ref={modalRef}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className={`modal-content ${styles.contactModal}`}>
+            <div className="modal-body text-center py-5 px-4">
+              {/* Success State */}
+              {modalType === "success" && (
+                <>
+                  <div className={styles.checkCircle}>
+                    <svg viewBox="0 0 52 52" className={styles.checkSvg}>
+                      <circle
+                        cx="26"
+                        cy="26"
+                        r="25"
+                        className={styles.checkCirclePath}
+                      />
+                      <path
+                        d="M14 27 l8 8 l16-16"
+                        className={styles.checkMark}
+                      />
+                    </svg>
+                  </div>
+                  <h3 className={`${styles.successTitle} mt-4`}>
+                    Message Sent!
+                  </h3>
+                  <p className={styles.successText}>
+                    Thank you for reaching out.
+                    <br />
+                    Our team will get back to you shortly.
+                  </p>
+                </>
+              )}
+
+              {/* Error State */}
+              {modalType === "error" && (
+                <>
+                  <div className={styles.errorCircle}>
+                    <svg viewBox="0 0 52 52" className={styles.checkSvg}>
+                      <circle
+                        cx="26"
+                        cy="26"
+                        r="25"
+                        className={styles.errorCirclePath}
+                      />
+                      <path
+                        d="M16 16 l20 20 M36 16 l-20 20"
+                        className={styles.errorMark}
+                      />
+                    </svg>
+                  </div>
+                  <h3 className={`${styles.errorTitle} mt-4`}>
+                    Something Went Wrong!
+                  </h3>
+                  <p className={styles.successText}>
+                    Failed to send your message.
+                    <br />
+                    Please try again or contact us directly.
+                  </p>
+                </>
+              )}
+
+              {/* Close Button */}
+              <button
+                className={`btn mt-3 ${styles.modalCloseBtn}`}
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <main className={`contactpage ${styles.contactPage}`}>
         {/* Banner Image */}
@@ -95,7 +194,8 @@ function Contact() {
             className={`border border-black p-5 ${styles.messageForm}`}
             id="messageForm"
           >
-            <form ref={formRef} onSubmit={handleSubmit} className="row">
+            {/* ✅ Removed ref={formRef} since we no longer need it for emailjs */}
+            <form onSubmit={handleSubmit} className="row">
               <div className="col-md-5">
                 <div className="mb-3 d-flex flex-column">
                   <label
@@ -179,6 +279,7 @@ function Contact() {
           </div>
         </section>
 
+        {/* Rest of your sections stay exactly the same */}
         {/* Information Section */}
         <section className={`information scroll-section ${styles.information}`}>
           <div className="title my-5">
@@ -193,7 +294,6 @@ function Contact() {
               Amman is available to assist you promptly.
             </p>
 
-            {/* Main Email */}
             <div className="d-flex justify-content-center my-5">
               <div
                 className={styles.contactBox}
@@ -212,9 +312,7 @@ function Contact() {
               and phone number below.
             </p>
 
-            {/* Contact Grid */}
             <div className="row justify-content-center mt-4">
-              {/* Left Column */}
               <div className="col-md-6 d-flex flex-column">
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/mail.svg" alt="Email" />
@@ -222,7 +320,6 @@ function Contact() {
                     management@deewaninstitute.com
                   </a>
                 </div>
-
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/mail.svg" alt="Email" />
                   <a href="mailto:publicrelations.deewan@gmail.com">
@@ -230,14 +327,11 @@ function Contact() {
                   </a>
                 </div>
               </div>
-
-              {/* Right Column */}
               <div className="col-md-6 d-flex flex-column">
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/phone.svg" alt="Phone" />
                   <a href="tel:+962778928188">+962 7 7892 8188</a>
                 </div>
-
                 <div className={styles.contactBox}>
                   <img src="/assets/images/icons/whatsapp.svg" alt="WhatsApp" />
                   <a
@@ -253,54 +347,49 @@ function Contact() {
           </div>
         </section>
 
-        {/* Opening Hours Section */}
+        {/* Opening Hours - stays the same */}
+        <section
+          className={`openingHours scroll-section ${styles.openingHours}`}
+        >
+          <div className="title my-5">
+            <h2 className={styles.sectionTitle}>Opening Hours</h2>
+          </div>
+          <div className="row flex-wrap justify-content-center align-items-start g-3 mt-2">
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className={styles.borderRight}>
+                <h3 className="fw-bold">Office Hours</h3>
+                <ul>
+                  <li>Sun - Wed: 9:30 AM - 18:30 PM</li>
+                  <li>Thursday: 10:30 AM - 18:30 PM</li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className={styles.borderRight}>
+                <h3 className="fw-bold">Class Hours</h3>
+                <ul>
+                  <li>Sun - Thurs: 10:30 AM - 20:00 PM</li>
+                </ul>
+                <span className={styles.italic}>
+                  For Saturday, please contact us.
+                </span>
+              </div>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4">
+              <div className={styles.borderRight}>
+                <h3 className="fw-bold">Workspace</h3>
+                <ul>
+                  <li>Sun - Thurs: 10:30 AM - 20:00 PM</li>
+                </ul>
+                <span className={styles.italic}>
+                  It is provided free of charge to Deewan students.
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
 
-<section className={`openingHours scroll-section ${styles.openingHours}`}>
-  <div className="title my-5">
-    <h2 className={styles.sectionTitle}>Opening Hours</h2>
-  </div>
-  <div className="row flex-wrap justify-content-center align-items-start g-3 mt-2">
-    
-    {/* Column 1 */}
-    <div className="col-12 col-md-6 col-lg-4">
-      <div className={styles.borderRight}> {/* Moved class here */}
-        <h3 className="fw-bold">Office Hours</h3>
-        <ul>
-          <li>Sun - Wed: 9:30 AM - 18:30 PM</li>
-          <li>Thursday: 10:30 AM - 18:30 PM</li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Column 2 */}
-    <div className="col-12 col-md-6 col-lg-4">
-      <div className={styles.borderRight}> {/* Moved class here */}
-        <h3 className="fw-bold">Class Hours</h3>
-        <ul>
-          <li>Sun - Thurs: 10:30 AM - 20:00 PM</li>
-        </ul>
-        <span className={styles.italic}>
-          For Saturday, please contact us.
-        </span>
-      </div>
-    </div>
-
-    {/* Column 3 */}
-    <div className="col-12 col-md-6 col-lg-4">
-      <div className={styles.borderRight}> {/* Moved class here */}
-        <h3 className="fw-bold">Workspace</h3>
-        <ul>
-          <li>Sun - Thurs: 10:30 AM - 20:00 PM</li>
-        </ul>
-        <span className={styles.italic}>
-          It is provided free of charge to Deewan students.
-        </span>
-      </div>
-    </div>
-
-  </div>
-</section>
-        {/* Location Section */}
+        {/* Location - stays the same */}
         <section className={`location scroll-section ${styles.location}`}>
           <div className="title my-5">
             <h2 className={styles.sectionTitle}>Our Location</h2>

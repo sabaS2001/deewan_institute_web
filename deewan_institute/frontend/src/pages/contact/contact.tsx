@@ -399,7 +399,7 @@ function Contact() {
               Deewan Institute is a 3-minute walk from Paris Circle in Weibdeh.
               Al - Baouneyah St. 14, Amman 11191. 2nd floor.
             </p>
-            <div className="locationMaps">
+            <div className={styles.locationMaps}>
               <div className="ratio ratio-16x9">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.1510040729036!2d35.92346077611702!3d31.95679987401723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b5f8f0272092b%3A0x96d119fcca1fbf4c!2sDeewan%20Institute%20for%20Languages%20and%20Cultural%20Studies!5e0!3m2!1sen!2sjo!4v1761462171667!5m2!1sen!2sjo"

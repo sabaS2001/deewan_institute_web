@@ -1,6 +1,4 @@
 //Interface
-
-
 interface Review {
     reviewer: string;
     rating: number;

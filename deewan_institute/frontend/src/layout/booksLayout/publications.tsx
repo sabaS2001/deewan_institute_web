@@ -15,6 +15,8 @@ import { useNavigate } from "react-router-dom";
 
 declare const Swiper: any;
 
+// This is the home page for the books 
+
 function StarRating({ rating }: { rating: number }) {
   return (
     <div className={styles.stars} aria-label={`Rating: ${rating} out of 5`}>

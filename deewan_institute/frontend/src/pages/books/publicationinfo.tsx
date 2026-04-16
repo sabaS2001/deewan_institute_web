@@ -21,6 +21,8 @@ import Footer from "../../components/footer/footer";
 
 declare const Swiper: any;
 
+// This the book info 
+
 interface BookDetail {
   id: string;
   image: string;

@@ -1,5 +1,5 @@
 import "bootstrap";
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "bootstrap";
 import styles from "./checkout.module.scss";
@@ -18,7 +18,13 @@ function Checkout() {
   const [validated, setValidated] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    if (cart.length === 0) {
+      navigate("/404", { replace: true });
+    }
+  }, [cart, navigate]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
 
@@ -28,15 +34,42 @@ function Checkout() {
       return;
     }
 
-    // Show success modal
-    const modalEl = modalRef.current;
-    if (modalEl) {
-      const modal = new Modal(modalEl, { backdrop: "static" });
-      modal.show();
-      setTimeout(() => {
-        modal.hide();
-        navigate("/publications");
-      }, 3500);
+    // ✅ Collect form data
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.get("firstName"),
+          lastName: formData.get("lastName"),
+          email: formData.get("email"),
+          address: formData.get("address"),
+          region: formData.get("region"),
+          paymentMethod, // ✅ cash | cliq | paypal
+          cart, // ✅ from useShop()
+          totalPrice, // ✅ from useShop()
+        }),
+      });
+
+      if (response.ok) {
+        // ✅ Show success modal
+        const modalEl = modalRef.current;
+        if (modalEl) {
+          const modal = new Modal(modalEl, { backdrop: "static" });
+          modal.show();
+          setTimeout(() => {
+            modal.hide();
+            navigate("/publications");
+          }, 3500);
+        }
+      } else {
+        alert("Failed to place order. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to place order. Please try again.");
     }
   };
 
@@ -45,19 +78,30 @@ function Checkout() {
       <NavBar />
 
       {/* ── Success Modal ── */}
-      <div className="modal fade" ref={modalRef} tabIndex={-1} aria-hidden="true">
+      <div
+        className="modal fade"
+        ref={modalRef}
+        tabIndex={-1}
+        aria-hidden="true"
+      >
         <div className="modal-dialog modal-dialog-centered">
           <div className={`modal-content ${styles.successModal}`}>
             <div className="modal-body text-center py-5 px-4">
               <div className={styles.checkCircle}>
                 <svg viewBox="0 0 52 52" className={styles.checkSvg}>
-                  <circle cx="26" cy="26" r="25" className={styles.checkCirclePath} />
+                  <circle
+                    cx="26"
+                    cy="26"
+                    r="25"
+                    className={styles.checkCirclePath}
+                  />
                   <path d="M14 27 l8 8 l16-16" className={styles.checkMark} />
                 </svg>
               </div>
               <h3 className={`${styles.successTitle} mt-4`}>Order Placed!</h3>
               <p className={styles.successText}>
-                Your order has been checked out successfully!<br />
+                Your order has been checked out successfully!
+                <br />
                 Please check your email for confirmation.
               </p>
               <p className={styles.successRedirect}>Redirecting you shortly…</p>
@@ -76,11 +120,9 @@ function Checkout() {
       <section className={styles.checkoutGrid}>
         <div className="container-fluid px-4 px-md-5">
           <div className="row g-4 justify-content-center">
-
             {/* ── LEFT COLUMN ── */}
             <div className="col-12 col-lg-5 d-flex flex-column gap-4">
-
-               {/* Checkout As Guest */}
+              {/* Checkout As Guest */}
               <div className={styles.card}>
                 <div
                   className={`d-flex justify-content-between align-items-start ${styles.cardHeader}`}
@@ -111,66 +153,121 @@ function Checkout() {
                   {/* First Name / Last Name */}
                   <div className="row g-3 mb-3">
                     <div className="col-6">
-                      <label htmlFor="firstName" className={styles.fieldLabel}>First Name:</label>
-                      <input type="text" id="firstName" name="firstName"
+                      <label htmlFor="firstName" className={styles.fieldLabel}>
+                        First Name:
+                      </label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
                         className={`${styles.fieldInput} form-control`}
-                        required autoComplete="given-name" />
+                        required
+                        autoComplete="given-name"
+                      />
                       <div className="invalid-feedback">Required.</div>
                     </div>
                     <div className="col-6">
-                      <label htmlFor="lastName" className={styles.fieldLabel}>Last Name:</label>
-                      <input type="text" id="lastName" name="lastName"
+                      <label htmlFor="lastName" className={styles.fieldLabel}>
+                        Last Name:
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
                         className={`${styles.fieldInput} form-control`}
-                        required autoComplete="family-name" />
+                        required
+                        autoComplete="family-name"
+                      />
                       <div className="invalid-feedback">Required.</div>
                     </div>
                   </div>
 
                   {/* Email */}
                   <div className="mb-3">
-                    <label htmlFor="email" className={styles.fieldLabel}>Email:</label>
-                    <input type="email" id="email" name="email"
+                    <label htmlFor="email" className={styles.fieldLabel}>
+                      Email:
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
                       className={`${styles.fieldInput} form-control`}
-                      required autoComplete="email" />
-                    <div className="invalid-feedback">Please provide a valid email address.</div>
+                      required
+                      autoComplete="email"
+                    />
+                    <div className="invalid-feedback">
+                      Please provide a valid email address.
+                    </div>
                   </div>
 
                   {/* Address */}
                   <div className="mb-3">
-                    <label htmlFor="address" className={styles.fieldLabel}>Address:</label>
-                    <input type="text" id="address" name="address"
+                    <label htmlFor="address" className={styles.fieldLabel}>
+                      Address:
+                    </label>
+                    <input
+                      type="text"
+                      id="address"
+                      name="address"
                       className={`${styles.fieldInput} form-control`}
-                      required autoComplete="street-address" />
-                    <div className="invalid-feedback">Please enter your address.</div>
+                      required
+                      autoComplete="street-address"
+                    />
+                    <div className="invalid-feedback">
+                      Please enter your address.
+                    </div>
                   </div>
 
                   {/* Region */}
                   <div className="mb-3">
-                    <label htmlFor="region" className={styles.fieldLabel}>Region:</label>
-                    <select id="region" name="region"
+                    <label htmlFor="region" className={styles.fieldLabel}>
+                      Region:
+                    </label>
+                    <select
+                      id="region"
+                      name="region"
                       className={`${styles.fieldInput} form-select`}
-                      required autoComplete="address-level1">
+                      required
+                      autoComplete="address-level1"
+                    >
                       <option value="">Select Region</option>
-                      <option>Amman</option><option>Irbid</option>
-                      <option>Zarqa</option><option>Aqaba</option>
-                      <option>Mafraq</option><option>Balqa</option>
-                      <option>Karak</option><option>Tafilah</option>
-                      <option>Maan</option><option>Ajloun</option>
+                      <option>Amman</option>
+                      <option>Irbid</option>
+                      <option>Zarqa</option>
+                      <option>Aqaba</option>
+                      <option>Mafraq</option>
+                      <option>Balqa</option>
+                      <option>Karak</option>
+                      <option>Tafilah</option>
+                      <option>Maan</option>
+                      <option>Ajloun</option>
                       <option>Madaba</option>
                     </select>
-                    <div className="invalid-feedback">Please select a region.</div>
+                    <div className="invalid-feedback">
+                      Please select a region.
+                    </div>
                   </div>
 
                   {/* Country */}
                   <div className="mb-3">
-                    <label htmlFor="country" className={styles.fieldLabel}>Country:</label>
-                    <input type="text" id="country" className={`${styles.fieldInput} bg-light form-control`}
-                      value="Jordan" disabled readOnly tabIndex={-1} autoComplete="country-name" />
+                    <label htmlFor="country" className={styles.fieldLabel}>
+                      Country:
+                    </label>
+                    <input
+                      type="text"
+                      id="country"
+                      className={`${styles.fieldInput} bg-light form-control`}
+                      value="Jordan"
+                      disabled
+                      readOnly
+                      tabIndex={-1}
+                      autoComplete="country-name"
+                    />
                   </div>
                 </form>
               </div>
 
-             {/* Payment Method */}
+              {/* Payment Method */}
               <div className={styles.card}>
                 <h2 className={styles.cardTitle}>Payment Method:</h2>
                 <hr className={styles.cardDivider} />
@@ -303,8 +400,11 @@ function Checkout() {
                 Place Order &nbsp;→
               </button>
 
-              <button type="button" className={`${styles.continueBtn} w-100 mt-3`}
-                onClick={() => navigate("/publications")}>
+              <button
+                type="button"
+                className={`${styles.continueBtn} w-100 mt-3`}
+                onClick={() => navigate("/publications")}
+              >
                 ← &nbsp;Continue Shopping
               </button>
             </div>

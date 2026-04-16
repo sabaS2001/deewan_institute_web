@@ -7,7 +7,9 @@
   min-height: 260px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../assets/images/banner/arabicCal.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../assets/images/banner/arabicCal.svg");
+  padding: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
   p {
     font-family: "Merriweather-Light" !important;

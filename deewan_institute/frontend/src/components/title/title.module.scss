@@ -3,7 +3,8 @@
 
 .title {
     width: fit-content;
-    padding: 2% 2%;
+    max-width: 100%; 
+    padding: 2%;
     margin-top: 6%;
     border-radius: 20px;
     background: $white;
@@ -13,9 +14,16 @@
         color: var(--primary-color);
         text-align: center;
         font-family: "Merriweather-Bold" !important;
-        font-size: 58px;
+        font-size: clamp(32px, 5vw, 58px); 
         font-style: normal;
         font-weight: 700;
-        line-height: 150%;
+        line-height: 1.5;
+        margin: 0;
+        word-wrap: break-word;
+    }
+
+    @media (max-width: 768px) {
+        padding: 5%;
+        margin-top: 10%;
     }
 }

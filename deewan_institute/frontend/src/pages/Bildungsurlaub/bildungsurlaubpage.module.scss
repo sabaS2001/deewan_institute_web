@@ -8,6 +8,8 @@
   height: clamp(280px, 44vw, 632px);
   overflow: hidden;
   border-radius: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
 
   &image {
     width: 100%;
@@ -15,6 +17,8 @@
     object-fit: cover;
     object-position: center top;
     display: block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    
   }
 
   &overlay {

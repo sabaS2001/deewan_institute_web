@@ -26,6 +26,7 @@ import Checkout from "./context/checkout.tsx";
 import Podcasts from "./pages/podcasts/podcasts.tsx";
 import BildungsurlaUbPage from "./pages/Bildungsurlaub/bildungsurlaubpage.tsx";
 import NotFound from "./pages/404_Page/error.tsx";
+import Careers from "./pages/carrers/careers.tsx";
 
 function App() {
   return (
@@ -93,6 +94,8 @@ function App() {
         <Route path="/podcasts" element={<Podcasts />} />
         {/*Bildungsurlaub*/}
         <Route path="/bildungsurlaub" element={<BildungsurlaUbPage />} />
+        {/*Careers*/}
+        <Route path="/careers" element={<Careers />} />
 
         {/* ✅ 404 Route - must be last */}
         <Route path="/404" element={<NotFound />} />

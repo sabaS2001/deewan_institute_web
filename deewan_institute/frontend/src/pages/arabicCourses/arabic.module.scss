@@ -1,63 +1,85 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
 
+// ==================== ARABI TALK ====================
 .arabiTalk {
-  // information
+  // Information Section
   .info {
+    padding-inline: 5%;
+
     h5 {
       font-family: "Merriweather-Regular" !important;
       color: #0d5071;
+      font-size: clamp(18px, 3vw, 24px);
     }
 
     h1 {
       font-family: "Merriweather-Bold" !important;
-      font-size: 50px;
-      line-height: 50px;
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.2;
       color: #0d5071;
     }
 
     p {
       font-family: "Merriweather-Light" !important;
-      line-height: 35px;
+      line-height: 1.8;
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    // Mobile adjustments
+    @media (max-width: 768px) {
+      text-align: center;
+      
+      h1 {
+        border-bottom: none;
+        margin-bottom: 20px;
+      }
     }
   }
 
-  //sessions
+  // Sessions Section
   .sessions {
-    padding-inline: 13%;
+    padding-inline: 5%;
+    width: 100%;
 
     .subTitle {
       width: max-content;
+      margin: 0 auto;
 
       h1 {
         font-family: "Merriweather-SemiBold";
         color: #0d5071;
-        font-size: 50px;
+        font-size: clamp(32px, 5vw, 50px);
         border-bottom: #0d5071 3px solid;
+        line-height: 1.3;
       }
     }
 
     #card {
-      width: 65% !important;
-      height: 599px !important;
-      padding-block: 0% 0% !important;
-      padding-inline: 8% !important;
+      width: 100% !important;
+      max-width: 600px !important;
+      height: auto !important;
+      min-height: 400px !important;
+      padding-block: 5% !important;
+      padding-inline: 5% !important;
       border-radius: 20px !important;
       border-color: #0d5071 !important;
       box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) !important;
-      transition:
-        width 0.3s ease,
-        height 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      margin: 0 auto;
 
       hr {
         opacity: 0.5;
-        height: 0.5%;
+        height: 2px;
+        border: none;
+        background-color: #0d5071;
       }
 
       h1 {
         font-family: "Merriweather-Regular" !important;
-        font-size: 60px;
-        padding-block: 7%;
+        font-size: clamp(40px, 6vw, 60px);
+        padding-block: 5%;
+        line-height: 1.2;
       }
 
       #black {
@@ -72,17 +94,20 @@
 
       h4 {
         font-family: "Merriweather-Light" !important;
+        font-size: clamp(16px, 2vw, 20px);
+        line-height: 1.6;
       }
 
       a {
         background-color: #ffa200;
-        font-size: 22px;
+        font-size: clamp(16px, 2vw, 22px);
         font-family: "Merriweather-Light";
-        padding-block: 4%;
+        padding-block: 3%;
+        padding-inline: 5%;
         border-radius: 10px;
-        transition:
-          width 0.3s ease,
-          height 0.3s ease;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin-top: 20px;
       }
 
       a:hover {
@@ -90,60 +115,56 @@
         color: #ffa200 !important;
         border: #ffa200 2px solid;
       }
+
+      // Hover effect - desktop only
+      @media (min-width: 769px) {
+        &:hover {
+          transform: scale(1.02);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3) !important;
+
+          hr {
+            opacity: 1;
+          }
+
+          h1 {
+            font-size: clamp(42px, 6vw, 62px);
+          }
+
+          a {
+            padding-block: 4%;
+          }
+        }
+      }
     }
 
-    #card:hover {
-      width: 75% !important;
-      height: 620px !important;
+    // Mobile adjustments
+    @media (max-width: 768px) {
+      padding-inline: 3%;
 
-      hr {
-        opacity: 1;
-        height: 0.5%;
-      }
-
-      h1 {
-        font-family: "Merriweather-Regular" !important;
-        font-size: 62px;
-        padding-block: 7%;
-      }
-
-      #black {
-        margin-block: 1%;
-        color: black;
-      }
-
-      #yellow {
-        margin-block: 1%;
-        color: #ffa200;
-      }
-
-      h4 {
-        font-family: "Merriweather-Light" !important;
-      }
-
-      a {
-        background-color: #ffa200;
-        font-size: 22px;
-        font-family: "Merriweather-Light";
-        padding-block: 5%;
-        border-radius: 10px;
+      #card {
+        padding-inline: 4% !important;
+        min-height: 350px !important;
       }
     }
   }
 }
 
+// ==================== ARABIC KIDS ====================
 .arabicKids {
-  // information
+  // Information Section
   .info {
+    padding-inline: 5%;
+
     h5 {
       font-family: "Merriweather-Regular" !important;
       color: #a60a1f;
+      font-size: clamp(18px, 3vw, 24px);
     }
 
     h1 {
       font-family: "Merriweather-Bold" !important;
-      font-size: 50px;
-      line-height: 50px;
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.2;
       color: #a60a1f;
     }
 
@@ -151,93 +172,207 @@
     ul,
     li {
       font-family: "Merriweather-Light" !important;
-      line-height: 35px;
+      line-height: 1.8;
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    // Mobile adjustments
+    @media (max-width: 768px) {
+      text-align: center;
+      
+      h1 {
+        border-bottom: none;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        text-align: left;
+        display: inline-block;
+      }
     }
   }
 
+  // Approach Section
   .approach {
-    padding-inline: 13%;
+    padding-inline: 5%;
     margin-block: 5%;
+    width: 100%;
 
     .subTitle {
       width: max-content;
+      margin: 0 auto;
 
       h1 {
         font-family: "Merriweather-SemiBold";
         color: #a60a1f;
-        font-size: 50px;
+        font-size: clamp(20px, 5vw, 50px);
         border-bottom: #a60a1f 3px solid;
+        line-height: 1.3;
       }
     }
 
     #itemBox {
       img {
         width: 80%;
+        max-width: 400px;
+        height: auto;
       }
 
       h2 {
         font-family: "Merriweather-Light" !important;
         color: #a60a1f;
+        font-size: clamp(20px, 3vw, 28px);
+        line-height: 1.4;
       }
+
+      // Mobile adjustments
+      @media (max-width: 768px) {
+        img {
+          width: 90%;
+          max-width: 300px;
+        }
+      }
+    }
+
+    // Mobile adjustments
+    @media (max-width: 768px) {
+      padding-inline: 3%;
+      margin-block: 3%;
     }
   }
 }
 
+// ==================== INTENSIVE PROGRAM ====================
 .intensive {
   .info {
+    padding-inline: 5%;
+
     .featuretteHeading {
       color: $primary-color;
       border-bottom: 3px solid $primary-color;
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.2;
+      display: inline-block;
     }
 
     p {
       font-family: "Merriweather-Light" !important;
+      line-height: 1.8;
+      font-size: clamp(16px, 2vw, 20px);
     }
 
     #checkBtn {
       color: $primary-color !important;
       border: 2px $primary-color solid;
       background-color: $white;
-      padding: 9px 39px;
+      padding: 10px 30px;
+      font-size: clamp(14px, 2vw, 18px);
+      transition: all 0.3s ease;
+      display: inline-block;
 
       &:hover {
         color: $white !important;
-        border: 2px $primary-color solid;
         background-color: $primary-color;
+      }
+    }
+
+    // Mobile adjustments
+    @media (max-width: 768px) {
+      text-align: center;
+      
+      .featuretteHeading {
+        border-bottom: none;
+        margin-bottom: 20px;
+      }
+
+      #checkBtn {
+        margin-top: 20px;
       }
     }
   }
 
   .special {
+    padding-inline: 5%;
+
     h5 {
       font-family: "Merriweather-Regular" !important;
       color: #8f6e43;
+      font-size: clamp(18px, 3vw, 24px);
     }
 
     h1 {
       font-family: "Merriweather-SemiBold" !important;
-      line-height: 50px;
+      line-height: 1.2;
       color: #8f6e43;
+      font-size: clamp(32px, 5vw, 50px);
     }
 
     p,
     ul li {
       font-family: "Merriweather-Light" !important;
-      line-height: 35px;
+      line-height: 1.8;
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    // Mobile adjustments
+    @media (max-width: 768px) {
+      text-align: center;
+      
+      h5, h1 {
+        margin: 0 auto;
+      }
+
+      ul {
+        text-align: left;
+        display: inline-block;
+      }
     }
   }
 
   .programFee {
-    padding-inline: 13%;
+    padding-inline: 5%;
+    width: 100%;
 
     .title {
-      width: max-content;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 40px;
 
       h1 {
         font-family: "Merriweather-SemiBold";
         color: $primary-color;
         border-bottom: $primary-color 3px solid;
+        display: inline-block;
+        font-size: clamp(32px, 5vw, 50px);
       }
+    }
+
+    // Mobile adjustments
+    @media (max-width: 768px) {
+      padding-inline: 3%;
+    }
+  }
+}
+
+// ==================== GLOBAL MOBILE ADJUSTMENTS ====================
+@media (max-width: 576px) {
+  .arabiTalk,
+  .arabicKids,
+  .intensive {
+    .info,
+    .sessions,
+    .approach,
+    .special,
+    .programFee {
+      padding-inline: 3%;
     }
   }
 }

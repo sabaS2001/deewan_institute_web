@@ -25,7 +25,7 @@ function ArabicCourses() {
             <Banner data={{
                 title: "Arabic Courses",
                 description: "Check out all our Arabic courses at Deewan Institute, tailored for every learner's needs in the vibrant city of Amman. From the foundational courses to building essential vocabulary and grammar, to honing conversation and cultural nuances. Explore these options today and find the one that sparks your language journey!",
-                backgroundImg: "../assets/images/banner/arabicCourses.svg",
+                backgroundImg: "../assets/images/banner/arabicCbanner.jpg",
             }} />
             {/* Main Layout */}
             <Courses data={courseData} />

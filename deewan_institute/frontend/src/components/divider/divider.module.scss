@@ -1,10 +1,19 @@
 @use '../../style/variables.scss' as *;
 @use '../../style/fonts.scss' as *;
 
-
 .featuretteDivider {
     opacity: 1;
     border: 1.5px solid $primary-color !important;
     width: 50% !important;
     margin-block: 5%;
+
+    @media (max-width: 768px) {
+        width: 70% !important;
+        margin-block: 3%;
+    }
+
+    @media (max-width: 576px) {
+        width: 80% !important;
+        margin-block: 2%;
+    }
 }

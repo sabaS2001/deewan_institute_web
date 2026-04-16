@@ -3,38 +3,85 @@
 
 .openingHours {
   background-color: var(--background-color);
-  padding-inline: 15%;
+  padding-inline: 5%;
+  width: 100%;
 
   .title {
     width: max-content;
     border-bottom: var(--color) 3px solid;
+    margin: 0 auto;
 
     h1 {
       color: var(--color);
+      font-size: clamp(32px, 5vw, 48px);
+      font-family: "Merriweather-Bold" !important;
     }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
   }
 
   ul li {
     color: var(--color);
     font-family: "Merriweather-Light" !important;
-    line-height: 204%;
+    line-height: 1.8;
+    font-size: clamp(16px, 2vw, 18px);
   }
 
   .italic {
     color: var(--color);
     font-style: italic;
-    font-size: large;
-    line-height: 204%;
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.8;
     list-style-type: none;
+    display: block;
+    margin-top: 10px;
   }
 
   .bold {
     color: var(--color);
     font-family: "Merriweather-Bold" !important;
+    font-size: clamp(20px, 3vw, 24px);
+    margin-bottom: 15px;
   }
 
   .borderRight {
     border-right: var(--color) solid 2px;
     margin: 0 auto;
+    padding-right: 20px;
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 991px) {
+    padding-inline: 3%;
+
+    .borderRight {
+      border-right: none !important;
+      border-bottom: var(--color) solid 1px;
+      padding-right: 0;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      border-bottom: none;
+      margin-bottom: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-inline: 2%;
+    padding-block: 30px;
+
+    .title {
+      margin-bottom: 20px;
+    }
   }
 }

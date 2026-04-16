@@ -111,7 +111,7 @@ function Checkout() {
       </div>
 
       {/* ── Page Title ── */}
-      <section className={`${styles.pageTitle} text-center scroll-section`}>
+      <section className={`${styles.pageTitle} text-center`}>
         <h1>CheckOut Page</h1>
         <hr className={styles.titleDivider} />
       </section>

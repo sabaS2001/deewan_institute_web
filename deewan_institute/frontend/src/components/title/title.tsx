@@ -9,7 +9,7 @@ interface Title {
 function Title({ data }: { data: Title }) {
     return (
         <div
-            className={`${styles.title} text-center mx-auto`}
+            className={`${styles.title} text-center mx-auto w-100`}
             style={{
                 '--primary-color': data.color
             } as React.CSSProperties}

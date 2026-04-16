@@ -2,6 +2,7 @@ const express = require("express"); // Web framework for Node.js
 const nodemailer = require("nodemailer"); // Sending emails
 const multer = require("multer"); //Handling file uploads
 const cors = require("cors"); //Allows frontend to talk to backend
+const path = require("path"); // For handling file paths
 require("dotenv").config(); //Loads .env variables
 
 const app = express();
@@ -18,6 +19,21 @@ app.use(
 );
 app.use(express.json());
 
+
+// Multer Configuration for File Uploads (Memory Storage)
+const storage = multer.memoryStorage();
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === "application/pdf") {
+      cb(null, true);
+    } else {
+      cb(new Error("Only PDF files are allowed"), false);
+    }
+  },
+});
+
 // Nodemailer transporter
 // With this:
 const transporter = nodemailer.createTransport({
@@ -31,6 +47,79 @@ const transporter = nodemailer.createTransport({
   tls: {
     rejectUnauthorized: false,
   },
+});
+// CAREER FORM ENDPOINT
+app.post("/api/career", upload.single("cv"), async (req, res) => {
+  try {
+    const { firstName, lastName, email, phoneNumber, position } = req.body;
+    const file = req.file;
+
+    // Validation
+    if (!firstName || !lastName || !email || !phoneNumber || !position) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+    if (!file) {
+      return res.status(400).json({ message: "CV file is required" });
+    }
+    // Logo Path 
+    const logoPath = path.join(
+      __dirname,
+      "..",
+      "frontend",
+      "public",
+      "assets",
+      "images",
+      "logos",
+      "LogoDeewan.webp",
+    );
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: [process.env.RECEIVER_EMAIL, process.env.RECEIVER_EMAIL_2], // HR Emails
+      cc: process.env.RECEIVER_EMAIL_3,
+      subject: `Career Application: ${position} - ${firstName} ${lastName}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+          <!-- Logo -->
+          <div style="text-align: center; padding: 20px 0;">
+            <img src="cid:deewanlogo" alt="Deewan Institute Logo" style="width: 65%;" />
+          </div>
+          <hr/>
+          <h2>New Career Application</h2>
+          <hr/>
+          <p><strong>Position:</strong> ${position}</p>
+          <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phoneNumber}</p>
+          <hr/>
+          <p><strong>Attached CV:</strong> ${file.originalname}</p>
+          <hr/>
+          <div style="text-align: center; padding: 20px 0; color: #888; font-size: 12px;">
+            <p>Deewan Institute for Languages and Cultural Studies</p>
+            <p>Al - Baouneyah St. 14, Amman 11191</p>
+          </div>
+        </div>
+      `,
+      attachments: [
+        {
+          filename: "LogoDeewan.webp",
+          path: logoPath,
+          cid: "deewanlogo",
+        },
+        {
+          filename: file.originalname,
+          content: file.buffer,
+          contentType: file.mimetype,
+        },
+      ],
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: "Application sent successfully!" });
+  } catch (error) {
+    console.error("Career Form Error:", error);
+    res.status(500).json({ message: "Error sending application." });
+  }
 });
 
 // Contact form endpoint
@@ -48,6 +137,7 @@ app.post("/api/contact", async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: [process.env.RECEIVER_EMAIL, process.env.RECEIVER_EMAIL_2],
+      cc: process.env.RECEIVER_EMAIL_3,
       subject: `Deewan Website: Message from ${fullName}`,
       html: `
     <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
@@ -259,6 +349,7 @@ app.post("/api/checkout", async (req, res) => {
     const adminMailOptions = {
       from: process.env.EMAIL_USER,
       to: [process.env.RECEIVER_EMAIL, process.env.RECEIVER_EMAIL_2],
+      cc: process.env.RECEIVER_EMAIL_3,
       subject: `Deewan Website: New Book Order from ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
@@ -344,6 +435,11 @@ app.post("/api/checkout", async (req, res) => {
       message: "Error placing order.",
     });
   }
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 // Multer - store in memory

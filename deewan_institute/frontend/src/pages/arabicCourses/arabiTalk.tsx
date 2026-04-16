@@ -27,7 +27,7 @@ function ArabiTalk() {
             {/* Banner */}
             <ShadowBanner data={{
                 title: "ArabiTalk",
-                backgroundImg: "/assets/images/banner/arabiTalkBG.png",
+                backgroundImg: "/assets/images/banner/aya.JPG",
                 rgbColor: "22, 117, 166"
             }} />
             <div className={style.arabiTalk} style={{ '--background-image': `url('/assets/images/background/arabiTalkBG.png')`, } as React.CSSProperties}>
@@ -52,7 +52,7 @@ function ArabiTalk() {
                             <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
                                 <img className="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
                                     src={"../assets/images/others/arabiTalk.png"} data-holder-rendered="true"
-                                    style={{ width: '694px', height: '808px' }} />
+                                     />
                             </div>
                         </div>
                     </section>

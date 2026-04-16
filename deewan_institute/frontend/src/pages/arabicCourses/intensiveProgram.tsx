@@ -10,6 +10,7 @@ import OpenHours from "../../components/openHours/openHours";
 import Schedule from "../../components/scheduleTable/schedule";
 import style from "../arabicCourses/arabic.module.scss";
 import "../../style/animation.scss";
+
 function IntensiveProgram() {
   useEffect(() => {
     document.title = "Intensive Summer & Fall Program";
@@ -19,81 +20,70 @@ function IntensiveProgram() {
 
   return (
     <Fragment>
-      {/* NavBar */}
       <NavBar />
-      {/* Banner */}
       <Banner
         data={{
           title: "Intensive Summer & Fall Program",
           description:
-            "The Deewan Institute for Languages and Cultural Studies offers an Intensive and Summer Fall Study Abroad Program designed for students eager to deeply immerse themselves in Arabic language and culture. This transformative experience combines rigorous language instruction with hands-on cultural exploration, allowing participants to build fluency in Colloquial Levantine Arabic & Modern Standard Arabic and regional dialects while living in vibrant Arabic-speaking communities.",
+            "The Deewan Institute for Languages and Cultural Studies offers an Intensive and Summer Fall Study Abroad Program designed for students eager to deeply immerse themselves in Arabic language and culture.",
           backgroundImg: "../assets/images/banner/intensiveBG.png",
         }}
       />
-      {/* Main Layout */}
       <main className={style.intensive}>
         {/* First Section */}
         <section className={`${style.info} my-5 pt-5`}>
-          <div className="row justify-content-center">
-            <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">
+          <div className="row justify-content-center align-items-center">
+            {/* Text Column */}
+            <div className="col-12 col-md-4 d-flex flex-column align-items-start justify-content-center order-1 order-md-1 mb-4 mb-md-0">
               <h1
                 className={`${style.featuretteHeading} my-5 lh-base scroll-section slide-in-left`}
               >
                 About the Program
               </h1>
-              <p className="lead lh-base scroll-section slide-in-left ">
+              <p className="lead lh-base scroll-section slide-in-left">
                 The Deewan Institute for Languages and Cultural Studies offers
                 an Intensive Summer & Fall Study Abroad Program for immersive
                 Arabic language and cultural learning. Designed for a supportive
                 environment, it provides intensive instruction from
                 native-speaking teachers, focusing on conversational practice
-                and cultural activities to build real-world skills. Participants
-                also enjoy excursions to iconic Jordanian sites like Petra, Wadi
-                Rum, and the Dead Sea, offering firsthand cultural experiences
-                and language practice. Open to all levels—from beginner to
-                advanced—the program can be customized to individual needs,
-                making it ideal for students seeking to enhance their Arabic
-                proficiency and explore Jordan's rich heritage.
+                and cultural activities to build real-world skills.
               </p>
               <a
                 id={style.checkBtn}
-                className="text-decoration-none rounded-pill scroll-section slide-in-left "
+                className="text-decoration-none rounded-pill scroll-section slide-in-left mt-4"
                 href="#programFee"
               >
                 Check Out the Program Fees
               </a>
             </div>
-            <div className="col-md-5 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right">
+            {/* Image Column*/}
+            <div className="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center scroll-section slide-in-right order-2 order-md-2">
               <img
-                className="featurette-image img-fluid mx-auto"
-                data-src="holder.js/500x500/auto"
-                alt="500x500"
+                className="img-fluid"
+                alt="Intensive Program"
                 src={"../assets/images/others/intensive1.png"}
-                data-holder-rendered="true"
               />
             </div>
           </div>
         </section>
-        {/* Divider  */}
+
         <Divider />
-        {/* <!-- Curriculum Section --> */}
         <CurriculumSlider />
-        {/* Divider  */}
         <Divider />
-        {/* <!-- Special Section --> */}
+
+        {/* Special Section */}
         <section className={`${style.special} py-3 my-5 scroll-section`}>
-          <div className="row justify-content-center">
-            {/* <!-- The Building Image --> */}
-            <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
+          <div className="row justify-content-center align-items-center">
+            {/* Image Column */}
+            <div className="col-12 col-md-5 d-flex flex-column align-items-center justify-content-center mb-4 mb-md-0 order-1 order-md-1">
               <img
-                className="featurette-image img-fluid mx-auto"
-                data-src="holder.js/500x500/auto"
-                alt="500x500"
+                className="img-fluid"
+                alt="Deewan Building"
                 src={"../assets/images/others/intensive2.png"}
-                data-holder-rendered="true"
               />
             </div>
-            <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">
+            {/* Text Column */}
+            <div className="col-12 col-md-4 d-flex flex-column align-items-start justify-content-center order-2 order-md-2">
               <h5 className="featurette-heading mb-2 scroll-section slide-in-right">
                 Why Us?
               </h5>
@@ -101,35 +91,26 @@ function IntensiveProgram() {
                 What Makes Deewan So Special?
               </h1>
               <p className="lead">
-                Deewan’s Intensive Fall Program focuses on building students’
-                proficiency in all language skills (reading, listening, writing,
-                and speaking). What makes this program special is:
+                Deewan's Intensive Fall Program focuses on building students'
+                proficiency in all language skills.
               </p>
               <ul className="lead scroll-section slide-in-right">
-                <li>price competitive</li>
-                <li>covers all levels</li>
-                <li>
-                  rich content (Deewan’s own curricula and various other
-                  resources)
-                </li>
-                <li>
-                  ability to establish relationships with native language
-                  partners.
-                </li>
-                <li>
-                  professional and experienced staff, offering help and support
-                  to students.
-                </li>
+                <li>Price competitive</li>
+                <li>Covers all levels</li>
+                <li>Rich content & resources</li>
+                <li>Native language partners</li>
+                <li>Professional staff support</li>
               </ul>
             </div>
           </div>
         </section>
-        {/* Opening Section */}
+
         <OpenHours data={{ backgroundColor: "#8f6e43", color: "#ffffff" }} />
+
         {/* Program Fees Section */}
         <section className={`${style.programFee} py-4 mt-4`}>
           <div className={style.title}>
-            <h1 className="py-2 scroll-section slide-in-left ">Program Fees</h1>
+            <h1 className="py-2 scroll-section slide-in-left">Program Fees</h1>
           </div>
           <Schedule
             data={{
@@ -153,7 +134,6 @@ function IntensiveProgram() {
           />
         </section>
       </main>
-      {/* Footer */}
       <Footer />
     </Fragment>
   );

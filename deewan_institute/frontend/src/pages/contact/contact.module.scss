@@ -1,7 +1,5 @@
-
-@use '../../style/variables.scss' as *;
-@use '../../style/fonts.scss' as *;
-
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
 
 // Root container
 .contactPage {
@@ -13,8 +11,8 @@
 .banner {
   height: 60vh;
   min-height: 400px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../assets/images/background/contactBG2.svg");
   background-size: cover;
   background-position: center;
@@ -23,21 +21,21 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  
+
   h1 {
     font-family: "Merriweather-Regular", serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
-  
+
   p {
     font-family: "Merriweather-Light", serif;
     font-size: 1.3rem;
     line-height: 1.6;
     max-width: 800px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-         @media (max-width: 768px) {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    @media (max-width: 768px) {
       display: none;
     }
   }
@@ -48,11 +46,15 @@
   padding: 4rem 1rem;
 }
 
+
 // Section Base Styles
-.form, .information, .openingHours, .location {
+.form,
+.information,
+.openingHours,
+.location {
   margin-inline: 16%;
   padding: 0 2rem;
-  
+
   @media (max-width: 992px) {
     margin-inline: 5%;
   }
@@ -64,32 +66,27 @@
   }
 }
 
-
 // Title Component
 
 .sectionTitle {
   font-family: "Merriweather-Regular", serif !important;
   font-size: clamp 2rem;
-    color: #8f6e43;
-    position: relative;
-    display: inline-block;
-    
-    
-    &::after {
-    content: '';
+  color: #8f6e43;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
     position: absolute;
     bottom: -10px;
-    left: 0;           
-    right: 0;          
-    height: 4px;       
+    left: 0;
+    right: 0;
+    height: 4px;
     background: linear-gradient(90deg, #8f6e43, #a68a5e);
     border-radius: 2px;
-    transform: none;   
+    transform: none;
   }
 }
-
-
-
 
 // Form Section
 .form {
@@ -97,17 +94,17 @@
     background: linear-gradient(145deg, #8f6e43, #7a5f38);
     border-radius: 50px;
     padding: 4rem;
-    box-shadow: 
+    box-shadow:
       0 20px 40px rgba(143, 110, 67, 0.3),
-      0 10px 20px rgba(0,0,0,0.2);
-    border: 2px solid rgba(255,255,255,0.2);
+      0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    
+
     @media (max-width: 768px) {
       padding: 2rem;
       border-radius: 30px;
     }
-    
+
     label {
       color: white !important;
       font-size: 1.2rem;
@@ -115,63 +112,63 @@
       margin-bottom: 0.75rem;
       font-family: "Merriweather-Regular", serif;
     }
-    
-    input, textarea {
-      background: rgba(255,255,255,0.95) !important;
-      border: 2px solid rgba(255,255,255,0.4) !important;
+
+    input,
+    textarea {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border: 2px solid rgba(255, 255, 255, 0.4) !important;
       border-radius: 12px !important;
       padding: 1rem 1.25rem;
       font-size: 1rem;
       transition: all 0.3s ease;
-      
+
       &::placeholder {
         color: #666;
         font-weight: 400;
       }
-      
+
       &:focus {
         border-color: #fff !important;
-        box-shadow: 0 0 0 0.25rem rgba(255,255,255,0.4) !important;
+        box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.4) !important;
         background: white !important;
         transform: translateY(-2px);
       }
     }
-    
+
     textarea {
       resize: vertical;
       min-height: 160px;
     }
-    
+
     .submitBtn {
       background: linear-gradient(145deg, #fff, #f8f8f8) !important;
       margin-top: 30px;
-      border: 2px solid rgba(255,255,255,0.3) !important;
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
       color: black !important;
       font-weight: 600;
       font-size: 1.1rem;
       padding: 1rem 2.5rem !important;
       border-radius: 25px !important;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
-      
+
       &:hover:not(:disabled) {
         background: linear-gradient(145deg, #f8f8f8, #fff) !important;
         transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
       }
-      
-      
+
       &:disabled {
         opacity: 0.7;
         cursor: not-allowed;
       }
     }
     @media (max-width: 768px) {
-  .submitBtn {
-    display: block;
-    margin: 1rem auto; 
-  }
-}
+      .submitBtn {
+        display: block;
+        margin: 1rem auto;
+      }
+    }
   }
 }
 
@@ -182,93 +179,88 @@
     font-size: 1.25rem;
     line-height: 1.8;
     margin-bottom: 0.5rem;
-
   }
-  
+
   // Contact Links
   .contactBox {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
-  width: 100%;              
-  min-height: 90px;         
-  padding: 1.25rem 1.5rem;
+    width: 100%;
+    min-height: 90px;
+    padding: 1.25rem 1.5rem;
 
-  background: rgba(143, 110, 67, 0.05);
-  border: 2px solid rgba(143, 110, 67, 0.2);
-  border-radius: 20px;
+    background: rgba(143, 110, 67, 0.05);
+    border: 2px solid rgba(143, 110, 67, 0.2);
+    border-radius: 20px;
 
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 
-  transition: all 0.35s ease;
-  backdrop-filter: blur(10px);
+    transition: all 0.35s ease;
+    backdrop-filter: blur(10px);
 
- &:hover {
-  background: linear-gradient(145deg, #8f6e43, #7a5f38);
-  border-color: #8f6e43;
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
+    &:hover {
+      background: linear-gradient(145deg, #8f6e43, #7a5f38);
+      border-color: #8f6e43;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(143, 110, 67, 0.4);
 
-  a {
-    color: white !important;
+      a {
+        color: white !important;
+      }
+
+      img {
+        opacity: 1;
+        transform: scale(1.1);
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+
+    a {
+      color: #8f6e43 !important;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none !important;
+      transition: color 0.3s ease;
+      word-break: break-word;
+    }
   }
-
-  img {
-    opacity: 1;
-    transform: scale(1.1);
-    filter: brightness(0) invert(1); 
-  }
-}
-
-  img {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-
-    opacity: 0.8;              
-    transition: all 0.3s ease;
-  }
-
-  a {
-    color: #8f6e43 !important;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none !important;
-    transition: color 0.3s ease;
-    word-break: break-word;
-  }
-}
 }
 // Opening Hours
 .openingHours {
-   h3 {
+  h3 {
     color: $primary-color-dark;
   }
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    
-    li {
-      font-size: 1.2rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(143, 110, 67, 0.1);
-      
-    }
-      
-  }
+}
+ul {
+  list-style: none;
+  padding: 0;
 
-  
-  .italic {
-    display: block;
-    font-style: italic;
-    color: #666;
-    font-size: 1.1rem;
-    margin-top: 1rem;
+  li {
+    font-size: 1.2rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(143, 110, 67, 0.1);
   }
-  .borderRight {
+}
 
+.italic {
+  display: block;
+  font-style: italic;
+  color: #666;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+.borderRight {
   border-right: 3px solid #8f6e43;
   padding-right: 0.5rem;
 
@@ -279,18 +271,17 @@
     padding-bottom: 2rem;
     margin-bottom: 1rem;
     padding-right: 0;
-
   }
 }
 
-
 // Location
 .location {
+  padding-bottom: 2rem;
   .locationMaps {
     margin-top: 3rem;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     height: 400px;
 
     iframe {
@@ -301,12 +292,10 @@
     }
 
     @media (max-width: 768px) {
-      height: 500px; 
+      height: 500px;
     }
   }
 }
-
-
 
 // Responsive
 @media (max-width: 768px) {
@@ -314,11 +303,11 @@
     height: 50vh;
     padding: 2rem 1rem;
   }
-  
+
   .title h2 {
     font-size: 2rem !important;
   }
-  
+
   .messageForm {
     padding: 2rem 1.5rem !important;
   }
@@ -336,13 +325,14 @@
   }
 }
 
-.form, .information, .openingHours, .location {
+.form,
+.information,
+.openingHours,
+.location {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease-out forwards;
-
 }
-
 
 // Modal
 .contactModal {
@@ -364,13 +354,13 @@
 
 .checkCirclePath {
   fill: none;
-  stroke: #4CAF50;
+  stroke: #4caf50;
   stroke-width: 2;
 }
 
 .checkMark {
   fill: none;
-  stroke: #4CAF50;
+  stroke: #4caf50;
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -400,7 +390,7 @@
 .successTitle {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .errorTitle {

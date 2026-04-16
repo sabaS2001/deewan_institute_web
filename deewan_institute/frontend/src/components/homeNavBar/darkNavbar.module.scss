@@ -1,46 +1,195 @@
-@use '/../src/style/variables.scss' as *;
-@use '/../src/style/fonts.scss' as *;
+@use "/../src/style/variables.scss" as *;
+@use "/../src/style/fonts.scss" as *;
 
-#navBar {
-    background-color: transparent !important;
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
+// ── Navbar ──
+.navBar {
+  background-color: transparent !important;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 16px 0;
+  transition: background-color 0.3s ease; // ✅ Smooth transition
 
-    #navbarNav {
-        .border {
-            border-radius: 20px;
-            // border: 1px solid $primary-color-light !important;
-            background-color: $primary-color-light !important;
-        }
+  &:hover {
+    background-color: $primary_color !important; // ✅ Primary color on hover
+  }
+}
 
-        ul {
-            padding: 0px 15px;
-            gap: 15px;
-        }
+.border {
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 16px !important;
+}
 
-        #navitem a {
-            color: #fff;
-            font-family: "Merriweather-Regular";
-            font-size: 20px;
-        }
+.navitem {
+  color: black !important;
+  font-family: "Merriweather-Regular";
+  font-size: 15px;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
 
-        #navitem :hover {
-            border-bottom: 3px solid white;
-        }
+  &:hover {
+    color: #e0b97f !important;
+  }
+}
 
-        #navitem .active {
-            border-bottom: 3px solid white;
-        }
-    }
+#mainLogo {
+  width: 160px;
+  margin-inline: 24px;
+}
+
+.toggler {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  filter: invert(1);
+}
+
+// ── Full Screen Overlay ──
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $primary_color;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.overlayOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlayInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 40px;
+}
+
+// ── Close Button ──
+.closeBtn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
+}
+
+// ── Overlay Logo ──
+.overlayLogo {
+  width: 325px;
+  opacity: 1;
+}
+
+// ── Overlay Links Grid ──
+.overlayLinks {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+// ── Column ──
+.overlayColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+// ── Title ──
+.overlayTitle {
+  color: #e0b97f;
+  font-family: "Merriweather-Regular";
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// ── Link ──
+.overlayLink {
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: "Merriweather-Regular";
+  border-left: 2px solid transparent;
+  padding-left: 8px;
+
+  &:hover {
+    color: #e0b97f;
+    border-left: 2px solid #e0b97f;
+    padding-left: 12px;
+  }
+}
+
+// ── Mobile Links ──
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+// ── Divider ──
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
 }
 
 
 
-#mainLogo {
-    width: 200px;
-    margin-inline: 5%;
+// ✅ Force override Bootstrap navbar background
+.navBar.navbar {
+  background-color: transparent !important;
+
+  &:hover {
+    background-color: $primary_color !important;
+  }
+}
+
+// ✅ Override Bootstrap navbar collapse background
+.navBar :global(.navbar-collapse) {
+  background-color: transparent !important;
+}
+
+// ✅ Override Bootstrap container background
+.navBar :global(.container) {
+  background-color: transparent !important;
 }

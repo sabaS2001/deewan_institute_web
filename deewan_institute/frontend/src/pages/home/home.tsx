@@ -21,6 +21,7 @@ function Home() {
     <Fragment>
       {/* Navigation Bar */}
       <HomeNavBar />
+     
       {/* <!-- Carousel --> */}
       <div
         id="myCarousel"

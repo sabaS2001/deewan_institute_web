@@ -36,12 +36,7 @@ const transporter = nodemailer.createTransport({
 // Contact form endpoint
 app.post("/api/contact", async (req, res) => {
   try {
-    const {
-      fullName,
-      email,
-      phoneNumber,
-      message
-    } = req.body;
+    const { fullName, email, phoneNumber, message } = req.body;
 
     const path = require("path");
 
@@ -82,20 +77,22 @@ app.post("/api/contact", async (req, res) => {
   `,
 
       // ✅ Attach the logo as an embedded image
-      attachments: [{
-        filename: "LogoDeewan.webp",
-        path: path.join(
-          __dirname,
-          "..",
-          "frontend",
-          "public",
-          "assets",
-          "images",
-          "logos",
-          "LogoDeewan.webp",
-        ),
-        cid: "deewanlogo", // must match src="cid:deewanlogo"
-      }, ],
+      attachments: [
+        {
+          filename: "LogoDeewan.webp",
+          path: path.join(
+            __dirname,
+            "..",
+            "frontend",
+            "public",
+            "assets",
+            "images",
+            "logos",
+            "LogoDeewan.webp",
+          ),
+          cid: "deewanlogo", // must match src="cid:deewanlogo"
+        },
+      ],
     };
 
     await transporter.sendMail(mailOptions);
@@ -144,7 +141,7 @@ app.post("/api/checkout", async (req, res) => {
         <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin-top: 10px;">
           <h3 style="color: #2e7d32;">📱 CliQ Payment</h3>
           <p>Please send the payment via CliQ to:</p>
-          <p><strong>CliQ Alias:</strong> DeewanInstitute</p>
+          <p><strong>CliQ Alias:</strong> DEEWAN</p>
           <p><strong>Amount:</strong> ${totalPrice + DELIVERY_FEE} JOD</p>
           <p>Please send a screenshot of the payment to confirm your order.</p>
         </div>
@@ -152,8 +149,8 @@ app.post("/api/checkout", async (req, res) => {
       paypal: `
         <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 10px;">
           <h3 style="color: #1565c0;">💳 PayPal Payment</h3>
-          <p>Please send the payment via PayPal to:</p>
-          <p><strong>PayPal Email:</strong> payments@deewaninstitute.com</p>
+          <p>Please send the payment via PayPal using this link:</p>
+          <a>:https://www.paypal.com/paypalme/DeewanInstitute</a>
           <p><strong>Amount:</strong> ${totalPrice + DELIVERY_FEE} JOD</p>
           <p>Please send a screenshot of the payment to confirm your order.</p>
         </div>
@@ -239,20 +236,22 @@ app.post("/api/checkout", async (req, res) => {
 
         </div>
       `,
-      attachments: [{
-        filename: "LogoDeewan.webp",
-        path: require("path").join(
-          __dirname,
-          "..",
-          "frontend",
-          "public",
-          "assets",
-          "images",
-          "logos",
-          "LogoDeewan.webp",
-        ),
-        cid: "deewanlogo",
-      }, ],
+      attachments: [
+        {
+          filename: "LogoDeewan.webp",
+          path: require("path").join(
+            __dirname,
+            "..",
+            "frontend",
+            "public",
+            "assets",
+            "images",
+            "logos",
+            "LogoDeewan.webp",
+          ),
+          cid: "deewanlogo",
+        },
+      ],
     };
 
     // ✅ Email to Admin
@@ -315,20 +314,22 @@ app.post("/api/checkout", async (req, res) => {
 
         </div>
       `,
-      attachments: [{
-        filename: "LogoDeewan.webp",
-        path: require("path").join(
-          __dirname,
-          "..",
-          "frontend",
-          "public",
-          "assets",
-          "images",
-          "logos",
-          "LogoDeewan.webp",
-        ),
-        cid: "deewanlogo",
-      }, ],
+      attachments: [
+        {
+          filename: "LogoDeewan.webp",
+          path: require("path").join(
+            __dirname,
+            "..",
+            "frontend",
+            "public",
+            "assets",
+            "images",
+            "logos",
+            "LogoDeewan.webp",
+          ),
+          cid: "deewanlogo",
+        },
+      ],
     };
 
     // ✅ Send both emails

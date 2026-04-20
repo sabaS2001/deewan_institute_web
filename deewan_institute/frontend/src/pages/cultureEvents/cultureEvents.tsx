@@ -11,10 +11,24 @@ import type { EventMeta } from "../../../data/cultureEvents.data";
 function EventMetaBlock({ meta }: { meta: EventMeta }) {
   return (
     <div className={styles.eventMeta}>
-      <p><strong>Time:</strong> {meta.time}</p>
-      {meta.oneToOne && <p><strong>One-to-One:</strong> {meta.oneToOne}</p>}
-      {meta.group     && <p><strong>Group Session:</strong> {meta.group}</p>}
-      {meta.cost      && <p><strong>Cost:</strong> {meta.cost}</p>}
+      <p>
+        <strong>Time:</strong> {meta.time}
+      </p>
+      {meta.oneToOne && (
+        <p>
+          <strong>One-to-One:</strong> {meta.oneToOne}
+        </p>
+      )}
+      {meta.group && (
+        <p>
+          <strong>Group Session:</strong> {meta.group}
+        </p>
+      )}
+      {meta.cost && (
+        <p>
+          <strong>Cost:</strong> {meta.cost}
+        </p>
+      )}
     </div>
   );
 }
@@ -31,8 +45,10 @@ function CultureEvents() {
         <div className={styles.bannerContent}>
           <span className={styles.bannerEyebrow}>Deewan Institute</span>
           <h1>
-            Experience Culture.<br />
-            Connect Through Language.<br />
+            Experience Culture.
+            <br />
+            Connect Through Language.
+            <br />
             Learn Together.
           </h1>
           <div className={styles.bannerRule} />
@@ -95,44 +111,51 @@ function CultureEvents() {
           <section
             className={`${styles.eventSection} ${event.altBg ? styles.altBg : ""} scroll-section`}
           >
-            <span className={`${styles.eventIndex} ${i % 2 !== 0 ? styles.eventIndexRight : ""}`}>
+            <span
+              className={`${styles.eventIndex} ${i % 2 !== 0 ? styles.eventIndexRight : ""}`}
+            >
               {event.index}
             </span>
 
             <div className="row justify-content-center align-items-center g-4 g-md-5">
-
               {/* Text column */}
-              <div className={`col-md-4 d-flex flex-column ${event.imageLeft ? "order-md-2" : "order-md-1"} order-2`}>
-                <span className={`${styles.eventLabel} ${styles[event.accentKey]}`}>
+              <div
+                className={`col-md-4 d-flex flex-column ${event.imageLeft ? "order-md-2" : "order-md-1"} order-2`}
+              >
+                <span
+                  className={`${styles.eventLabel} ${styles[event.accentKey]}`}
+                >
                   {event.label}
                 </span>
-                <h2 className={`${styles.eventTitle} ${styles[event.accentKey]}`}>
+                <h2
+                  className={`${styles.eventTitle} ${styles[event.accentKey]}`}
+                >
                   {event.title}
                 </h2>
                 <p className={styles.eventBody}>{event.body}</p>
                 <EventMetaBlock meta={event.meta} />
                 <div>
-                  <a>
-                  
+                  <a
                     href={SIGNUP_LINK}
                     target="_blank"
                     rel="noreferrer"
                     className={`${styles.signUpBtn} ${styles[event.btnKey]} ${styles[event.accentKey]}`}
-                  
+                  >
                     Sign Up
                   </a>
                 </div>
               </div>
 
               {/* Image column */}
-              <div className={`col-md-6 d-flex justify-content-center ${event.imageLeft ? "order-md-1" : "order-md-2"} order-1`}>
+              <div
+                className={`col-md-6 d-flex justify-content-center ${event.imageLeft ? "order-md-1" : "order-md-2"} order-1`}
+              >
                 <img
                   className={styles.eventImg}
                   src={event.image}
                   alt={event.imageAlt}
                 />
               </div>
-
             </div>
           </section>
         </Fragment>

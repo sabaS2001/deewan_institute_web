@@ -108,7 +108,7 @@ function ForeignLayout({ data }: { data: Props }) {
                         Our Course Policy ensures a smooth, fair, and enjoyable learning experience for all participants. It
                         outlines our commitment to quality education and your rights as a student.
                     </p>
-                    <a className="text-decoration-none rounded-pill text-center text-white" href="../assets/pdf/coursePolicyLanguages.pdf" target="_blank">View Course Policy</a>
+                    <a className="text-decoration-none rounded-pill text-center text-white" href="../assets/pdf/coursePolicyLanguages2.pdf" target="_blank">View Course Policy</a>
                 </section>
 
                 {/* Bottom Banner */}

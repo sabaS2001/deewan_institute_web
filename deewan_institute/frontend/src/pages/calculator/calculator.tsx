@@ -94,7 +94,7 @@ const CLASS_TYPES = [
 ];
 
 const TIME_OPTIONS = [
-  'Morning (Between 9:00 AM - 4:00 PM)',
+  'Morning (Between 9:00 AM - 2:40 PM)',
   'Evening (Between 4:20 PM - 8:00 PM)',
 ];
 
@@ -111,13 +111,13 @@ const DISCOUNT_OPTIONS: {
   { value: 'university',   label: '3% - University Student' },
   { value: 'publications', label: '5% - Purchase 3 Deewan Publications.' },
   { value: 'friend',       label: '5% - Refer a Friend' },
-  { value: 'threemonths',  label: '5% - 3 Months Package',   minWeeks: 13, hint: 'Requires ≥ 13 weeks' },
-  { value: 'sixmonths',    label: '7% - 6 Months Package',   minWeeks: 26, hint: 'Requires ≥ 26 weeks' },
-  { value: 'ninemonths',   label: '10% - 9 Months Package',  minWeeks: 39, hint: 'Requires ≥ 39 weeks' },
-  { value: 'twelvemonths', label: '12% - 12 Months Package', minWeeks: 52, hint: 'Requires ≥ 52 weeks' },
+  { value: 'threemonths',  label: '5% - 3 Months Package',   minWeeks: 12, hint: 'Please add 12+ weeks to your package' },
+  { value: 'sixmonths',    label: '7% - 6 Months Package',   minWeeks: 24, hint: 'Please add 24+ weeks to your package' },
+  { value: 'ninemonths',   label: '10% - 9 Months Package',  minWeeks: 36, hint: 'Please add 36+ weeks to your package' },
+  { value: 'twelvemonths', label: '12% - 12 Months Package', minWeeks: 48, hint: 'Please add 48+ weeks to your package' },
 ];
 
-// ─── Dropdown ─────────────────────────────────────────────────────────────────
+// Dropdown
 interface DropdownProps {
   label: string;
   placeholder: string;
@@ -789,26 +789,46 @@ function Calculator() {
               <th className="text-center" colSpan={3} id={styles.tableHeader}>Available Times</th>
             </tr>
           </thead>
-          <tbody>
-            <tr className="border">
-              <th className="text-center border border-1 fw-bold" scope="col">Time in the Day</th>
-              <th className="text-center border-1 fw-bold" scope="col">Weekdays (In-Person/Online)</th>
-              <th className="text-center border-1 fw-bold" scope="col">Weekend (Online)</th>
-            </tr>
-            <tr className="border justify-content-center">
-              <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>Between 9:00 AM - 2:40 PM</td>
-              <td className="text-center border-1" style={{ paddingBlock: '4%' }}>Sunday-Thursday</td>
-              <td className="text-center border-1" style={{ paddingBlock: '4%' }}>Saturday</td>
-            </tr>
-            <tr className="border">
-              <td className="text-center border" colSpan={3} id={styles.tableHeader} style={{ paddingBlock: '2%' }}></td>
-            </tr>
-            <tr className="border">
-              <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>Between 4:20 PM - 8:00 PM</td>
-              <td className="text-center border-1" style={{ paddingBlock: '4%' }}>Sunday-Thursday</td>
-              <td className="text-center border-1" style={{ paddingBlock: '4%' }}>Saturday</td>
-            </tr>
-          </tbody>
+<tbody className="align-middle">
+  {/* Header Row */}
+  <tr className="border">
+    <th className="text-center border border-1 fw-bold" scope="col">Time in the Day</th>
+    <th className="text-center border-1 fw-bold" scope="col">Weekdays (In-Person/Online)</th>
+    <th className="text-center border-1 fw-bold" scope="col">Weekend (Online)</th>
+  </tr>
+
+  {/* Morning Slot */}
+  <tr className="border justify-content-center">
+    <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>
+      Between 9:00 AM - 2:40 PM
+    </td>
+    <td className="text-center border-1" style={{ paddingBlock: '4%' }}>
+      Sunday-Thursday
+    </td>
+    {/* rowSpan={3} makes this cell stretch down through the spacer and evening rows */}
+    <td className="text-center border-1" rowSpan={3} style={{ paddingBlock: '4%', verticalAlign: 'middle' }}>
+      Saturday <br /> (11:00 - 14:40)
+    </td>
+  </tr>
+
+  {/* Spacer Row */}
+  <tr className="border">
+    {/* We only need 2 cells here because Saturday is spanning from above */}
+    <td className="text-center border" colSpan={2} id={styles.tableHeader} style={{ paddingBlock: '2%' }}></td>
+  </tr>
+
+  {/* Evening Slot */}
+  <tr className="border">
+    <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>
+      Between 4:20 PM - 8:00 PM
+    </td>
+    <td className="text-center border-1" style={{ paddingBlock: '4%' }}>
+      Sunday-Thursday
+    </td>
+    {/* Saturday cell is removed from here because the rowSpan from the first row covers this spot */}
+  </tr>
+</tbody>
+
         </table>
       </section>
 
@@ -835,7 +855,7 @@ function Calculator() {
         <div className="d-flex flex-row justify-content-center my-3 scroll-section">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.coursePolicyBtn}`}
-            href="./public/assets/pdf/Course-Policy.pdf"
+            href="./public/assets/pdf/Course_Policy.pdf"
             target="_blank"
             rel="noreferrer"
           >
@@ -873,7 +893,7 @@ function Calculator() {
         <div className="d-flex flex-row justify-content-center my-4">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.paymentAgreementFormBtn}`}
-            href="./public/assets/pdf/Payment-Form.pdf"
+            href="./public/assets/pdf/Payment_Form.pdf"
             target="_blank"
             rel="noreferrer"
           >
@@ -927,7 +947,7 @@ function Calculator() {
                   </div>
                   <div className={styles.bankRow}>
                     <span className={styles.bankLabel}>IBAN</span>
-                    <span className={styles.bankValue}>JO06 ARAB 1160 0000</span>
+                    <span className={styles.bankValue}> JO06 ARAB 1160 0000 0011 6634 3965 10</span>
                   </div>
                   <div className={styles.bankRow}>
                     <span className={styles.bankLabel}>SWIFT Code</span>

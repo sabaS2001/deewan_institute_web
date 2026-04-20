@@ -194,7 +194,7 @@ function Contact() {
             className={`border border-black p-5 ${styles.messageForm}`}
             id="messageForm"
           >
-            {/* ✅ Removed ref={formRef} since we no longer need it for emailjs */}
+            
             <form onSubmit={handleSubmit} className="row">
               <div className="col-md-5">
                 <div className="mb-3 d-flex flex-column">
@@ -279,7 +279,7 @@ function Contact() {
           </div>
         </section>
 
-        {/* Rest of your sections stay exactly the same */}
+        
         {/* Information Section */}
         <section className={`information scroll-section ${styles.information}`}>
           <div className="title my-5">
@@ -347,7 +347,7 @@ function Contact() {
           </div>
         </section>
 
-        {/* Opening Hours - stays the same */}
+        {/* Opening Hours*/}
         <section
           className={`openingHours scroll-section ${styles.openingHours}`}
         >
@@ -359,8 +359,7 @@ function Contact() {
               <div className={styles.borderRight}>
                 <h3 className="fw-bold">Office Hours</h3>
                 <ul>
-                  <li>Sun - Wed: 9:30 AM - 18:30 PM</li>
-                  <li>Thursday: 10:30 AM - 18:30 PM</li>
+                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
                 </ul>
               </div>
             </div>
@@ -368,7 +367,7 @@ function Contact() {
               <div className={styles.borderRight}>
                 <h3 className="fw-bold">Class Hours</h3>
                 <ul>
-                  <li>Sun - Thurs: 10:30 AM - 20:00 PM</li>
+                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
                 </ul>
                 <span className={styles.italic}>
                   For Saturday, please contact us.
@@ -379,7 +378,7 @@ function Contact() {
               <div className={styles.borderRight}>
                 <h3 className="fw-bold">Workspace</h3>
                 <ul>
-                  <li>Sun - Thurs: 10:30 AM - 20:00 PM</li>
+                  <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
                 </ul>
                 <span className={styles.italic}>
                   It is provided free of charge to Deewan students.
@@ -389,7 +388,7 @@ function Contact() {
           </div>
         </section>
 
-        {/* Location - stays the same */}
+        {/* Location */}
         <section className={`location scroll-section ${styles.location}`}>
           <div className="title my-5">
             <h2 className={styles.sectionTitle}>Our Location</h2>

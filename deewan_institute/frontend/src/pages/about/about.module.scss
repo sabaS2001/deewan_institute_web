@@ -1,5 +1,5 @@
-@use "../../style/variables.scss"as *;
-@use "../../style/fonts.scss"as *;
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
 
 * {
   font-family: "Merriweather-Regular";
@@ -17,7 +17,9 @@
     height: 50vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../assets/images/banner/aboutBanner.svg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../assets/images/banner/aboutBanner.svg");
+    padding: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
     .para {
       font-family: "Merriweather-Light" !important;
@@ -272,7 +274,6 @@
 
   // Medium devices (tablets, less than 992px)
   @media (min-width: 767.98px) and (max-width: 991.98px) {
-
     // Banner
     .banner {
       height: 25vh;

@@ -24,7 +24,7 @@ function CurriculumSlider() {
                         <div className="container-fluid d-flex align-items-center justify-content-center mt-4 mt-md-5">
                             <div className="row w-100 h-auto g-4">
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center gap-2">
-                                    <img src={"../assets/images/books/poster/msa.png"} alt="MSA Book" className="img-fluid" style={{ maxWidth: '300px', height: 'auto' }} />
+                                    <img src={"../assets/images/books/poster/msa.png"} alt="MSA Book" className="img-fluid" />
                                     <div className="my-3 px-2">
                                         <p className={`lead ${styles.dark}`}>The Comprehensive Guide to <br className="d-none d-md-block" /> Modern Standard Arabic</p>
                                         <p className={`${styles.light} mb-3`}>Beginner Level</p>
@@ -34,7 +34,7 @@ function CurriculumSlider() {
                                     </div>
                                 </div>
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center gap-2">
-                                    <img src={"../assets/images/books/poster/ammiyeh.png"} alt="Levantine Book" className="img-fluid" style={{ maxWidth: '300px', height: 'auto' }} />
+                                    <img src={"../assets/images/books/poster/ammiyeh.png"} alt="Levantine Book" className="img-fluid" />
                                     <div className="my-3 px-2">
                                         <p className={`lead ${styles.dark}`}>The Comprehensive Guide to <br className="d-none d-md-block" /> Levantine Arabic</p>
                                         <p className={`${styles.light} mb-3`}>Beginner, Intermediate, and Advanced Levels</p>
@@ -88,7 +88,7 @@ function CurriculumSlider() {
                         <div className="container-fluid d-flex align-items-center justify-content-center mt-4 mt-md-5">
                             <div className="row w-100 h-auto justify-content-center g-4">
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-2 order-md-1">
-                                    <img src={"../assets/images/books/poster/idioms.png"} alt="Idioms Book" className="img-fluid" style={{ maxWidth: '300px', height: 'auto' }} />
+                                    <img src={"../assets/images/books/poster/idioms.png"} alt="Idioms Book" className="img-fluid"  />
                                 </div>
                                 <div className="col-12 col-md-6 text-center d-flex flex-column align-items-center justify-content-center gap-2 order-1 order-md-2">
                                     <h2 className={styles.dark}>Everyday Arabic Idioms</h2>

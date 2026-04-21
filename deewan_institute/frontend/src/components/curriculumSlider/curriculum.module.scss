@@ -6,7 +6,7 @@
   width: 100%;
 
   .title {
-    width: max-content;
+    //width: max-content;
     margin: 0 auto;
 
     h1 {
@@ -14,11 +14,11 @@
       color: $primary-color;
       border-bottom: $primary-color 3px solid;
       font-size: clamp(32px, 5vw, 48px);
+      width: fit-content;
     }
   }
 
   .myCarousel {
-    padding-bottom: 40px;
 
     .carousel-item {
       min-height: auto;

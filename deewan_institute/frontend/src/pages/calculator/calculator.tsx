@@ -32,7 +32,7 @@ function calculateTotal(selections: Selections): number {
     arabicType === 'Colloquial Levantine Arabic (Ammiyeh)' ||
     arabicType === 'Mix (FusHa and Colloquial)';
   const isFusha = arabicType === 'FusHa Arabic (MSA, Media & Classical Arabic)';
-  const isMorning = time === 'Morning (Between 9:00 AM - 4:00 PM)';
+  const isMorning = time === 'Morning (Between 9:00 AM - 2:40 PM)';
   const isEvening = time === 'Evening (Between 4:20 PM - 8:00 PM)';
 
   function applyDiscount(amount: number): number {
@@ -56,20 +56,25 @@ function calculateTotal(selections: Selections): number {
         else if (hours === 4) base = 12.5 * 4;
         else if (hours === 6) base = 12.5 * 6;
         else if (hours === 8) base = 10.5 * hours;
-        else base = 14.5 * hours;
-      } else if (isEvening) base = 14.5 * hours;
+        else base = 14.5 * hours; // covers hours 1, 3, 5, 7, 9, 10+ (step=2, so odd values via direct input)
+      } else if (isEvening) {
+        base = 14.5 * hours;
+      }
     } else if (isFusha) {
       if (isMorning) {
         if (hours === 2) base = 16.5 * 2;
         else if (hours === 4) base = 14.5 * 4;
         else if (hours === 6) base = 14.5 * 6;
         else if (hours === 8) base = 12.5 * hours;
-        else base = 16.5 * hours;
-      } else if (isEvening) base = 16.5 * hours;
+        else base = 16.5 * hours; // covers hours 1, 3, 5, 7, 9, 10+
+      } else if (isEvening) {
+        base = 16.5 * hours;
+      }
     }
     return applyDiscount(base * weeks);
   }
 
+  // Group Class and Hop On Hop Off: rate × hours × weeks
   if (classType === 'Group Class' || classType === 'Hop On Hop Off Class') {
     const rate = isAmmiyehOrMix ? 9.5 : isFusha ? 10.5 : 0;
     return applyDiscount(rate * hours * weeks);
@@ -88,7 +93,6 @@ const ARABIC_TYPES = [
 const CLASS_TYPES = [
   'One-to-One Class',
   'Group Class',
-  //'Open Class',
   'Hop On Hop Off Class',
   'Trial Class',
 ];
@@ -117,16 +121,86 @@ const DISCOUNT_OPTIONS: {
   { value: 'twelvemonths', label: '12% - 12 Months Package', minWeeks: 48, hint: 'Please add 48+ weeks to your package' },
 ];
 
-// Dropdown
+// ─── Group Class Info Modal ───────────────────────────────────────────────────
+interface GroupClassModalProps {
+  onClose: () => void;
+}
+
+function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
+  return (
+    <div
+      className="modal fade show d-block"
+      tabIndex={-1}
+      aria-modal="true"
+      role="dialog"
+      style={{ backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1060 }}
+      onClick={onClose}
+    >
+      <div
+        className="modal-dialog modal-dialog-centered"
+        style={{ maxWidth: '500px', margin: '1.75rem auto', padding: '0 1rem' }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="modal-content" style={{ borderRadius: '12px', border: '2px solid #8F6E43', overflow: 'hidden' }}>
+          <div className="modal-header" style={{ background: '#8F6E43', border: 'none', padding: '1rem 1.5rem' }}>
+            <h5 className="modal-title text-white fw-bold mb-0" style={{ fontFamily: 'Merriweather, serif' }}>
+              Group Class Information
+            </h5>
+            <button
+              type="button"
+              className="btn-close btn-close-white"
+              onClick={onClose}
+              aria-label="Close"
+            />
+          </div>
+          <div className="modal-body" style={{ padding: '1.5rem' }}>
+            <p
+              style={{
+                color: '#c0392b',
+                fontWeight: '600',
+                fontSize: '0.95rem',
+                lineHeight: '1.7',
+                margin: 0,
+              }}
+            >
+              Please note: Group classes are held for 4 hours per week on Mondays and Wednesdays
+              only. The minimum enrollment is 4 weeks, and all classes take place in the evenings.
+            </p>
+          </div>
+          <div className="modal-footer" style={{ border: 'none', padding: '0.75rem 1.5rem 1.25rem' }}>
+            <button
+              type="button"
+              className="btn rounded-pill text-white fw-bold px-4"
+              style={{ background: '#8F6E43', border: 'none' }}
+              onClick={onClose}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Dropdown ─────────────────────────────────────────────────────────────────
+interface DropdownOption {
+  label: string;
+  locked?: boolean;
+  hint?: string;
+  hintColor?: string;
+}
+
 interface DropdownProps {
   label: string;
   placeholder: string;
-  options: string[];
+  options: (string | DropdownOption)[];
   value: string | null;
   onChange: (v: string) => void;
+  disabled?: boolean;
 }
 
-function Dropdown({ label, placeholder, options, value, onChange }: DropdownProps) {
+function Dropdown({ label, placeholder, options, value, onChange, disabled }: DropdownProps) {
   const [open, setOpen] = useState(false);
   const [flipLeft, setFlipLeft] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -139,8 +213,6 @@ function Dropdown({ label, placeholder, options, value, onChange }: DropdownProp
     return () => document.removeEventListener('mousedown', handleOutside);
   }, []);
 
-  // Check if the menu would overflow the right edge of the viewport
-  // On mobile (<= 768px) the CSS already handles positioning, skip inline override
   useEffect(() => {
     if (!open || !ref.current) return;
     if (window.innerWidth <= 768) { setFlipLeft(false); return; }
@@ -154,30 +226,44 @@ function Dropdown({ label, placeholder, options, value, onChange }: DropdownProp
     ? { right: 'calc(100% + 8px)', left: 'auto', top: 0 }
     : {};
 
+  const normalizedOptions: DropdownOption[] = options.map(o =>
+    typeof o === 'string' ? { label: o } : o
+  );
+
   return (
     <div className="row my-5 align-items-center scroll-section">
-      <div className="col-md-2 text-start">
+      <div className="col-12 col-md-2 text-start mb-2 mb-md-0">
         <label className={styles.heading}>{label}</label>
       </div>
-      <div className="col-md-4">
+      <div className="col-12 col-md-4">
         <div className={styles.dropWrap} ref={ref}>
           <button
             type="button"
-            className={`${styles.dropBtn} ${open ? styles.dropBtnActive : ''}`}
-            onClick={() => setOpen(o => !o)}
+            className={`${styles.dropBtn} ${open && !disabled ? styles.dropBtnActive : ''} ${disabled ? styles.dropBtnDisabled : ''}`}
+            onClick={() => !disabled && setOpen(o => !o)}
+            disabled={disabled}
           >
             <span className={styles.dropBtnText}>{value || placeholder}</span>
             <span className={styles.caret}>▾</span>
           </button>
-          {open && (
+          {open && !disabled && (
             <ul className={styles.dropMenu} style={menuStyle}>
-              {options.map((opt, i) => (
+              {normalizedOptions.map((opt, i) => (
                 <li
-                  key={`${opt}-${i}`}
-                  className={styles.dropItem}
-                  onClick={() => { onChange(opt); setOpen(false); }}
+                  key={`${opt.label}-${i}`}
+                  className={`${styles.dropItem} ${opt.locked ? styles.dropItemLocked : ''}`}
+                  onClick={() => { if (!opt.locked) { onChange(opt.label); setOpen(false); } }}
+                  title={opt.locked && opt.hint ? opt.hint : undefined}
                 >
-                  {opt}
+                  {opt.locked && (
+                    <span className={styles.lockDot}>🔒</span>
+                  )}
+                  <span>{opt.label}</span>
+                  {opt.hint && (
+                    <span className={styles.lockHint} style={opt.hintColor ? { color: opt.hintColor } : undefined}>
+                      {opt.hint}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
@@ -194,7 +280,7 @@ interface DiscountDropdownProps {
   weeks: number;
   hours: number;
   onChange: (value: string, label: string) => void;
-  onReset: () => void; // called when current selection becomes locked
+  onReset: () => void;
 }
 
 function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDropdownProps) {
@@ -203,17 +289,14 @@ function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDr
   const ref = useRef<HTMLDivElement>(null);
   const selected = DISCOUNT_OPTIONS.find(d => d.value === value);
 
-  // Determine if the entire dropdown is available
   const dropdownEnabled = weeks > 0 && hours > 0;
 
-  // Determine if a specific option is locked
   function isLocked(opt: typeof DISCOUNT_OPTIONS[0]): boolean {
     if (!dropdownEnabled) return true;
     if (opt.minWeeks && weeks < opt.minWeeks) return true;
     return false;
   }
 
-  // Auto-reset if the currently selected discount becomes locked
   useEffect(() => {
     if (!value || value === 'none') return;
     const current = DISCOUNT_OPTIONS.find(d => d.value === value);
@@ -241,7 +324,6 @@ function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDr
     ? { right: 'calc(100% + 8px)', left: 'auto', top: 0 }
     : {};
 
-  // Label shown on the button
   const buttonLabel = !dropdownEnabled
     ? 'Enter weeks & hours first'
     : selected
@@ -250,10 +332,10 @@ function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDr
 
   return (
     <div className="row my-5 align-items-center scroll-section">
-      <div className="col-md-2 text-start">
+      <div className="col-12 col-md-2 text-start mb-2 mb-md-0">
         <label className={styles.heading}>Discount:</label>
       </div>
-      <div className="col-md-4">
+      <div className="col-12 col-md-4">
         <div className={styles.dropWrap} ref={ref}>
           <button
             type="button"
@@ -305,22 +387,27 @@ interface CounterProps {
   min: number;
   max: number;
   onChange: (v: number) => void;
+  locked?: boolean;
 }
 
-function Counter({ id, label, value, step, min, max, onChange }: CounterProps) {
+function Counter({ id, label, value, step, min, max, onChange, locked }: CounterProps) {
   return (
     <div className="row my-5 align-items-center scroll-section" id={id}>
-      <div className="col-md-2 text-start">
+      <div className="col-12 col-md-2 text-start mb-2 mb-md-0">
         <label className={styles.heading}>{label}</label>
       </div>
-      <div className="col-md-4">
-        <div className={`${styles.counter} d-flex justify-content-center`}>
+      <div className="col-12 col-md-4">
+        <div
+          className={`${styles.counter} d-flex justify-content-center`}
+          style={locked ? { opacity: 0.65, pointerEvents: 'none' } : undefined}
+          title={locked ? 'Fixed for Group Class' : undefined}
+        >
           <div className="btn-group align-items-center" role="group">
             <button
               type="button"
               className="px-2 btn border-0 bg-transparent"
-              onClick={() => value - step >= min && onChange(value - step)}
-              disabled={value <= min}
+              onClick={() => !locked && value - step >= min && onChange(value - step)}
+              disabled={locked || value <= min}
             >
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                 <circle cx="14" cy="14" r="13" stroke="#8F6E43" strokeWidth="1.5" />
@@ -333,8 +420,8 @@ function Counter({ id, label, value, step, min, max, onChange }: CounterProps) {
             <button
               type="button"
               className="px-2 btn border-0 bg-transparent"
-              onClick={() => value + step <= max && onChange(value + step)}
-              disabled={value >= max}
+              onClick={() => !locked && value + step <= max && onChange(value + step)}
+              disabled={locked || value >= max}
             >
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                 <circle cx="14" cy="14" r="13" stroke="#8F6E43" strokeWidth="1.5" />
@@ -367,7 +454,6 @@ function PriceModal({ display, total, onClose }: ModalProps) {
   ];
 
   function handlePrint() {
-    // Build print HTML directly from data — no innerHTML scraping, no Bootstrap classes needed
     const rowsHtml = rows.map(row => `
       <tr>
         <td class="label">${row.label}</td>
@@ -385,66 +471,19 @@ function PriceModal({ display, total, onClose }: ModalProps) {
           <style>
             @page { margin: 2cm; }
             * { box-sizing: border-box; }
-            body {
-              font-family: Georgia, "Times New Roman", serif;
-              color: #000;
-              margin: 0;
-              padding: 0;
-            }
-            .header {
-              border-bottom: 2px solid #8f6e43;
-              padding-bottom: 10px;
-              margin-bottom: 24px;
-            }
-            .header h2 {
-              color: #8f6e43;
-              margin: 0 0 4px 0;
-              font-size: 22px;
-            }
-            .header p {
-              margin: 0;
-              color: #666;
-              font-size: 12px;
-            }
-            table {
-              width: 100%;
-              border-collapse: collapse;
-              margin-bottom: 20px;
-            }
-            td {
-              padding: 10px 8px;
-              font-size: 14px;
-              border-bottom: 1px solid #f0e8de;
-              vertical-align: top;
-            }
-            td.label {
-              font-weight: bold;
-              color: #333;
-              width: 45%;
-            }
-            td.value {
-              color: #000;
-              width: 55%;
-            }
-            .divider {
-              border: none;
-              border-top: 2px solid #8f6e43;
-              margin: 16px 0;
-            }
-            .total-row td {
-              border-bottom: none;
-              padding-top: 14px;
-              font-size: 16px;
-            }
+            body { font-family: Georgia, "Times New Roman", serif; color: #000; margin: 0; padding: 0; }
+            .header { border-bottom: 2px solid #8f6e43; padding-bottom: 10px; margin-bottom: 24px; }
+            .header h2 { color: #8f6e43; margin: 0 0 4px 0; font-size: 22px; }
+            .header p { margin: 0; color: #666; font-size: 12px; }
+            table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+            td { padding: 10px 8px; font-size: 14px; border-bottom: 1px solid #f0e8de; vertical-align: top; }
+            td.label { font-weight: bold; color: #333; width: 45%; }
+            td.value { color: #000; width: 55%; }
+            .divider { border: none; border-top: 2px solid #8f6e43; margin: 16px 0; }
+            .total-row td { border-bottom: none; padding-top: 14px; font-size: 16px; }
             .total-row .label { color: #000; }
             .total-row .value { color: #8f6e43; font-weight: bold; }
-            .footer {
-              margin-top: 40px;
-              font-size: 11px;
-              color: #999;
-              border-top: 1px solid #eee;
-              padding-top: 8px;
-            }
+            .footer { margin-top: 40px; font-size: 11px; color: #999; border-top: 1px solid #eee; padding-top: 8px; }
           </style>
         </head>
         <body>
@@ -452,11 +491,7 @@ function PriceModal({ display, total, onClose }: ModalProps) {
             <h2>Arabic Courses Price</h2>
             <p>Deewan Institute — arabic@deewaninstitute.com</p>
           </div>
-          <table>
-            <tbody>
-              ${rowsHtml}
-            </tbody>
-          </table>
+          <table><tbody>${rowsHtml}</tbody></table>
           <hr class="divider" />
           <table>
             <tbody>
@@ -466,19 +501,13 @@ function PriceModal({ display, total, onClose }: ModalProps) {
               </tr>
             </tbody>
           </table>
-          <div class="footer">
-            Printed from Deewan Institute — deewaninstitute.com
-          </div>
+          <div class="footer">Printed from Deewan Institute — deewaninstitute.com</div>
         </body>
       </html>
     `);
     printWin.document.close();
     printWin.focus();
-    // Small delay so the browser finishes rendering before print dialog opens
-    setTimeout(() => {
-      printWin.print();
-      printWin.close();
-    }, 300);
+    setTimeout(() => { printWin.print(); printWin.close(); }, 300);
   }
 
   return (
@@ -493,8 +522,6 @@ function PriceModal({ display, total, onClose }: ModalProps) {
       <div className="modal-dialog modal-dialog-centered" onClick={e => e.stopPropagation()}>
         <div className="modal-content" id={styles.modalContent}>
           <div className="modal-body">
-
-            {/* Modal header: title + print icon */}
             <div className="row align-items-center">
               <div className={`${styles.title} my-4`}>
                 <h3>Arabic Courses Price</h3>
@@ -511,7 +538,6 @@ function PriceModal({ display, total, onClose }: ModalProps) {
               </div>
             </div>
 
-            {/* Modal body rows */}
             {rows.map(row => (
               <div key={row.label} className="row my-3 align-items-center">
                 <div className="col-md-4 text-start">
@@ -533,7 +559,6 @@ function PriceModal({ display, total, onClose }: ModalProps) {
                 <p className="mb-0"><strong>{total.toFixed(2)} JOD</strong></p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -541,21 +566,12 @@ function PriceModal({ display, total, onClose }: ModalProps) {
   );
 }
 
-// ─── Accordion Item (controlled) ──────────────────────────────────────────────
+// ─── Accordion Item ───────────────────────────────────────────────────────────
 function AccordionItem({
-  id,
-  title,
-  content,
-  parentId,
-  isOpen,
-  onToggle,
+  id, title, content, parentId, isOpen, onToggle,
 }: {
-  id: string;
-  title: string;
-  content: React.ReactNode;
-  parentId: string;
-  isOpen: boolean;
-  onToggle: () => void;
+  id: string; title: string; content: React.ReactNode;
+  parentId: string; isOpen: boolean; onToggle: () => void;
 }) {
   return (
     <div className="accordion-item">
@@ -584,6 +600,9 @@ function AccordionItem({
 }
 
 // ─── Main Component ───────────────────────────────────────────────────────────
+const GROUP_CLASS_HOURS = 4;
+const GROUP_CLASS_MIN_WEEKS = 4;
+
 function Calculator() {
   useScrollAnimation();
 
@@ -605,11 +624,35 @@ function Calculator() {
     discount:   'No Discount',
   });
 
-  const [showModal, setShowModal]         = useState(false);
-  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const [showModal, setShowModal]             = useState(false);
+  const [showGroupModal, setShowGroupModal]   = useState(false);
+  const [openAccordion, setOpenAccordion]     = useState<string | null>(null);
+
+  const isGroupClass = selections.classType === 'Group Class';
 
   function toggleAccordion(id: string) {
     setOpenAccordion(prev => (prev === id ? null : id));
+  }
+
+  // When class type changes to Group Class: lock hours=4, min weeks=4, time=Evening
+  function handleClassTypeChange(v: string) {
+    if (v === 'Group Class') {
+      setShowGroupModal(true);
+      const lockedWeeks = Math.max(selections.weeks, GROUP_CLASS_MIN_WEEKS);
+      const eveningTime = TIME_OPTIONS[1];
+      setSelections(s => ({ ...s, classType: v, hours: GROUP_CLASS_HOURS, weeks: lockedWeeks, time: eveningTime }));
+      setDisplaySelections(d => ({
+        ...d,
+        classType: v,
+        hours: `${GROUP_CLASS_HOURS} Hours`,
+        weeks: `${lockedWeeks} Week${lockedWeeks !== 1 ? 's' : ''}`,
+        time: eveningTime,
+      }));
+    } else {
+      // Switching away from Group Class — clear time so user picks again
+      setSelections(s => ({ ...s, classType: v, time: null }));
+      setDisplaySelections(d => ({ ...d, classType: v, time: null }));
+    }
   }
 
   const total = useMemo(() => calculateTotal(selections), [selections]);
@@ -630,6 +673,11 @@ function Calculator() {
   return (
     <Fragment>
       <NavBar />
+
+      {/* Group Class Info Popup */}
+      {showGroupModal && (
+        <GroupClassInfoModal onClose={() => setShowGroupModal(false)} />
+      )}
 
       {/* Banner */}
       <section className={`${styles.banner} d-flex justify-content-center align-items-center`}>
@@ -695,50 +743,69 @@ function Calculator() {
             setDisplaySelections(d => ({ ...d, arabicType: v }));
           }}
         />
+
         <Dropdown
           label="Type of Classes:"
           placeholder="Please Choose a Class Type"
           options={CLASS_TYPES}
           value={selections.classType}
-          onChange={v => {
-            setSelections(s => ({ ...s, classType: v }));
-            setDisplaySelections(d => ({ ...d, classType: v }));
-          }}
+          onChange={handleClassTypeChange}
         />
+
         <Dropdown
           label="Time in The Day:"
           placeholder="Please Choose the Time of the Day"
-          options={TIME_OPTIONS}
+          options={(() => {
+            const isOneOnOne = selections.classType === 'One-to-One Class';
+            return TIME_OPTIONS.map(opt => {
+              const isEvening = opt === TIME_OPTIONS[1];
+              if (isGroupClass) {
+                // Group Class: Morning is locked, Evening is the only valid pick
+                return isEvening
+                  ? { label: opt }
+                  : { label: opt, locked: true, hint: 'Group classes are evenings only' };
+              }
+              if (isOneOnOne && isEvening) {
+                return { label: opt, hint: 'Evening classes are more expensive.', hintColor: '#c0392b' };
+              }
+              return { label: opt };
+            });
+          })()}
           value={selections.time}
+          disabled={isGroupClass}
           onChange={v => {
             setSelections(s => ({ ...s, time: v }));
             setDisplaySelections(d => ({ ...d, time: v }));
           }}
         />
+
         <Counter
           id="counterHours"
           label="No. of Hours per Week:"
           value={selections.hours}
           step={2}
-          min={0}
-          max={100}
+          min={isGroupClass ? GROUP_CLASS_HOURS : 0}
+          max={isGroupClass ? GROUP_CLASS_HOURS : 100}
+          locked={isGroupClass}
           onChange={v => {
             setSelections(s => ({ ...s, hours: v }));
             setDisplaySelections(d => ({ ...d, hours: `${v} Hour${v !== 1 ? 's' : ''}` }));
           }}
         />
+
         <Counter
           id="counterWeeks"
           label="No. of Week:"
           value={selections.weeks}
           step={1}
-          min={0}
+          min={isGroupClass ? GROUP_CLASS_MIN_WEEKS : 0}
           max={100}
           onChange={v => {
             setSelections(s => ({ ...s, weeks: v }));
             setDisplaySelections(d => ({ ...d, weeks: `${v} Week${v !== 1 ? 's' : ''}` }));
           }}
         />
+
         <DiscountDropdown
           value={selections.discount}
           weeks={selections.weeks}
@@ -753,6 +820,7 @@ function Calculator() {
           }}
         />
 
+        {/* Calculate button */}
         <div className="col-md-6 d-flex justify-content-end scroll-section">
           <button
             className={`rounded-pill text-white btn ${styles.calculatePriceBtn}`}
@@ -762,9 +830,30 @@ function Calculator() {
             Calculate Price
           </button>
         </div>
+
+        {/* Disclaimer */}
+        <div
+          className="scroll-section mt-4 mb-2"
+          style={{
+            borderTop: '1px solid #e8ddd0',
+            paddingTop: '1rem',
+          }}
+        >
+          <p
+            style={{
+              fontSize: '0.82rem',
+              color: '#999',
+              fontStyle: 'italic',
+              textAlign: 'center',
+              margin: 0,
+            }}
+          >
+            Prices are subject to change and may vary. Please contact us for the most up-to-date information.
+          </p>
+        </div>
       </section>
 
-      {/* Modal */}
+      {/* Price Modal */}
       {showModal && (
         <PriceModal
           display={effectiveDisplay}
@@ -783,53 +872,44 @@ function Calculator() {
           If you are unsure of your future availability, there is the possibility of more flexible
           scheduling. However, we can not guarantee the same time slots will stay open.
         </p>
-        <table className="table my-5 scroll-section">
-          <thead>
-            <tr>
-              <th className="text-center" colSpan={3} id={styles.tableHeader}>Available Times</th>
-            </tr>
-          </thead>
-<tbody className="align-middle">
-  {/* Header Row */}
-  <tr className="border">
-    <th className="text-center border border-1 fw-bold" scope="col">Time in the Day</th>
-    <th className="text-center border-1 fw-bold" scope="col">Weekdays (In-Person/Online)</th>
-    <th className="text-center border-1 fw-bold" scope="col">Weekend (Online)</th>
-  </tr>
-
-  {/* Morning Slot */}
-  <tr className="border justify-content-center">
-    <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>
-      Between 9:00 AM - 2:40 PM
-    </td>
-    <td className="text-center border-1" style={{ paddingBlock: '4%' }}>
-      Sunday-Thursday
-    </td>
-    {/* rowSpan={3} makes this cell stretch down through the spacer and evening rows */}
-    <td className="text-center border-1" rowSpan={3} style={{ paddingBlock: '4%', verticalAlign: 'middle' }}>
-      Saturday <br /> (11:00 - 14:40)
-    </td>
-  </tr>
-
-  {/* Spacer Row */}
-  <tr className="border">
-    {/* We only need 2 cells here because Saturday is spanning from above */}
-    <td className="text-center border" colSpan={2} id={styles.tableHeader} style={{ paddingBlock: '2%' }}></td>
-  </tr>
-
-  {/* Evening Slot */}
-  <tr className="border">
-    <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>
-      Between 4:20 PM - 8:00 PM
-    </td>
-    <td className="text-center border-1" style={{ paddingBlock: '4%' }}>
-      Sunday-Thursday
-    </td>
-    {/* Saturday cell is removed from here because the rowSpan from the first row covers this spot */}
-  </tr>
-</tbody>
-
-        </table>
+        <div className="table-responsive my-5 scroll-section">
+          <table className="table">
+            <thead>
+              <tr>
+                <th className="text-center" colSpan={3} id={styles.tableHeader}>Available Times</th>
+              </tr>
+            </thead>
+            <tbody className="align-middle">
+              <tr className="border">
+                <th className="text-center border border-1 fw-bold" scope="col">Time in the Day</th>
+                <th className="text-center border-1 fw-bold" scope="col">Weekdays (In-Person/Online)</th>
+                <th className="text-center border-1 fw-bold" scope="col">Weekend (Online)</th>
+              </tr>
+              <tr className="border justify-content-center">
+                <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>
+                  Between 9:00 AM - 2:40 PM
+                </td>
+                <td className="text-center border-1" style={{ paddingBlock: '4%' }}>
+                  Sunday-Thursday
+                </td>
+                <td className="text-center border-1" rowSpan={3} style={{ paddingBlock: '4%', verticalAlign: 'middle' }}>
+                  Saturday <br /> (11:00 - 14:40)
+                </td>
+              </tr>
+              <tr className="border">
+                <td className="text-center border" colSpan={2} id={styles.tableHeader} style={{ paddingBlock: '2%' }}></td>
+              </tr>
+              <tr className="border">
+                <td className="text-center border-1" scope="row" style={{ paddingBlock: '4%' }}>
+                  Between 4:20 PM - 8:00 PM
+                </td>
+                <td className="text-center border-1" style={{ paddingBlock: '4%' }}>
+                  Sunday-Thursday
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       {/* Booking */}
@@ -902,7 +982,6 @@ function Calculator() {
         </div>
 
         <div className="accordion accordion-flush my-4" id="accordionFlushExample">
-
           <AccordionItem
             id="one" parentId="accordionFlushExample" title="1. PayPal"
             isOpen={openAccordion === 'one'} onToggle={() => toggleAccordion('one')}
@@ -914,7 +993,6 @@ function Calculator() {
               </p>
             }
           />
-
           <AccordionItem
             id="two" parentId="accordionFlushExample" title="2. Bank Transfer or Deposit To:"
             isOpen={openAccordion === 'two'} onToggle={() => toggleAccordion('two')}
@@ -957,7 +1035,6 @@ function Calculator() {
               </div>
             }
           />
-
           <AccordionItem
             id="three" parentId="accordionFlushExample" title="3. Western Union"
             isOpen={openAccordion === 'three'} onToggle={() => toggleAccordion('three')}
@@ -968,7 +1045,6 @@ function Calculator() {
               </p>
             }
           />
-
           <AccordionItem
             id="four" parentId="accordionFlushExample" title="4. Cash"
             isOpen={openAccordion === 'four'} onToggle={() => toggleAccordion('four')}
@@ -979,7 +1055,6 @@ function Calculator() {
               </p>
             }
           />
-
           <AccordionItem
             id="five" parentId="accordionFlushExample" title="5. Cliq Alias"
             isOpen={openAccordion === 'five'} onToggle={() => toggleAccordion('five')}
@@ -990,7 +1065,6 @@ function Calculator() {
               </p>
             }
           />
-
         </div>
       </section>
 

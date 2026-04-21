@@ -142,7 +142,11 @@ function PublicationInfo() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  // --- SHOP CONTEXT HOOKS ---
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "instant" });
+}, [id]);
+
+  // SHOP CONTEXT HOOKS 
   // FIXED: Added addToCart to the destructuring here
   const { toggleWishlist, isInWishlist, addToCart } = useShop();
 

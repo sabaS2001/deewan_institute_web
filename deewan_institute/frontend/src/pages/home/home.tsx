@@ -21,7 +21,7 @@ function Home() {
     <Fragment>
       {/* Navigation Bar */}
       <HomeNavBar />
-     
+
       {/* <!-- Carousel --> */}
       <div
         id="myCarousel"
@@ -178,6 +178,80 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/*Habibi Section*/}
+
+<section className="mt-5 pt-5" id={style.aboutUs}>
+  <div className="row featurette align-items-center justify-content-center mx-auto">
+    
+    {/* Text column — order-md-1 so it sits LEFT on desktop */}
+    <div className="col-md-4 order-md-1 pr-2 d-flex flex-column gap-2">
+      <h2 className={`${style.featuretteHeading} scroll-section slide-in-right`}>
+        The "Habibi" Challenge Is Live 👀
+      </h2>
+      <p className="lead scroll-section slide-in-right" id={style.para}>
+        Find "Habibi is Cool" in your city and get rewarded!<br></br>
+        • Take a selfie with the sticker → 10% discount <br></br>
+        • Place 10 stickers in your city → 10% discount<br></br>
+        Join the movement and help spread Arabic world wide.<br></br>
+      </p>
+      <Link
+        className="button rounded-pill text-decoration-none scroll-section slide-in-right"
+        id={style.button}
+        to="/arabic-courses"
+      >
+        Explore Our Courses
+      </Link>
+    </div>
+
+    {/* Image slider column — order-md-2 so it sits RIGHT on desktop */}
+    <div className="col-md-5 order-md-2 d-flex">
+      <div
+        id="habibCarousel"
+        className={`carousel slide w-100 ${style.habibCarousel}`}
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-indicators">
+          <button type="button" data-bs-target="#habibCarousel" data-bs-slide-to="0" className="active"></button>
+          <button type="button" data-bs-target="#habibCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#habibCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <div className="carousel-inner rounded-3">
+          <div className="carousel-item active">
+            <img
+              src={"../assets/images/others/habibi1.jpg"}
+              className="d-block w-100 featurette-image img-fluid"
+              alt="Habibi slide 1"
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src={"../assets/images/others/habibi2.jpg"}
+              className="d-block w-100 featurette-image img-fluid"
+              alt="Habibi slide 2"
+            />
+          </div>
+          <div className="carousel-item">
+            <img
+              src={"../assets/images/others/habibi3.jpg"}
+              className="d-block w-100 featurette-image img-fluid"
+              alt="Habibi slide 3"
+            />
+          </div>
+        </div>
+
+        <button className="carousel-control-prev" type="button" data-bs-target="#habibCarousel" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon"></span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#habibCarousel" data-bs-slide="next">
+          <span className="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* <!-- Courses Section --> */}
       <Courses />

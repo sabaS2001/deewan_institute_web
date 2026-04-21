@@ -5,6 +5,7 @@ import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./contact.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import OpenHours from "../../components/openHours/openHours";
 
 interface ContactFormData {
   fullName: string;
@@ -348,6 +349,7 @@ function Contact() {
         </section>
 
         {/* Opening Hours*/}
+        {/* <OpenHours data={{ backgroundColor: " ", color: "#000000" }} /> */}
         <section
           className={`openingHours scroll-section ${styles.openingHours}`}
         >
@@ -361,6 +363,9 @@ function Contact() {
                 <ul>
                   <li>Sun - Thurs: 9:00 AM - 20:00 PM</li>
                 </ul>
+                <span className={styles.italic}>
+                  Come visit us—we’d love to see you!
+                </span>
               </div>
             </div>
             <div className="col-12 col-md-6 col-lg-4">

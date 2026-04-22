@@ -22,6 +22,7 @@ function NavBar() {
   return (
     <>
       <nav
+        id={styles.navBar}
         className={`navbar navbar-expand-md bg-transparent ${styles.navBar}`}
       >
         <div className="container">
@@ -38,7 +39,7 @@ function NavBar() {
           <div className="collapse navbar-collapse d-flex justify-content-center align-items-center">
             {/* Left Group */}
             <div className={`${styles.border} p-2`}>
-              <ul className="navbar-nav">
+              <ul className="navbar-nav" id={styles.navbarNav}>
                 <li className="nav-item" id={styles.navitem}>
                   <NavLink className="nav-link" to="/">
                     Home
@@ -63,7 +64,7 @@ function NavBar() {
 
             {/* Right Group */}
             <div className={`${styles.border} p-2`}>
-              <ul className="navbar-nav">
+              <ul className="navbar-nav" id={styles.navbarNav}>
                 <li className="nav-item" id={styles.navitem}>
                   {/* ✅ Opens full screen overlay */}
                   <button
@@ -197,13 +198,13 @@ function NavBar() {
                 >
                   Arabic Calculator Price
                 </NavLink>
-                <NavLink
+                {/* <NavLink
                   to="/arabic-courses/arabic-for-kids"
                   className={styles.overlayLink}
                   onClick={() => setIsOverlayOpen(false)}
                 >
                   Arabic For Kids
-                </NavLink>
+                </NavLink> */}
                 <NavLink
                   to="/arabic-courses/arabi-talk"
                   className={styles.overlayLink}

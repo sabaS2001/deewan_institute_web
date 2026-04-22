@@ -21,7 +21,7 @@ import Footer from "../../components/footer/footer";
 
 declare const Swiper: any;
 
-// This the book info 
+// This the book info
 
 interface BookDetail {
   id: string;
@@ -38,6 +38,9 @@ interface BookDetail {
   listenLink?: string;
   price?: number;
   type: "book" | "podcast";
+  samplePdf?: string;
+  frontCover?: string;
+  backCover?: string;
 }
 
 function getAllBooks(): BookDetail[] {
@@ -56,6 +59,9 @@ function getAllBooks(): BookDetail[] {
       cartLink: b.cartLink,
       price: b.price,
       type: "book" as const,
+      samplePdf: b.samplePdf,
+      frontCover: b.frontCover,
+      backCover: b.backCover,
     })),
     ...ammiyehCollection.map((b: CollectionBook) => ({
       id: b.id,
@@ -65,12 +71,15 @@ function getAllBooks(): BookDetail[] {
       subtitle: b.subtitle,
       author: b.author,
       hosted: b.hosted,
-      description: b.description, 
-      reviews: b.reviews, 
+      description: b.description,
+      reviews: b.reviews,
       wishlistLink: b.wishlistLink,
       cartLink: b.cartLink,
       price: b.price,
       type: "book" as const,
+      samplePdf: b.samplePdf,
+      frontCover: b.frontCover,
+      backCover: b.backCover,
     })),
     {
       id: fushaBook.id,
@@ -86,6 +95,9 @@ function getAllBooks(): BookDetail[] {
       cartLink: fushaBook.cartLink,
       price: fushaBook.price,
       type: "book" as const,
+      samplePdf: fushaBook.samplePdf,
+      frontCover: fushaBook.frontCover,
+      backCover: fushaBook.backCover,
     },
   ];
 
@@ -102,6 +114,9 @@ function getAllBooks(): BookDetail[] {
     listenLink: p.listenLink,
     price: p.price,
     type: "podcast" as const,
+    samplePdf: p.samplePdf,
+    frontCover: p.frontCover,
+    backCover: p.backCover,
   }));
   return [...books, ...podcasts];
 }
@@ -127,7 +142,11 @@ function PublicationInfo() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  // --- SHOP CONTEXT HOOKS ---
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "instant" });
+}, [id]);
+
+  // SHOP CONTEXT HOOKS 
   // FIXED: Added addToCart to the destructuring here
   const { toggleWishlist, isInWishlist, addToCart } = useShop();
 
@@ -211,10 +230,13 @@ function PublicationInfo() {
     cartLink: book.cartLink,
     listenLink: book.listenLink,
     price: book.price,
+    samplePdf: book.samplePdf,
+    frontCover: book.frontCover,
+    backCover: book.backCover,
   };
 
   return (
- <Fragment>
+    <Fragment>
       <NavBar />
       <nav className={styles.breadcrumb} aria-label="breadcrumb">
         <ol>
@@ -233,13 +255,37 @@ function PublicationInfo() {
               src={book.image}
               alt={book.imageAlt}
             />
-          </div>
 
+            {(book.frontCover || book.backCover) && (
+              <div
+                className={`d-flex flex-row gap-3 mt-3 mx-auto ${styles.coverThumbnails}`}
+              >
+                {book.frontCover && (
+                  <div className={styles.coverBox}>
+                    <img
+                      src={book.frontCover}
+                      alt={`${book.title} front cover`}
+                    />
+                    <span>Front Cover</span>
+                  </div>
+                )}
+                {book.backCover && (
+                  <div className={styles.coverBox}>
+                    <img
+                      src={book.backCover}
+                      alt={`${book.title} back cover`}
+                    />
+                    <span>Back Cover</span>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
           <div className="col-md-4 d-flex flex-column align-items-start justify-content-center">
             <h1 className="lh-base">{book.title}</h1>
             {book.subtitle && <h4 className="lh-base">{book.subtitle}</h4>}
             {book.author && <h5 className="lh-base">By: {book.author}</h5>}
-            
+
             {book.reviews && book.reviews.length > 0 && (
               <StarRating rating={book.reviews[0].rating} />
             )}
@@ -283,6 +329,18 @@ function PublicationInfo() {
                 />
                 Add To Cart
               </button>
+              {book.samplePdf && (
+  <a
+    key="sample-link" // ✅ Added key for React
+    href={book.samplePdf}
+    target="_blank"
+    rel="noreferrer"
+    className={`${styles.actionBtn} ${styles.sampleBtn}`}
+  >
+    <img className="px-3" src="/assets/images/icons/pdf.png" alt="sample icon" />
+    Read Sample
+  </a>
+)}
             </div>
           </div>
         </div>

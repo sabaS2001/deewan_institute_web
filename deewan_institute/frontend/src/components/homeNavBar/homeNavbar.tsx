@@ -176,5 +176,5 @@ function HomeNavBar() {
     </>
   );
 }
-
+ 
 export default HomeNavBar;

@@ -1,78 +1,41 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
 
-.teamSwiper {
-    width: 100%;
-    padding-bottom: 50px;
+.sliderContainer {
 
-    #swiperSlide {
-        height: auto;
-        display: flex;
-        justify-content: center;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
 
-        .heading {
-            font-family: "Merriweather-SemiBold" !important;
-            font-size: clamp(20px, 3vw, 28px);
-            line-height: 1.3;
-            margin-top: 20px !important;
-            color: #333;
-        }
-
-        .jobTitle {
-            font-family: "Merriweather-Light" !important;
-            font-size: clamp(14px, 2vw, 18px);
-            line-height: 1.5;
-            color: #666;
-            margin-top: 5px;
-        }
-    }
-
-    // Navigation arrows
-    :global(.swiper-button-next),
-    :global(.swiper-button-prev) {
-        color: $primary-color;
-        width: 40px;
-        height: 40px;
-        
-        @media (min-width: 768px) {
-            opacity: 0;
-            transition: opacity 0.3s;
-            
-            &:hover {
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 767px) {
-            opacity: 1; // Always visible on mobile (no hover)
-            width: 35px;
-            height: 35px;
-        }
-
-        :global(svg) {
-            width: 30px;
-            height: 30px;
-        }
-    }
-
-    :global(.swiper-button-next) {
-        right: 0;
-        
-        @media (max-width: 767px) {
-            right: 10px;
-        }
-    }
-
-    :global(.swiper-button-prev) {
-        left: 0;
-        
-        @media (max-width: 767px) {
-            left: 10px;
+    &:hover {
+        .swiperButtonPrev, .swiperButtonNext {
+            opacity: 1 !important;
+            visibility: visible !important;
         }
     }
 }
 
-#teacherImg {
+.teamSwiper {
+    width: 100%;
+    padding-bottom: 50px;
+
+    .heading {
+        font-family: "Merriweather-SemiBold" !important;
+        font-size: clamp(20px, 3vw, 28px);
+        line-height: 1.3;
+        margin-top: 20px !important;
+        color: #333;
+    }
+
+    .jobTitle {
+        font-family: "Merriweather-Light" !important;
+        font-size: clamp(14px, 2vw, 18px);
+        line-height: 1.5;
+        color: #666;
+        margin-top: 5px;
+    }
+}
+
+.teacherImg {
     width: 100%;
     max-width: 350px;
     height: auto;
@@ -86,52 +49,62 @@
         transform: scale(1.05);
     }
 
-    // Mobile adjustments
     @media (max-width: 767.98px) {
         max-width: 280px;
-        box-shadow: #8f6e43 0px 3px 10px;
-    }
-
-    // Tablet adjustments
-    @media (min-width: 768px) and (max-width: 991.98px) {
-        max-width: 300px;
-    }
-
-    // Desktop adjustments
-    @media (min-width: 1024px) {
-        max-width: 350px;
     }
 }
 
-// Additional mobile adjustments
+// Unified Arrow Styles
+.swiperButtonPrev, .swiperButtonNext {
+    color: $black;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease !important;
+    
+  
+    top: 40% !important; 
+    transform: translateY(-50%) !important;
+    
+    opacity: 0 !important;
+  //  visibility: hidden !important;
+
+    &:hover {
+        background: $primary-color !important;
+        color: white !important;
+        // Maintain the Y translation while scaling
+        transform: translateY(-50%) scale(1.1) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    :global(.swiper-button-next), :global(.swiper-button-prev) {
+        font-size: 20px;
+    }
+}
+
+.swiperButtonNext {
+
+    right: -45px !important; 
+}
+
+.swiperButtonPrev {
+
+    left: -45px !important; 
+}
+
 @media (max-width: 767.98px) {
+    .sliderContainer {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .swiperButtonPrev, .swiperButtonNext {
+        display: none !important;
+    }
+    
     .teamSwiper {
         padding-bottom: 40px;
-
-        #swiperSlide {
-            .heading {
-                font-size: 22px;
-                margin-top: 15px !important;
-            }
-
-            .jobTitle {
-                font-size: 16px;
-            }
-        }
-    }
-}
-
-// Tablet adjustments
-@media (min-width: 768px) and (max-width: 991.98px) {
-    .teamSwiper {
-        #swiperSlide {
-            .heading {
-                font-size: 24px;
-            }
-
-            .jobTitle {
-                font-size: 17px;
-            }
-        }
     }
 }

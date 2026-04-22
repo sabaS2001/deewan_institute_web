@@ -34,7 +34,7 @@ function Schedule({data}: {data: ScheduleProps}) {
         {/* Desktop Table - Hidden on Mobile */}
         <div className="table-responsive my-4 d-none d-md-block">
           <table
-            className="table table-bordered my-3 scroll-section visible"
+            className="table table-bordered my-3"
             id={style.table}
           >
             <thead>

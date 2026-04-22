@@ -21,6 +21,9 @@ export interface MainBook {
     viewMoreLink: string;
     wishlistLink?: string;
     cartLink?: string;
+    samplePdf?: string;
+frontCover?: string;
+backCover?: string;
 }
 
 //Data
@@ -52,6 +55,9 @@ export const mainBooks: MainBook[] = [
         viewMoreLink: "#",
         wishlistLink: "#",
         cartLink: "#",
+        samplePdf: "/assets/pdf/levantine-guide-1.pdf",
+        frontCover: "/assets/images/books/book-1-front.jpg",
+        backCover: "/assets/images/books/book-1-back.jpg",
     },
     {
         id: "main-book-everyday-idioms",
@@ -79,6 +85,9 @@ export const mainBooks: MainBook[] = [
         viewMoreLink: "#",
         wishlistLink: "#",
         cartLink: "#",
+        samplePdf: "/assets/pdf/everyday-idioms.pdf",
+        frontCover: "/assets/images/books/idoms-front.jpg",
+        backCover: "/assets/images/books/idoms-back.jpg",
     },
     {
         id: "main-book-levantine-guide-2",
@@ -94,5 +103,8 @@ export const mainBooks: MainBook[] = [
         viewMoreLink: "#",
         wishlistLink: "#",
         cartLink: "#",
+        samplePdf: "/assets/pdf/levantine-guide-2.pdf",
+        frontCover: "/assets/images/books/mainBook2-front.jpg",
+        backCover: "/assets/images/books/mainBook2-back.jpg",
     },
 ];

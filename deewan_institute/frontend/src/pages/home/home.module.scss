@@ -207,3 +207,20 @@ main {
         }
     }
 }
+
+.habibCarousel {
+  .carousel-item img {
+    object-fit: cover;
+    aspect-ratio: 2 / 3;
+    border-radius: 12px;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1); // makes arrows visible on light images
+  }
+
+  .carousel-indicators [data-bs-target] {
+    background-color: $primary_color;
+  }
+}

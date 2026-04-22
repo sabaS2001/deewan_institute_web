@@ -19,6 +19,9 @@ export interface CollectionBook {
     viewMoreLink?: string;
     wishlistLink?: string;
     cartLink?: string;
+    samplePdf?: string;
+    frontCover?: string;
+    backCover?: string;
 }
 
 //Data
@@ -42,6 +45,9 @@ export const ammiyehCollection: CollectionBook[] = [
         ],
         viewMoreLink: "#",
         price: 20,
+        samplePdf: "/assets/samples/book-1-sample.pdf",
+        frontCover: "/assets/images/books/book-1-front.jpg",
+        backCover: "/assets/images/books/book-1-back.jpg",
     },
     {
         id: "ammiyeh-practice-book",
@@ -70,6 +76,9 @@ export const ammiyehCollection: CollectionBook[] = [
         ],
         viewMoreLink: "#",
         price: 15,
+         samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
     },
     {
         id: "ammiyeh-intermediate",
@@ -88,6 +97,9 @@ export const ammiyehCollection: CollectionBook[] = [
         // ],
         viewMoreLink: "#",
         price: 20,
+         samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
     },
     // {
     //     id: "ammiyeh-advanced",
@@ -122,6 +134,9 @@ export const ammiyehCollection: CollectionBook[] = [
         ],
         viewMoreLink: "#",
         price: 20,
+         samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
     },
     {
         id: "ammiyeh-spanish",
@@ -146,5 +161,8 @@ export const ammiyehCollection: CollectionBook[] = [
         ],
         viewMoreLink: "#",
         price: 20,
+         samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
     },
 ];

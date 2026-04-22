@@ -3,85 +3,62 @@
 
 .openingHours {
   background-color: var(--background-color);
-  padding-inline: 5%;
   width: 100%;
+  
 
   .title {
-    width: max-content;
-    border-bottom: var(--color) 3px solid;
-    margin: 0 auto;
-
-    h1 {
+    text-align: center;
+    
+    .sectionTitle {
       color: var(--color);
-      font-size: clamp(32px, 5vw, 48px);
       font-family: "Merriweather-Bold" !important;
+      font-size: clamp(32px, 5vw, 48px);
+      // If you want the underline from your first version, uncomment below:
+      // border-bottom: var(--color) 3px solid;
+      // display: inline-block;
     }
+  }
+
+  h3 {
+    color: var(--color); // Dynamic color from props
+    font-family: "Merriweather-Bold" !important;
   }
 
   ul {
     list-style: none;
-    padding-left: 0;
-  }
+    padding: 0;
+    margin: 0;
 
-  ul li {
-    color: var(--color);
-    font-family: "Merriweather-Light" !important;
-    line-height: 1.8;
-    font-size: clamp(16px, 2vw, 18px);
+    li {
+      color: var(--color);
+      font-family: "Merriweather-Light" !important;
+      font-size: 1.2rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1); // Subtle line
+    }
   }
 
   .italic {
-    color: var(--color);
-    font-style: italic;
-    font-size: clamp(14px, 2vw, 16px);
-    line-height: 1.8;
-    list-style-type: none;
     display: block;
-    margin-top: 10px;
-  }
-
-  .bold {
-    color: var(--color);
-    font-family: "Merriweather-Bold" !important;
-    font-size: clamp(20px, 3vw, 24px);
-    margin-bottom: 15px;
+    font-style: italic;
+    color: var(--color); // Using dynamic color instead of #666 for consistency
+    opacity: 0.8; // Makes it look slightly greyed out
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    font-family: "Merriweather-Light" !important;
   }
 
   .borderRight {
-    border-right: var(--color) solid 2px;
-    margin: 0 auto;
-    padding-right: 20px;
-  }
+    border-right: 3px solid var(--color); // Dynamic color
+    padding-right: 1.5rem;
 
-  /* Mobile Adjustments */
-  @media (max-width: 991px) {
-    padding-inline: 3%;
-
-    .borderRight {
-      border-right: none !important;
-      border-bottom: var(--color) solid 1px;
+    @media (max-width: 992px) {
+      border-right: none;
+      border-bottom: 3px solid var(--color);
+      border-radius: 20px;
+      padding-bottom: 2rem;
+      margin-bottom: 1rem;
       padding-right: 0;
-      padding-bottom: 20px;
-      margin-bottom: 20px;
-    }
-
-    .title {
-      text-align: center;
-    }
-
-    h1 {
-      text-align: center;
-      border-bottom: none;
-      margin-bottom: 30px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding-inline: 2%;
-    padding-block: 30px;
-
-    .title {
-      margin-bottom: 20px;
     }
   }
 }

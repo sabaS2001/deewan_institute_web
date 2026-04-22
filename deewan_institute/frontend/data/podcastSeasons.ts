@@ -19,6 +19,9 @@ export interface PodcastSeason {
   cartLink?: string;
   listenLink?: string; // kept for the "Listen Now" CTA
   price?: number;
+  samplePdf?: string;
+frontCover?: string;
+backCover?: string;
 }
 // Data
 
@@ -57,6 +60,9 @@ export const podcastSeasons: PodcastSeason[] = [
     // hosted: "Spotify / Apple Podcasts",
     description:
       "Engaging Arabic lessons via teacher-student discussions on cultural topics (veganism, racism, parenting). For all levels, with accompanying book of glossaries and episode-based exercises.",
+       samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
   },
   {
     id: "podcast-season-2",
@@ -78,6 +84,10 @@ export const podcastSeasons: PodcastSeason[] = [
     description:
       "Pioneering Arabic lessons with teacher-student chats on cultural topics (veganism, racism, parenting). Suits all levels; paired with book of episode glossaries and exercises for immersive learning.",
     listenLink: "#",
+      samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
+
   },
   {
     id: "podcast-season-3",
@@ -100,6 +110,9 @@ export const podcastSeasons: PodcastSeason[] = [
     description:
       "Teacher-learner discussions on cultural topics (veganism, racism, parenting) for all Arabic levels. Includes companion book with episode glossaries and exercises for immersive learning.",
     listenLink: "#",
+      samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
   },
   {
     id: "podcast-season-5",
@@ -120,5 +133,8 @@ export const podcastSeasons: PodcastSeason[] = [
     // hosted: "Spotify",
     description: "A beginner-friendly (A1–A2) Arabic learning series with natural teacher-learner conversations on everyday topics like family, school, friends, and food. Paired with a companion book featuring glossaries and exercises for effective, real-life practice.",
     listenLink: "#",
+      samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
   },
 ];

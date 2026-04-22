@@ -75,8 +75,7 @@ app.post("/api/career", upload.single("cv"), async (req, res) => {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: [process.env.RECEIVER_EMAIL, process.env.RECEIVER_EMAIL_2], // HR Emails
-      cc: process.env.RECEIVER_EMAIL_3,
+      to: [process.env.RECEIVER_EMAIL_4, process.env.RECEIVER_EMAIL_5], // HR Emails
       subject: `Career Application: ${position} - ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
@@ -131,8 +130,7 @@ app.post("/api/contact", async (req, res) => {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: [process.env.RECEIVER_EMAIL, process.env.RECEIVER_EMAIL_2],
-      cc: process.env.RECEIVER_EMAIL_3,
+      to: [process.env.RECEIVER_EMAIL_2, process.env.RECEIVER_EMAIL_4],
       subject: `Deewan Website: Message from ${fullName}`,
       html: `
     <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">

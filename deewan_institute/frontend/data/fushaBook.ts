@@ -23,6 +23,9 @@ export interface FushaBook {
     viewMoreLink: string;
     wishlistLink?: string;
     cartLink?: string;
+    samplePdf?: string;
+frontCover?: string;
+backCover?: string;
 }
 
 //Data
@@ -53,4 +56,7 @@ export const fushaBook: FushaBook = {
     wishlistLink: "#",
     cartLink: "#",
     price: 25,
+     samplePdf: "/assets/samples/book-1-sample.pdf",
+  frontCover: "/assets/images/books/book-1-front.jpg",
+  backCover: "/assets/images/books/book-1-back.jpg",
 };

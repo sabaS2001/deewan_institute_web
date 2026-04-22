@@ -15,6 +15,11 @@
     font-family: "Merriweather-Light" !important;
     font-weight: 400;
     line-height: 150%;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+      
+    }
   }
 }
 
@@ -204,9 +209,9 @@
 .lockHint {
   display: block;
   width: 100%;
-  font-size: 0.62rem !important;
-  color: #c0a882;
-  font-family: "Merriweather-Light", serif;
+  font-size: 0.81rem !important;
+  color: #e01d1d;
+  font-family: "Merriweather-bold", serif;
   margin-top: 1px;
   letter-spacing: 0.02em;
 }

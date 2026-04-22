@@ -29,7 +29,7 @@ function NavBar() {
           {/* Mobile Logo */}
           <NavLink className="navbar-brand d-md-none" to="/">
             <img
-              src="/assets/images/logos/nobgLogo.png"
+              src="/assets/images/logos/nobgLogo.webp"
               alt="Deewan Institute Logo"
               id={styles.mainLogo}
             />
@@ -56,7 +56,7 @@ function NavBar() {
             {/* Center Logo */}
             <NavLink className="navbar-brand d-none d-md-block" to="/">
               <img
-                src="/assets/images/logos/nobgLogo.png"
+                src="/assets/images/logos/nobgLogo.webp"
                 alt="Deewan Institute Logo"
                 id={styles.mainLogo}
               />
@@ -104,7 +104,7 @@ function NavBar() {
               aria-label="Wishlist"
             >
               <img
-                src="/assets/images/icons/heart_brown.png"
+                src="/assets/images/icons/heart_brown.webp"
                 alt="Wishlist"
                 id={styles.wishlistIcon}
               />
@@ -116,7 +116,7 @@ function NavBar() {
             {/* Cart */}
             <NavLink className="position-relative" to="/cart" aria-label="Cart">
               <img
-                src="/assets/images/icons/cart_brown.png"
+                src="/assets/images/icons/cart_brown.webp"
                 alt="Cart"
                 id={styles.cartIcon}
               />
@@ -145,7 +145,7 @@ function NavBar() {
             {/* Logo */}
             <NavLink to="/" onClick={() => setIsOverlayOpen(false)}>
               <img
-                src="/assets/images/logos/nobgLogo.png"
+                src="/assets/images/logos/nobgLogo.webp"
                 alt="Deewan Institute Logo"
                 className={styles.overlayLogo}
               />

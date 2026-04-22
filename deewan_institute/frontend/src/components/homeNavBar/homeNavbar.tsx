@@ -16,7 +16,7 @@ function HomeNavBar() {
           {/* Mobile Logo */}
           <NavLink className="navbar-brand d-md-none" to="/">
             <img
-              src="/assets/images/logos/nobgLogo.png"
+              src="/assets/images/logos/nobgLogo.webp"
               alt="Deewan Institute Logo"
               id={styles.mainLogo}
             />
@@ -39,7 +39,7 @@ function HomeNavBar() {
             {/* Center Logo */}
             <NavLink className="navbar-brand d-none d-md-block" to="/">
               <img
-                src="/assets/images/logos/nobgLogo.png"
+                src="/assets/images/logos/nobgLogo.webp"
                 alt="Deewan Institute Logo"
                 id={styles.mainLogo}
               />
@@ -96,7 +96,7 @@ function HomeNavBar() {
           {/* Logo */}
           <NavLink to="/" onClick={() => setIsOverlayOpen(false)}>
             <img
-              src="/assets/images/logos/nobgLogo.png"
+              src="/assets/images/logos/nobgLogo.webp"
               alt="Deewan Institute Logo"
               className={styles.overlayLogo}
             />

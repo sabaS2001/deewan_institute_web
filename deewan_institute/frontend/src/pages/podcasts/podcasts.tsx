@@ -29,7 +29,7 @@ function Podcasts() {
                 <div className="container">
                     <div className="row justify-content-center g-4">
                         {seasonCards.map((card) => (
-                            <div key={card.season} className="col-6 col-md-3 d-flex justify-content-center">
+                            <div key={card.season} className="col-6 col-md-2 d-flex justify-content-center">
                                 <div className={styles.seasonCard}>
                                     <div className={styles.seasonCardImg}>
                                         <img src={card.image} alt={`Season ${card.season}`} />

@@ -2,7 +2,7 @@
 @use '../../style/fonts.scss' as *;
 
 .title {
-    width: fit-content;
+    width: fit-content !important;
     max-width: 100%; 
     padding: 2%;
     margin-top: 6%;

@@ -4,6 +4,9 @@
 .arabiTalk {
   // information
   .info {
+    @media screen and (max-width: 768px) {
+      padding-inline: 6%;
+    }
     h5 {
       font-family: "Merriweather-Regular" !important;
       color: #0d5071;

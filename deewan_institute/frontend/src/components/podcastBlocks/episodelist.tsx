@@ -4,8 +4,7 @@ import styles from './episodelist.module.scss';
 export interface Episode {
     id: number;
     title: string;
-    description?: string;
-    link?: string;
+    audioUrl?: string;
 }
 
 interface EpisodeListProps {
@@ -42,18 +41,15 @@ function EpisodeList({ seasonNumber, hostedBy, episodes }: EpisodeListProps) {
                         </button>
                         <div className={`${styles.episodeDropdown} ${openId === ep.id ? styles.dropdownOpen : ''}`}>
                             <div className={styles.dropdownInner}>
-                                {ep.description && (
-                                    <p className={styles.description}>{ep.description}</p>
-                                )}
-                                {ep.link && (
-                                    <a
-                                        href={ep.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={styles.listenLink}
-                                    >
-                                        ▷ Listen Now
-                                    </a>
+                                {ep.audioUrl ? (
+                                    <audio
+                                        controls
+                                        className={styles.audioPlayer}
+                                        src={ep.audioUrl}
+                                        preload="none"
+                                    />
+                                ) : (
+                                    <p className={styles.comingSoon}>Coming soon</p>
                                 )}
                             </div>
                         </div>

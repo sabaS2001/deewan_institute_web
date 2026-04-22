@@ -10,6 +10,7 @@
     background-position: center;
     background-image: var(--banner-image);
     padding: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
     #para {
         background-color: rgba(var(--primary-color-rgb), 0.70) !important;
@@ -32,7 +33,7 @@
 
     /* Mobile Adjustments */
     @media (max-width: 768px) {
-        min-height: 35vh;
+        min-height: 24vh;
         padding: 15px 0;
 
         #para {

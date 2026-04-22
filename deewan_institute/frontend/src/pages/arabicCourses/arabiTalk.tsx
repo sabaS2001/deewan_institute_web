@@ -51,7 +51,7 @@ function ArabiTalk() {
                             {/* <!-- The Building Image --> */}
                             <div className="col-md-5 d-flex flex-column align-items-start justify-content-center">
                                 <img className="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
-                                    src={"../assets/images/others/arabiTalk.png"} data-holder-rendered="true"
+                                    src={"../assets/images/others/arabitalk2.png"} data-holder-rendered="true"
                                      />
                             </div>
                         </div>

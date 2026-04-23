@@ -4,8 +4,9 @@ import '../../style/animation.scss';
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import NavBar from '../../components/navBar/navbar';
 import Footer from '../../components/footer/footer';
+import html2pdf from 'html2pdf.js';
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// Types
 interface Selections {
   arabicType: string | null;
   classType: string | null;
@@ -24,7 +25,7 @@ interface DisplaySelections {
   discount: string;
 }
 
-// ─── Pricing Logic ────────────────────────────────────────────────────────────
+// Pricing Logic
 function calculateTotal(selections: Selections): number {
   const { arabicType, classType, time, hours, weeks, discount } = selections;
 
@@ -55,8 +56,8 @@ function calculateTotal(selections: Selections): number {
         if (hours === 2) base = 14.5 * 2;
         else if (hours === 4) base = 12.5 * 4;
         else if (hours === 6) base = 12.5 * 6;
-        else if (hours === 8) base = 10.5 * hours;
-        else base = 14.5 * hours; // covers hours 1, 3, 5, 7, 9, 10+ (step=2, so odd values via direct input)
+        else if (hours >= 8) base = 10.5 * hours;
+        else base = 14.5 * hours;
       } else if (isEvening) {
         base = 14.5 * hours;
       }
@@ -65,8 +66,8 @@ function calculateTotal(selections: Selections): number {
         if (hours === 2) base = 16.5 * 2;
         else if (hours === 4) base = 14.5 * 4;
         else if (hours === 6) base = 14.5 * 6;
-        else if (hours === 8) base = 12.5 * hours;
-        else base = 16.5 * hours; // covers hours 1, 3, 5, 7, 9, 10+
+        else if (hours >= 8) base = 12.5 * hours;
+        else base = 16.5 * hours;
       } else if (isEvening) {
         base = 16.5 * hours;
       }
@@ -74,8 +75,7 @@ function calculateTotal(selections: Selections): number {
     return applyDiscount(base * weeks);
   }
 
-  // Group Class and Hop On Hop Off: rate × hours × weeks
-  if (classType === 'Group Class' || classType === 'Hop On Hop Off Class') {
+  if (classType === 'Group Class' || classType === 'Hop On Hop Off Group Class') {
     const rate = isAmmiyehOrMix ? 9.5 : isFusha ? 10.5 : 0;
     return applyDiscount(rate * hours * weeks);
   }
@@ -83,17 +83,19 @@ function calculateTotal(selections: Selections): number {
   return 0;
 }
 
-// ─── Static Data ──────────────────────────────────────────────────────────────
+// Static Data 
 const ARABIC_TYPES = [
   'Colloquial Levantine Arabic (Ammiyeh)',
   'Mix (FusHa and Colloquial)',
   'FusHa Arabic (MSA, Media & Classical Arabic)',
+  'Arabic for Kids (Ages 5-12)',
+  'Arabi Talk (Conversational Arabic)',
 ];
 
 const CLASS_TYPES = [
   'One-to-One Class',
   'Group Class',
-  'Hop On Hop Off Class',
+  'Hop On Hop Off Group Class',
   'Trial Class',
 ];
 
@@ -121,7 +123,7 @@ const DISCOUNT_OPTIONS: {
   { value: 'twelvemonths', label: '12% - 12 Months Package', minWeeks: 48, hint: 'Please add 48+ weeks to your package' },
 ];
 
-// ─── Group Class Info Modal ───────────────────────────────────────────────────
+// Group Class Info Modal
 interface GroupClassModalProps {
   onClose: () => void;
 }
@@ -183,7 +185,7 @@ function GroupClassInfoModal({ onClose }: GroupClassModalProps) {
   );
 }
 
-// ─── Dropdown ─────────────────────────────────────────────────────────────────
+// Dropdown
 interface DropdownOption {
   label: string;
   locked?: boolean;
@@ -274,7 +276,7 @@ function Dropdown({ label, placeholder, options, value, onChange, disabled }: Dr
   );
 }
 
-// ─── Discount Dropdown ────────────────────────────────────────────────────────
+// Discount Dropdown
 interface DiscountDropdownProps {
   value: string | null;
   weeks: number;
@@ -378,7 +380,7 @@ function DiscountDropdown({ value, weeks, hours, onChange, onReset }: DiscountDr
   );
 }
 
-// ─── Counter ──────────────────────────────────────────────────────────────────
+//Counter 
 interface CounterProps {
   id: string;
   label: string;
@@ -400,7 +402,7 @@ function Counter({ id, label, value, step, min, max, onChange, locked }: Counter
         <div
           className={`${styles.counter} d-flex justify-content-center`}
           style={locked ? { opacity: 0.65, pointerEvents: 'none' } : undefined}
-          title={locked ? 'Fixed for Group Class' : undefined}
+          title={locked ? 'Fixed for this class type' : undefined}
         >
           <div className="btn-group align-items-center" role="group">
             <button
@@ -436,7 +438,7 @@ function Counter({ id, label, value, step, min, max, onChange, locked }: Counter
   );
 }
 
-// ─── Price Modal ──────────────────────────────────────────────────────────────
+//Price Modal
 interface ModalProps {
   display: DisplaySelections;
   total: number;
@@ -453,7 +455,7 @@ function PriceModal({ display, total, onClose }: ModalProps) {
     { label: 'Discount:',                 value: display.discount },
   ];
 
-  function handlePrint() {
+   const generateInvoiceHtml = () => {
     const rowsHtml = rows.map(row => `
       <tr>
         <td class="label">${row.label}</td>
@@ -461,53 +463,76 @@ function PriceModal({ display, total, onClose }: ModalProps) {
       </tr>
     `).join('');
 
+    return `
+      <div style="font-family: Georgia, 'Times New Roman', serif; color: #000; padding: 20px;">
+        <style>
+          .header { border-bottom: 2px solid #8f6e43; padding-bottom: 10px; margin-bottom: 24px; }
+          .header h2 { color: #8f6e43; margin: 0 0 4px 0; font-size: 22px; }
+          .header p { margin: 0; color: #666; font-size: 12px; }
+          table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+          td { padding: 10px 8px; font-size: 14px; border-bottom: 1px solid #f0e8de; vertical-align: top; }
+          td.label { font-weight: bold; color: #333; width: 45%; }
+          td.value { color: #000; width: 55%; }
+          .divider { border: none; border-top: 2px solid #8f6e43; margin: 16px 0; }
+          .total-row td { border-bottom: none; padding-top: 14px; font-size: 16px; }
+          .total-row .label { color: #000; font-weight: bold; }
+          .total-row .value { color: #8f6e43; font-weight: bold; }
+          .footer { margin-top: 40px; font-size: 11px; color: #999; border-top: 1px solid #eee; padding-top: 8px; }
+        </style>
+        <div class="header">
+          <h2>Arabic Courses Price</h2>
+          <p>Deewan Institute — arabic@deewaninstitute.com</p>
+        </div>
+        <table><tbody>${rowsHtml}</tbody></table>
+        <div class="divider"></div>
+        <table>
+          <tbody>
+            <tr class="total-row">
+              <td class="label">Total Cost:</td>
+              <td class="value">${total.toFixed(2)} JOD</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="footer">Printed from Deewan Institute — deewaninstitute.com</div>
+      </div>
+    `;
+  };
+
+  function handlePrint() {
     const printWin = window.open('', '_blank', 'width=800,height=700');
     if (!printWin) return;
     printWin.document.write(`
       <!DOCTYPE html>
       <html>
-        <head>
-          <title>Arabic Courses Price — Deewan Institute</title>
-          <style>
-            @page { margin: 2cm; }
-            * { box-sizing: border-box; }
-            body { font-family: Georgia, "Times New Roman", serif; color: #000; margin: 0; padding: 0; }
-            .header { border-bottom: 2px solid #8f6e43; padding-bottom: 10px; margin-bottom: 24px; }
-            .header h2 { color: #8f6e43; margin: 0 0 4px 0; font-size: 22px; }
-            .header p { margin: 0; color: #666; font-size: 12px; }
-            table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-            td { padding: 10px 8px; font-size: 14px; border-bottom: 1px solid #f0e8de; vertical-align: top; }
-            td.label { font-weight: bold; color: #333; width: 45%; }
-            td.value { color: #000; width: 55%; }
-            .divider { border: none; border-top: 2px solid #8f6e43; margin: 16px 0; }
-            .total-row td { border-bottom: none; padding-top: 14px; font-size: 16px; }
-            .total-row .label { color: #000; }
-            .total-row .value { color: #8f6e43; font-weight: bold; }
-            .footer { margin-top: 40px; font-size: 11px; color: #999; border-top: 1px solid #eee; padding-top: 8px; }
-          </style>
-        </head>
-        <body>
-          <div class="header">
-            <h2>Arabic Courses Price</h2>
-            <p>Deewan Institute — arabic@deewaninstitute.com</p>
-          </div>
-          <table><tbody>${rowsHtml}</tbody></table>
-          <hr class="divider" />
-          <table>
-            <tbody>
-              <tr class="total-row">
-                <td class="label">Total Cost:</td>
-                <td class="value">${total.toFixed(2)} JOD</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="footer">Printed from Deewan Institute — deewaninstitute.com</div>
-        </body>
+        <head><title>Arabic Courses Price — Deewan Institute</title></head>
+        <body>${generateInvoiceHtml()}</body>
       </html>
     `);
     printWin.document.close();
     printWin.focus();
     setTimeout(() => { printWin.print(); printWin.close(); }, 300);
+  }
+
+  // NEW FUNCTION: Handles PDF Download
+  async function handleDownloadPDF() {
+    // Create a temporary element to hold the HTML content
+    const element = document.createElement('div');
+    element.innerHTML = generateInvoiceHtml();
+
+    const options = {
+      margin: 1,
+      filename: 'Arabic_Course_Price.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, logging: false, useCORS: true },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+    } as const;
+
+    try {
+      await html2pdf().set(options).from(element).save();
+    } catch (error) {
+      console.error("PDF Generation Error:", error);
+      alert("Could not generate PDF. Please try printing instead.");
+    }
   }
 
   return (
@@ -526,7 +551,8 @@ function PriceModal({ display, total, onClose }: ModalProps) {
               <div className={`${styles.title} my-4`}>
                 <h3>Arabic Courses Price</h3>
               </div>
-              <div className={`${styles.print} d-flex justify-content-evenly`}>
+              <div className={`${styles.print} d-flex justify-content-evenly gap-3`}>
+                {/* PRINT BUTTON */}
                 <a
                   className="text-decoration-none"
                   onClick={handlePrint}
@@ -534,6 +560,17 @@ function PriceModal({ display, total, onClose }: ModalProps) {
                   title="Print"
                 >
                   <img src="../assets/images/icons/print.png" alt="Print" />
+                </a>
+                
+                {/* DOWNLOAD BUTTON */}
+                <a
+                  className="text-decoration-none"
+                  onClick={handleDownloadPDF}
+                  style={{ cursor: 'pointer' }}
+                  title="Download PDF"
+                >
+                  
+                  <img src="../assets/images/icons/download.png" alt="Download PDF" />
                 </a>
               </div>
             </div>
@@ -565,8 +602,7 @@ function PriceModal({ display, total, onClose }: ModalProps) {
     </div>
   );
 }
-
-// ─── Accordion Item ───────────────────────────────────────────────────────────
+//  Accordion Item
 function AccordionItem({
   id, title, content, parentId, isOpen, onToggle,
 }: {
@@ -599,10 +635,12 @@ function AccordionItem({
   );
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
-const GROUP_CLASS_HOURS = 4;
-const GROUP_CLASS_MIN_WEEKS = 4;
+// Constants 
+const GROUP_CLASS_HOURS      = 4;
+const GROUP_CLASS_MIN_WEEKS  = 4;
+const HOP_ON_HOP_OFF_MAX_HOURS = 6;
 
+// Main Component
 function Calculator() {
   useScrollAnimation();
 
@@ -624,17 +662,18 @@ function Calculator() {
     discount:   'No Discount',
   });
 
-  const [showModal, setShowModal]             = useState(false);
-  const [showGroupModal, setShowGroupModal]   = useState(false);
-  const [openAccordion, setOpenAccordion]     = useState<string | null>(null);
+  const [showModal, setShowModal]           = useState(false);
+  const [showGroupModal, setShowGroupModal] = useState(false);
+  const [openAccordion, setOpenAccordion]   = useState<string | null>(null);
 
-  const isGroupClass = selections.classType === 'Group Class';
+  const isGroupClass    = selections.classType === 'Group Class';
+  const isHopOnHopOff   = selections.classType === 'Hop On Hop Off Group Class';
+  const isTrialClass    = selections.classType === 'Trial Class';
 
   function toggleAccordion(id: string) {
     setOpenAccordion(prev => (prev === id ? null : id));
   }
 
-  // When class type changes to Group Class: lock hours=4, min weeks=4, time=Evening
   function handleClassTypeChange(v: string) {
     if (v === 'Group Class') {
       setShowGroupModal(true);
@@ -649,7 +688,6 @@ function Calculator() {
         time: eveningTime,
       }));
     } else {
-      // Switching away from Group Class — clear time so user picks again
       setSelections(s => ({ ...s, classType: v, time: null }));
       setDisplaySelections(d => ({ ...d, classType: v, time: null }));
     }
@@ -670,11 +708,30 @@ function Calculator() {
     return displaySelections;
   }, [displaySelections, selections.classType]);
 
+  // Build Time dropdown options based on current class type
+  const timeOptions = TIME_OPTIONS.map(opt => {
+    const isEvening    = opt === TIME_OPTIONS[1];
+    const isOneOnOne   = selections.classType === 'One-to-One Class';
+
+    if (isGroupClass) {
+      return isEvening
+        ? { label: opt }
+        : { label: opt, locked: true, hint: 'Group classes are evenings only' };
+    }
+
+    if (isOneOnOne) {
+      return isEvening
+        ? { label: opt, hint: 'Evening classes are more expensive.', hintColor: '#c0392b' }
+        : { label: opt, hint: 'Special offer for morning classes: more hours = more savings.', hintColor: '#27ae60' };
+    }
+
+    return { label: opt };
+  });
+
   return (
     <Fragment>
       <NavBar />
 
-      {/* Group Class Info Popup */}
       {showGroupModal && (
         <GroupClassInfoModal onClose={() => setShowGroupModal(false)} />
       )}
@@ -730,6 +787,21 @@ function Calculator() {
                 Once your options are selected, the calculator will automatically display the full price.
               </span>
             </li>
+            <li className="py-2">
+              <a
+                className="fw-bold"
+                href="/arabic-courses"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: '#8F6E43' }}
+                onMouseEnter={e => (e.currentTarget.style.textDecoration = 'underline')}
+              >
+                Click this link
+              </a>
+              <span className="px-2 fw-normal">
+                To learn more about each course and what it covers.
+              </span>
+            </li>
           </ol>
         </div>
 
@@ -755,24 +827,9 @@ function Calculator() {
         <Dropdown
           label="Time in The Day:"
           placeholder="Please Choose the Time of the Day"
-          options={(() => {
-            const isOneOnOne = selections.classType === 'One-to-One Class';
-            return TIME_OPTIONS.map(opt => {
-              const isEvening = opt === TIME_OPTIONS[1];
-              if (isGroupClass) {
-                // Group Class: Morning is locked, Evening is the only valid pick
-                return isEvening
-                  ? { label: opt }
-                  : { label: opt, locked: true, hint: 'Group classes are evenings only' };
-              }
-              if (isOneOnOne && isEvening) {
-                return { label: opt, hint: 'Evening classes are more expensive.', hintColor: '#c0392b' };
-              }
-              return { label: opt };
-            });
-          })()}
+          options={timeOptions}
           value={selections.time}
-          disabled={isGroupClass}
+          disabled={isGroupClass || isTrialClass}
           onChange={v => {
             setSelections(s => ({ ...s, time: v }));
             setDisplaySelections(d => ({ ...d, time: v }));
@@ -785,8 +842,12 @@ function Calculator() {
           value={selections.hours}
           step={2}
           min={isGroupClass ? GROUP_CLASS_HOURS : 0}
-          max={isGroupClass ? GROUP_CLASS_HOURS : 100}
-          locked={isGroupClass}
+          max={
+            isGroupClass  ? GROUP_CLASS_HOURS :
+            isHopOnHopOff ? HOP_ON_HOP_OFF_MAX_HOURS :
+            100
+          }
+          locked={isGroupClass || isTrialClass}
           onChange={v => {
             setSelections(s => ({ ...s, hours: v }));
             setDisplaySelections(d => ({ ...d, hours: `${v} Hour${v !== 1 ? 's' : ''}` }));
@@ -800,6 +861,7 @@ function Calculator() {
           step={1}
           min={isGroupClass ? GROUP_CLASS_MIN_WEEKS : 0}
           max={100}
+          locked={isTrialClass}
           onChange={v => {
             setSelections(s => ({ ...s, weeks: v }));
             setDisplaySelections(d => ({ ...d, weeks: `${v} Week${v !== 1 ? 's' : ''}` }));
@@ -808,8 +870,8 @@ function Calculator() {
 
         <DiscountDropdown
           value={selections.discount}
-          weeks={selections.weeks}
-          hours={selections.hours}
+          weeks={isTrialClass ? 0 : selections.weeks}
+          hours={isTrialClass ? 0 : selections.hours}
           onChange={(value, label) => {
             setSelections(s => ({ ...s, discount: value }));
             setDisplaySelections(d => ({ ...d, discount: label }));

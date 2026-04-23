@@ -8,6 +8,11 @@ function PartnershipSlider() {
         { name: "Instituto de Cultura Árabe", url: "https://incaco.org/", img: "../assets/images/partnership/partnership4.webp" },
         { name: "Università Ca' Foscari", url: "https://www.unive.it/", img: "../assets/images/partnership/partnership5.webp" },
         { name: "Darna Hostel", url: "https://darnahostel.com/", img: "../assets/images/partnership/darnahostel.png" },
+        { name: "Berlin", url: "https://www.berlin.de/", img: "../assets/images/logos/b_logo2.png" },
+        { name: "Lower Saxony", url: "https://www.niedersachsen.de/", img: "../assets/images/logos/b_logo3.png" },
+        { name: "Hamburg", url: "https://www.hamburg.de/", img: "../assets/images/logos/b_logo4.png" },
+        { name: "Rhineland", url: "https://www.rlp.de/", img: "../assets/images/logos/b_logo5.png" },
+        { name: "Saarland", url: "https://www.saarland.de/", img: "../assets/images/logos/b_logo6.png" },
     ];
 
     return (

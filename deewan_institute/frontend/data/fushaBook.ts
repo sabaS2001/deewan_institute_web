@@ -56,7 +56,7 @@ export const fushaBook: FushaBook = {
     wishlistLink: "#",
     cartLink: "#",
     price: 25,
-     samplePdf: "/assets/samples/book-1-sample.pdf",
-  frontCover: "/assets/images/books/book-1-front.jpg",
-  backCover: "/assets/images/books/book-1-back.jpg",
+     samplePdf: "/assets/pdf/samples/fusha-sample.pdf",
+  frontCover: "/assets/images/books/fusha/fusha-front.jpg",
+  backCover: "/assets/images/books/fusha/fusha-back.jpg",
 };

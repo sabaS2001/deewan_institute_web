@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import styles from "./publicationInfo.module.scss";
 import "../../style/animation.scss";
@@ -143,19 +143,25 @@ function PublicationInfo() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  window.scrollTo({ top: 0, behavior: "instant" });
-}, [id]);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [id]);
 
-  // SHOP CONTEXT HOOKS 
+  // SHOP CONTEXT HOOKS
   // FIXED: Added addToCart to the destructuring here
   const { toggleWishlist, isInWishlist, addToCart } = useShop();
 
   const allBooks = getAllBooks();
   const book = allBooks.find((b) => b.id === id);
+  const [mainImage, setMainImage] = useState<string | undefined>();
 
   const similar = allBooks
     .filter((b) => b.type === book?.type && b.id !== id)
     .slice(0, 6);
+  useEffect(() => {
+    if (book) {
+      setMainImage(book.image);
+    }
+  }, [book?.id]);
 
   const similarSwiperRef = useRef<HTMLDivElement>(null);
   const testimonialSwiperRef = useRef<HTMLDivElement>(null);
@@ -252,7 +258,7 @@ function PublicationInfo() {
           <div className="col-md-5 d-flex flex-column align-items-end justify-content-center">
             <img
               className={`${styles.featuretteImage} img-fluid mx-auto`}
-              src={book.image}
+              src={mainImage || book.image}
               alt={book.imageAlt}
             />
 
@@ -261,7 +267,11 @@ function PublicationInfo() {
                 className={`d-flex flex-row gap-3 mt-3 mx-auto ${styles.coverThumbnails}`}
               >
                 {book.frontCover && (
-                  <div className={styles.coverBox}>
+                  <div
+                    className={`${styles.coverBox} ${mainImage === book.frontCover ? styles.activeCover : ""}`}
+                    onClick={() => setMainImage(book.frontCover)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       src={book.frontCover}
                       alt={`${book.title} front cover`}
@@ -270,7 +280,11 @@ function PublicationInfo() {
                   </div>
                 )}
                 {book.backCover && (
-                  <div className={styles.coverBox}>
+                  <div
+                    className={`${styles.coverBox} ${mainImage === book.backCover ? styles.activeCover : ""}`}
+                    onClick={() => setMainImage(book.backCover)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       src={book.backCover}
                       alt={`${book.title} back cover`}
@@ -330,17 +344,21 @@ function PublicationInfo() {
                 Add To Cart
               </button>
               {book.samplePdf && (
-  <a
-    key="sample-link" // ✅ Added key for React
-    href={book.samplePdf}
-    target="_blank"
-    rel="noreferrer"
-    className={`${styles.actionBtn} ${styles.sampleBtn}`}
-  >
-    <img className="px-3" src="/assets/images/icons/pdf.png" alt="sample icon" />
-    Read Sample
-  </a>
-)}
+                <a
+                  key="sample-link"
+                  href={book.samplePdf}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`${styles.actionBtn} ${styles.sampleBtn}`}
+                >
+                  <img
+                    className="px-3"
+                    src="/assets/images/icons/pdf.svg"
+                    alt="sample icon"
+                  />
+                  Read Sample
+                </a>
+              )}
             </div>
           </div>
         </div>

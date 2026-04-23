@@ -140,7 +140,7 @@ export const seasons: Season[] = [
         seasonNumber: 5,
         hostedBy: 'Raghad Dabbour',
         episodes: season5Episodes,
-        bookCover: '/assets/images/books/podcasts/podcast4.png',
+        bookCover: '/assets/images/books/podcasts/podcast5.png',
         bookAlt: 'Guide to Deewan Podcast Season 5 book cover',
         reverse: false,
     },

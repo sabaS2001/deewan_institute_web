@@ -88,8 +88,8 @@ const ARABIC_TYPES = [
   'Colloquial Levantine Arabic (Ammiyeh)',
   'Mix (FusHa and Colloquial)',
   'FusHa Arabic (MSA, Media & Classical Arabic)',
-  'Arabic for Kids (Ages 5-12)',
-  'Arabi Talk (Conversational Arabic)',
+ // 'Arabic for Kids (Ages 5-12)',
+ // 'Arabi Talk (Conversational Arabic)',
 ];
 
 const CLASS_TYPES = [

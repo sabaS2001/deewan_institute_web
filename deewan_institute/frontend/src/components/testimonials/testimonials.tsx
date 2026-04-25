@@ -19,10 +19,6 @@ function Testimonials() {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
       breakpoints: {
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
@@ -51,11 +47,11 @@ function Testimonials() {
             South Africa, among many others.
           </p>
         </div>
-        <div className="container d-flex align-content-center ">
+        <div className="container d-flex align-content-center" style={{ height: "100%" }}>
           <div className={`swiper ${styles.testimonialsSwiper}`}>
             <div className="swiper-wrapper">
               {/* <!-- Testimonial Card 1 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}
@@ -75,7 +71,7 @@ function Testimonials() {
                 </div>
               </div>
               {/* <!-- Testimonial Card 2 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}
@@ -97,7 +93,7 @@ function Testimonials() {
                 </div>
               </div>
               {/* <!-- Testimonial Card 3 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}
@@ -117,7 +113,7 @@ function Testimonials() {
                 </div>
               </div>
               {/* <!-- Testimonial Card 4 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}
@@ -139,7 +135,7 @@ function Testimonials() {
                 </div>
               </div>
               {/* <!-- Testimonial Card 5 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}
@@ -162,7 +158,7 @@ function Testimonials() {
                 </div>
               </div>
               {/* <!-- Testimonial Card 6 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}
@@ -184,7 +180,7 @@ function Testimonials() {
                 </div>
               </div>
               {/* <!-- Testimonial Card 7 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}
@@ -203,7 +199,7 @@ function Testimonials() {
                 </div>
               </div>
               {/* <!-- Testimonial Card 8 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}
@@ -223,7 +219,7 @@ function Testimonials() {
                 </div>
               </div>
               {/* <!-- Testimonial Card 9 --> */}
-              <div className="swiper-slide my-3">
+              <div className="swiper-slide">
                 <div className={styles.testimonialCard}>
                   <img
                     src={"/assets/images/others/stars.svg"}

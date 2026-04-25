@@ -48,8 +48,8 @@ function Home() {
           {/* <!-- First Slide --> */}
           <div className="carousel-item active" id={style.carouselItem1}>
             <div className="container-fluid d-flex align-items-end h-100">
-              <div className="row w-100">
-                <div className="col-md-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left">
+              <div className="row w-100" id={style.firstRow}>
+                <div className="col-md-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left" id={style.logo}>
                   <img
                     src={"/assets/images/logos/nobgLogo.png"}
                     style={{ width: "70%" }}
@@ -84,7 +84,7 @@ function Home() {
           {/* <!-- Second Slide --> */}
           <div className="carousel-item" id={style.carouselItem2}>
             <div className="container-fluid d-flex align-items-end h-100">
-              <div className="row w-100">
+              <div className="row w-100" id={style.secondRow}>
                 <div className="col-md-6 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right">
                   {/* <!-- Right column --> */}
                   <div
@@ -116,6 +116,7 @@ function Home() {
                   <img
                     src={"../assets/images/others/comprehensiveBook.png"}
                     style={{ width: "60%" }}
+                    id={style.bookImage}
                   />
                 </div>
               </div>
@@ -143,7 +144,7 @@ function Home() {
       </div>
 
       {/* <!-- About Us --> */}
-      <section className="mt-5 pt-5" id={style.aboutUs}>
+      <section id={style.aboutUs}>
         <div className="row featurette align-items-center justify-content-center mx-auto">
           <div className="col-md-4 order-md-2 pr-2 d-flex flex-column gap-2">
             <h2
@@ -180,79 +181,100 @@ function Home() {
       </section>
 
       {/*Habibi Section*/}
+      <section id={style.habibiSection}>
+        <div className="row featurette align-items-center justify-content-center mx-auto">
+          {/* Text column — order-md-1 so it sits LEFT on desktop */}
+          <div className="col-md-5 order-md-1 pr-2 d-flex flex-column gap-2">
+            <h2
+              className={`${style.featuretteHeading} text-white scroll-section slide-in-right`}
+            >
+              The "Habibi" Challenge Is Live 👀
+            </h2>
+            <p className="lead scroll-section slide-in-right text-white" id={style.para}>
+              Find "Habibi is Cool" in your city and get rewarded!<br></br>•
+              Take a selfie with the sticker → 10% discount <br></br>• Place 10
+              stickers in your city → 10% discount<br></br>
+              Join the movement and help spread Arabic world wide.<br></br>
+            </p>
+            <a
+              className="button rounded-pill text-decoration-none scroll-section slide-in-right"
+              id={style.whiteButton}
+              href="mailto:arabic@deewaninstitute.com?subject=Habibi%20Selfie"
+            >
+              Email Us Your Selfie!
+            </a>
+          </div>
 
-<section className="mt-5 pt-5" id={style.aboutUs}>
-  <div className="row featurette align-items-center justify-content-center mx-auto">
-    
-    {/* Text column — order-md-1 so it sits LEFT on desktop */}
-    <div className="col-md-5 order-md-1 pr-2 d-flex flex-column gap-2">
-      <h2 className={`${style.featuretteHeading} scroll-section slide-in-right`}>
-        The "Habibi" Challenge Is Live 👀
-      </h2>
-      <p className="lead scroll-section slide-in-right" id={style.para}>
-        Find "Habibi is Cool" in your city and get rewarded!<br></br>
-        • Take a selfie with the sticker → 10% discount <br></br>
-        • Place 10 stickers in your city → 10% discount<br></br>
-        Join the movement and help spread Arabic world wide.<br></br>
-      </p>
-<a
-  className="button rounded-pill text-decoration-none scroll-section slide-in-right"
-  id={style.button}
-  href="mailto:arabic@deewaninstitute.com?subject=Habibi%20Selfie"
->
-  Email Us Your Selfie!
-</a>
+          {/* Image slider column — order-md-2 so it sits RIGHT on desktop */}
+          <div className="col-md-4 order-md-2 d-flex justify-content-center">
+            <div
+              id="habibCarousel"
+              className={`carousel slide w-100 ${style.habibCarousel}`}
+              data-bs-ride="carousel"
+            >
+              <div className="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#habibCarousel"
+                  data-bs-slide-to="0"
+                  className="active"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#habibCarousel"
+                  data-bs-slide-to="1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#habibCarousel"
+                  data-bs-slide-to="2"
+                ></button>
+              </div>
 
-    </div>
+              <div className="carousel-inner rounded-3">
+                <div className="carousel-item active">
+                  <img
+                    src={"../assets/images/others/habibi1.jpg"}
+                    className="d-block w-100 featurette-image img-fluid"
+                    alt="Habibi slide 1"
+                  />
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src={"../assets/images/others/habibi2.jpg"}
+                    className="d-block w-100 featurette-image img-fluid"
+                    alt="Habibi slide 2"
+                  />
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src={"../assets/images/others/habibi3.jpg"}
+                    className="d-block w-100 featurette-image img-fluid"
+                    alt="Habibi slide 3"
+                  />
+                </div>
+              </div>
 
-    {/* Image slider column — order-md-2 so it sits RIGHT on desktop */}
-<div className="col-md-4 order-md-2 d-flex justify-content-center"> 
-  <div
-    id="habibCarousel"
-    className={`carousel slide w-100 ${style.habibCarousel}`}
-    data-bs-ride="carousel"
-      >
-        <div className="carousel-indicators">
-          <button type="button" data-bs-target="#habibCarousel" data-bs-slide-to="0" className="active"></button>
-          <button type="button" data-bs-target="#habibCarousel" data-bs-slide-to="1"></button>
-          <button type="button" data-bs-target="#habibCarousel" data-bs-slide-to="2"></button>
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#habibCarousel"
+                data-bs-slide="prev"
+              >
+                <span className="carousel-control-prev-icon"></span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#habibCarousel"
+                data-bs-slide="next"
+              >
+                <span className="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </div>
         </div>
-
-        <div className="carousel-inner rounded-3">
-          <div className="carousel-item active">
-            <img
-              src={"../assets/images/others/habibi1.jpg"}
-              className="d-block w-100 featurette-image img-fluid"
-              alt="Habibi slide 1"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src={"../assets/images/others/habibi2.jpg"}
-              className="d-block w-100 featurette-image img-fluid"
-              alt="Habibi slide 2"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src={"../assets/images/others/habibi3.jpg"}
-              className="d-block w-100 featurette-image img-fluid"
-              alt="Habibi slide 3"
-            />
-          </div>
-        </div>
-
-        <button className="carousel-control-prev" type="button" data-bs-target="#habibCarousel" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon"></span>
-        </button>
-        <button className="carousel-control-next" type="button" data-bs-target="#habibCarousel" data-bs-slide="next">
-          <span className="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* <!-- Courses Section --> */}
       <Courses />

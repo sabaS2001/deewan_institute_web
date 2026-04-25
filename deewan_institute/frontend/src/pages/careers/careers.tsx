@@ -3,8 +3,8 @@ import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./careers.module.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import JobAccordin from "../../components/carrers/jobAccordin";
-import CareerForm from "../../components/carrers/careerForm";
+import JobAccordin from "../../components/careers/jobAccordin";
+import CareerForm from "../../components/careers/careerForm";
 
 function Career() {
   console.log("API URL:", import.meta.env.VITE_API_URL); // Should show: http://localhost:5000

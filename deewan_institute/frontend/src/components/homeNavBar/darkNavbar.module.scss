@@ -14,12 +14,13 @@
   transition: background-color 0.3s ease;
 
   @media (max-width: 767px) {
-    background-color: transparent !important;
-    padding: 12px 0;
-
-    &:hover {
-      background-color: transparent !important;
-    }
+    margin-inline: auto;
+    width: 95%;
+    margin-top: 3%;
+    border-radius: 41px;
+    padding: 2px 0;
+    background-color: rgb(143, 110, 67, 0.5) !important;
+    backdrop-filter: blur(10px);
   }
 }
 
@@ -152,6 +153,7 @@
     visibility: visible;
     overflow-y: auto;
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 62px 62px 0px;
   }
 }
 
@@ -214,7 +216,8 @@
   opacity: 1;
 
   @media (max-width: 767px) {
-    width: 160px;
+    width: 303px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   }
 }
 

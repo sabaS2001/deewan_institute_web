@@ -3,7 +3,7 @@ import "bootstrap";
 
 function Divider() {
     return (
-        <hr className={`${styles.featuretteDivider} mx-auto scroll-section`} />
+        <hr className={`${styles.featuretteDivider} mx-auto my-4 scroll-section`} />
     )
 }
 export default Divider;

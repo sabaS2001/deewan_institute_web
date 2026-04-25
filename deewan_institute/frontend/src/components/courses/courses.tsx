@@ -9,7 +9,7 @@ function Courses() {
       >
         <h1>Arabic Programs</h1>
       </div>
-      <div className="mx-auto text-center my-5 scroll-section">
+      <div className="mx-auto text-center my-5 scroll-section" id={style.para}>
         <p>
           At Deewan Institute, we proudly offer immersive programs in Arabic
           (Ammiyeh and FusHa), led by native speakers in vibrant Amman. Check

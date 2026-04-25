@@ -24,9 +24,9 @@ import WishList from "./context/wishlist.tsx";
 import Cart from "./context/cart.tsx";
 import Checkout from "./context/checkout.tsx";
 import Podcasts from "./pages/podcasts/podcasts.tsx";
-import BildungsurlaUbPage from "./pages/Bildungsurlaub/bildungsurlaubpage.tsx";
+import BildungsurlaUbPage from "./pages/bildungsurlaub/bildungsurlaubpage.tsx";
 import NotFound from "./pages/404_Page/error.tsx";
-import Careers from "./pages/carrers/careers.tsx";
+import Careers from "./pages/careers/careers.tsx";
 
 function App() {
   return (

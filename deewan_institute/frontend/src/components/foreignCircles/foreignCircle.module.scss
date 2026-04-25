@@ -1,5 +1,5 @@
-@use '../../style/variables.scss' as *;
-@use '../../style/fonts.scss' as *;
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
 
 .foreign {
   padding-inline: 10%;
@@ -50,5 +50,57 @@
   .button:hover {
     background-color: $primary_color;
     color: $white;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .foreign {
+    .title {
+      width: 100%;
+      text-align: center !important;
+      padding-inline: 0% !important;
+
+      h1 {
+        font-size: xx-large !important;
+      }
+    }
+
+    #para {
+      font-size: medium !important;
+      text-align: start !important;
+    }
+
+    .heading {
+      font-family: "Merriweather-Regular" !important;
+      font-weight: 500;
+    }
+
+    #foreignGroup {
+      flex-wrap: wrap;
+      #image {
+        width: 80%;
+        height: auto;
+      }
+    }
+
+    .button {
+      text-decoration: none;
+      display: flex;
+      width: auto;
+      border: $primary_color 2px solid;
+      border-radius: 20px;
+      padding-inline: 6%;
+      padding-block: 2%;
+      color: $primary_color;
+      font-family: "Merriweather-Regular" !important;
+      background-color: $white;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button:hover {
+      background-color: $primary_color;
+      color: $white;
+    }
   }
 }

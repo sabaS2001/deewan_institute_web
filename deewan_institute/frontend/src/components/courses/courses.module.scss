@@ -161,3 +161,52 @@
   opacity: 1;
   /* Back appears */
 }
+
+@media (max-width: 767.98px) {
+  #courses {
+    padding-inline: 10%;
+    margin-block: 10%;
+
+    .title {
+      h1 {
+        font-size: xx-large !important;
+      }
+    }
+
+    #para {
+      margin-block: 5% !important;
+      p {
+        font-size: medium !important;
+        text-align: start !important;
+      }
+    }
+    .courseItem {
+      border: $primary_color 0.5px solid;
+      border-radius: 20px;
+      width: 100% !important;
+      height: auto !important;
+
+      .front {
+        span {
+          font-size: xx-large;
+        }
+      }
+
+      .back {
+       #para {
+          font-size: xx-large;
+        }
+
+        #btn:first-of-type {
+          top: 60%;
+          /* Position first button */
+        }
+
+        #btn:last-of-type {
+          top: 75%;
+          /* Position second button below the first */
+        }
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@ import WishList from "./context/wishlist.tsx";
 import Cart from "./context/cart.tsx";
 import Checkout from "./context/checkout.tsx";
 import Podcasts from "./pages/podcasts/podcasts.tsx";
-import BildungsurlaUbPage from "./pages/bildungsurlaub/bildungsurlaubpage.tsx";
+import BildungsurlaubPage from "./pages/bildungsurlaub/bildungsurlaubpage.tsx";
 import NotFound from "./pages/404_Page/error.tsx";
 import Careers from "./pages/careers/careers.tsx";
 
@@ -93,7 +93,7 @@ function App() {
         {/* Podcasts */}
         <Route path="/podcasts" element={<Podcasts />} />
         {/*Bildungsurlaub*/}
-        <Route path="/bildungsurlaub" element={<BildungsurlaUbPage />} />
+        <Route path="/bildungsurlaub" element={<BildungsurlaubPage />} />
         {/*Careers*/}
         <Route path="/careers" element={<Careers />} />
 

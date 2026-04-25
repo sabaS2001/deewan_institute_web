@@ -34,7 +34,7 @@ Das bedeutet:
 
 Für weitere Informationen wenden Sie sich bitte an arabic@deewaninstitute.com.`;
 
-const BildungsurlaUbPage = () => {
+const BildungsurlaubPage = () => {
   const [activeLang, setActiveLang] = useState<"en" | "de">("en");
 
   useScrollAnimation();
@@ -204,4 +204,4 @@ const BildungsurlaUbPage = () => {
   );
 };
 
-export default BildungsurlaUbPage;
+export default BildungsurlaubPage;

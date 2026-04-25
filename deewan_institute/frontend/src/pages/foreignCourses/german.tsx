@@ -1,4 +1,4 @@
-import { useEffect, Fragment, use } from "react";
+import { useEffect, Fragment } from "react";
 import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import germanData from '../../../data/german';

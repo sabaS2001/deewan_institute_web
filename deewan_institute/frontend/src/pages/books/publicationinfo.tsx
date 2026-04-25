@@ -13,7 +13,6 @@ import {
 import type {
   MainBook,
   CollectionBook,
-  FushaBook,
   PodcastSeason,
 } from "../../../data";
 import NavBar from "../../components/navBar/navbar";

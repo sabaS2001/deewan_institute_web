@@ -5,7 +5,7 @@ import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./contact.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import OpenHours from "../../components/openHours/openHours";
+
 
 interface ContactFormData {
   fullName: string;

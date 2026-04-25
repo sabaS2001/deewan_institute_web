@@ -3,7 +3,7 @@ import NavBar from "../../components/navBar/navbar";
 import Footer from "../../components/footer/footer";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import { germanStateCards } from "../../../data/bildungsurlaub.data";
-import styles from "./BildungsurlaUbPage.module.scss";
+import styles from "./bildungsurlaub.module.scss";
 import { FaCircleInfo } from "react-icons/fa6";
 
 const BODY_TEXT_EN = `Bildungsurlaub (educational leave) is a legal entitlement in Germany that allows employees to take paid leave from work to participate in officially recognized educational programs.

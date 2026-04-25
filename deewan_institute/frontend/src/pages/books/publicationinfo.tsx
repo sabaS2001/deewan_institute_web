@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import styles from "./publicationInfo.module.scss";
+import styles from "./publicationinfo.module.scss";
 import "../../style/animation.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import { useShop } from "../../context/ShopContext";

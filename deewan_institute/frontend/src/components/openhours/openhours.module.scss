@@ -1,0 +1,64 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+.openingHours {
+  background-color: var(--background-color);
+  width: 100%;
+  
+
+  .title {
+    text-align: center;
+    
+    .sectionTitle {
+      color: var(--color);
+      font-family: "Merriweather-Bold" !important;
+      font-size: clamp(32px, 5vw, 48px);
+      // If you want the underline from your first version, uncomment below:
+      // border-bottom: var(--color) 3px solid;
+      // display: inline-block;
+    }
+  }
+
+  h3 {
+    color: var(--color); // Dynamic color from props
+    font-family: "Merriweather-Bold" !important;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      color: var(--color);
+      font-family: "Merriweather-Light" !important;
+      font-size: 1.2rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1); // Subtle line
+    }
+  }
+
+  .italic {
+    display: block;
+    font-style: italic;
+    color: var(--color); // Using dynamic color instead of #666 for consistency
+    opacity: 0.8; // Makes it look slightly greyed out
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    font-family: "Merriweather-Light" !important;
+  }
+
+  .borderRight {
+    border-right: 3px solid var(--color); // Dynamic color
+    padding-right: 1.5rem;
+
+    @media (max-width: 992px) {
+      border-right: none;
+      border-bottom: 3px solid var(--color);
+      border-radius: 20px;
+      padding-bottom: 2rem;
+      margin-bottom: 1rem;
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+@use "../../style/variables.scss" as *;
+@use "../../style/fonts.scss" as *;
+
+#curriculum {
+  padding-inline: 5%;
+  width: 100%;
+
+  .title {
+    //width: max-content;
+    margin: 0 auto;
+
+    h1 {
+      font-family: "Merriweather-SemiBold";
+      color: $primary-color;
+      border-bottom: $primary-color 3px solid;
+      font-size: clamp(32px, 5vw, 48px);
+      width: fit-content;
+    }
+  }
+
+  .myCarousel {
+
+    .carousel-item {
+      min-height: auto;
+      padding: 20px 0;
+
+      .dark {
+        font-family: "Merriweather-SemiBold" !important;
+        font-size: clamp(20px, 3vw, 32px);
+        line-height: 1.4;
+      }
+
+      .light {
+        font-family: "Merriweather-Light" !important;
+        font-size: clamp(16px, 2vw, 20px);
+        line-height: 1.6;
+      }
+
+      p.lead {
+        font-size: clamp(16px, 2vw, 20px);
+        line-height: 1.6;
+      }
+    }
+
+    .carousel-indicators {
+      bottom: -10px;
+      
+      [data-bs-target] {
+        background-color: $primary-color !important;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: 0 5px;
+      }
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .viewMoreBtn {
+    color: $primary-color !important;
+    border: 2px $primary-color solid;
+    background-color: #fff;
+    padding: 10px 30px;
+    font-size: clamp(14px, 2vw, 16px);
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: white !important;
+      background-color: $primary-color;
+    }
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 768px) {
+    padding-inline: 3%;
+
+    .myCarousel {
+      .carousel-item {
+        padding: 15px 0;
+      }
+
+      .carousel-indicators {
+        bottom: -5px;
+      }
+    }
+  }
+}

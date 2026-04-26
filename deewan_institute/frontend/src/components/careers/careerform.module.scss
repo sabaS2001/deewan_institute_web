@@ -1,0 +1,355 @@
+@use '../../style/fonts.scss' as *;
+@use '../../style/variables.scss' as *;
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+.card {
+  background-color: $warm-white;
+  border: 1.5px solid $brown-border;
+  border-radius: 20px;
+  padding: clamp(24px, 4vw, 44px) clamp(20px, 4vw, 44px) clamp(28px, 4vw, 48px);
+  box-shadow: 0 8px 40px rgba(143, 110, 67, 0.08);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 12px 56px rgba(143, 110, 67, 0.14);
+  }
+}
+
+// ─── Card header ──────────────────────────────────────────────────────────────
+.card_header {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid $brown-border;
+}
+
+.card_title {
+  font-family: "Merriweather-Bold";
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  color: $text-dark;
+  margin: 0 0 6px;
+}
+
+.card_subtitle {
+  font-family: "Merriweather-Light";
+  font-size: 0.9rem;
+  color: $text-muted;
+  margin: 0;
+}
+
+// ─── Form layout ──────────────────────────────────────────────────────────────
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row_two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── Field ────────────────────────────────────────────────────────────────────
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: "Merriweather-SemiBold";
+  font-size: 0.85rem;
+  color: $text-dark;
+  letter-spacing: 0.02em;
+}
+
+.label_hint {
+  font-family: "Merriweather-Light";
+  color: $text-muted;
+  font-size: 0.78rem;
+}
+
+.required {
+  color: $red;
+  margin-left: 2px;
+}
+
+// ─── Input ────────────────────────────────────────────────────────────────────
+.input {
+  font-family: "Merriweather-Regular";
+  font-size: 0.9rem;
+  color: $text-dark;
+  background-color: $white;
+  border: 1.5px solid $brown-border;
+  border-radius: 10px;
+  height: 48px;
+  padding: 0 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+
+  &::placeholder {
+    color: $text-muted;
+    font-family: "Merriweather-Light";
+  }
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(143, 110, 67, 0.12);
+  }
+}
+
+.input_error {
+  border-color: $red !important;
+  box-shadow: 0 0 0 3px rgba(167, 18, 18, 0.08) !important;
+}
+
+.input_valid {
+  border-color: $teal !important;
+}
+
+.error_msg {
+  font-family: "Merriweather-Light";
+  font-size: 0.78rem;
+  color: $red;
+  margin-top: 2px;
+}
+
+// ─── Drop zone ────────────────────────────────────────────────────────────────
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 2px dashed $brown-border;
+  border-radius: 12px;
+  padding: 28px 20px;
+  cursor: pointer;
+  background-color: $cream;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    border-color: $primary-color;
+    background-color: $brown-light;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba(143, 110, 67, 0.15);
+  }
+}
+
+.dropzone_active {
+  border-color: $primary-color;
+  background-color: $brown-light;
+}
+
+.dropzone_error {
+  border-color: $red;
+  background-color: rgba(167, 18, 18, 0.04);
+}
+
+.dropzone_icon {
+  font-size: 1.5rem;
+  color: $primary-color;
+  line-height: 1;
+}
+
+.dropzone_text {
+  font-family: "Merriweather-Regular";
+  font-size: 0.88rem;
+  color: $text-muted;
+  margin: 0;
+  text-align: center;
+}
+
+.dropzone_link {
+  color: $primary-color;
+  font-family: "Merriweather-SemiBold";
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.dropzone_hint {
+  font-family: "Merriweather-Light";
+  font-size: 0.75rem;
+  color: $text-muted;
+  margin: 0;
+}
+
+// ─── File preview ─────────────────────────────────────────────────────────────
+.file_preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid $brown-border;
+  border-radius: 10px;
+  padding: 12px 16px;
+  background-color: $cream;
+  flex-wrap: wrap;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.file_icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.file_name {
+  font-family: "Merriweather-Regular";
+  font-size: 0.85rem;
+  color: $text-dark;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.file_size {
+  font-family: "Merriweather-Light";
+  font-size: 0.75rem;
+  color: $text-muted;
+  flex-shrink: 0;
+}
+
+.file_remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-muted;
+  font-size: 0.85rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    color: $red;
+    background-color: rgba(167, 18, 18, 0.08);
+  }
+}
+
+// ─── Hidden native file input ─────────────────────────────────────────────────
+.hidden_input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+// ─── Submit button ────────────────────────────────────────────────────────────
+.submit_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  font-family: "Merriweather-SemiBold";
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  letter-spacing: 0.04em;
+  color: $white;
+  background-color: $primary-color;
+  border: 1.5px solid $primary-color;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-color-dark;
+    border-color: $primary-color-dark;
+    box-shadow: 0 4px 18px rgba(143, 110, 67, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+// ─── Status banners ───────────────────────────────────────────────────────────
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-family: "Merriweather-Regular";
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.banner_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-family: "Merriweather-Bold";
+  flex-shrink: 0;
+}
+
+.banner_info {
+  background-color: rgba(143, 110, 67, 0.08);
+  border: 1px solid $brown-border;
+  color: $dark_brown;
+}
+
+.banner_success {
+  background-color: rgba(26, 107, 90, 0.08);
+  border: 1px solid rgba(26, 107, 90, 0.3);
+  color: $teal;
+
+  .banner_icon {
+    background-color: $teal;
+    color: $white;
+  }
+}
+
+.banner_error {
+  background-color: rgba(167, 18, 18, 0.06);
+  border: 1px solid rgba(167, 18, 18, 0.25);
+  color: $red;
+
+  .banner_icon {
+    background-color: $red;
+    color: $white;
+  }
+}
+
+// ─── Spinner ──────────────────────────────────────────────────────────────────
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

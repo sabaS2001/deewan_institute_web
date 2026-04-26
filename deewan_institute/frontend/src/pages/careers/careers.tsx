@@ -10,7 +10,7 @@ function Career() {
   console.log("API URL:", import.meta.env.VITE_API_URL); // Should show: http://localhost:5000
 
   useEffect(() => {
-    document.title = "Careers | Deewan Institute";
+    document.title = "Careers";
   }, []);
 
   useScrollAnimation();

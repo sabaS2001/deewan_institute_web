@@ -53,6 +53,7 @@
   }
 }
 
+// Phones Media Query
 @media (max-width: 767.98px) {
   .foreign {
     .title {
@@ -101,6 +102,38 @@
     .button:hover {
       background-color: $primary_color;
       color: $white;
+    }
+  }
+}
+
+// Tablets Media Query
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+  .foreign {
+    .title {
+      width: 100%;
+      text-align: center !important;
+      padding-inline: 0% !important;
+
+      h1 {
+        font-size: 45px !important;
+      }
+    }
+
+    #para {
+      font-size: large !important;
+      text-align: start !important;
+    }
+
+    #foreignGroup {
+      flex-wrap: wrap !important;
+      #image {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .button {
+      font-size: large !important;
     }
   }
 }

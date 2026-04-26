@@ -46,16 +46,19 @@ function Home() {
         {/* <!-- The slideshow/carousel --> */}
         <div className="carousel-inner">
           {/* <!-- First Slide --> */}
-          <div className="carousel-item active" id={style.carouselItem1}>
+          {/* <div className="carousel-item active" id={style.carouselItem1}>
             <div className="container-fluid d-flex align-items-end h-100">
               <div className="row w-100" id={style.firstRow}>
-                <div className="col-md-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left" id={style.logo}>
+                <div
+                  className="col-lg-6 text-center d-flex flex-column align-items-center scroll-section slide-in-left"
+                  id={style.logo}
+                >
                   <img
                     src={"/assets/images/logos/nobgLogo.png"}
                     style={{ width: "70%" }}
                   />
                 </div>
-                <div className="col-md-6 d-flex flex-column align-items-start justify-content-center">
+                <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center">
                   <div
                     className="d-flex scroll-section slide-in-right"
                     id={style.firstContainer}
@@ -80,12 +83,12 @@ function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <!-- Second Slide --> */}
-          <div className="carousel-item" id={style.carouselItem2}>
+          <div className="carousel-item active" id={style.carouselItem2}>
             <div className="container-fluid d-flex align-items-end h-100">
               <div className="row w-100" id={style.secondRow}>
-                <div className="col-md-6 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right">
+                <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center scroll-section slide-in-right">
                   {/* <!-- Right column --> */}
                   <div
                     className="d-flex flex-column"
@@ -112,7 +115,7 @@ function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 text-center d-flex flex-column align-items-center justify-content-center scroll-section slide-in-left">
+                <div className="col-lg-6 text-center d-flex flex-column align-items-center justify-content-center scroll-section slide-in-left">
                   <img
                     src={"../assets/images/others/comprehensiveBook.png"}
                     style={{ width: "60%" }}
@@ -145,8 +148,11 @@ function Home() {
 
       {/* <!-- About Us --> */}
       <section id={style.aboutUs}>
-        <div className="row featurette align-items-center justify-content-center mx-auto">
-          <div className="col-md-4 order-md-2 pr-2 d-flex flex-column gap-2">
+        <div
+          className="row featurette align-items-center justify-content-center mx-auto"
+          id={style.row}
+        >
+          <div className="col-lg-4 order-md-2 pr-2 d-flex flex-column gap-2">
             <h2
               className={`${style.featuretteHeading} scroll-section slide-in-left`}
             >
@@ -171,10 +177,10 @@ function Home() {
               Explore Our Courses
             </Link>
           </div>
-          <div className="col-md-5 order-md-1 d-flex">
+          <div className="col-lg-5 order-md-1 d-flex mt-2">
             <img
               className="featurette-image img-fluid mx-auto scroll-section slide-in-right"
-              src={"../assets/images/others/location.png"}
+              src={"/assets/images/others/location.png"}
             />
           </div>
         </div>
@@ -184,13 +190,16 @@ function Home() {
       <section id={style.habibiSection}>
         <div className="row featurette align-items-center justify-content-center mx-auto">
           {/* Text column — order-md-1 so it sits LEFT on desktop */}
-          <div className="col-md-5 order-md-1 pr-2 d-flex flex-column gap-2">
+          <div className="col-lg-5 order-md-1 pr-2 d-flex flex-column gap-2">
             <h2
               className={`${style.featuretteHeading} text-white scroll-section slide-in-right`}
             >
               The "Habibi" Challenge Is Live 👀
             </h2>
-            <p className="lead scroll-section slide-in-right text-white" id={style.para}>
+            <p
+              className="lead scroll-section slide-in-right text-white"
+              id={style.para}
+            >
               Find "Habibi is Cool" in your city and get rewarded!<br></br>•
               Take a selfie with the sticker → 10% discount <br></br>• Place 10
               stickers in your city → 10% discount<br></br>
@@ -206,7 +215,7 @@ function Home() {
           </div>
 
           {/* Image slider column — order-md-2 so it sits RIGHT on desktop */}
-          <div className="col-md-4 order-md-2 d-flex justify-content-center">
+          <div className="col-lg-4 order-md-2 d-flex justify-content-center">
             <div
               id="habibCarousel"
               className={`carousel slide w-100 ${style.habibCarousel}`}

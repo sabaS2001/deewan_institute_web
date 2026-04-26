@@ -1,5 +1,6 @@
 import { useEffect, Fragment } from "react";
 import styles from "../teamslider/teamslider.module.scss";
+import { teamData } from "../../../data/team";
 
 function TeamSwiper() {
   useEffect(() => {
@@ -30,84 +31,7 @@ function TeamSwiper() {
     return () => swiper.destroy(true, true);
   }, []);
 
-  // Team members data array
-  const teamMembers = [
-    {
-      name: "Mohammad",
-      title: "Director & Founder",
-      img: "../assets/images/teams/1.jpg",
-    },
-    {
-      name: "Ghayda",
-      title: "Arabic Program Administrator",
-      img: "../assets/images/teams/16.png",
-    },
-    {
-      name: "Raghad",
-      title: "Administrator",
-      img: "../assets/images/teams/13.jpg",
-    },
-    {
-      name: "Ayah",
-      title: "Program Coordinator",
-      img: "../assets/images/teams/17.png",
-    },
-    {
-      name: "Nusaiba",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/3.jpg",
-    },
-    {
-      name: "Huda",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/4.jpg",
-    },
-    {
-      name: "Malak",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/2.jpg",
-    },
-    {
-      name: "Raghad",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/12.jpg",
-    },
-    {
-      name: "Rania",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/11.jpg",
-    },
-    {
-      name: "Tasneem",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/10.jpg",
-    },
-    {
-      name: "Noora",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/6.jpg",
-    },
-    {
-      name: "Dalia",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/15.jpg",
-    },
-    {
-      name: "Mutaz",
-      title: "Arabic Teacher",
-      img: "../assets/images/teams/5.jpg",
-    },
-    {
-      name: "Deyaa",
-      title: "Facility Manager",
-      img: "../assets/images/teams/7.jpg",
-    },
-    {
-      name: "Said",
-      title: "Facility Manager",
-      img: "/assets/images/teams/8.jpg",
-    },
-  ];
+ 
 
 return (
     <Fragment>
@@ -115,7 +39,7 @@ return (
             <div className={`swiper ${styles.teamSwiper}`}>
                 <div className="swiper-wrapper">
                     {/* Your slides - NO DUPLICATION needed */}
-                    {teamMembers.map((member, index) => (
+                    {teamData.team.map((member, index) => (
                         <div className="swiper-slide" key={index}>
                             <div className="d-flex flex-column align-items-center h-100">
                                 <img

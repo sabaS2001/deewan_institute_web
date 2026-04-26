@@ -1,4 +1,4 @@
-import styles from "./partnershipSlider.module.scss";
+import styles from "./partnershipslider.module.scss";
 
 function PartnershipSlider() {
     const partners = [

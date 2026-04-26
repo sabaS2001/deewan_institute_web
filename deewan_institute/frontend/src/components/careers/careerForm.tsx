@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import styles from "./careerForm.module.scss";
+import styles from "./careerform.module.scss";
 
 interface FormData {
   firstName: string;

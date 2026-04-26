@@ -1,5 +1,5 @@
 import "bootstrap";
-import styles from "./jobAccordin.module.scss";
+import styles from "./jobaccordin.module.scss";
 import { useState } from "react";
 import { jobData } from "../../../data/jobData";
 

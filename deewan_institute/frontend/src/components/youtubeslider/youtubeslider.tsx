@@ -1,6 +1,6 @@
 import { Fragment, useState, useCallback } from "react";
 import "bootstrap";
-import style from "./youTubeSlider.module.scss";
+import style from "./youtubeslider.module.scss";
 import { youTubeData } from "../../../data/youTube";
 
 interface YouTubeVideo {

@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import styles from "../shadowBanner/shadowBanner.module.scss";
+import styles from "../shadowbanner/shadowbanner.module.scss";
 import "bootstrap";
 
 interface BannerProps {

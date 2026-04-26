@@ -1,5 +1,5 @@
 import { useEffect, Fragment } from "react";
-import styles from "../teamSlider/teamSlider.module.scss";
+import styles from "../teamslider/teamslider.module.scss";
 
 function TeamSwiper() {
   useEffect(() => {

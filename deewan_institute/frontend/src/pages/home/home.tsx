@@ -1,6 +1,6 @@
 import { useEffect, Fragment } from "react";
 import { Link } from "react-router";
-import HomeNavBar from "../../components/homenavbar/homeNavbar";
+import HomeNavBar from "../../components/homenavbar/homenavbar";
 import Testimonials from "../../components/testimonials/testimonials";
 import Footer from "../../components/footer/footer";
 import ForeignCircles from "../../components/foreigncircles/foreigncircles";

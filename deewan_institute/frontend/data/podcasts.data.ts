@@ -11,22 +11,24 @@ export interface Season {
     bookCover: string;
     bookAlt: string;
     reverse: boolean;
+    bookLink?: string;
 }
 
 export interface SeasonCard {
     season: number | string;
     host: string;
     image: string;
+    seasonNumber: number | string;
 }
 
 // Season Cards (top row)
 
 export const seasonCards: SeasonCard[] = [
-    { season: 1, host: 'Mohammad Ayaseh', image: '/assets/images/podcast/card.png' },
-    { season: 2, host: 'Sara Al-Zyoud',   image: '/assets/images/podcast/card.png' },
-    { season: 3, host: 'Angela Dudley',   image: '/assets/images/podcast/card.png' },
-    { season: 4, host: 'Duha Hamad',      image: '/assets/images/podcast/card.png' },
-    { season: 5, host: 'Raghad Dabbour',  image: '/assets/images/podcast/card.png' },
+    { season: 1, host: 'Mohammad Ayaseh', image: '/assets/images/podcast/card.png', seasonNumber: 1 },
+    { season: 2, host: 'Sara Al-Zyoud',   image: '/assets/images/podcast/card.png', seasonNumber: 2 },
+    { season: 3, host: 'Angela Dudley',   image: '/assets/images/podcast/card.png', seasonNumber: 3 },
+    { season: 4, host: 'Duha Hamad',      image: '/assets/images/podcast/card.png', seasonNumber: 4 },
+    { season: 5, host: 'Raghad Dabbour',  image: '/assets/images/podcast/card.png', seasonNumber: 5 },
 ];
 
 // Season 1
@@ -111,6 +113,8 @@ export const seasons: Season[] = [
         bookCover: '/assets/images/books/podcasts/podcast1.png',
         bookAlt: 'Guide to Deewan Podcast Season 1 book cover',
         reverse: false,
+        bookLink: '/books/podcasts/season-1',
+    
     },
     {
         seasonNumber: 2,
@@ -119,6 +123,7 @@ export const seasons: Season[] = [
         bookCover: '/assets/images/books/podcasts/podcast2.png',
         bookAlt: 'Guide to Deewan Podcast Season 2 book cover',
         reverse: true,
+        bookLink: '/books/podcasts/season-2',
     },
     {
         seasonNumber: 3,
@@ -127,6 +132,7 @@ export const seasons: Season[] = [
         bookCover: '/assets/images/books/podcasts/podcast3.png',
         bookAlt: 'Guide to Deewan Podcast Season 3 book cover',
         reverse: false,
+        bookLink: '/books/podcasts/season-3',
     },
     {
         seasonNumber: 4,
@@ -135,6 +141,7 @@ export const seasons: Season[] = [
         bookCover: '/assets/images/books/podcasts/podcast4.png',
         bookAlt: 'Guide to Deewan Podcast Season 4 book cover',
         reverse: true,
+        bookLink: '/books/podcasts/season-4',
     },
     {
         seasonNumber: 5,
@@ -143,5 +150,6 @@ export const seasons: Season[] = [
         bookCover: '/assets/images/books/podcasts/podcast5.png',
         bookAlt: 'Guide to Deewan Podcast Season 5 book cover',
         reverse: false,
+        bookLink: '/books/podcasts/season-5',
     },
 ];

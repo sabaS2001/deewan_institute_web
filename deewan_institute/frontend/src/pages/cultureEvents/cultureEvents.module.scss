@@ -95,7 +95,7 @@
   .introLabel {
     font-family: "Merriweather-Light" !important;
     font-style: italic;
-    font-size: 12px;
+    font-size: 18px;
     letter-spacing: 2.5px;
     text-transform: uppercase;
     color: $brown;
@@ -114,7 +114,7 @@
   .livingLabel {
     font-family: "Merriweather-Light" !important;
     font-style: italic;
-    font-size: 12px;
+    font-size: 18px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: rgba($white, 0.5);
@@ -132,7 +132,7 @@
 
   .livingText {
     font-family: "Merriweather-Light" !important;
-    font-size: clamp(14px, 1.8vw, 17px);
+    font-size: clamp(16px, 1.8vw, 17px);
     line-height: 2;
     color: rgba($white, 0.78);
     max-width: 520px;
@@ -191,7 +191,7 @@
 .eventLabel {
   font-family: "Merriweather-Light" !important;
   font-style: italic;
-  font-size: 12px;
+  font-size: 18px;
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -207,7 +207,7 @@
 
 .eventBody {
   font-family: "Merriweather-Light" !important;
-  font-size: clamp(14px, 1.6vw, 16px);
+  font-size: clamp(16px, 1.6vw, 17px);
   line-height: 2;
   color: $text-muted;
   margin-bottom: 20px;

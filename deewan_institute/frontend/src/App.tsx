@@ -17,7 +17,7 @@ import IntensiveProgram from "./pages/arabicCourses/intensiveProgram.tsx";
 import Calculator from "./pages/calculator/calculator.tsx";
 import Visa from "./pages/accommodations/visa.tsx";
 import Trips from "./pages/accommodations/trips.tsx";
-import Publications from "./layout/booksLayout/publications.tsx";
+import Publications from "./pages/books/publications.tsx";
 import PublicationInfo from "./pages/books/publicationinfo.tsx";
 import CultureEvents from "./pages/cultureEvents/cultureEvents.tsx";
 import WishList from "./context/wishlist.tsx";

@@ -5,7 +5,7 @@
 .hero {
   position: relative;
   width: 100%;
-  height: clamp(280px, 44vw, 632px);
+  height: clamp(350px, 44vw, 632px);
   overflow: hidden;
   border-radius: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -106,6 +106,10 @@
   margin-bottom: 2rem;
   border-bottom: 2px solid $color-accent;
   width: 203%;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 
   &btn {
     font-family: "Merriweather-Regular";

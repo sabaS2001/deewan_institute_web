@@ -1,5 +1,6 @@
 import "bootstrap";
 import { Fragment } from "react";
+import { useEffect } from "react";
 import styles from "./cultureEvents.module.scss";
 import "../../style/animation.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
@@ -34,6 +35,9 @@ function EventMetaBlock({ meta }: { meta: EventMeta }) {
 }
 
 function CultureEvents() {
+    useEffect(() => {
+      document.title = "Cultural Events";
+    }, []);
   useScrollAnimation();
 
   return (

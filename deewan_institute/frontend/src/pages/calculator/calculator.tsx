@@ -642,6 +642,9 @@ const HOP_ON_HOP_OFF_MAX_HOURS = 6;
 
 // Main Component
 function Calculator() {
+    useEffect(() => {
+    document.title = "Calculator";
+  }, []);
   useScrollAnimation();
 
   const [selections, setSelections] = useState<Selections>({
@@ -997,7 +1000,7 @@ function Calculator() {
         <div className="d-flex flex-row justify-content-center my-3 scroll-section">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.coursePolicyBtn}`}
-            href="./public/assets/pdf/Course_Policy.pdf"
+            href="./public/assets/pdf/Course-Policy.pdf"
             target="_blank"
             rel="noreferrer"
           >
@@ -1035,7 +1038,7 @@ function Calculator() {
         <div className="d-flex flex-row justify-content-center my-4">
           <a
             className={`btn rounded-pill text-white fw-bold ${styles.paymentAgreementFormBtn}`}
-            href="./public/assets/pdf/Payment_Form.pdf"
+            href="./public/assets/pdf/Payment_Agreement.pdf"
             target="_blank"
             rel="noreferrer"
           >

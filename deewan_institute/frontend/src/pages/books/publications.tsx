@@ -33,6 +33,9 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 function Publications() {
+    useEffect(() => {
+    document.title = "Deewan Institute | Publications";
+  }, []);
   const navigate = useNavigate();
   useScrollAnimation();
 

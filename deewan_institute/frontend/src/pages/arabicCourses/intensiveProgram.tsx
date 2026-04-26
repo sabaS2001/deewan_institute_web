@@ -31,7 +31,7 @@ function IntensiveProgram() {
       />
       <main className={style.intensive}>
         {/* First Section */}
-        <section className={`${style.info} my-5 pt-5`}>
+        <section className={`${style.info} my-2 my-md-5 pt-2 pt-md-5`}>
           <div className="row justify-content-center align-items-center">
             {/* Text Column */}
             <div className="col-12 col-md-4 d-flex flex-column align-items-start justify-content-center order-1 order-md-1 mb-4 mb-md-0">
@@ -108,7 +108,7 @@ function IntensiveProgram() {
         <OpenHours data={{ backgroundColor: "#8f6e43", color: "#ffffff" }} />
 
         {/* Program Fees Section */}
-        <section className={`${style.programFee} py-4 mt-4`}>
+        <section id="programFee" className={`${style.programFee} py-4 mt-4`}>
           <div className={style.title}>
             <h1 className="py-2 scroll-section slide-in-left">Program Fees</h1>
           </div>

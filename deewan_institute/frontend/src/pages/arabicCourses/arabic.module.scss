@@ -1,140 +1,116 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
-
 .arabiTalk {
-  // information
+  // Information section
   .info {
-    @media screen and (max-width: 768px) {
-      padding-inline: 6%;
+    padding-inline: 6%;
+    @media (min-width: 768px) {
+      padding-inline: 10%;
+      
     }
     h5 {
       font-family: "Merriweather-Regular" !important;
       color: #0d5071;
     }
-
     h1 {
       font-family: "Merriweather-Bold" !important;
-      font-size: 50px;
-      line-height: 50px;
+      font-size: clamp(30px, 8vw, 50px); // Responsive font size
+      line-height: 1.2;
       color: #0d5071;
     }
-
     p {
       font-family: "Merriweather-Light" !important;
-      line-height: 35px;
+      line-height: 1.6;
     }
   }
 
-  //sessions
+  // Sessions section
   .sessions {
-    padding-inline: 13%;
+    padding-inline: 5%;
+    @media (min-width: 768px) {
+      padding-inline: 13%;
+    }
 
     .subTitle {
       width: max-content;
+      margin: 0 auto; // Center the subtitle
 
       h1 {
         font-family: "Merriweather-SemiBold";
         color: #0d5071;
-        font-size: 50px;
+        font-size: clamp(30px, 6vw, 50px);
         border-bottom: #0d5071 3px solid;
       }
     }
 
-    #card {
-      width: 65% !important;
-      height: 599px !important;
-      padding-block: 0% 0% !important;
-      padding-inline: 8% !important;
+    .card {
+      width: 100% !important; 
+      max-width: 450px; 
+      min-height: 500px; 
+      margin: 0 auto;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      padding: 2rem;
       border-radius: 20px !important;
-      border-color: #0d5071 !important;
-      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) !important;
-      transition:
-        width 0.3s ease,
-        height 0.3s ease;
+      border: 2px solid #0d5071 !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 
       hr {
+        width: 80%;
         opacity: 0.5;
-        height: 0.5%;
       }
 
-      h1 {
+      .blackText {
         font-family: "Merriweather-Regular" !important;
-        font-size: 60px;
-        padding-block: 7%;
-      }
-
-      #black {
-        margin-block: 1%;
+        font-size: clamp(35px, 5vw, 60px);
         color: black;
+        margin-bottom: 0;
       }
 
-      #yellow {
-        margin-block: 1%;
+      .yellowText {
+        font-family: "Merriweather-Regular" !important;
+        font-size: clamp(35px, 5vw, 60px);
         color: #ffa200;
+        margin-top: 0;
       }
 
       h4 {
         font-family: "Merriweather-Light" !important;
+        font-size: clamp(16px, 2vw, 20px);
       }
 
-      a {
+      .cardBtn {
         background-color: #ffa200;
-        font-size: 22px;
+        font-size: 20px;
         font-family: "Merriweather-Light";
-        padding-block: 4%;
+        padding: 12px 30px;
         border-radius: 10px;
-        transition:
-          width 0.3s ease,
-          height 0.3s ease;
+        transition: all 0.3s ease;
+        display: inline-block;
+
+        &:hover {
+          background-color: white !important;
+          color: #ffa200 !important;
+          border: #ffa200 2px solid;
+        }
       }
 
-      a:hover {
-        background-color: white !important;
-        color: #ffa200 !important;
-        border: #ffa200 2px solid;
-      }
-    }
-
-    #card:hover {
-      width: 75% !important;
-      height: 620px !important;
-
-      hr {
-        opacity: 1;
-        height: 0.5%;
-      }
-
-      h1 {
-        font-family: "Merriweather-Regular" !important;
-        font-size: 62px;
-        padding-block: 7%;
-      }
-
-      #black {
-        margin-block: 1%;
-        color: black;
-      }
-
-      #yellow {
-        margin-block: 1%;
-        color: #ffa200;
-      }
-
-      h4 {
-        font-family: "Merriweather-Light" !important;
-      }
-
-      a {
-        background-color: #ffa200;
-        font-size: 22px;
-        font-family: "Merriweather-Light";
-        padding-block: 5%;
-        border-radius: 10px;
+      
+      &:hover {
+        transform: translateY(-10px) scale(1.02); 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+        
+        hr { opacity: 1; }
       }
     }
   }
 }
-
 .arabicKids {
   // information
   .info {
@@ -188,14 +164,15 @@
 
 .intensive {
   @media screen and (max-width: 768px) {
-
     padding-inline: 6%;
-    
   }
   .info {
     .featuretteHeading {
       color: $primary-color;
       border-bottom: 3px solid $primary-color;
+      @media screen and (max-width: 768px) {
+        font-size: xx-large !important;
+      }
     }
 
     p {
@@ -207,6 +184,10 @@
       border: 2px $primary-color solid;
       background-color: $white;
       padding: 9px 39px;
+
+      @media screen and (max-width: 768px) {
+        padding: 9px 70px;
+      }
 
       &:hover {
         color: $white !important;
@@ -236,11 +217,10 @@
   }
 
   .programFee {
-     padding-inline: 6%;
-     @media screen and (max-width: 768px) {
+    padding-inline: 6%;
+    @media screen and (max-width: 768px) {
       padding-inline: 0%;
-      
-     }
+    }
 
     .title {
       width: max-content;
@@ -249,6 +229,10 @@
         font-family: "Merriweather-SemiBold";
         color: $primary-color;
         border-bottom: $primary-color 3px solid;
+
+        @media screen and (max-width: 768px) {
+          font-size: xx-large !important;
+        }
       }
     }
   }

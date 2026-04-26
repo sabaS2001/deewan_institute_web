@@ -84,13 +84,13 @@
 
       .mobileCardLabel {
         font-family: "Merriweather-Bold" !important;
-        font-size: clamp(14px, 3vw, 16px);
+        font-size: clamp(18px, 3vw, 16px);
         color: #333;
       }
 
       .mobileCardValue {
         font-family: "Merriweather-Light" !important;
-        font-size: clamp(14px, 3vw, 16px);
+        font-size: clamp(18px, 3vw, 16px);
         color: #555;
         line-height: 1.5;
       }
@@ -98,7 +98,7 @@
 
     .mobileCardTotal {
       font-family: "Merriweather-SemiBold" !important;
-      font-size: clamp(16px, 4vw, 18px);
+      font-size: clamp(18px, 4vw, 18px);
       padding-top: 15px;
       border-top: 1px solid #ddd;
     }
@@ -115,7 +115,7 @@
     }
 
     .para {
-      font-size: 15px;
+      font-size: large;
       padding: 0 5px;
     }
 
@@ -134,13 +134,13 @@
       padding: 15px;
 
       .mobileCardTitle {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .mobileCardRow {
         .mobileCardLabel,
         .mobileCardValue {
-          font-size: 14px;
+          font-size: 18px;
         }
       }
     }

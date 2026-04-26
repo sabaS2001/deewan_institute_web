@@ -245,14 +245,14 @@ function HomeNavBar() {
             <div className={styles.overlayColumn}>
               <h3 className={styles.overlayTitle}>Accommodation</h3>
               <NavLink
-                to="/accommodation-and-student-services/visa"
+                to="/accommodation-and-student-services/trips"
                 className={styles.overlayLink}
                 onClick={() => setIsOverlayOpen(false)}
               >
                 Trips
               </NavLink>
               <NavLink
-                to="/accommodation-and-student-services/trips"
+                to="/accommodation-and-student-services/visa"
                 className={styles.overlayLink}
                 onClick={() => setIsOverlayOpen(false)}
               >

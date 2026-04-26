@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef } from "react";
 import styles from "./publications.module.scss";
 import "../../style/animation.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import { useShop } from "../../context/ShopContext";
+import { useShop } from "../../context/shopcontext";
 import {
   mainBooks,
   ammiyehCollection,

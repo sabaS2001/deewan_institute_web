@@ -3,7 +3,7 @@ import styles from "../navbar/navbar.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { NavLink, useLocation } from "react-router-dom";
-import { useShop } from "../../context/ShopContext";
+import { useShop } from "../../context/shopcontext";
 import { useState } from "react";
 
 // Routes where shop icons should appear

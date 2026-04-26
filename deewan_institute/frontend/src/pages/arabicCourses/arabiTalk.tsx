@@ -1,10 +1,10 @@
 import { Fragment, useEffect } from "react";
-import NavBar from '../../components/navBar/navbar';
+import NavBar from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import Title from '../../components/title/title';
-import ShadowBanner from '../../components/shadowBanner/shadowBanner';
+import ShadowBanner from '../../components/shadowbanner/shadowbanner';
 import Platform from "../../components/platform/platform";
-import BottomBanner from "../../components/bottomBanner/bottomBanner";
+import BottomBanner from "../../components/bottombanner/bottombanner";
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
 import style from '../arabicCourses/arabic.module.scss';
 import '../../style/animation.scss';

@@ -1,14 +1,14 @@
 import { Fragment, useEffect } from "react";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
-import TeamSlider from "../../components/teamSlider/teamSlider";
-import PartnershipSlider from "../../components/partnershipSlider/partnershipSlider";
+import TeamSlider from "../../components/teamslider/teamslider";
+import PartnershipSlider from "../../components/partnershipslider/partnershipslider";
 import Divider from "../../components/divider/divider";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import "../../style/animation.scss";
 import "bootstrap";
 import style from "./about.module.scss";
-import YouTubeSlider from "../../components/youTubeSlider/youTubeSlider";
+import YouTubeSlider from "../../components/youtubeslider/youtubeslider";
 
 function About() {
   useEffect(() => {

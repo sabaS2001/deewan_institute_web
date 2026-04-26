@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./wishlist.module.scss";
-import { useShop } from "../context/ShopContext"; 
+import { useShop } from "./shopcontext"; 
 import { useScrollAnimation } from "../../hooks/scrollAnimations";
-import NavBar from "../components/navBar/navbar";
+import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 
 function Wishlist() {

@@ -1,10 +1,10 @@
 import { Fragment, useEffect } from "react";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./careers.module.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import JobAccordin from "../../components/careers/jobAccordin";
-import CareerForm from "../../components/careers/careerForm";
+import JobAccordin from "../../components/careers/jobaccordin";
+import CareerForm from "../../components/careers/careerform";
 
 function Career() {
   console.log("API URL:", import.meta.env.VITE_API_URL); // Should show: http://localhost:5000

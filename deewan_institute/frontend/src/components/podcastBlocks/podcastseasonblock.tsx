@@ -1,5 +1,5 @@
-import EpisodeList from '../podcastBlocks/episodelist';
-import type { Episode } from '../podcastBlocks/episodelist';
+import EpisodeList from './episodelist';
+import type { Episode } from './episodelist';
 import styles from './podcastseasonblock.module.scss';
 
 interface PodcastSeasonBlockProps {

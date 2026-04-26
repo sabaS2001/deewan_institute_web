@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import "bootstrap";
 import style from "./error.module.scss";

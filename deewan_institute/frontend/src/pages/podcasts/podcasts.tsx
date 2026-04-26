@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
-import NavBar from '../../components/navBar/navbar';
+import NavBar from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
-import PodcastSeasonBlock from '../../components/podcastBlocks/podcastseasonblock';
+import PodcastSeasonBlock from '../../components/podcastblocks/podcastseasonblock';
 import styles from './podcasts.module.scss';
 import { seasons, seasonCards } from '../../../data/podcasts.data';
 

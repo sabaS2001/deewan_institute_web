@@ -2,7 +2,7 @@ import { Fragment, useState, useRef, useEffect, useMemo } from 'react';
 import styles from './calculator.module.scss';
 import '../../style/animation.scss';
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
-import NavBar from '../../components/navBar/navbar';
+import NavBar from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import html2pdf from 'html2pdf.js';
 

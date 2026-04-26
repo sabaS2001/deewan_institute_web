@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import styles from "./publicationinfo.module.scss";
 import "../../style/animation.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import { useShop } from "../../context/ShopContext";
+import { useShop } from "../../context/shopcontext";
 import {
   mainBooks,
   ammiyehCollection,
@@ -15,7 +15,7 @@ import type {
   CollectionBook,
   PodcastSeason,
 } from "../../../data";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 
 declare const Swiper: any;

@@ -1,5 +1,5 @@
 import "bootstrap";
-import styles from "../navBar/navbar.module.scss";
+import styles from "../navbar/navbar.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { NavLink, useLocation } from "react-router-dom";

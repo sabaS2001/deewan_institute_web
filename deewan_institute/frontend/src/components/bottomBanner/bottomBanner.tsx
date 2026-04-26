@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import styles from "../bottomBanner/bottomBanner.module.scss";
+import styles from "../bottombanner/bottombanner.module.scss";
 import "bootstrap";
 
 interface BBProps {

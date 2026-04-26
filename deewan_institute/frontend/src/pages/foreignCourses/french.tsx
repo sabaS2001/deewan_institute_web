@@ -1,5 +1,5 @@
 import { useEffect, Fragment } from "react";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import frenchData from '../../../data/french';
 import ForeignLayout from "../../layout/foreignLayout/layout";

@@ -1,5 +1,5 @@
 import {Fragment} from "react"; 
-import style from "./foreignCircle.module.scss";
+import style from "./foreigncircle.module.scss";
 import { NavLink } from "react-router-dom"; 
 
 function ForeignCircles(){

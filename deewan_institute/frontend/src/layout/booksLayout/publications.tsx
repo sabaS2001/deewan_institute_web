@@ -9,7 +9,7 @@ import {
   fushaBook,
   podcastSeasons,
 } from "../../../data";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import { useNavigate } from "react-router-dom";
 

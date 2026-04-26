@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import { germanStateCards } from "../../../data/bildungsurlaub.data";

@@ -1,5 +1,5 @@
 import "bootstrap";
-import styles from "../homeNavbar/darkNavbar.module.scss";
+import styles from "../homenavbar/darknavbar.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { NavLink } from "react-router-dom";

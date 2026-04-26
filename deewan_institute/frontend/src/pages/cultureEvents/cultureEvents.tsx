@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import styles from "./cultureEvents.module.scss";
 import "../../style/animation.scss";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import { events, SIGNUP_LINK } from "../../../data/cultureEvents.data";
 import type { EventMeta } from "../../../data/cultureEvents.data";

@@ -1,13 +1,13 @@
 import { Fragment, useEffect } from "react";
 import "bootstrap";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import CurriculumSlider from "../../components/curriculumSlider/curriculumSlider";
+import CurriculumSlider from "../../components/curriculumslider/curriculumslider";
 import Banner from "../../components/banner/banner";
 import Divider from "../../components/divider/divider";
-import OpenHours from "../../components/openHours/openHours";
-import Schedule from "../../components/scheduleTable/schedule";
+import OpenHours from "../../components/openhours/openhours";
+import Schedule from "../../components/scheduletable/schedule";
 import style from "../arabicCourses/arabic.module.scss";
 import "../../style/animation.scss";
 

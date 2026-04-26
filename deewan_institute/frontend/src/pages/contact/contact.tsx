@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect, useCallback, useRef } from "react";
 import {Modal} from "bootstrap";
 import "bootstrap";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./contact.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";

@@ -1,9 +1,9 @@
 import { Fragment, useEffect } from "react";
-import AccommodationLayout from "../../layout/accommodationLayout/accommodationLayout.tsx";
-import NavBar from "../../components/navBar/navbar";
+import AccommodationLayout from "../../layout/accommodationLayout/accommodationlayout.tsx";
+import NavBar from "../../components/navbar/navbar.tsx";
 import Footer from "../../components/footer/footer";
 import visaData from "../../../data/visa.ts";
-import BottomBanner from "../../components/bottomBanner/bottomBanner.tsx";
+import BottomBanner from "../../components/bottombanner/bottombanner.tsx";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations.ts";
 
 function Visa() {

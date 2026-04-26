@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import style from "./openHours.module.scss";
+import style from "./openhours.module.scss";
 import "bootstrap";
 
 interface OpenHoursProps {

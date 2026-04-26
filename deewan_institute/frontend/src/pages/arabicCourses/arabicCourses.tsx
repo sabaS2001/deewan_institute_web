@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 import Banner from "../../components/banner/banner";
-import NavBar from "../../components/navBar/navbar";
+import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer"
 import Courses from "../../layout/coursesLayout/courses";
 import courseData from "../../../data/arabicCourses"

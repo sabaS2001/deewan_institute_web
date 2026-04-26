@@ -1,9 +1,9 @@
 import { useEffect, Fragment } from "react";
 import { Link } from "react-router";
-import HomeNavBar from "../../components/homeNavBar/homeNavbar";
+import HomeNavBar from "../../components/homenavbar/homeNavbar";
 import Testimonials from "../../components/testimonials/testimonials";
 import Footer from "../../components/footer/footer";
-import ForeignCircles from "../../components/foreignCircles/foreignCircles";
+import ForeignCircles from "../../components/foreigncircles/foreigncircles";
 import Courses from "../../components/courses/courses";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
 import "../../style/animation.scss";

@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './cart.module.scss';
-import { useShop } from '../context/ShopContext';
-import NavBar from '../components/navBar/navbar';
+import { useShop } from './shopcontext';
+import NavBar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 
 function Cart() {

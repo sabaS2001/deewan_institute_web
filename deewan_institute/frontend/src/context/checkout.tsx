@@ -3,8 +3,8 @@ import { Fragment, useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "bootstrap";
 import styles from "./checkout.module.scss";
-import { useShop } from "../context/ShopContext";
-import NavBar from "../components/navBar/navbar";
+import { useShop } from "./shopcontext";
+import NavBar from "../components/navbar/navbar";
 import Footer from "../components/footer/footer";
 
 type PaymentMethod = "cash" | "cliq" | "paypal" | "";

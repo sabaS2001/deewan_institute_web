@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import styles from './ShopContext.module.scss'; 
+import styles from './shopcontext.module.scss'; 
 export interface ShopItem {
     id: string;
     title: string;

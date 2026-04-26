@@ -12,8 +12,9 @@ const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: [
-      "http://localhost:5173", // local development
-      "https://www.deewaninstitute.com", // production
+      "http://localhost:5173",
+      "https://www.deewaninstitute.com",
+      "https://deewaninstitutewebsite.netlify.app",
     ],
   }),
 );

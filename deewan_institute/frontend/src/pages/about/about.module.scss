@@ -17,7 +17,9 @@
     height: 50vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../assets/images/banner/aboutBanner.svg");
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("../assets/images/banner/aboutBanner.svg");
     padding: 20px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
@@ -274,10 +276,11 @@
 
   // Medium devices (tablets, less than 992px)
   @media (min-width: 767.98px) and (max-width: 991.98px) {
+    overflow-x: hidden;
     // Banner
     .banner {
-      height: 25vh;
-      background-size: contain;
+      height: 22vh;
+      background-size: cover;
 
       .para {
         display: none;
@@ -286,7 +289,7 @@
 
     // About
     .about {
-      margin-block: 0% !important;
+      margin-block: 4% !important;
 
       #row {
         margin-inline: -10%;

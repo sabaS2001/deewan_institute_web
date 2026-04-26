@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
-import { ShopProvider } from './context/shopcontext'
+import { ShopProvider } from "./context/shopcontext";
 
 
 // const root = ReactDOM.createRoot(document.getElementById('root')!);

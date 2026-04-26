@@ -46,7 +46,6 @@
   padding: 4rem 1rem;
 }
 
-
 // Section Base Styles
 .form,
 .information,
@@ -297,22 +296,6 @@ ul {
   }
 }
 
-// Responsive
-@media (max-width: 768px) {
-  .banner {
-    height: 50vh;
-    padding: 2rem 1rem;
-  }
-
-  .title h2 {
-    font-size: 2rem !important;
-  }
-
-  .messageForm {
-    padding: 2rem 1.5rem !important;
-  }
-}
-
 // Animations
 @keyframes fadeInUp {
   from {
@@ -416,5 +399,43 @@ ul {
   &:hover {
     opacity: 0.9;
     color: white;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .banner {
+    height: 50vh;
+    padding: 2rem 1rem;
+  }
+
+  .title h2 {
+    font-size: 2rem !important;
+  }
+
+  .messageForm {
+    padding: 2rem 1.5rem !important;
+  }
+}
+
+//Tablet Responsive
+// Responsive
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .form,
+  .information,
+  .openingHours,
+  .location {
+    margin-inline: 1% !important;
+    padding: 0 2rem;
+    margin-block: 6%;
+
+
+    .sectionTitle{
+      font-size: xx-large !important; 
+    }
+    .para {
+      font-size: large !important;
+      line-height: 26px !important;
+    }
   }
 }

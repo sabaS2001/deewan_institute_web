@@ -1,11 +1,10 @@
 import { Fragment, useState, useEffect, useCallback, useRef } from "react";
-import {Modal} from "bootstrap";
+import { Modal } from "bootstrap";
 import "bootstrap";
 import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import styles from "./contact.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 
 interface ContactFormData {
   fullName: string;
@@ -27,7 +26,7 @@ function Contact() {
   const [modalType, setModalType] = useState<"success" | "error">("success");
 
   useEffect(() => {
-    document.title = "Deewan Institute | Contact Us";
+    document.title = "Contact Us";
   }, []);
 
   const handleInputChange = useCallback(
@@ -54,18 +53,21 @@ function Contact() {
       setIsSubmitting(true);
 
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/contact`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              fullName: formData.fullName,
+              email: formData.email,
+              phoneNumber: formData.phone,
+              message: formData.message,
+            }),
           },
-          body: JSON.stringify({
-            fullName: formData.fullName,
-            email: formData.email,
-            phoneNumber: formData.phone,
-            message: formData.message,
-          }),
-        });
+        );
 
         if (response.ok) {
           // ✅ Show success modal instead of alert
@@ -195,7 +197,6 @@ function Contact() {
             className={`border border-black p-5 ${styles.messageForm}`}
             id="messageForm"
           >
-            
             <form onSubmit={handleSubmit} className="row">
               <div className="col-md-5">
                 <div className="mb-3 d-flex flex-column">
@@ -280,7 +281,6 @@ function Contact() {
           </div>
         </section>
 
-        
         {/* Information Section */}
         <section className={`information scroll-section ${styles.information}`}>
           <div className="title my-5">

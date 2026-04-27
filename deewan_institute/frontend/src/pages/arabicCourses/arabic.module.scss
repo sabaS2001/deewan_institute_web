@@ -1,23 +1,29 @@
-@use "../../style/variables.scss" as *;
-@use "../../style/fonts.scss" as *;
+@use "../../style/variables.scss"as *;
+@use "../../style/fonts.scss"as *;
+
 .arabiTalk {
+
   // Information section
   .info {
     padding-inline: 6%;
+
     @media (min-width: 768px) {
       padding-inline: 10%;
-      
+
     }
+
     h5 {
       font-family: "Merriweather-Regular" !important;
       color: #0d5071;
     }
+
     h1 {
       font-family: "Merriweather-Bold" !important;
       font-size: clamp(30px, 8vw, 50px); // Responsive font size
       line-height: 1.2;
       color: #0d5071;
     }
+
     p {
       font-family: "Merriweather-Light" !important;
       line-height: 1.6;
@@ -27,6 +33,7 @@
   // Sessions section
   .sessions {
     padding-inline: 5%;
+
     @media (min-width: 768px) {
       padding-inline: 13%;
     }
@@ -41,14 +48,16 @@
         font-size: clamp(30px, 6vw, 50px);
         border-bottom: #0d5071 3px solid;
       }
+
+
     }
 
     .card {
-      width: 100% !important; 
-      max-width: 450px; 
-      min-height: 500px; 
+      width: 100% !important;
+      max-width: 450px;
+      min-height: 500px;
       margin: 0 auto;
-      
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -101,17 +110,21 @@
         }
       }
 
-      
+
       &:hover {
-        transform: translateY(-10px) scale(1.02); 
+        transform: translateY(-10px) scale(1.02);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
-        
-        hr { opacity: 1; }
+
+        hr {
+          opacity: 1;
+        }
       }
     }
   }
 }
+
 .arabicKids {
+
   // information
   .info {
     h5 {
@@ -166,10 +179,12 @@
   @media screen and (max-width: 768px) {
     padding-inline: 6%;
   }
+
   .info {
     .featuretteHeading {
       color: $primary-color;
       border-bottom: 3px solid $primary-color;
+
       @media screen and (max-width: 768px) {
         font-size: xx-large !important;
       }
@@ -218,6 +233,7 @@
 
   .programFee {
     padding-inline: 6%;
+
     @media screen and (max-width: 768px) {
       padding-inline: 0%;
     }
@@ -233,6 +249,27 @@
         @media screen and (max-width: 768px) {
           font-size: xx-large !important;
         }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 768px) {
+  .arabiTalk {
+    .info {
+      #para {
+        font-size: medium !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) and (min-width: 991.98px) {
+  .arabiTalk {
+    .info {
+      #para {
+        font-size: large !important;
       }
     }
   }

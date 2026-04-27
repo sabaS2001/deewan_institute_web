@@ -166,7 +166,7 @@
   #courses {
     padding-inline: 10%;
     margin-block: 10%;
-
+    
     .title {
       h1 {
         font-size: xx-large !important;
@@ -180,6 +180,11 @@
         text-align: start !important;
       }
     }
+
+    #coursesContainer {
+      gap: 1.5rem !important;
+    }
+
     .courseItem {
       border: $primary_color 0.5px solid;
       border-radius: 20px;

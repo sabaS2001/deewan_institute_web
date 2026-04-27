@@ -1,5 +1,5 @@
-@use '../../style/variables.scss' as *;
-@use '../../style/fonts.scss' as *;
+@use '../../style/variables.scss'as *;
+@use '../../style/fonts.scss'as *;
 
 .platform {
     padding-inline: 5%;
@@ -47,21 +47,26 @@
         }
     }
 
-    /* Mobile Adjustments */
-    @media (max-width: 768px) {
-        padding-inline: 3%;
-        margin-block: 3%;
 
-        .subTitle {
-            h1 {
-                border-bottom: none;
-                padding-bottom: 10px;
-            }
-        }
+}
 
-        #blueSquare {
-            padding-block: 6%;
-            min-height: 120px;
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    
+
+    .subTitle {
+        width: 100% !important;
+        h1 {
+            
+            border-bottom: none;
+            padding-bottom: 10px;
+            text-align: center !important;
+            font-size: x-large !important;
         }
+    }
+
+    #blueSquare {
+        padding-block: 6%;
+        min-height: 120px;
     }
 }

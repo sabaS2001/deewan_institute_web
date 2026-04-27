@@ -18,7 +18,7 @@ function Courses() {
           engaging for learners worldwide.
         </p>
       </div>
-      <div className="d-flex flex-row flex-wrap gap-4 justify-content-center scroll-section slide-in-right">
+      <div className="d-flex flex-row flex-wrap gap-1 justify-content-center scroll-section slide-in-right" id={style.coursesContainer}>
         {/* <!-- First Course --> */}
         <div className={`${style.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
           <div className={style.front}>

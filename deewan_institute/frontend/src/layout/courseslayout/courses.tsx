@@ -1,5 +1,5 @@
 import { Fragment } from 'react/jsx-runtime';
-import styles from '../coursesLayout/course.module.scss';
+import styles from '../courseslayout/course.module.scss';
 import '../../style/animation.scss';
 import { useScrollAnimation } from '../../../hooks/scrollAnimations'
 import 'bootstrap';
@@ -36,9 +36,9 @@ function Courses({ data }: { data: arabicCourse }) {
                     purchasing any of our Course Packages. Explore Deewan’s Arabic Courses!</h5>
 
                 {/* First Row */}
-                <div className="d-flex flex-row flex-wrap justify-content-between scroll-section" id={styles.firstRow}>
+                <div className="row d-flex flex-row flex-wrap  scroll-section" id={styles.firstRow}>
                     {data.courses.slice(0, 3).map((course, index) => (
-                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-4 col-lg-3`}>
                             <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
                                 <h2 className="pt-5 mb-0 pb-0 text-center" id={styles.arabCalligraphy}>
                                     {course.arabicTitle}
@@ -64,9 +64,9 @@ function Courses({ data }: { data: arabicCourse }) {
                     ))}
                 </div>
                 {/* Second Row */}
-                <div className="d-flex flex-row flex-wrap justify-content-between mt-5 scroll-section" id={styles.secondRow}>
+                <div className="d-flex flex-row flex-wrap mt-5 scroll-section" id={styles.secondRow}>
                     {data.courses.slice(3, 6).map((course, index) => (
-                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-4 col-lg-3`}>
                             <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
                                 <h2 className="pt-5 mb-0 pb-0  text-center" id={styles.arabCalligraphy}>
                                     {course.arabicTitle}
@@ -82,9 +82,9 @@ function Courses({ data }: { data: arabicCourse }) {
                     ))}
                 </div>
                 {/* Third Row */}
-                <div className="d-flex flex-row flex-wrap justify-content-between mt-5 scroll-section" id={styles.thirdRow}>
+                <div className="d-flex flex-row flex-wrap mt-5 scroll-section" id={styles.thirdRow}>
                     {data.courses.slice(6, 9).map((course, index) => (
-                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-6 col-lg-4`}>
+                        <div key={index} className={`${styles.courseItem} mx-1 col-12 col-md-4 col-lg-3`}>
                             <div className={`${styles.front} d-flex flex-column justify-content-center align-items-center`}>
                                 <h2 className="pt-5 mb-0 pb-0  text-center" id={styles.arabCalligraphy}>
                                     {course.arabicTitle}

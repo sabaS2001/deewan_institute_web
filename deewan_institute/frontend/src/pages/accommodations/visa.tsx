@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from "react";
-import AccommodationLayout from "../../layout/accommodationLayout/accommodationlayout.tsx";
+import AccommodationLayout from "../../layout/accommodationlayout/accommodationlayout.tsx";
 import NavBar from "../../components/navbar/navbar.tsx";
 import Footer from "../../components/footer/footer";
 import visaData from "../../../data/visa.ts";

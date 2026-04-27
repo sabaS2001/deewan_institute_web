@@ -10,7 +10,7 @@ import {
 import type { MainBook, CollectionBook, PodcastSeason } from "../../../data";
 import NavBar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
-import PublicationInfoLayout, { type BookDetail } from "./../../layout/booksLayout/PublicationInfoLayout";
+import PublicationInfoLayout, { type BookDetail } from "../../layout/bookslayout/publicationinfolayout";
 import styles from "./publicationinfo.module.scss";
 
 function getAllBooks(): BookDetail[] {

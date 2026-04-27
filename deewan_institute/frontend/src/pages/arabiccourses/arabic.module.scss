@@ -7,10 +7,6 @@
   .info {
     padding-inline: 6%;
 
-    @media (min-width: 768px) {
-      padding-inline: 10%;
-
-    }
 
     h5 {
       font-family: "Merriweather-Regular" !important;
@@ -255,17 +251,18 @@
 }
 
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .arabiTalk {
     .info {
-      #para {
+      padding-inline: 6%;
+      #para{
         font-size: medium !important;
       }
     }
   }
 }
 
-@media (max-width: 768px) and (min-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
   .arabiTalk {
     .info {
       #para {

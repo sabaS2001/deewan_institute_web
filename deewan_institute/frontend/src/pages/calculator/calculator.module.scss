@@ -7,7 +7,7 @@
   min-height: 260px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../assets/images/banner/arabicCal.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/banner/arabicCal.svg");
   padding: 20px 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 
@@ -58,7 +58,9 @@
   margin-inline: 2%;
  // z-index: 1000; 
 
-  @media (max-width: 768px) { width: 100%; margin-inline: 0; }
+  @media (max-width: 768px) { width: 100%; margin-inline: 0; font-size: medium; }
+
+
 }
 
 .dropBtn {
@@ -584,7 +586,6 @@
 // Print 
 @media print {
   body * { display: none !important; }
-
   .modal { display: block !important; position: static !important; background: white !important; }
   .modal-dialog { position: static !important; max-width: none !important; }
   .modal-content { box-shadow: none !important; border: none !important; margin: 0 !important; }

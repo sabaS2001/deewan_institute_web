@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect, useRef } from "react";
-import styles from "../historyLayout/history.module.scss";
+import styles from "../historylayout/history.module.scss";
 import "bootstrap";
 
 interface HistoryInfo {
@@ -120,7 +120,7 @@ function HistoryLayout({ data }: { data: HistoryInfo }) {
 
             {/* Articles */}
             <section className={styles.article}>
-                <div className="container-fluid my-5 px-5 mx-auto">
+                <div className="container-fluid px-5 mx-auto">
                     <div className="row">
 
                         {/* DESKTOP sidebar */}

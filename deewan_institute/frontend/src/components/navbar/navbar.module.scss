@@ -1,6 +1,5 @@
 @use "../../style/variables.scss" as *;
 @use "../../style/fonts.scss" as *;
-
 @use "/../src/style/variables.scss" as *;
 @use "/../src/style/fonts.scss" as *;
 
@@ -16,7 +15,8 @@
   padding: 16px 0;
   transition: background-color 0.3s ease;
   border-bottom: $primary_color 1px solid;
-  @media (max-width: 767px) {
+
+  @media (max-width: 1024px) {   // ← was 767px
     position: absolute !important;
     margin-inline: auto;
     width: 95%;
@@ -37,10 +37,11 @@
     background-color: $primary_color !important;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     background-color: transparent !important;
     background: none !important;
     position: static;
+
     &:hover {
       background-color: transparent !important;
       background: none !important;
@@ -55,7 +56,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 14px 28px !important;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     display: none;
   }
 }
@@ -70,11 +71,13 @@
   cursor: pointer;
   transition: color 0.2s ease;
   padding-block: 0%;
+
   a,
   button {
     color: white !important;
     text-decoration: none;
   }
+
   &:hover {
     border-bottom: $white 2px solid;
     a {
@@ -94,7 +97,7 @@
   filter: invert(1);
   display: none;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     display: block;
     margin-left: auto;
   }
@@ -105,11 +108,11 @@
   display: none !important;
 }
 
-// ── Backdrop (mobile only) ──
+// ── Backdrop (mobile + tablet) ──
 .backdrop {
   display: none;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     display: block;
     position: fixed;
     inset: 0;
@@ -124,20 +127,20 @@
 }
 
 .backdropOpen {
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     opacity: 1;
     visibility: visible;
   }
 }
 
-// ── Full Screen Overlay (desktop) / Drawer (mobile) ──
+// ── Full Screen Overlay (desktop) / Drawer (mobile + tablet) ──
 .overlay {
   position: fixed;
   z-index: 999;
   background-color: $primary_color;
   transition: all 0.4s ease;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {   // ← was 768px
     top: 0;
     left: 0;
     width: 100%;
@@ -146,7 +149,7 @@
     visibility: hidden;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     top: 0;
     left: 0;
     width: 85%;
@@ -162,12 +165,12 @@
 }
 
 .overlayOpen {
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {   // ← was 768px
     opacity: 1;
     visibility: visible;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     transform: translateX(0);
   }
 }
@@ -182,13 +185,10 @@
   gap: 40px;
   padding: 40px 24px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     justify-content: flex-start;
     align-items: flex-start;
-    justify-content: flex-start;
     padding: 50px 31px 40px;
-    gap: 24px;
-    min-height: 100%;
     gap: 24px;
     min-height: 100%;
     height: auto;
@@ -222,7 +222,7 @@
   width: 325px;
   opacity: 1;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     width: 250px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   }
@@ -235,7 +235,7 @@
   align-items: flex-start;
   justify-content: center;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     flex-direction: column;
     gap: 28px;
     align-items: flex-start;
@@ -250,7 +250,7 @@
   flex-direction: column;
   gap: 12px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     width: 100%;
   }
 }
@@ -283,12 +283,12 @@
     padding-left: 12px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {   // ← was 767px
     font-size: 15px;
   }
 }
 
-// ── Mobile Links ──
+// ── Mobile + Tablet Links ──
 .mobileLinks {
   display: flex;
   flex-direction: column;
@@ -307,7 +307,6 @@
 
 .shopIcons {
   gap: 12px;
-
   img {
     width: 26px;
     height: 26px;
@@ -329,7 +328,7 @@
   align-items: center;
   justify-content: center;
   font-family: "Merriweather-Regular", serif;
-  pointer-events: none; // so clicks pass through to the NavLink
+  pointer-events: none;
 }
 
 #wishlistIcon,

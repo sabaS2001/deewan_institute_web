@@ -6,7 +6,7 @@ import ShadowBanner from "../../components/shadowbanner/shadowbanner";
 import Platform from "../../components/platform/platform";
 import BottomBanner from "../../components/bottombanner/bottombanner";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations";
-import style from "../arabicCourses/arabic.module.scss";
+import style from "../arabiccourses/arabic.module.scss";
 import "../../style/animation.scss";
 import "bootstrap";
 
@@ -48,7 +48,7 @@ function ArabiTalk() {
           {/* <!-- About Section --> */}
           <section className={`${style.info} py-3 my-5 scroll-section`}>
             <div className="row justify-content-center mx-auto">
-              <div className="col-lg-5 col-md-5 d-flex flex-column align-items-start justify-content-center">
+              <div className="col-lg-5 d-flex flex-column align-items-start justify-content-center">
                 <h5 className="featurette-heading mb-2">ArabiTalk</h5>
                 <h1 className="featurette-heading my-3">What is it?</h1>
                 <p className="lead" id={style.para}>
@@ -61,7 +61,7 @@ function ArabiTalk() {
                 </p>
               </div>
               {/* <!-- The Building Image --> */}
-              <div className="col-lg-6 col-md-6 d-flex flex-column align-items-start justify-content-center">
+              <div className="col-lg-6 d-flex flex-column align-items-start justify-content-center">
                 <img
                   className="featurette-image img-fluid mx-auto"
                   data-src="holder.js/500x500/auto"

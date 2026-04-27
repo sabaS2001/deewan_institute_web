@@ -8,7 +8,7 @@ import Banner from "../../components/banner/banner";
 import Divider from "../../components/divider/divider";
 import OpenHours from "../../components/openhours/openhours";
 import Schedule from "../../components/scheduletable/schedule";
-import style from "../arabicCourses/arabic.module.scss";
+import style from "../arabiccourses/arabic.module.scss";
 import "../../style/animation.scss";
 
 function IntensiveProgram() {

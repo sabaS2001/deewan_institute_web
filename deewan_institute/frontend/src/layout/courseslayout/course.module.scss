@@ -1,11 +1,11 @@
-@use "../../style/variables.scss" as *;
-@use "../../style/fonts.scss" as *;
+@use "../../style/variables.scss"as *;
+@use "../../style/fonts.scss"as *;
 
 .courses {
-  margin-inline: 15%;
+  padding-inline: 14%;
 
   .title {
-    width: max-content;
+    width: fit-content;
     border-bottom: $primary-color 2px solid;
 
     h1 {
@@ -46,6 +46,12 @@
       object-fit: contain;
     }
   }
+}
+
+#firstRow,
+#secondRow,
+#thirdRow {
+  margin-inline: -2% !important;
 }
 
 .courseItem {
@@ -101,6 +107,7 @@
   .courses {
     margin-inline: auto !important;
     padding-inline: 8% !important;
+
     .title {
       h1 {
         font-size: xx-large !important;
@@ -119,6 +126,7 @@
     .courseItem {
       width: 100% !important;
       margin-block: 7% !important;
+
       #arabCalligraphy {
         font-size: xx-large !important;
       }
@@ -144,6 +152,133 @@
     ul,
     li {
       font-size: medium !important;
+    }
+
+
+    li {
+      line-height: 20px;
+      text-indent: 15%;
+    }
+  }
+}
+
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+  .courses {
+    margin-inline: auto !important;
+    padding-inline: 8% !important;
+
+    .title {
+      h1 {
+        font-size: 45px !important;
+      }
+    }
+
+    h5 {
+      font-size: large !important;
+      margin-block: 7% !important;
+    }
+
+    a {
+      font-size: large !important;
+    }
+
+    .courseItem {
+      width: 70% !important;
+      margin-block: 5%;
+      margin-inline: auto !important;
+
+      #arabCalligraphy {
+        font-size: 50px !important;
+      }
+
+      h2 {
+        font-size: xx-large !important;
+      }
+    }
+  }
+
+  #firstRow,
+  #secondRow,
+  #thirdRow {
+    gap: 10% !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    margin: 0 auto !important;
+  }
+
+  .back {
+    font-size: medium !important;
+
+    p,
+    ul,
+    li {
+      font-size: medium !important;
+    }
+
+    li {
+      line-height: 20px;
+      text-indent: 15%;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .courses {
+    margin-inline: auto !important;
+    padding-inline: 8% !important;
+
+    .title {
+      h1 {
+        font-size: 55px !important;
+      }
+    }
+
+    h5 {
+      font-size: x-large !important;
+      margin-block: 7% !important;
+    }
+
+    a {
+      font-size: x-large !important;
+    }
+
+    .courseItem {
+      width: 70% !important;
+      padding-block: 5% !important;
+      margin-block: 5%;
+      margin-inline: auto !important;
+
+      #arabCalligraphy {
+        font-size: 60px !important;
+      }
+
+      h2 {
+        font-size: 40px !important;
+      }
+    }
+  }
+
+  #firstRow,
+  #secondRow,
+  #thirdRow {
+    gap: 10% !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    margin: 0 auto !important;
+  }
+
+  .back {
+    font-size: x-large !important;
+
+    p,
+    ul,
+    li {
+      font-size: x-large !important;
+    }
+
+    li {
+      line-height: 20px;
+      text-indent: 15%;
     }
   }
 }

@@ -3,7 +3,7 @@ import NavBar from "../../components/navbar/navbar.tsx";
 import Footer from "../../components/footer/footer";
 import tripsData from "../../../data/trips.ts";
 import BottomBanner from "../../components/bottombanner/bottombanner.tsx";
-import AccommodationLayoutR from "../../layout/accommodationLayout/accommodationlayoutr.tsx";
+import AccommodationLayoutR from "../../layout/accommodationlayout/accommodationlayoutr.tsx";
 import { useScrollAnimation } from "../../../hooks/scrollAnimations.ts";
 function Trips() {
 

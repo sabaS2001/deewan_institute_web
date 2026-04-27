@@ -5,7 +5,7 @@ import Title from '../../components/title/title';
 import ShadowBanner from '../../components/shadowbanner/shadowbanner';
 import Platform from "../../components/platform/platform";
 import { useScrollAnimation } from '../../../hooks/scrollAnimations';
-import style from '../arabicCourses/arabic.module.scss';
+import style from '../arabiccourses/arabic.module.scss';
 import '../../style/animation.scss';
 import 'bootstrap';
 import BottomBanner from "../../components/bottombanner/bottombanner";
